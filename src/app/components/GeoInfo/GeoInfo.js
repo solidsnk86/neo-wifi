@@ -9,10 +9,7 @@ import { InfoWifi } from "./components/InfoWifi";
 export const InfoRow = ({ label, value, loading }) => (
   <div className="flex items-center space-x-2">
     <span className="text-zinc-500 dark:text-zinc-400 text-sm">{label}:</span>
-    <span
-      className="text-text-primary text-sm font-medium line-clamp-1"
-      title={value}
-    >
+    <span className="text-text-primary text-sm font-medium" title={value}>
       {loading ? "Cargando..." : value || "No disponible"}
     </span>
   </div>

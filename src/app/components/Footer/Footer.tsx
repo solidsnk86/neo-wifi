@@ -17,13 +17,13 @@ export const Footer = () => {
           <Link
             href={link.url}
             key={link.name}
-            className="cursor-pointer hover:opacity-50"
+            className="cursor-pointer hover:opacity-80 hover:underline"
           >
             {link.name}
           </Link>
         ))}
       </div>
-      <small className="text-center">
+      <small className="text-center mt-12">
         &copy; Neo-Wifi {new Date().getFullYear()} • Todos los derechos
         reservados
       </small>

@@ -25,6 +25,14 @@ const HomeBlock = ({
   );
 };
 
+const HomeBlockTitle = ({ children }: { children: string }) => {
+  return (
+    <h1 className="text-4xl font-bold my-12 flex justify-center mx-auto bg-clip-text text-transparent bg-gradient-to-r from-[#b154ca] via-[#5281cf] to-[#6ddfff]">
+      {children}
+    </h1>
+  );
+};
+
 export default function Home() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
@@ -58,14 +66,19 @@ export default function Home() {
         <Hero />
       </HomeBlock>
 
+      <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
+
       <HomeBlock>
         <GeoPositionCard />
       </HomeBlock>
+
+      <HomeBlockTitle>Descarga la App</HomeBlockTitle>
 
       <HomeBlock>
         <Main />
       </HomeBlock>
 
+      <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
       <Faqs />
 
       <HomeBlock>

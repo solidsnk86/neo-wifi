@@ -4,7 +4,6 @@ import {
   Hero,
   GeoPositionCard,
   Main,
-  DownloadButton,
   Faqs,
   Footer,
 } from "./components/index";

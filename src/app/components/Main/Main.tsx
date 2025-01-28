@@ -10,7 +10,7 @@ export const Main = () => {
           width="100%"
           height="100%"
           alt="Bg effect"
-          className="absolute top-0 left-0 opacity-40"
+          className="absolute top-0 left-0 opacity-40 h-full md:flex"
         />
         <p>
           Este servicio incluye una herramienta que automatiza la configuración

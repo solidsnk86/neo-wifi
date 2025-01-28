@@ -4,14 +4,12 @@ import { Facebook, Twitter, Github, Linkedin } from "lucide-react";
 const categories = [
   { name: "Windows", url: "#" },
   { name: "MacOS", url: "#" },
-  { name: "Redes WiFi", url: "#" },
-  { name: "Calculadora", url: "#" },
-  { name: "Tutoriales", url: "#" },
+  { name: "Redes WiFi", url: "https://wifi.sanluis.gov.ar/#" },
+  { name: "Tutoriales", url: "https://neotecs.vercel.app" },
 ];
 
 const quickLinks = [
-  { name: "Sobre Nosotros", url: "#" },
-  { name: "Contacto", url: "#" },
+  { name: "Contacto", url: "mailto:tutosneotecs@gmail.com" },
   { name: "Descargas", url: "#" },
   { name: "Política de Privacidad", url: "#" },
   { name: "Mapa del Sitio", url: "#" },
@@ -30,12 +28,14 @@ export const Footer = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">ACERCA DE</h3>
+            <h3 className="text-white text-lg font-semibold mb-4" id="about">
+              ACERCA DE
+            </h3>
             <p className="text-sm leading-relaxed">
               Neo-Wifi es una aplicación especializada que proporciona
               información detallada sobre las redes inalámbricas del gobierno de
               la provincia de San Luis, Argentina. Ofrecemos una herramienta
-              automatizada para PC y Mac que simplifica la configuración de CPE
+              automatizada para PC que simplifica la configuración de CPE
               TP-Link, implementando cálculos precisos de distancia mediante la
               fórmula de Haversine para optimizar las conexiones inalámbricas.
             </p>
@@ -85,7 +85,6 @@ export const Footer = () => {
               reservados Neo-Wifi
             </p>
 
-            {/* Social Icons */}
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (
                 <Link

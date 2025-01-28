@@ -59,7 +59,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Quick Links Section */}
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">
               ENLACES RÁPIDOS

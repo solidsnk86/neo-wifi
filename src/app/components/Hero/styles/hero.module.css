@@ -1,11 +1,10 @@
 .h1 {
-  background: linear-gradient(45deg, #8dbbd2, #2a8ce3, #73777b);
+  background: linear-gradient(135deg, #b154ca 10%, #5281cf 45%, #6ddfff 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 3.7rem;
-  text-shadow: 0 0 6px #67b0d4;
 }
 
 @media (width < 700px) {

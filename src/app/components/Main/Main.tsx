@@ -8,7 +8,7 @@ export const Main = () => {
         <Image
           src="/bg.png"
           width={1000}
-          height={400}
+          height={800}
           alt="Bg effect"
           className="absolute top-0 left-0 opacity-40"
         />

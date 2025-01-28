@@ -99,7 +99,7 @@ export const GeoPositionCard = () => {
   };
 
   return (
-    <div className=" justify-center mx-auto space-y-3">
+    <div className="justify-center mx-auto space-y-3">
       <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
         <h2
           title="Información válida para la provincia Argentina"

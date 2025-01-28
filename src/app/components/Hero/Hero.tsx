@@ -1,9 +1,6 @@
-import NeoWifiLogo from "../Navbar/Icon/NeoWifiLogo";
-
 export const Hero = () => {
   return (
     <div className="w-full px-4 mx-auto justify-center">
-      <NeoWifiLogo className="w-[260px] md:w-max" />
       <div>
         <p className="my-6">
           ¡Bienvenid@s! Esta aplicación ha sido diseñada y desarrollada para

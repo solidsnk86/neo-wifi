@@ -1,14 +1,14 @@
-import Image from "next/image";
 import { DownloadButton } from "../DownloadButton/DownloadButton";
 
 export const Main = () => {
   return (
     <main className="p-4">
       <article className="p-6 border border-slate-800 rounded-2xl relative overflow-hidden">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="/bg.png"
-          width={1000}
-          height={800}
+          width="100%"
+          height="100%"
           alt="Bg effect"
           className="absolute top-0 left-0 opacity-40"
         />

@@ -102,7 +102,7 @@ export const GeoPositionCard = () => {
   };
 
   return (
-    <div className="justify-center mx-auto space-y-3 w-full px-4">
+    <div className="justify-center mx-auto space-y-3 w-[672px] px-4">
       <GeoPosition location={location} coords={coords} loading={isLoading} />
 
       <InfoWifi location={location} loading={isLoading} />
@@ -137,7 +137,8 @@ export const GeoPositionCard = () => {
         </form>
         {searchResult && (
           <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-2">
-            <InfoRow label="Antena" value={searchResult.antenna?.name} />
+            <InfoRow label="SSID-1" value={searchResult.antenna?.name} />
+            <InfoRow label="SSID-2" value={searchResult.antenna?.name5g} />
             <InfoRow label="Distancia" value={searchResult.distance} />
             <InfoRow label="MAC" value={writeMAC(searchResult.MAC)} />
             <InfoRow label="MAC-5G" value={writeMAC(searchResult.MAC5G)} />

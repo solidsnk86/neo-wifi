@@ -19,6 +19,11 @@ export const InfoWifi = ({ location, loading }) => {
             loading={loading}
           />
           <InfoRow
+            label="SSID"
+            value={location.closest_wifi.name}
+            loading={loading}
+          />
+          <InfoRow
             label="Distancia"
             value={location.closest_wifi.distance}
             loading={loading}

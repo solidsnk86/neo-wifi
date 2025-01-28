@@ -12,7 +12,7 @@ export const Faqs = () => {
         </p>
         <div className={styles.reverse}>
           <h3 className={styles.h3}>
-            NEO WIFI 2025 ▪ NEO WIFI 2025 ▪ NEO WIFI 2025 ▪ NEO WIFI 2025 ▪ NEO
+            NEO-WIFI 2025 ▪ NEO-WIFI 2025 ▪ NEO-WIFI 2025 ▪ NEO-WIFI 2025 ▪ NEO-
             WIFI 2025 ▪
           </h3>
         </div>

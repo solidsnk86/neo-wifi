@@ -99,11 +99,11 @@ export const GeoPositionCard = () => {
   };
 
   return (
-    <div className="justify-center mx-auto space-y-3">
+    <div className="justify-center mx-auto space-y-3 w-[572px]">
       <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
         <h2
           title="Información válida para la provincia Argentina"
-          className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 mx-auto justify-start md:justify-center"
+          className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"
         >
           <MapPin className="w-10 h-10 py-1 px-2 border border-slate-700/50 rounded-xl bg-gradient-to-b from-blue-300/10 to-slate-600/10 text-red-400/80" />
           Tú posición geográfica
@@ -122,7 +122,7 @@ export const GeoPositionCard = () => {
       <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
         <h2
           title="Información válida para la provincia de San Luis"
-          className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 mx-auto justify-start md:justify-center text-left"
+          className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start text-left"
         >
           <Wifi className="w-10 h-10 py-1 px-2 border border-slate-700/50 rounded-xl bg-gradient-to-b from-blue-300/10 to-slate-600/10 text-green-300" />
           Información WiFi Gob. San Luis
@@ -145,13 +145,10 @@ export const GeoPositionCard = () => {
       </div>
 
       <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col justify-center gap-2 pt-4"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <h2
             title="Información válida para la provincia de San Luis"
-            className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 mx-auto justify-start md:justify-center"
+            className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"
           >
             <Search className="w-10 h-10 py-1 px-2 border border-slate-700/50 rounded-xl bg-gradient-to-b from-blue-400/10 to-slate-500/10 text-zinc-300" />
             Buscar antena

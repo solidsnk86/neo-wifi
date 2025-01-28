@@ -4,3 +4,4 @@ export * from "./Footer/Footer";
 export * from "./Main/Main";
 export * from "./GeoInfo/GeoInfo";
 export * from "./FAQ/FAQs";
+export * from "./DownloadButton/DownloadButton";

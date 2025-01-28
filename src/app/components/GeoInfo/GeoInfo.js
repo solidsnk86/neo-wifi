@@ -8,6 +8,7 @@ export const GeoPositionCard = () => {
   const [location, setLocation] = useState({
     city: "",
     state: "",
+    departament: "",
     country: "",
     city_coords: {
       latitude: 0,
@@ -112,6 +113,7 @@ export const GeoPositionCard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <InfoRow label="Ciudad" value={location.city} />
             <InfoRow label="Provincia" value={location.state} />
+            <InfoRow label="Departamento" value={location.departament} />
             <InfoRow label="País" value={location.country} />
             <InfoRow label="Latitud" value={coords.latitude} />
             <InfoRow label="Longitud" value={coords.longitude} />

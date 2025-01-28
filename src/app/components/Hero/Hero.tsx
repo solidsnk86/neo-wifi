@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import styles from "./styles/hero.module.css";
 
 export const Hero = () => {
@@ -14,12 +15,13 @@ export const Hero = () => {
           provincial.
         </p>
       </div>
-      <aside className="flex justify-center gap-10">
-        <button className="py-1 px-2 border border-slate-800 rounded-lg cursor-pointer">
+      <aside className="flex justify-center gap-10 relative">
+        <button className="py-3 px-4 border bg-gradient-to-b from-blue-400/10 to-slate-500/10 border-slate-800 rounded-lg cursor-pointer hover:brightness-125">
           Ver Demo
         </button>
-        <button className="py-1 px-2 border border-slate-800 rounded-lg cursor-pointer">
+        <button className="py-3 px-4 cursor-pointer flex items-center gap-2 group">
           Comenzar
+          <ArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
         </button>
       </aside>
     </div>

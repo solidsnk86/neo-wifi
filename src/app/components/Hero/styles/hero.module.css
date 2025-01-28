@@ -1,8 +1,9 @@
 .h1 {
-  background: linear-gradient(45deg, #4d9fe7, #5fc2f5, #4d9fe7);
+  background: linear-gradient(45deg, #8dbbd2, #2a8ce3, #73777b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 600;
-  font-size: 4rem;
+  font-size: 3.7rem;
+  text-shadow: 0 0 6px #8dbbd2;
 }

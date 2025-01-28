@@ -4,6 +4,7 @@ import {
   Hero,
   GeoPositionCard,
   Main,
+  DownloadButton,
   Faqs,
   Footer,
 } from "./components/index";
@@ -18,7 +19,7 @@ const HomeBlock = ({
 }) => {
   return (
     <section
-      className={`max-w-3xl flex justify-center mx-auto my-16 ${className}`}
+      className={`max-w-3xl flex justify-center mx-auto my-28 ${className}`}
     >
       {children}
     </section>
@@ -64,6 +65,10 @@ export default function Home() {
 
       <HomeBlock>
         <Main />
+      </HomeBlock>
+
+      <HomeBlock>
+        <DownloadButton />
       </HomeBlock>
 
       <Faqs />

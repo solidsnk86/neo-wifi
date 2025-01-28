@@ -2,8 +2,7 @@ import Link from "next/link";
 import NeoWifiCode from "./icon/NeoWifiCode";
 
 const footerLinks = [
-  { name: "Privacidad", url: "/privacy" },
-  { name: "Políticas", url: "/policies" },
+  { name: "Políticas y Privacidad", url: "/policies" },
   { name: "Contacto", url: "mailto:tutosneotecs@gmail.com" },
   { name: "Desarrollador", url: "https://githhub.com/solidsnk86" },
 ];
@@ -17,7 +16,7 @@ export const Footer = () => {
           <Link
             href={link.url}
             key={link.name}
-            className="cursor-pointer hover:opacity-80 hover:underline"
+            className="cursor-pointer hover:opacity-80 hover:underline text-sm"
           >
             {link.name}
           </Link>

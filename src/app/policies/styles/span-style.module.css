@@ -1,0 +1,23 @@
+.p {
+  & span {
+    padding: 2px 4px;
+    width: fit-content;
+    border: 1px solid #353944;
+    border-radius: 4px;
+    background: linear-gradient(to top, #2b303b, #454a58);
+  }
+}
+
+.h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-block: 36px;
+}
+
+.ul {
+  margin: 8px 0 8px 8px;
+  & li {
+    list-style: disc;
+    margin-left: 8px;
+  }
+}

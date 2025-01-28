@@ -27,7 +27,7 @@ const HomeBlock = ({
 
 const HomeBlockTitle = ({ children }: { children: string }) => {
   return (
-    <h1 className="md:text-[2.5rem] text-3xl font-bold my-12 flex justify-center mx-auto bg-clip-text text-transparent bg-gradient-to-r from-[#b154ca] via-[#5281cf] to-[#6ddfff]">
+    <h1 className="md:text-[2.5rem] text-3xl font-semibold my-12 flex justify-center mx-auto">
       {children}
     </h1>
   );

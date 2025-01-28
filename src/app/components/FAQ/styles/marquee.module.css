@@ -1,0 +1,39 @@
+.p {
+  line-height: 3;
+  letter-spacing: 2px;
+}
+.h3 {
+  font-size: 3.7rem;
+  font-weight: 700;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+}
+.marquee {
+  transform: translate(10px) rotate(-1deg);
+  & > * {
+    animation: marquee linear;
+    animation-timeline: view();
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+}
+
+.reverse {
+  animation: marquee linear;
+  animation-direction: reverse;
+  animation-timeline: view();
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-10%);
+  }
+}
+
+@media (width < 1000px) {
+  .marquee,
+  .reverse {
+    display: none;
+  }
+}

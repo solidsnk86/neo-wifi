@@ -5,5 +5,11 @@
   background-clip: text;
   font-weight: 600;
   font-size: 3.7rem;
-  text-shadow: 0 0 6px #8dbbd2;
+  text-shadow: 0 0 6px #67b0d4;
+}
+
+@media (width < 700px) {
+  .h1 {
+    font-size: 2.5rem;
+  }
 }

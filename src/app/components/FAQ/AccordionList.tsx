@@ -8,7 +8,7 @@ const accordionLists = [
     id: 1,
     question: "¿Qué es Neo-Wifi?",
     answer:
-      "Neo-Wifi es una aplicación para poder ver información precisa sobre las antenas del Gobierno de la provincia de San Luis. Permite a los usuarios localizar y obtener detalles técnicos de las antenas wifi públicas en toda la provincia.",
+      "Neo-Wifi es una aplicación para poder ver información precisa sobre las antenas del Gobierno de la provincia de San Luis. Permite a los usuarios localizar y obtener detalles técnicos de las antenas wifi públicas de la provincia.",
   },
   {
     id: 2,

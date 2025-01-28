@@ -2,7 +2,25 @@
 
 import { useState, useEffect } from "react";
 import { getCoords } from "@/utils/get-coords";
-import { Wifi, MapPin, Search } from "lucide-react";
+import { Search } from "lucide-react";
+import { GeoPosition } from "./components/GeoPosition";
+import { InfoWifi } from "./components/InfoWifi";
+
+export const InfoRow = ({ label, value, loading }) => (
+  <div className="flex items-center space-x-2">
+    <span className="text-zinc-500 dark:text-zinc-400 text-sm">{label}:</span>
+    <span
+      className="text-text-primary text-sm font-medium line-clamp-1"
+      title={value}
+    >
+      {loading ? "Cargando..." : value || "No disponible"}
+    </span>
+  </div>
+);
+
+export const writeMAC = (mac = "") => {
+  return mac ? mac.split(" ").join("-") : "No disponible";
+};
 
 export const GeoPositionCard = () => {
   const [location, setLocation] = useState({
@@ -86,65 +104,11 @@ export const GeoPositionCard = () => {
     }
   };
 
-  const InfoRow = ({ label, value }) => (
-    <div className="flex items-center space-x-2">
-      <span className="text-zinc-500 dark:text-zinc-400 text-sm">{label}:</span>
-      <span className="text-text-primary text-sm font-medium">
-        {isLoading ? "Cargando..." : value || "No disponible"}
-      </span>
-    </div>
-  );
-
-  const writeMAC = (mac = "") => {
-    return mac ? mac.split(" ").join("-") : "No disponible";
-  };
-
   return (
-    <div className="justify-center mx-auto space-y-3 w-[572px]">
-      <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
-        <h2
-          title="Información válida para la provincia Argentina"
-          className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"
-        >
-          <MapPin className="w-10 h-10 py-1 px-2 border border-slate-700/50 rounded-xl bg-gradient-to-b from-blue-300/10 to-slate-600/10 text-red-400/80" />
-          Tú posición geográfica
-        </h2>
-        <div className="p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <InfoRow label="Ciudad" value={location.city} />
-            <InfoRow label="Provincia" value={location.state} />
-            <InfoRow label="Departamento" value={location.departament} />
-            <InfoRow label="País" value={location.country} />
-            <InfoRow label="Latitud" value={coords.latitude} />
-            <InfoRow label="Longitud" value={coords.longitude} />
-          </div>
-        </div>
-      </div>
+    <div className="justify-center mx-auto space-y-3 w-[572px] px-4">
+      <GeoPosition location={location} coords={coords} loading={isLoading} />
 
-      <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
-        <h2
-          title="Información válida para la provincia de San Luis"
-          className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start text-left"
-        >
-          <Wifi className="w-10 h-10 py-1 px-2 border border-slate-700/50 rounded-xl bg-gradient-to-b from-blue-300/10 to-slate-600/10 text-green-300" />
-          Información WiFi Gob. San Luis
-        </h2>
-        <div className="p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <InfoRow
-              label="Antena más próxima"
-              value={location.closest_wifi.antenna}
-            />
-            <InfoRow label="Distancia" value={location.closest_wifi.distance} />
-            <InfoRow label="Tipo" value={location.closest_wifi.type} />
-            <InfoRow label="MAC" value={writeMAC(location.closest_wifi.MAC)} />
-            <InfoRow
-              label="MAC-5Ghz"
-              value={writeMAC(location.closest_wifi.MAC5G)}
-            />
-          </div>
-        </div>
-      </div>
+      <InfoWifi location={location} loading={isLoading} />
 
       <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">

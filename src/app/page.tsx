@@ -67,10 +67,6 @@ export default function Home() {
         <Main />
       </HomeBlock>
 
-      <HomeBlock>
-        <DownloadButton />
-      </HomeBlock>
-
       <Faqs />
 
       <HomeBlock>

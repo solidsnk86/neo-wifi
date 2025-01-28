@@ -1,6 +1,8 @@
+import { DownloadButton } from "../DownloadButton/DownloadButton";
+
 export const Main = () => {
   return (
-    <main className="flex justify-center mx-auto p-4">
+    <main className="p-4">
       <article className="p-6 bg-gradient-to-b from-blue-300/10 to-slate-600/10 border border-slate-800 rounded-2xl">
         <p>
           Este servicio incluye una herramienta que automatiza la configuración
@@ -19,6 +21,7 @@ export const Main = () => {
             rápida y sencilla.
           </li>
         </ol>
+        <DownloadButton />
       </article>
     </main>
   );

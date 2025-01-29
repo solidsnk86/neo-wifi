@@ -4,7 +4,6 @@ import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
 import { Contact2, File, Info, Menu, X } from "lucide-react";
 import { useState } from "react";
-import styles from "./styles/navbar.module.css";
 
 export const Navbar = () => {
   const [state, setDisplay] = useState("none");
@@ -27,9 +26,7 @@ export const Navbar = () => {
     setDisplay("none");
   };
   return (
-    <nav
-      className={`w-full h-14 flex items-center md:px-6 px-4 md:relative justify-between z-50 fixed top-0 left-0 ${styles.nav}`}
-    >
+    <nav className="md:px-6 px-4 md:relative nav">
       <Link
         href="/"
         className="flex gap-2 items-center hover:scale-105 transition-transform duration-300 hover:drop-shadow-md"

@@ -14,3 +14,28 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
+
+.nav {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+  animation-timeline: scroll();
+  animation-range: 0 150px;
+  animation: blur linear both;
+  z-index: 99;
+}
+
+@keyframes blur {
+  from {
+    backdrop-filter: none;
+  }
+  to {
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 2px #1e293b;
+  }
+}

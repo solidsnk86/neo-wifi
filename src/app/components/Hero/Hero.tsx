@@ -3,7 +3,7 @@ import styles from "./styles/hero.module.css";
 
 export const Hero = () => {
   return (
-    <div className="w-full px-4 mx-auto justify-center">
+    <div className="w-full px-4 mx-auto justify-center mt-24 md:mt-4">
       <div>
         <h1 className={`text-center text-pretty ${styles.h1}`}>
           Configura tu CPE WiFi en segundos

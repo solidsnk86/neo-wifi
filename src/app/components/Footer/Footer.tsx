@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Twitter, Github, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Github, Linkedin } from "lucide-react";
 
 const categories = [
   { name: "Windows", url: "#" },
@@ -11,15 +11,23 @@ const categories = [
 const quickLinks = [
   { name: "Contacto", url: "mailto:tutosneotecs@gmail.com" },
   { name: "Descargas", url: "#" },
-  { name: "Política de Privacidad", url: "#" },
+  { name: "Política de Privacidad", url: "/policies" },
   { name: "Mapa del Sitio", url: "#" },
 ];
 
 const socialLinks = [
-  { icon: Facebook, url: "#", ariaLabel: "Facebook" },
-  { icon: Twitter, url: "#", ariaLabel: "Twitter" },
-  { icon: Github, url: "#", ariaLabel: "Github" },
-  { icon: Linkedin, url: "#", ariaLabel: "LinkedIn" },
+  {
+    icon: Instagram,
+    url: "https://www.instagram.com/calcagnigabriel/",
+    ariaLabel: "Instagram",
+  },
+  { icon: Twitter, url: "https://x.com/CalcagniGabriel", ariaLabel: "Twitter" },
+  { icon: Github, url: "https://github.com/solidsnk86/", ariaLabel: "Github" },
+  {
+    icon: Linkedin,
+    url: "https://www.linkedin.com/in/gabriel-calcagni/",
+    ariaLabel: "LinkedIn",
+  },
 ];
 
 export const Footer = () => {

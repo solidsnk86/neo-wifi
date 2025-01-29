@@ -66,7 +66,7 @@ export const Navbar = () => {
           {navLinks.map((link) => {
             const Icon = link.icon;
             return (
-              <ul key={link.name} className="my-auto">
+              <ul key={link.name} className="my-auto" onClick={closeMenu}>
                 <li
                   className="inline-flex justify-center items-center gap-2 hover:opacity-80 text-2xl"
                   aria-label={link.ariaLabel}

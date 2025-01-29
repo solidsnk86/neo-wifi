@@ -4,14 +4,20 @@ import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
 import { Contact2, File, Info, Menu, X } from "lucide-react";
 import { useState } from "react";
+import styles from "./styles/navbar.module.css";
 
 export const Navbar = () => {
   const [state, setDisplay] = useState("none");
 
   const navLinks = [
-    { name: "Acerca", url: "#about", icon: Info },
-    { name: "Contacto", url: "#contact", icon: Contact2 },
-    { name: "Docs", url: "/docs", icon: File },
+    { name: "Acerca", url: "#about", icon: Info, ariaLabel: "Link acerca" },
+    {
+      name: "Contacto",
+      url: "#contact",
+      icon: Contact2,
+      ariaLabel: "Contacto",
+    },
+    { name: "Docs", url: "/docs", icon: File, ariaLabel: "Documentación" },
   ];
 
   const openMenu = () => {
@@ -21,10 +27,12 @@ export const Navbar = () => {
     setDisplay("none");
   };
   return (
-    <nav className="w-full h-14 flex items-center md:px-6 px-4 md:relative justify-between z-50 fixed top-0 left-0">
+    <nav
+      className={`w-full h-14 flex items-center md:px-6 px-4 md:relative justify-between z-50 fixed top-0 left-0 ${styles.nav}`}
+    >
       <Link
         href="/"
-        className="flex gap-2 items-center hover:scale-105 transition-transform duration-300"
+        className="flex gap-2 items-center hover:scale-105 transition-transform duration-300 hover:drop-shadow-md"
       >
         <NeoWifiLogo className="cursor-pointer md:w-[160px] md:h-[85px] w-[120px] h-[80px]" />
       </Link>
@@ -44,26 +52,37 @@ export const Navbar = () => {
           );
         })}
       </aside>
-      <Menu className="md:hidden flex" onClick={openMenu} />
+      <Menu
+        className="md:hidden flex cursor-pointer"
+        aria-label="Menú despleglable"
+        onClick={openMenu}
+      />
       <div
-        className="fixed top-0 left-0 w-full h-screen bg-black/70 items-center z-50"
+        className="fixed top-0 left-0 w-full h-[100%] items-center"
         style={{ display: state }}
       >
-        <X className="absolute top-3 right-3 w-8 h-8" onClick={closeMenu} />
-        {navLinks.map((link) => {
-          const Icon = link.icon;
-          return (
-            <div
-              className="flex justify-center gap-2 hover:opacity-80 text-2xl"
-              key={link.name}
-            >
-              <Icon className="" />
-              <Link href={link.url} key={link.name}>
-                {link.name}
-              </Link>
-            </div>
-          );
-        })}
+        <section className="flex flex-col items-center h-screen bg-black/70 relative">
+          <X
+            className="w-8 h-8 absolute top-3 right-3 hover:text-sky-400 cursor-pointer"
+            onClick={closeMenu}
+          />
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <ul key={link.name} className="my-auto">
+                <li
+                  className="inline-flex justify-center items-center gap-2 hover:opacity-80 text-2xl"
+                  aria-label={link.ariaLabel}
+                >
+                  <Icon className="" />
+                  <Link href={link.url} key={link.name}>
+                    {link.name}
+                  </Link>
+                </li>
+              </ul>
+            );
+          })}
+        </section>
       </div>
     </nav>
   );

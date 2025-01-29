@@ -5,6 +5,7 @@
 :root {
   --background: #02081a;
   --foreground: #ededed;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -12,5 +13,4 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }

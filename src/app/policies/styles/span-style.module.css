@@ -5,6 +5,8 @@
     border: 1px solid #353944;
     border-radius: 4px;
     background: linear-gradient(to top, #2b303b, #454a58);
+    font-family: monospace;
+    font-size: 0.9rem;
   }
 }
 

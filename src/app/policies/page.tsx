@@ -5,8 +5,12 @@ import { ArrowLeft } from "lucide-react";
 export default function Page() {
   return (
     <section className="max-w-3xl flex justify-center mx-auto p-4">
-      <Link href="/" className="fixed top-4 left-4 flex gap-2 items-center">
-        <ArrowLeft /> Volver
+      <Link
+        href="/"
+        className="absolute top-4 left-4 flex gap-1 items-center group"
+      >
+        <ArrowLeft className="group-hover:-translate-x-1 w-5 h-5 transition-transform duration-300" />{" "}
+        Volver
       </Link>
       <article className="my-10">
         <h2 className="text-3xl font-bold">Política de Uso y Privacidad</h2>
@@ -45,8 +49,14 @@ export default function Page() {
             >
               https://wifi.sanluis.gov.ar/#
             </a>
-            en el cual he creado mi propio mapa de datos en formato JSON para
-            poder calcular la distancia.
+            en el cual he creado mi propio mapa de datos en formato{" "}
+            <a
+              className="mx-1 underline text-blue-400"
+              href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+            >
+              JSON
+            </a>{" "}
+            para poder calcular la distancia.
           </li>
           <li>
             <b>Datos de uso:</b> Recopilamos información sobre cómo interactúas

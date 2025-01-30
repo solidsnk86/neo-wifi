@@ -14,7 +14,7 @@ const accordionLists = [
     id: 2,
     question: "¿Cuánto cuesta el servicio de la aplicación?",
     answer:
-      "El costo de la aplicación es por cada uso y tiene un precio de $10.000 pesos argentinos. Este precio incluye acceso a todas las funcionalidades de la plataforma durante la sesión activa.",
+      "El costo de la aplicación por reconfiguración sin reseteo de la antena es gratis. La configuración desde cero tiene un monto de $10000 pesos argentinos por cada uso (incluye reseteo completo).",
   },
   {
     id: 3,

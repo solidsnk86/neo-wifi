@@ -3,11 +3,23 @@
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
 import { Contact2, File, Info, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Navbar = () => {
   const [state, setDisplay] = useState("none");
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    const connectDB = async () => {
+      const res = await fetch(
+        "postgresql://neondb_owner:npg_KO0dkUDsxyz3@ep-rapid-wave-a2b9hzj2-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require"
+      );
+      const jsonData = await res.json();
+      setData(jsonData);
+    };
+    connectDB();
+  }, []);
+  console.log(data);
   const navLinks = [
     { name: "Acerca", url: "#about", icon: Info, ariaLabel: "Link acerca" },
     {

@@ -38,7 +38,7 @@ const accordionLists = [
     id: 6,
     question: "¿Necesito conexión a internet para usar la aplicación?",
     answer:
-      "No requiere conexión a internet para poder configurar. Sin embargo, debes proporcionar tu posición geográfica en esta web mencionado más arriba (latitud y longitud).",
+      "No requiere conexión a internet para poder configurar. Sin embargo, la aplicación requiere de tu posición geográfica (latitud y longitud). Puedes copiar y pegar los valores mencionados más arriba.",
   },
 ];
 

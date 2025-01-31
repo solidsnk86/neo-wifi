@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./styles/span-style.module.css";
+import styles from "./styles/policies.module.css";
 import { ArrowLeft } from "lucide-react";
 
 export default function Page() {

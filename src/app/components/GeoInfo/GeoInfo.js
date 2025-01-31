@@ -121,7 +121,7 @@ export const GeoPositionCard = () => {
               type="text"
               name="antenna"
               placeholder="Nombre de la antena..."
-              className="border border-slate-800 rounded-md p-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
+              className="border border-slate-800 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               required
@@ -129,7 +129,7 @@ export const GeoPositionCard = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="py-2 md:w-24 px-2 text-white bg-slate-800 rounded-md border border-slate-700/50 hover:brightness-110 text-base disabled:cursor-not-allowed"
+              className="py-[6px] md:w-24 px-2 text-white bg-slate-800 rounded-md border border-slate-700/50 hover:brightness-110 text-base disabled:cursor-not-allowed"
             >
               {isLoading ? "Buscando..." : "Buscar"}
             </button>

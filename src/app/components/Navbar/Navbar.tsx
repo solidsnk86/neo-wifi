@@ -4,6 +4,7 @@ import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
 import { Contact2, File, Info, Menu, X } from "lucide-react";
 import { useState } from "react";
+import styles from "./styles/navbar.module.css";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,20 +34,17 @@ export const Navbar = () => {
       </Link>
 
       <div className="md:flex hidden items-center gap-8">
-        {navLinks.map((link) => {
-          const Icon = link.icon;
-          return (
-            <Link
-              href={link.url}
-              key={link.name}
-              className="flex items-center gap-2 hover:opacity-80"
-              aria-label={link.ariaLabel}
-            >
-              <Icon className="w-5 h-5" />
-              <span>{link.name}</span>
-            </Link>
-          );
-        })}
+        {navLinks.map(({ url, name, ariaLabel, icon: Icon }) => (
+          <Link
+            href={url}
+            key={name}
+            className="flex items-center gap-2 hover:opacity-80"
+            aria-label={ariaLabel}
+          >
+            <Icon className="w-5 h-5" />
+            <span>{name}</span>
+          </Link>
+        ))}
       </div>
 
       <Menu
@@ -57,10 +55,7 @@ export const Navbar = () => {
 
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black/50 z-40" onClick={toggleMenu}>
-          <div
-            className="absolute top-0 right-0 w-full h-full bg-white dark:bg-black/90 shadow-lg transform translate-x-0 transition-transform duration-300 ease-in-out"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className={styles.menu} onClick={(e) => e.stopPropagation()}>
             <X
               className="absolute top-4 right-4 w-8 h-8 hover:text-sky-400 cursor-pointer z-50"
               onClick={toggleMenu}

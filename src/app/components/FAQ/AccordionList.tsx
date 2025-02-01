@@ -14,7 +14,7 @@ const accordionLists = [
     id: 2,
     question: "¿Cuánto cuesta el servicio de la aplicación?",
     answer:
-      "El costo de la aplicación por reconfiguración sin reseteo de la antena es gratis. La configuración desde cero tiene un monto de $10000 pesos argentinos por cada uso (incluye reseteo completo).",
+      "El costo de la aplicación por reconfiguración sin reseteo de la antena es gratis.",
   },
   {
     id: 3,

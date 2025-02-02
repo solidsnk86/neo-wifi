@@ -28,7 +28,7 @@ export const Navbar = () => {
     <nav className="flex justify-between items-center md:px-6 px-4 relative w-full z-50">
       <Link
         href="/"
-        className="flex gap-2 hover:scale-105 transition-transform duration-300 hover:drop-shadow-md md:pl-2"
+        className="flex gap-2 hover:scale-105 transition-transform duration-300 hover:drop-shadow-md"
       >
         <NeoWifiLogo className="cursor-pointer" width={150} height={56} />
       </Link>

@@ -21,7 +21,12 @@ export const Navbar = () => {
       icon: Contact2,
       ariaLabel: "Contacto",
     },
-    { name: "Docs", url: "/docs", icon: File, ariaLabel: "Documentación" },
+    {
+      name: "Introducción",
+      url: "/start/introduction",
+      icon: File,
+      ariaLabel: "Documentación",
+    },
     {
       name: "Compartir",
       url: "",
@@ -47,7 +52,7 @@ export const Navbar = () => {
       <div className="md:flex hidden items-center gap-8">
         {navLinks
           .filter((route) => route.url !== path)
-          .map(({ url, name, ariaLabel, icon: Icon, fx }) => (
+          .map(({ url, name, ariaLabel, fx }) => (
             <Link
               href={url}
               key={name}
@@ -55,7 +60,6 @@ export const Navbar = () => {
               aria-label={ariaLabel}
               onClick={fx}
             >
-              <Icon className="w-5 h-5" />
               <span>{name}</span>
             </Link>
           ))}

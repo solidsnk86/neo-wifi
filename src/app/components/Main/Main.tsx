@@ -21,19 +21,26 @@ export const Main = () => {
         <p>Tienes que seguir los siguientes pasos:</p>
         <ol className="list-decimal ml-4 space-y-2 mt-3">
           <li>
-            <b>Leer la Documentación</b> que se encuentra disponible en esta
-            plataforma.
+            <b>Leer la Documentación</b> que se encuentra disponible{" "}
+            <Link
+              href="/start/introduction"
+              className="underline text-blue-400"
+            >
+              aquí
+            </Link>{" "}
+            en esta plataforma.
           </li>
           <li>
             <b>Descargar e instalar</b> la aplicación en tu computadora Windows.
           </li>
           <li>
-            <b>Ingresar</b> la longitud y latitud que se proporciona en esta
-            plataforma.
+            <b>Ingresar</b> la latitud y longitud de tu psosición geográfica que
+            se proporciona en esta plataforma.
           </li>
           <li>
             <b>Configurar</b> tu CPE (Equipo de Premisa del Cliente) de manera
-            rápida y sencilla.
+            rápida y sencilla. Por el momento la configuración es para
+            implementos de la siguiente marca y modelos:
           </li>
         </ol>
         <aside className="my-4 space-y-3">

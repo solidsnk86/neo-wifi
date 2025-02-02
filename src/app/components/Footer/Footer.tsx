@@ -43,9 +43,10 @@ export const Footer = () => {
               Neo-Wifi es una aplicación especializada que proporciona
               información detallada sobre las redes inalámbricas del gobierno de
               la provincia de San Luis, Argentina. Ofrecemos una herramienta
-              automatizada para PC que simplifica la configuración de CPE
-              TP-Link, implementando cálculos precisos de distancia mediante la
-              fórmula de Haversine para optimizar las conexiones inalámbricas.
+              automatizada para PC que simplifica la configuración de los
+              modelos CPE de TP-Link, implementando cálculos precisos de
+              distancia mediante la fórmula de Haversine para optimizar las
+              conexiones inalámbricas.
             </p>
           </div>
 

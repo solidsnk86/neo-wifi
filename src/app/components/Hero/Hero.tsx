@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import styles from "./styles/hero.module.css";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -16,13 +17,19 @@ export const Hero = () => {
         </p>
       </div>
       <aside className="flex justify-center gap-10 relative">
-        <button className="py-3 px-4 border bg-gradient-to-b from-blue-400/10 to-slate-500/10 border-slate-800 rounded-lg cursor-pointer hover:brightness-125">
-          Ver Demo
-        </button>
-        <button className="py-3 px-4 cursor-pointer flex items-center gap-2 group hover:opacity-70">
+        <Link
+          href="/start/introduction"
+          className="py-3 px-4 border bg-gradient-to-b from-blue-400/10 to-slate-500/10 border-slate-800 rounded-lg cursor-pointer hover:brightness-125"
+        >
+          Aprender más
+        </Link>
+        <Link
+          href="/start"
+          className="py-3 px-4 border border-slate-800 rounded-lg cursor-pointer flex items-center gap-2 group hover:opacity-70"
+        >
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
-        </button>
+        </Link>
       </aside>
     </div>
   );

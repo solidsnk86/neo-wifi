@@ -7,6 +7,7 @@ import { useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
 import { share } from "@/utils/share";
+import NeoWifiCode from "../Footer/icon/NeoWifiCode";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -88,6 +89,9 @@ export const Navbar = () => {
                   </Link>
                 </ul>
               ))}
+              <footer className="absolute bottom-4">
+                <NeoWifiCode />
+              </footer>
             </div>
           </div>
         </div>

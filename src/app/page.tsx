@@ -8,6 +8,7 @@ import {
   Footer,
 } from "./components/index";
 import AccordionList from "./components/FAQ/AccordionList";
+import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 
 const HomeBlock = ({
   children,
@@ -27,7 +28,7 @@ const HomeBlock = ({
 
 const HomeBlockTitle = ({ children }: { children: string }) => {
   return (
-    <h1 className="md:text-[2.5rem] text-3xl font-semibold my-12 flex justify-center mx-auto">
+    <h1 className="md:text-[2.5rem] text-3xl font-semibold my-16 flex justify-center mx-auto">
       {children}
     </h1>
   );
@@ -76,6 +77,10 @@ export default function Home() {
 
       <HomeBlock>
         <Main />
+      </HomeBlock>
+
+      <HomeBlock>
+        <DownloadCard />
       </HomeBlock>
 
       <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>

@@ -1,24 +1,21 @@
-import { DownloadButton } from "../DownloadButton/DownloadButton";
-
 export const Main = () => {
   return (
     <main className="p-4">
-      <article className="p-6 border border-slate-800 rounded-2xl relative overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/bg.png"
-          width="100%"
-          height="100%"
-          alt="Bg effect"
-          className="absolute top-0 left-0 opacity-40 h-full"
-        />
+      <article className="p-6 border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 rounded-2xl relative overflow-hidden">
         <p>
-          Este servicio incluye una herramienta que automatiza la configuración
-          de tu red WiFi. Solo necesitas seguir estos sencillos pasos:
+          Este servicio incluye una herramienta de escritorio que automatiza la
+          configuración de tu red WiFi. Actualmente disponible para Windows y
+          exclusiva para ciertas localidades de San Luis, con planes de
+          expansión a más zonas próximamente.
         </p>
-        <ol className="list-decimal ml-4 my-2">
+        <p>Tienes que seguir los siguientes pasos:</p>
+        <ol className="list-decimal ml-4 space-y-2 mt-3">
           <li>
-            <b>Descargar e instalar</b> la aplicación en tu computadora.
+            <b>Leer Documentación</b> que se encuentra disponible en esta
+            plataforma.
+          </li>
+          <li>
+            <b>Descargar e instalar</b> la aplicación en tu computadora Windows.
           </li>
           <li>
             <b>Ingresar</b> la longitud y latitud que se proporciona en esta
@@ -29,7 +26,6 @@ export const Main = () => {
             rápida y sencilla.
           </li>
         </ol>
-        <DownloadButton />
       </article>
     </main>
   );

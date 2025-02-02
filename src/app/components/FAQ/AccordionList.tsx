@@ -61,7 +61,7 @@ export const AccordionList = () => {
           className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 rounded-lg overflow-hidden shadow-sm"
         >
           <header
-            className="flex justify-between items-center p-4 cursor-pointer hover:bg-slate-800/50 transition-colors duration-150"
+            className="flex justify-between items-center p-4 cursor-pointer hover:bg-slate-800/30 transition-colors duration-150"
             onClick={() => toggle(list.id)}
           >
             <h3 className="text-lg font-semibold">{list.question}</h3>

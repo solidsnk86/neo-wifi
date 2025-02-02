@@ -1,4 +1,4 @@
-import { Rocket } from "lucide-react";
+import { Download } from "lucide-react";
 import { ComponentProps } from "react";
 
 export const DownloadButton = (props: ComponentProps<"button">) => {
@@ -9,7 +9,7 @@ export const DownloadButton = (props: ComponentProps<"button">) => {
         className="flex items-center gap-3 font-semibold text-lg"
         download="/file/program.exe"
       >
-        <Rocket /> Descargar
+        <Download /> Descargar
       </a>
     </button>
   );

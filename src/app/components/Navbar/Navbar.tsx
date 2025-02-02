@@ -2,17 +2,18 @@
 
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
-import { Contact2, File, Info, Menu, X } from "lucide-react";
+import { Contact2, File, Info, Menu, Share, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
+import { share } from "@/utils/share";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const path = usePathname();
 
   const navLinks = [
-    { name: "Acerca", url: "#about", icon: Info, ariaLabel: "Link acerca" },
+    { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
     {
       name: "Contacto",
       url: "#contact",
@@ -20,6 +21,13 @@ export const Navbar = () => {
       ariaLabel: "Contacto",
     },
     { name: "Docs", url: "/docs", icon: File, ariaLabel: "Documentación" },
+    {
+      name: "Compartir",
+      url: "",
+      fx: share,
+      icon: Share,
+      ariaLabel: "Compartir",
+    },
   ];
 
   const toggleMenu = () => {
@@ -38,12 +46,13 @@ export const Navbar = () => {
       <div className="md:flex hidden items-center gap-8">
         {navLinks
           .filter((route) => route.url !== path)
-          .map(({ url, name, ariaLabel, icon: Icon }) => (
+          .map(({ url, name, ariaLabel, icon: Icon, fx }) => (
             <Link
               href={url}
               key={name}
               className="flex items-center gap-2 hover:opacity-80"
               aria-label={ariaLabel}
+              onClick={fx}
             >
               <Icon className="w-5 h-5" />
               <span>{name}</span>
@@ -66,13 +75,13 @@ export const Navbar = () => {
             />
 
             <div className="flex flex-col items-center justify-center h-full space-y-6">
-              {navLinks.map(({ name, ariaLabel, icon: Icon, url }) => (
+              {navLinks.map(({ name, ariaLabel, icon: Icon, url, fx }) => (
                 <ul key={name} className="w-16 text-left -translate-x-8">
                   <Link
                     href={url}
                     className="inline-flex items-center gap-3 text-2xl hover:text-sky-400 transition-colors"
                     aria-label={ariaLabel}
-                    onClick={toggleMenu}
+                    onClick={name === "Compartir" ? fx : toggleMenu}
                   >
                     <Icon className="w-6 h-6" />
                     <span>{name}</span>

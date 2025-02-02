@@ -28,7 +28,7 @@
 
     & small {
       font-size: 2rem;
-      background: linear-gradient(to right, #444, #666, #a1a1a1);
+      background: linear-gradient(to right, #555, #777, #b1b1b1);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;

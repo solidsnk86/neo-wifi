@@ -10,9 +10,9 @@ export const Hero = () => {
         </h1>
         <p className="my-6 text-pretty text-center text-gray-400">
           Simplifica la conexión a las redes WiFi del Gobierno de San Luis con
-          esta herramienta especializada. Configura tu dispositivo CPE de forma
-          rápida y segura, garantizando una conectividad óptima a la red
-          provincial.
+          esta herramienta especializada. Configura tu dispositivo TP-LINK CPE
+          de forma rápida y segura, garantizando una conectividad óptima a la
+          red provincial.
         </p>
       </div>
       <aside className="flex justify-center gap-10 relative">

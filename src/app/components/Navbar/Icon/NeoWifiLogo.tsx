@@ -16,8 +16,9 @@ export default function NeoWifiLogo(props: ComponentProps<"svg">) {
       />
       <path
         d="M26.0557 50.0223L0.899186 5.04907L51.1287 5.00244L26.0557 50.0223Z"
-        fill="#C6CBDF"
-        style={{ boxShadow: "drop-shadow(0 0 10px #000)" }}
+        fill="none"
+        stroke="#C6CBDF"
+        strokeWidth={2}
       />
     </svg>
   );

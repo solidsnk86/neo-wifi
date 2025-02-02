@@ -10,7 +10,7 @@ import {
 import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 
-const HomeBlock = ({
+export const HomeBlock = ({
   children,
   className,
 }: {
@@ -26,7 +26,7 @@ const HomeBlock = ({
   );
 };
 
-const HomeBlockTitle = ({ children }: { children: string }) => {
+export const HomeBlockTitle = ({ children }: { children: string }) => {
   return (
     <h1 className="md:text-[2.5rem] text-3xl font-semibold my-20 flex justify-center mx-auto">
       {children}

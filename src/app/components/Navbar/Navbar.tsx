@@ -5,9 +5,11 @@ import NeoWifiLogo from "./Icon/NeoWifiLogo";
 import { Contact2, File, Info, Menu, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./styles/navbar.module.css";
+import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const path = usePathname();
 
   const navLinks = [
     { name: "Acerca", url: "#about", icon: Info, ariaLabel: "Link acerca" },
@@ -34,17 +36,19 @@ export const Navbar = () => {
       </Link>
 
       <div className="md:flex hidden items-center gap-8">
-        {navLinks.map(({ url, name, ariaLabel, icon: Icon }) => (
-          <Link
-            href={url}
-            key={name}
-            className="flex items-center gap-2 hover:opacity-80"
-            aria-label={ariaLabel}
-          >
-            <Icon className="w-5 h-5" />
-            <span>{name}</span>
-          </Link>
-        ))}
+        {navLinks
+          .filter((route) => route.url !== path)
+          .map(({ url, name, ariaLabel, icon: Icon }) => (
+            <Link
+              href={url}
+              key={name}
+              className="flex items-center gap-2 hover:opacity-80"
+              aria-label={ariaLabel}
+            >
+              <Icon className="w-5 h-5" />
+              <span>{name}</span>
+            </Link>
+          ))}
       </div>
 
       <Menu

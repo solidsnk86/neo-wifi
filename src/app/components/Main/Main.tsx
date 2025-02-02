@@ -60,7 +60,7 @@ export const Main = () => {
               />
             </Link>
           </div>
-          <code className="flex justify-center w-fit text-sm mx-auto border border-slate-700/50 bg-gradient-to-b from-blue-400/10 to-slate-500/10 px-2 py-[2px] rounded-md">
+          <code className="flex justify-center w-fit text-xs md:text-sm mx-auto border border-slate-700/50 bg-gradient-to-b from-blue-400/10 to-slate-500/10 px-2 py-[2px] rounded-md">
             CPE710 - CPE610 - CPE510 - CPE220 - CPE210
           </code>
         </aside>

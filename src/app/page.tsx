@@ -28,7 +28,7 @@ const HomeBlock = ({
 
 const HomeBlockTitle = ({ children }: { children: string }) => {
   return (
-    <h1 className="md:text-[2.5rem] text-3xl font-semibold my-16 flex justify-center mx-auto">
+    <h1 className="md:text-[2.5rem] text-3xl font-semibold my-20 flex justify-center mx-auto">
       {children}
     </h1>
   );

@@ -1,7 +1,16 @@
+import { AlertCircle } from "lucide-react";
+
 export const Main = () => {
   return (
     <main className="p-4">
       <article className="p-6 border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 rounded-2xl relative overflow-hidden">
+        <h2
+          title="Información válida para la provincia de San Luis"
+          className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-center mb-4"
+        >
+          <AlertCircle className="w-10 h-10 py-1 px-2 text-amber-300 border border-slate-700/50 rounded-xl bg-gradient-to-b from-blue-400/10 to-slate-500/10" />
+          Información
+        </h2>
         <p>
           Este servicio incluye una herramienta de escritorio que automatiza la
           configuración de tu red WiFi. Actualmente disponible para Windows y

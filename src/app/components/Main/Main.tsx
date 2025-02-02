@@ -1,4 +1,5 @@
 import { AlertCircle } from "lucide-react";
+import Link from "next/link";
 
 export const Main = () => {
   return (
@@ -20,7 +21,7 @@ export const Main = () => {
         <p>Tienes que seguir los siguientes pasos:</p>
         <ol className="list-decimal ml-4 space-y-2 mt-3">
           <li>
-            <b>Leer Documentación</b> que se encuentra disponible en esta
+            <b>Leer la Documentación</b> que se encuentra disponible en esta
             plataforma.
           </li>
           <li>
@@ -35,6 +36,34 @@ export const Main = () => {
             rápida y sencilla.
           </li>
         </ol>
+        <aside className="my-4 space-y-3">
+          <div className="flex items-center justify-center">
+            <Link href="https://www.tp-link.com/">
+              {/*eslint-disable-next-line @next/next/no-img-element*/}
+              <img
+                src="/tp-link_gray.png"
+                width={160}
+                height={80}
+                alt="Tp Link Logo"
+                className="hover:opacity-70 cursor-pointer"
+              />
+            </Link>
+
+            <Link href="https://www.tp-link.com/ar/business-networking/all-soho/#soho-soho-pharos-cpe">
+              {/*eslint-disable-next-line @next/next/no-img-element*/}
+              <img
+                src="/pharos.svg"
+                width={160}
+                height={80}
+                alt="Tp Link Logo"
+                className="hover:opacity-70 cursor-pointer"
+              />
+            </Link>
+          </div>
+          <code className="flex justify-center w-fit mx-auto border border-slate-700/50 bg-gradient-to-b from-blue-400/10 to-slate-500/10 px-2 py-[2px] rounded-md">
+            CPE710 - CPE610 - CPE510 - CPE220 - CPE210
+          </code>
+        </aside>
       </article>
     </main>
   );

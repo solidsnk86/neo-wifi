@@ -1,5 +1,6 @@
+import { copy } from "@/utils/copy";
 import { InfoRow } from "../GeoInfo";
-import { MapPin } from "lucide-react";
+import { Copy, MapPin } from "lucide-react";
 
 export const GeoPosition = ({ location, coords, loading }) => {
   return (
@@ -27,6 +28,18 @@ export const GeoPosition = ({ location, coords, loading }) => {
             value={coords.longitude}
             loading={loading}
           />
+          <button
+            className="flex items-center text-sm hover:opacity-80"
+            onClick={() => copy(String(coords.latitude))}
+          >
+            Copiar Latitud <Copy className="ml-2 w-4 h-4" />
+          </button>
+          <button
+            className="flex items-center text-sm hover:opacity-80"
+            onClick={() => copy(String(coords.longitude))}
+          >
+            Copiar Longitud <Copy className="ml-2 w-4 h-4" />
+          </button>
         </div>
       </div>
     </div>

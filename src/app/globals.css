@@ -37,3 +37,10 @@ body {
     box-shadow: 0 0 2px #1e293b;
   }
 }
+
+dialog {
+  padding: 20px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 0 10px #000;
+}

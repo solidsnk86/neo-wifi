@@ -52,6 +52,6 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
 - Fórmula de Haversine para cálculos de geolocalización
 - API REST personalizada
 - Mapeo JSON de provincias argentinas
-- Tecnologías web para la interfaz (especificar frameworks/librerías)
-
-¿Te gustaría que profundice en alguno de estos puntos o que sugiera más características para Neo WiFi?
+- Tecnologías:
+  - Nextjs
+  - Electronjs

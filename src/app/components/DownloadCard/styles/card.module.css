@@ -11,11 +11,11 @@
   border-radius: 20px;
   overflow: hidden;
   transition: all 0.8s ease;
-  view-timeline-name: --javacard;
+  view-timeline-name: --card;
   view-timeline-axis: block;
   background: #232322;
 
-  animation-timeline: --javacard;
+  animation-timeline: --card;
   animation-name: vanish;
 
   animation-range: entry 50% cover 50%;

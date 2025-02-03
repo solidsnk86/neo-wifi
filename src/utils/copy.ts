@@ -16,7 +16,7 @@ export const copy = async (content: string): Promise<boolean> => {
 
     await navigator.clipboard.writeText(content);
     showDialog({
-      content: `Se ha copiado tú coordenada ${content}`,
+      content: `📌 Se ha copiado tú coordenada ${content}`,
     });
     return true;
   } catch (error) {

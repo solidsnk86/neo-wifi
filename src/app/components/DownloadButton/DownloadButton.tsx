@@ -5,9 +5,8 @@ export const DownloadButton = (props: ComponentProps<"button">) => {
   return (
     <button {...props}>
       <a
-        href=""
+        href="https://link.mercadopago.com.ar/neotecs"
         className="flex items-center gap-3 font-semibold text-lg"
-        download="/file/program.exe"
       >
         <Download /> Descargar
       </a>

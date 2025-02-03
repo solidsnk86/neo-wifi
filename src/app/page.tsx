@@ -13,12 +13,15 @@ import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 export const HomeBlock = ({
   children,
   className,
+  id,
 }: {
   children: ReactNode;
   className?: string;
+  id?: string;
 }) => {
   return (
     <section
+      id={id}
       className={`max-w-3xl flex justify-center mx-auto my-28 ${className}`}
     >
       {children}
@@ -69,7 +72,7 @@ export default function Home() {
 
       <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
 
-      <HomeBlock>
+      <HomeBlock id="#geoposition">
         <GeoPositionCard />
       </HomeBlock>
 

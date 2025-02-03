@@ -12,7 +12,7 @@ import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 
 interface HomeBlockProps {
   children: ReactNode;
-  className: string;
+  className?: string;
 }
 
 const HomeBlock = ({ children, className }: HomeBlockProps) => {
@@ -62,31 +62,31 @@ export default function Home() {
         </filter>
         <rect width="100%" height="100%" filter="url(#noiseFilter)" />
       </svg>
-      <HomeBlock className="">
+      <HomeBlock>
         <Hero />
       </HomeBlock>
 
       <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
 
-      <HomeBlock className="">
+      <HomeBlock>
         <span id="geoposition" />
         <GeoPositionCard />
       </HomeBlock>
 
       <HomeBlockTitle>Descarga la App</HomeBlockTitle>
 
-      <HomeBlock className="">
+      <HomeBlock>
         <Main />
       </HomeBlock>
 
-      <HomeBlock className="">
+      <HomeBlock>
         <DownloadCard />
       </HomeBlock>
 
       <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
       <Faqs />
 
-      <HomeBlock className="">
+      <HomeBlock>
         <AccordionList />
       </HomeBlock>
 

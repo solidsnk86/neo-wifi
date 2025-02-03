@@ -72,7 +72,7 @@ export default function Home() {
 
       <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
 
-      <HomeBlock id="#geoposition">
+      <HomeBlock id="geoposition">
         <GeoPositionCard />
       </HomeBlock>
 

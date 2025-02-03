@@ -10,13 +10,12 @@ import {
 import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 
-export const HomeBlock = ({
-  children,
-  className,
-}: {
+interface HomeBlockProps {
   children: ReactNode;
   className: string;
-}) => {
+}
+
+const HomeBlock = ({ children, className }: HomeBlockProps) => {
   return (
     <section
       className={`max-w-3xl flex justify-center mx-auto my-28 ${className}`}
@@ -26,7 +25,7 @@ export const HomeBlock = ({
   );
 };
 
-export const HomeBlockTitle = ({ children }: { children: string }) => {
+const HomeBlockTitle = ({ children }: { children: string }) => {
   return (
     <h1 className="md:text-[2.5rem] text-3xl font-semibold my-20 flex justify-center mx-auto">
       {children}

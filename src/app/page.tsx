@@ -15,7 +15,7 @@ export const HomeBlock = ({
   className,
 }: {
   children: ReactNode;
-  className?: string;
+  className: string;
 }) => {
   return (
     <section
@@ -63,31 +63,31 @@ export default function Home() {
         </filter>
         <rect width="100%" height="100%" filter="url(#noiseFilter)" />
       </svg>
-      <HomeBlock>
+      <HomeBlock className="">
         <Hero />
       </HomeBlock>
 
       <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
 
-      <HomeBlock>
+      <HomeBlock className="">
         <span id="geoposition" />
         <GeoPositionCard />
       </HomeBlock>
 
       <HomeBlockTitle>Descarga la App</HomeBlockTitle>
 
-      <HomeBlock>
+      <HomeBlock className="">
         <Main />
       </HomeBlock>
 
-      <HomeBlock>
+      <HomeBlock className="">
         <DownloadCard />
       </HomeBlock>
 
       <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
       <Faqs />
 
-      <HomeBlock>
+      <HomeBlock className="">
         <AccordionList />
       </HomeBlock>
 

@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Neo WiFi: Localización Inteligente de Antenas WiFi en San Luis 🇦🇷
 
-## Getting Started
+Neo WiFi es una aplicación innovadora diseñada específicamente para los habitantes de San Luis, Argentina. Su objetivo principal es simplificar la configuración de conexiones WiFi mediante una localización precisa de antenas cercanas.
 
-First, run the development server:
+### Características Principales
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Geolocalización Precisa**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   - Utiliza una API personalizada con un mapa JSON detallado de provincias argentinas
+   - Implementa la fórmula de Haversine para calcular coordenadas con alta precisión
+   - Requiere permiso de geolocalización del navegador para un funcionamiento óptimo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Mapeo Inteligente de Antenas**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   - Cobertura actual en localidades clave de San Luis:
+     - San Luis (50 antenas registradas)
+     - Concarán
+     - Tilisarao
+     - Santa Rosa del Conlara
+     - Villa Larca
+     - Los Molles
+     - Cortaderas
+     - Carpintería
+     - Cerro de Oro (Merlo)
+     - El Durazno
+     - Estancia Grande
 
-## Learn More
+3. **Funcionalidades Adicionales**
 
-To learn more about Next.js, take a look at the following resources:
+   - **Cálculo de Distancia**:
+     Mostrar no solo la antena más cercana, sino también:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+     - Distancia exacta de la antena.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   - **Interfaz de Usuario Intuitiva**:
 
-## Deploy on Vercel
+     - Opción de filtrado por tipo de antena (2.4GHz | 5GHz)
+     - Permite buscar la antena que deseas si la más próxima no es la ideal.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - **Modo Offline**:
+     - Capacidad de guardar información de antenas para consulta sin conexión, la aplicación permite ingresarle las coordenadas para determinar tu ubicación y la antena más próxima.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Próximos Pasos
+
+- Expandir la cobertura a toda la provincia de San Luis
+- Integrar más proveedores de internet
+- Desarrollar una versión móvil de la aplicación
+- Implementar retroalimentación de usuarios para mejorar el mapeo
+
+### Tecnologías Utilizadas
+
+- Fórmula de Haversine para cálculos de geolocalización
+- API REST personalizada
+- Mapeo JSON de provincias argentinas
+- Tecnologías web para la interfaz (especificar frameworks/librerías)
+
+¿Te gustaría que profundice en alguno de estos puntos o que sugiera más características para Neo WiFi?

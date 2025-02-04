@@ -52,7 +52,7 @@ dialog {
   box-shadow: 0 0 10px #000;
   color: #fff;
   font-weight: 600;
-  animation: 180ms slideEffect linear forwards;
+  animation: 200ms slideEffect ease-in-out;
 
   & p {
     text-align: center;

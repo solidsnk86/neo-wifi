@@ -1,10 +1,10 @@
 import { showDialog } from "./dialog";
 
-export const copy = async (content: string): Promise<boolean> => {
+export const copy = async (coord: string, title: string): Promise<boolean> => {
   try {
     if (!navigator.clipboard) {
       const textArea = document.createElement("textarea");
-      textArea.value = content;
+      textArea.value = coord;
       textArea.style.position = "fixed";
       textArea.style.left = "-999999px";
       document.body.appendChild(textArea);
@@ -14,9 +14,12 @@ export const copy = async (content: string): Promise<boolean> => {
       return true;
     }
 
-    await navigator.clipboard.writeText(content);
+    await navigator.clipboard.writeText(coord);
     showDialog({
-      content: `📌 Se ha copiado tú coordenada ${content}`,
+      content: `
+      <p>📌 Se ha copiado la coordenada para <span>${title}: ${coord}</span></p>
+      <p>Podés emplearla en la aplicación ahora!</p>
+      `,
     });
     return true;
   } catch (error) {

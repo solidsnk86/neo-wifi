@@ -38,9 +38,41 @@ body {
   }
 }
 
+dialog::backdrop {
+  background: rgba(40, 40, 40, 0.1);
+  backdrop-filter: blur(6px);
+}
+
 dialog {
   padding: 20px;
+  background: linear-gradient(to bottom, #2e3948ea, #2e343de3);
   border: none;
   border-radius: 16px;
+  border: 1px solid #354153;
   box-shadow: 0 0 10px #000;
+  color: #fff;
+  font-weight: 600;
+  animation: 180ms slideEffect linear forwards;
+
+  & p {
+    text-align: center;
+  }
+
+  & span {
+    padding: 2px 4px;
+    background: linear-gradient(to bottom, #555, #666);
+    border-radius: 4px;
+    border: 1px solid #666;
+  }
+}
+
+@keyframes slideEffect {
+  from {
+    transform: translateY(500%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
 }

@@ -15,32 +15,32 @@ export const InfoWifi = ({ location, loading }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <InfoRow
             label="Antena más próxima"
-            value={location.closest_wifi.antenna}
+            value={location.closest_wifi?.antenna}
             loading={loading}
           />
           <InfoRow
             label="SSID"
-            value={location.closest_wifi.name}
+            value={location.closest_wifi?.name}
             loading={loading}
           />
           <InfoRow
             label="Distancia"
-            value={location.closest_wifi.distance}
+            value={location.closest_wifi?.distance}
             loading={loading}
           />
           <InfoRow
             label="Tipo"
-            value={location.closest_wifi.type}
+            value={location.closest_wifi?.type}
             loading={loading}
           />
           <InfoRow
             label="MAC"
-            value={writeMAC(location.closest_wifi.MAC)}
+            value={writeMAC(location.closest_wifi?.MAC)}
             loading={loading}
           />
           <InfoRow
             label="MAC-5Ghz"
-            value={writeMAC(location.closest_wifi.MAC5G)}
+            value={writeMAC(location.closest_wifi?.MAC5G)}
             loading={loading}
           />
         </div>

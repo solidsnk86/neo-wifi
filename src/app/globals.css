@@ -60,7 +60,7 @@ dialog {
 
   & span {
     padding: 2px 4px;
-    background: linear-gradient(to bottom, #555, #666);
+    background: #777777a6;
     border-radius: 4px;
     border: 1px solid #666;
   }

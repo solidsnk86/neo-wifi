@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./styles/policies.module.css";
-import { ArrowLeft } from "lucide-react";
+import { MoveLeft } from "lucide-react";
 import { Navbar } from "../components";
 
 export default function Page() {
@@ -33,14 +33,14 @@ export default function Page() {
         <rect width="100%" height="100%" filter="url(#noiseFilter)" />
       </svg>
       <section className="max-w-3xl flex justify-center mx-auto p-4">
-        <Link
-          href="/"
-          className="absolute top-4 left-4 flex gap-1 items-center group"
-        >
-          <ArrowLeft className="group-hover:-translate-x-1 w-5 h-5 transition-transform duration-300" />{" "}
-          Volver
-        </Link>
         <article className="my-10">
+          <Link
+            href="/"
+            className="flex gap-1 items-center group cursor-pointer relative my-2 text-gray-400 hover:brightness-150"
+          >
+            <MoveLeft className="group-hover:-translate-x-1 w-5 h-5 transition-transform duration-300" />{" "}
+            Volver
+          </Link>
           <h2 className="text-3xl font-bold">Política de Uso y Privacidad</h2>
           <h6 className="font-semibold my-10">
             Última actualización: <time>28 de enero de 2025</time>

@@ -88,7 +88,7 @@ export const GeoPositionCard = () => {
       const data = await response.json();
       if (data.antenna.name === "Antena inexistente")
         showDialog({
-          content: ` La antena <span>${query}</span> es inexistente o está mal escrita, chequea el SSID de la antena sea el correcto.`,
+          content: ` La antena <span>${query}</span> es inexistente o está mal escrita, chequea que el SSID de la antena sea el correcto.`,
         });
       setSearchResult(data);
     } catch (error) {

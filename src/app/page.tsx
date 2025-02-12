@@ -73,6 +73,16 @@ export default function Home() {
         <GeoPositionCard />
       </HomeBlock>
 
+      <HomeBlock>
+        <iframe
+          src="https://wifi.sanluis.gov.ar/#"
+          width="100%"
+          height={500}
+          frameBorder={0}
+          className="relative rounded-xl wifi-iframe"
+        />
+      </HomeBlock>
+
       <HomeBlockTitle>Descarga la App</HomeBlockTitle>
 
       <HomeBlock>

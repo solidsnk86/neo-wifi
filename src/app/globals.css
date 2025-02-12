@@ -76,3 +76,7 @@ dialog {
     opacity: 1;
   }
 }
+
+.wifi-iframe {
+  content-visibility: auto;
+}

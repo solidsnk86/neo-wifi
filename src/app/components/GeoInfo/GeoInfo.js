@@ -5,6 +5,7 @@ import { getCoords } from "@/utils/get-coords";
 import { Search } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition";
 import { InfoWifi } from "./components/InfoWifi";
+import { showDialog } from "@/utils/dialog";
 
 export const InfoRow = ({ label, value, loading }) => (
   <div className="flex items-center space-x-2">
@@ -85,6 +86,10 @@ export const GeoPositionCard = () => {
         throw new Error(`Response error: ${response.statusText}`);
       }
       const data = await response.json();
+      if (data.antenna.name === "Antena inexistente")
+        showDialog({
+          content: ` La antena <span>${query}</span> es inexistente o está mal escrita, chequea el SSID de la antena sea el correcto.`,
+        });
       setSearchResult(data);
     } catch (error) {
       console.error("Error searching antenna:", error);

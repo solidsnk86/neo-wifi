@@ -54,7 +54,7 @@ export const AccordionList = () => {
   };
 
   return (
-    <article className="flex flex-col justify-center mx-auto mt-8 space-y-4 px-4 relative">
+    <article className="flex flex-col justify-center mx-auto mt-16 space-y-4 px-4 relative">
       {accordionLists.map((list) => (
         <div
           key={list.id}

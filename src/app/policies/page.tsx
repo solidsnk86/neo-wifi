@@ -80,8 +80,8 @@ export default function Page() {
               </a>
               en el cual he creado mi propio mapa de datos en formato{" "}
               <a
-                className="mx-1 underline text-blue-400"
-                href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON relative"
+                className="mx-1 underline text-blue-400 relative"
+                href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON"
               >
                 JSON
               </a>{" "}

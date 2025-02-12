@@ -202,7 +202,7 @@ export default function Page() {
             privacidad, contáctanos en:
           </p>
 
-          <div className="text-xs my-6 border-l-4 border-button-variant pl-3">
+          <div className="text-xs my-6 border-l-4 border-button-variant pl-3 relative">
             <p>Neo-Wifi</p>
             <p>Dirección: Avenida Fuerza Aérea 551</p>
             <p>Concarán, San Luis, 5770</p>

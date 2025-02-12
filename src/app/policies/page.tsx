@@ -73,7 +73,7 @@ export default function Page() {
               antenas, como su ubicación, SSID, dirección MAC y otros detalles
               técnicos en el sitio oficial
               <a
-                className="underline text-blue-400 mx-1"
+                className="underline text-blue-400 mx-1 relative"
                 href="https://wifi.sanluis.gov.ar/#"
               >
                 https://wifi.sanluis.gov.ar/#
@@ -81,7 +81,7 @@ export default function Page() {
               en el cual he creado mi propio mapa de datos en formato{" "}
               <a
                 className="mx-1 underline text-blue-400"
-                href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+                href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON relative"
               >
                 JSON
               </a>{" "}

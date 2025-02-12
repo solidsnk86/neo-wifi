@@ -174,7 +174,7 @@ export default function Page() {
           <p>
             Para ejecrcer estos derechos contáctate a este correo:{" "}
             <a
-              className="underline text-blue-400"
+              className="underline text-blue-400 relative"
               href="mailto:tutosneotecs@gmail.com"
             >
               tutosneotecs@gmail.com

@@ -79,7 +79,7 @@ export default function Home() {
           width="100%"
           height={500}
           frameBorder={0}
-          className="relative rounded-xl wifi-iframe"
+          className="relative rounded-xl wifi-iframe px-3"
         />
       </HomeBlock>
 

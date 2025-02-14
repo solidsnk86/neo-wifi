@@ -14,7 +14,7 @@ export const DownloadCard = () => {
         </p>
         <p>
           Actualmente está en desarrollo. La aplicación va a salir muy pronto y
-          es para instalar en la PC para poder automatizar la configuración de
+          es para instalar en PC para poder automatizar la configuración de
           manera eficiente.
         </p>
         {/* <DownloadButton className={styles.btn} /> */}

@@ -109,8 +109,9 @@ export const Footer = () => {
               reservados Neo-Wifi
             </p>
             <small>
-              Última visita desde {visitData?.data.city},{" "}
-              {visitData?.data.state} {visitData?.data.emojiFlag}
+              Última visita desde {visitData?.data.city || "No disponible"},{" "}
+              {visitData?.data.state || "No disponible"}{" "}
+              {visitData?.data.emojiFlag || "No disponible"}
             </small>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (

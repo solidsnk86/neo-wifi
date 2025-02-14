@@ -27,7 +27,7 @@ export class SupabaseDB {
   }: Omit<OptionalProps, "data">) {
     try {
       const response = await fetch(
-        `https://supabase-rest-api.vercel.app/supabase/optional?from=${from}&select=${select}limit=${limit}&order=${order}`,
+        `https://supabase-rest-api.vercel.app/supabase/optional?from=${from}&select=${select}&limit=${limit}&order=${order}`,
         {
           method: "GET",
           mode: "cors",

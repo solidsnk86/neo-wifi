@@ -1,0 +1,14 @@
+.visits {
+  display: flex;
+  font-size: 0.8rem;
+  animation: xScrolling 9s linear infinite;
+}
+
+@keyframes xScrolling {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}

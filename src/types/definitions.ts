@@ -14,7 +14,7 @@ interface OptionalProps {
     distance: number;
     ip: string;
     so: string;
-    emojiFlag: string;
+    emoji_flag: string;
   };
 }
 

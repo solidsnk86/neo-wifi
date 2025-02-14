@@ -92,7 +92,7 @@ export const GeoPositionCard = () => {
           distance: parseFloat(location.closest_wifi.distance),
           ip: ip,
           so: sysInfo.system || "No disponible",
-          emojiFlag: emojiFlag,
+          emoji_flag: emojiFlag,
         };
         return await SupabaseDB.sendVisits({ data: objectVisit });
       } catch (error) {

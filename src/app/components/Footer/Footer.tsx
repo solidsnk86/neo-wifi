@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { Instagram, Twitter, Github, Linkedin } from "lucide-react";
-import { useEffect, useState } from "react";
-import { SupabaseDB } from "@/services/ModelSB";
 
 const categories = [
   { name: "Windows", url: "#" },
@@ -35,28 +33,6 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
-  const [visitData, setVisitData] = useState({
-    city: "",
-    state: "",
-    emoji_flag: "",
-    created_at: "",
-  });
-
-  useEffect(() => {
-    const getData = async () => {
-      await SupabaseDB.getOptionalData({
-        from: "neo_wifi_visitors",
-        select: "city,state,emoji_flag,created_at",
-        limit: 1,
-        order: "created_at",
-      })
-        .then((data) => {
-          setVisitData(data);
-        })
-        .catch((error) => console.log(error));
-    };
-    getData();
-  }, []);
   return (
     <footer className="text-gray-400 pt-12 pb-8 relative">
       <div className="max-w-6xl mx-auto px-4">
@@ -119,12 +95,6 @@ export const Footer = () => {
               Copyright © {new Date().getFullYear()} • Todos los derechos
               reservados Neo-Wifi
             </p>
-            <small>
-              Última visita desde {visitData?.city || "No disponible"},{" "}
-              {visitData?.state || "No disponible"}{" "}
-              {visitData?.emoji_flag || "No disponible"}el día{" "}
-              {new Date(visitData?.created_at).toLocaleDateString()}
-            </small>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (
                 <Link

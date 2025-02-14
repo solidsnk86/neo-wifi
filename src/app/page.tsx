@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Navbar, Hero, GeoPositionCard, Footer } from "./components/index";
 // import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
+import { VisitsComponent } from "./components/VisitsComponent/Visits";
 
 interface HomeBlockProps {
   children: ReactNode;
@@ -82,6 +83,10 @@ export default function Home() {
       <HomeBlock>
         <AccordionList />
       </HomeBlock> */}
+
+      <HomeBlock>
+        <VisitsComponent />
+      </HomeBlock>
 
       <HomeBlock>
         <DownloadCard />

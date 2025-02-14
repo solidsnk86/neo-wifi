@@ -3,7 +3,7 @@ import { ArrowBigDownDash } from "lucide-react";
 import styles from "./styles/hero.module.css";
 // import Link from "next/link";
 
-export const Hero = () => {
+export const Hero = async () => {
   return (
     <div className="w-full px-4 mx-auto justify-center">
       <div>

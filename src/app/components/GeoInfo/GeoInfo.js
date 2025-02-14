@@ -6,6 +6,7 @@ import { Search } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition";
 import { InfoWifi } from "./components/InfoWifi";
 import { showDialog } from "@/utils/dialog";
+import { SupabaseDB } from "@/services/ModelSB";
 
 export const InfoRow = ({ label, value, loading }) => (
   <div className="flex items-center space-x-2">
@@ -74,6 +75,28 @@ export const GeoPositionCard = () => {
     }
     fetchInitialData();
   }, []);
+
+  useEffect(() => {
+    const send = async () => {
+      try {
+        const objectVisit = {
+          city: location.city,
+          state: location.state,
+          departament: location.departament,
+          country: location.country,
+          longitude: Number(location.current_position.longitude),
+          latitude: Number(location.current_position.latitude),
+          nearest_wifi: location.closest_wifi.antenna,
+          distance: parseFloat(location.closest_wifi.distance),
+        };
+        return await SupabaseDB.sendVisits({ data: objectVisit });
+      } catch (error) {
+        console.error("Cannot send data: " + error);
+      }
+    };
+
+    send();
+  }, [location]);
 
   const sendQuery = async (searchQuery) => {
     try {

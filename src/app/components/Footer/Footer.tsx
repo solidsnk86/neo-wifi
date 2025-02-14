@@ -38,14 +38,19 @@ export const Footer = () => {
   const [visitData, setVisitData] = useState({
     city: "",
     state: "",
-    emojiFlag: "",
+    emoji_flag: "",
+    created_at: "",
   });
 
   useEffect(() => {
     const getData = async () => {
-      await SupabaseDB.getAllData()
+      await SupabaseDB.getOptionalData({
+        from: "neo_wifi_visitors",
+        select: "city,state,emoji_flag,created_at",
+        limit: 1,
+        order: "created_at",
+      })
         .then((data) => {
-          console.log(data);
           setVisitData(data);
         })
         .catch((error) => console.log(error));
@@ -117,7 +122,8 @@ export const Footer = () => {
             <small>
               Última visita desde {visitData?.city || "No disponible"},{" "}
               {visitData?.state || "No disponible"}{" "}
-              {visitData?.emojiFlag || "No disponible"}
+              {visitData?.emoji_flag || "No disponible"}a las{" "}
+              {new Date(visitData?.created_at).toLocaleDateString()}
             </small>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (

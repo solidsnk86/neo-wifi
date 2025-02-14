@@ -9,13 +9,13 @@ export const DownloadCard = () => {
           Neo-WiFi App <small>v1.0.1</small>
         </h2>
         <p>
-          Esta applicación es una herramienta que automatiza la configuración de
-          tu red WiFi.
+          Esta aplicación es una herramienta diseñada para automatizar la
+          configuración de tu red WiFi de forma rápida y sencilla.
         </p>
         <p>
-          Actualmente está en desarrollo. La aplicación va a salir muy pronto y
-          es para instalar en PC para poder automatizar la configuración de
-          manera eficiente.
+          Actualmente, se encuentra en desarrollo, pero muy pronto estará
+          disponible para instalar en tu PC, permitiéndote gestionar y optimizar
+          la configuración de tu red de manera eficiente y automática.
         </p>
         {/* <DownloadButton className={styles.btn} /> */}
       </div>

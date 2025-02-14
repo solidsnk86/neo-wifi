@@ -1,7 +1,7 @@
 .visits {
   display: flex;
   font-size: 0.8rem;
-  animation: xScrolling 9s linear infinite;
+  animation: xScrolling 12s linear infinite;
 }
 
 @keyframes xScrolling {

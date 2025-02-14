@@ -95,7 +95,7 @@ export const GeoPositionCard = () => {
           emoji_flag: emojiFlag,
         };
         const { ip: lastIP } = await SupabaseDB.getLastIP();
-        console.log(lastIP);
+
         if (lastIP !== ip) {
           return await SupabaseDB.sendVisits({ data: objectVisit });
         }

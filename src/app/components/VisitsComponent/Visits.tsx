@@ -8,6 +8,7 @@ export const VisitsComponent = () => {
   const [visitData, setVisitData] = useState({
     city: "",
     state: "",
+    country: "",
     emoji_flag: "",
     created_at: "",
   });
@@ -16,7 +17,7 @@ export const VisitsComponent = () => {
     const getData = async () => {
       await SupabaseDB.getOptionalData({
         from: "neo_wifi_visitors",
-        select: "id,city,state,emoji_flag,created_at",
+        select: "id,city,state,country,emoji_flag,created_at",
         limit: 1,
         order: "created_at",
       })
@@ -31,7 +32,7 @@ export const VisitsComponent = () => {
     <small className={styles.visits}>
       Última visita desde {visitData?.city || "No disponible"},{" "}
       {visitData?.state || "No disponible"}{" "}
-      {visitData?.emoji_flag || "No disponible"} el día{" "}
+      {visitData?.country || "No disponible"} el día{" "}
       {new Date(visitData?.created_at).toLocaleDateString("es-AR", {
         year: "numeric",
         day: "2-digit",

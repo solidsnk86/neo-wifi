@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Instagram, Twitter, Github, Linkedin } from "lucide-react";
 import { useEffect, useState } from "react";
-import { OptionalProps } from "@/types/definitions";
 import { SupabaseDB } from "@/services/ModelSB";
 
 const categories = [
@@ -36,7 +35,11 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
-  const [visitData, setVisitData] = useState<Pick<OptionalProps, "data">>();
+  const [visitData, setVisitData] = useState({
+    city: "",
+    state: "",
+    emojiFlag: "",
+  });
 
   useEffect(() => {
     const getData = async () => {
@@ -112,9 +115,9 @@ export const Footer = () => {
               reservados Neo-Wifi
             </p>
             <small>
-              Última visita desde {visitData?.data.city || "No disponible"},{" "}
-              {visitData?.data.state || "No disponible"}{" "}
-              {visitData?.data.emojiFlag || "No disponible"}
+              Última visita desde {visitData?.city || "No disponible"},{" "}
+              {visitData?.state || "No disponible"}{" "}
+              {visitData?.emojiFlag || "No disponible"}
             </small>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (

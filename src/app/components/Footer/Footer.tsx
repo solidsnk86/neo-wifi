@@ -36,12 +36,15 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
-  const [visitData, setVisitData] = useState<OptionalProps>();
+  const [visitData, setVisitData] = useState<Pick<OptionalProps, "data">>();
 
   useEffect(() => {
     const getData = async () => {
       await SupabaseDB.getAllData()
-        .then((data) => setVisitData(data))
+        .then((data) => {
+          console.log(data);
+          setVisitData(data);
+        })
         .catch((error) => console.log(error));
     };
     getData();

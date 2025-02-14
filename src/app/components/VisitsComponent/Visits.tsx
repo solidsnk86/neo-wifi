@@ -42,8 +42,8 @@ export const VisitsComponent = () => {
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
-        })}
-        . Total de visitas: {visitData?.id || 0}
+        })}{" "}
+        Total de visitas: {visitData?.id || 0}
       </small>
     </article>
   );

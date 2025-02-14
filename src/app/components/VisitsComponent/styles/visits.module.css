@@ -2,6 +2,7 @@
   display: flex;
   font-size: 0.8rem;
   animation: xScrolling 12s linear infinite;
+  color: lightgreen;
 }
 
 @keyframes xScrolling {

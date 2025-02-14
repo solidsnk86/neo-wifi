@@ -157,7 +157,7 @@ export const GeoPositionCard = () => {
             <input
               type="text"
               name="antenna"
-              placeholder="Nombre de la antena..."
+              placeholder="Ej: WiFi4.0-CO-08"
               className="border border-slate-800 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
               value={query}
               onChange={(e) => setQuery(e.target.value)}

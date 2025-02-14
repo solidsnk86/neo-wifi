@@ -17,7 +17,7 @@ export const Hero = () => {
           red provincial.
         </p>
       </div>
-      <aside className="flex justify-center mx-auto my-16">
+      <aside className="flex justify-center mx-auto mt-28">
         <ArrowBigDownDash className="w-8 h-8 animate-bounce" />
       </aside>
       {/* <aside className="flex justify-center gap-10 relative">

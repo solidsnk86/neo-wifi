@@ -1,4 +1,5 @@
 .visits {
+  width: 300%;
   display: flex;
   font-size: 0.8rem;
   animation: xScrolling 12s linear infinite;

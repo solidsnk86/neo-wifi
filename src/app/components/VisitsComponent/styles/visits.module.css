@@ -3,6 +3,7 @@
   font-size: 0.8rem;
   animation: xScrolling 12s linear infinite;
   color: lightgreen;
+  text-shadow: 1px 2px 6px lightgreen;
 }
 
 @keyframes xScrolling {

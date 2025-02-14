@@ -122,7 +122,7 @@ export const Footer = () => {
             <small>
               Última visita desde {visitData?.city || "No disponible"},{" "}
               {visitData?.state || "No disponible"}{" "}
-              {visitData?.emoji_flag || "No disponible"}a las{" "}
+              {visitData?.emoji_flag || "No disponible"}el día{" "}
               {new Date(visitData?.created_at).toLocaleDateString()}
             </small>
             <div className="flex space-x-4">

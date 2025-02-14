@@ -45,7 +45,7 @@ export const VisitsComponent = () => {
           minute: "2-digit",
           second: "2-digit",
         })}{" "}
-        • Total de visitas: {visitData?.id || 0} • Dsipositivo:{" "}
+        • Total de visitas: {visitData?.id || 0} • Dispositivo:{" "}
         {visitData?.so || "No disponible"}{" "}
         {visitData?.so === "Windows" ? "💻" : "📲"}
       </small>

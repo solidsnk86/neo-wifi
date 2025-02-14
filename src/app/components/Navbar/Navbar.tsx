@@ -75,7 +75,7 @@ export const Navbar = () => {
 
             <div className="flex flex-col items-center justify-center h-full space-y-6">
               {navLinks.map(({ name, ariaLabel, icon: Icon, url, fx }) => (
-                <ul key={name} className="w-16 text-left -translate-x-8">
+                <ul key={name} className="w-16 text-left -translate-x-9">
                   <Link
                     href={url}
                     className="inline-flex items-center gap-3 text-2xl hover:text-sky-400 transition-colors"

@@ -1,5 +1,5 @@
 .visits {
-  width: 300%;
+  width: 100%;
   display: flex;
   font-size: 0.8rem;
   animation: xScrolling 24s linear infinite;
@@ -9,15 +9,16 @@
 
 @keyframes xScrolling {
   from {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
   to {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
 }
 
-@media (width >= 762px) {
+@media (width < 762px) {
   .visits {
-    animation-duration: 43s;
+    animation-duration: 24s;
+    width: 300%;
   }
 }

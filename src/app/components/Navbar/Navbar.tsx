@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
-import { Contact2, File, Info, Menu, Share, X } from "lucide-react";
+import { File, Info, Menu, Share, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
@@ -15,12 +15,6 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
-    {
-      name: "Contacto",
-      url: "#contact",
-      icon: Contact2,
-      ariaLabel: "Contacto",
-    },
     {
       name: "Introducción",
       url: "/start/introduction",

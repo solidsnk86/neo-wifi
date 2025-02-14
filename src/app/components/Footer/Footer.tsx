@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Instagram, Twitter, Github, Linkedin } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { OptionalProps } from "@/types/definitions";
+import { SupabaseDB } from "@/services/ModelSB";
 
 const categories = [
   { name: "Windows", url: "#" },
@@ -31,8 +35,17 @@ const socialLinks = [
   },
 ];
 
-export const Footer = async () => {
-  const [visitData, setVisitData] = useState();
+export const Footer = () => {
+  const [visitData, setVisitData] = useState<OptionalProps>();
+
+  useEffect(() => {
+    const getData = async () => {
+      await SupabaseDB.getAllData()
+        .then((data) => setVisitData(data))
+        .catch((error) => console.log(error));
+    };
+    getData();
+  }, []);
   return (
     <footer className="text-gray-400 pt-12 pb-8 relative">
       <div className="max-w-6xl mx-auto px-4">
@@ -95,7 +108,10 @@ export const Footer = async () => {
               Copyright © {new Date().getFullYear()} • Todos los derechos
               reservados Neo-Wifi
             </p>
-
+            <small>
+              Última visita desde {visitData?.data.city},{" "}
+              {visitData?.data.state} {visitData?.data.emojiFlag}
+            </small>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (
                 <Link

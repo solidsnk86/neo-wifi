@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Instagram, Twitter, Github, Linkedin } from "lucide-react";
+import { useState } from "react";
 
 const categories = [
   { name: "Windows", url: "#" },
@@ -30,7 +31,8 @@ const socialLinks = [
   },
 ];
 
-export const Footer = () => {
+export const Footer = async () => {
+  const [visitData, setVisitData] = useState();
   return (
     <footer className="text-gray-400 pt-12 pb-8 relative">
       <div className="max-w-6xl mx-auto px-4">

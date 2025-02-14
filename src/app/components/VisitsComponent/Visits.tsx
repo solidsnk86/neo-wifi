@@ -11,6 +11,7 @@ export const VisitsComponent = () => {
     state: "",
     country: "",
     emoji_flag: "",
+    so: "",
     created_at: "",
   });
 
@@ -44,7 +45,9 @@ export const VisitsComponent = () => {
           minute: "2-digit",
           second: "2-digit",
         })}{" "}
-        Total de visitas: {visitData?.id || 0}
+        • Total de visitas: {visitData?.id || 0} • Dsipositivo:{" "}
+        {visitData?.so || "No disponible"}{" "}
+        {visitData?.so === "Windows" ? "💻" : "📲"}
       </small>
     </article>
   );

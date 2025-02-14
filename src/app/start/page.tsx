@@ -29,6 +29,9 @@ export default async function Page() {
         </filter>
         <rect width="100%" height="100%" filter="url(#noiseFilter)" />
       </svg>
+      <h1 className="text-center text-3xl font-semibold items-center">
+        Página en construcción!
+      </h1>
     </>
   );
 }

@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react";
+// import { ArrowRight } from "lucide-react";
+import { ArrowBigDownDash } from "lucide-react";
 import styles from "./styles/hero.module.css";
-import Link from "next/link";
+// import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -16,7 +17,10 @@ export const Hero = () => {
           red provincial.
         </p>
       </div>
-      <aside className="flex justify-center gap-10 relative">
+      <aside className="flex justify-center mx-auto my-16">
+        <ArrowBigDownDash className="w-8 h-8 animate-bounce" />
+      </aside>
+      {/* <aside className="flex justify-center gap-10 relative">
         <Link
           href="/start/introduction"
           className="py-3 px-4 border bg-gradient-to-b from-blue-400/10 to-slate-500/10 border-slate-800 rounded-lg cursor-pointer hover:brightness-125"
@@ -30,7 +34,7 @@ export const Hero = () => {
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
         </Link>
-      </aside>
+      </aside> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { DownloadButton } from "../DownloadButton/DownloadButton";
+// import { DownloadButton } from "../DownloadButton/DownloadButton";
 import styles from "./styles/card.module.css";
 
 export const DownloadCard = () => {
@@ -9,11 +9,15 @@ export const DownloadCard = () => {
           Neo-WiFi App <small>v1.0.1</small>
         </h2>
         <p>
-          Esta applicación incluye una herramienta que automatiza la
-          configuración de tu red WiFi. Solo necesitas descargarla, instalarla y
-          seguir las instrucciones.
+          Esta applicación es una herramienta que automatiza la configuración de
+          tu red WiFi.
         </p>
-        <DownloadButton className={styles.btn} />
+        <p>
+          Actualmente está en desarrollo. La aplicación va a salir muy pronto y
+          es para instalar en la PC para poder automatizar la configuración de
+          manera eficiente.
+        </p>
+        {/* <DownloadButton className={styles.btn} /> */}
       </div>
       <div className={styles.img_container}>
         <div className={styles.bg_left}></div>

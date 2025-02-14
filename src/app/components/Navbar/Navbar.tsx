@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
-import { File, Info, Menu, Share, X } from "lucide-react";
+import { Info, Menu, Share, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
@@ -15,12 +15,12 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
-    {
-      name: "Introducción",
-      url: "/start/introduction",
-      icon: File,
-      ariaLabel: "Documentación",
-    },
+    // {
+    //   name: "Introducción",
+    //   url: "/start/introduction",
+    //   icon: File,
+    //   ariaLabel: "Documentación",
+    // },
     {
       name: "Compartir",
       url: "",
@@ -60,7 +60,7 @@ export const Navbar = () => {
       </div>
 
       <Menu
-        className="md:hidden block cursor-pointer"
+        className="md:hidden block cursor-pointer w-8 h-8"
         aria-label="Menú desplegable"
         onClick={toggleMenu}
       />

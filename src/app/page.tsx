@@ -1,13 +1,6 @@
 import { ReactNode } from "react";
-import {
-  Navbar,
-  Hero,
-  GeoPositionCard,
-  Main,
-  Faqs,
-  Footer,
-} from "./components/index";
-import AccordionList from "./components/FAQ/AccordionList";
+import { Navbar, Hero, GeoPositionCard, Footer } from "./components/index";
+// import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 
 interface HomeBlockProps {
@@ -73,7 +66,7 @@ export default function Home() {
         <GeoPositionCard />
       </HomeBlock>
 
-      <HomeBlockTitle>Descarga la App</HomeBlockTitle>
+      {/* <HomeBlockTitle>Descarga la App</HomeBlockTitle>
 
       <HomeBlock>
         <Main />
@@ -81,13 +74,17 @@ export default function Home() {
 
       <HomeBlock>
         <DownloadCard />
-      </HomeBlock>
+      </HomeBlock> */}
 
-      <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
+      {/* <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
       <Faqs />
 
       <HomeBlock>
         <AccordionList />
+      </HomeBlock> */}
+
+      <HomeBlock>
+        <DownloadCard />
       </HomeBlock>
 
       <Footer />

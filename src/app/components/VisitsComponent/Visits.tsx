@@ -19,7 +19,7 @@ export const VisitsComponent = () => {
     const getData = async () => {
       await SupabaseDB.getOptionalData({
         from: "neo_wifi_visitors",
-        select: "id,city,state,country,emoji_flag,created_at",
+        select: "id,city,state,country,emoji_flag,so,created_at",
         limit: 1,
         order: "created_at",
       })

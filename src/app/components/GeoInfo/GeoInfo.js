@@ -94,7 +94,11 @@ export const GeoPositionCard = () => {
           so: sysInfo.system || "No disponible",
           emoji_flag: emojiFlag,
         };
-        return await SupabaseDB.sendVisits({ data: objectVisit });
+        const { ip: lastIP } = await SupabaseDB.getLastIP();
+        console.log(lastIP);
+        if (lastIP !== ip) {
+          return await SupabaseDB.sendVisits({ data: objectVisit });
+        }
       } catch (error) {
         console.error("Cannot send data: " + error);
       }

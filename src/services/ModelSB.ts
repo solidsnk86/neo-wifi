@@ -59,6 +59,20 @@ export class SupabaseDB {
     }
   }
 
+  public static async getLastIP() {
+    try {
+      const response = await fetch(
+        "https://supabase-rest-api.vercel.app/supabase/optional?from=neo_wifi_visitors&select=ip&limit=1&order=created_at"
+      );
+      if (!response.ok)
+        throw new Error("Cannot get ip: " + response.statusText);
+      const data = await response.json();
+      return data[0];
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   public static async getVisitsCount() {
     try {
       const response = await fetch(

@@ -13,3 +13,9 @@
     transform: translateX(100%);
   }
 }
+
+@media (width >= 762px) {
+  .visits {
+    animation-duration: 18s;
+  }
+}

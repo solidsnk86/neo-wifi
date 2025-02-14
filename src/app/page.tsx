@@ -84,9 +84,7 @@ export default function Home() {
         <AccordionList />
       </HomeBlock> */}
 
-      <HomeBlock>
-        <VisitsComponent />
-      </HomeBlock>
+      <VisitsComponent />
 
       <HomeBlock>
         <DownloadCard />

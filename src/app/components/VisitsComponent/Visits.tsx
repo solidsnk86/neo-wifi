@@ -30,7 +30,7 @@ export const VisitsComponent = () => {
     getData();
   }, []);
   return (
-    <article className="w-full border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 relative">
+    <article className="w-full border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3">
       <small className={styles.visits}>
         Última visita desde {visitData?.city || "No disponible"},{" "}
         {visitData?.state || "No disponible"}{" "}

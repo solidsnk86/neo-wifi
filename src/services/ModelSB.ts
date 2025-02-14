@@ -12,6 +12,9 @@ interface OptionalProps {
     latitude: number;
     nearest_wifi: string;
     distance: number;
+    ip: string;
+    so: string;
+    emojiFlag: string;
   };
 }
 

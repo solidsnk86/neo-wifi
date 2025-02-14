@@ -34,7 +34,8 @@ export const VisitsComponent = () => {
       <small className={styles.visits}>
         Última visita desde {visitData?.city || "No disponible"},{" "}
         {visitData?.state || "No disponible"}{" "}
-        {visitData?.country || "No disponible"} el día{" "}
+        {visitData?.country || "No disponible"}
+        {visitData?.emoji_flag || "No disponible"} el día{" "}
         {new Date(visitData?.created_at).toLocaleDateString("es-AR", {
           year: "numeric",
           day: "2-digit",

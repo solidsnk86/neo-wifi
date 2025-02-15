@@ -1,6 +1,12 @@
 import { ReactNode } from "react";
-import { Navbar, Hero, GeoPositionCard, Footer } from "./components/index";
-// import AccordionList from "./components/FAQ/AccordionList";
+import {
+  Navbar,
+  Hero,
+  GeoPositionCard,
+  Footer,
+  Faqs,
+} from "./components/index";
+import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";
 
@@ -77,12 +83,12 @@ export default function Home() {
         <DownloadCard />
       </HomeBlock> */}
 
-      {/* <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
+      <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
       <Faqs />
 
       <HomeBlock>
         <AccordionList />
-      </HomeBlock> */}
+      </HomeBlock>
 
       <VisitsComponent />
 

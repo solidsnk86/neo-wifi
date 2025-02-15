@@ -32,7 +32,7 @@ const accordionLists = [
     id: 5,
     question: "¿La aplicación funciona en toda la provincia?",
     answer:
-      "Neo-Wifi no cubre toda la provincia de San Luis por ahora. El servicio está disponible en las siguientes zonas urbanas: San Luis (50 antenas), Concarán, Santa Rosa, Tilisarao, Villa Larca, Cortaderas, Los Molles, Carpintería y Cerro de Oro.",
+      "Neo-Wifi no cubre toda la provincia de San Luis por ahora. El servicio está disponible en las siguientes zonas urbanas: San Luis, La Punta, Juana Koslay, El Trapiche, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca, Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, La Toma, Naschel.",
   },
   {
     id: 6,

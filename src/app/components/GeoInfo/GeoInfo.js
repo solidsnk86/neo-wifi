@@ -86,8 +86,8 @@ export const GeoPositionCard = () => {
           state: location.state,
           departament: location.departament,
           country: location.country,
-          longitude: Number(location.current_position.longitude),
-          latitude: Number(location.current_position.latitude),
+          longitude: parseFloat(location.current_position.longitude),
+          latitude: parseFloat(location.current_position.latitude),
           nearest_wifi: location.closest_wifi.antenna,
           distance: parseFloat(location.closest_wifi.distance),
           ip: ip,
@@ -156,15 +156,18 @@ export const GeoPositionCard = () => {
             Buscar antena
           </h2>
           <div className="md:flex grid justify-center mx-auto md:gap-4 gap-2">
-            <input
-              type="text"
-              name="antenna"
-              placeholder="Ej: WiFi4.0-CO-08"
-              className="border border-slate-800 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              required
-            />
+            <label>
+              SSID:{" "}
+              <input
+                type="text"
+                name="antenna"
+                placeholder="Ej: WiFi4.0-CO-08"
+                className="border border-slate-800 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                required
+              />
+            </label>
             <button
               type="submit"
               disabled={isLoading}

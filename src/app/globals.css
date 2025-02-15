@@ -190,3 +190,9 @@ dialog {
     transform: scaleX(1);
   }
 }
+
+@media (width < 400px) {
+  body {
+    overflow-x: hidden;
+  }
+}

@@ -26,7 +26,7 @@ const Marquee = ({ data }: PartialOptionsProps) => {
   );
 };
 
-const Visits = ({ children }: { children: ReactNode }) => {
+const CloneVisits = ({ children }: { children: ReactNode }) => {
   return (
     <article className="flex w-[500%] xl:w-[200%] border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3">
       {Children.map(children, (child) => cloneElement(child as any))}
@@ -68,8 +68,8 @@ export const VisitsComponent = () => {
     getData();
   }, []);
   return (
-    <Visits>
+    <CloneVisits>
       <Marquee data={visitData} />
-    </Visits>
+    </CloneVisits>
   );
 };

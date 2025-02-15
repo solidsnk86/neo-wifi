@@ -77,6 +77,13 @@ dialog {
   }
 }
 
-.wifi-iframe {
-  content-visibility: auto;
+@keyframes slideOutEffect {
+  from {
+    transform: translate(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(500%);
+    opacity: 0;
+  }
 }

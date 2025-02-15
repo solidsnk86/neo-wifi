@@ -83,17 +83,17 @@ export default function Home() {
         <DownloadCard />
       </HomeBlock> */}
 
+      <VisitsComponent />
+
+      <HomeBlock>
+        <DownloadCard />
+      </HomeBlock>
+
       <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
       <Faqs />
 
       <HomeBlock>
         <AccordionList />
-      </HomeBlock>
-
-      <VisitsComponent />
-
-      <HomeBlock>
-        <DownloadCard />
       </HomeBlock>
 
       <Footer />

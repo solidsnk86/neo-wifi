@@ -97,7 +97,9 @@ export const GeoPositionCard = () => {
         const { ip: lastIP } = await SupabaseDB.getLastIP();
 
         if (lastIP !== ip) {
-          return await SupabaseDB.sendVisits({ data: objectVisit });
+          setTimeout(async () => {
+            await SupabaseDB.sendVisits({ data: objectVisit });
+          }, 2000);
         }
       } catch (error) {
         console.error("Cannot send data: " + error);

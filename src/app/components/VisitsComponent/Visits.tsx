@@ -6,7 +6,7 @@ import { useEffect, useState, cloneElement, Children, ReactNode } from "react";
 import styles from "./styles/visits.module.css";
 import { PartialOptionsProps } from "@/types/definitions";
 
-const Marquee = ({ data }: PartialOptionsProps) => {
+const Marquee = ({ data }: Pick<PartialOptionsProps, "data">) => {
   return (
     <small className={styles.visits}>
       Última visita desde {data?.city || "No disponible"},{" "}
@@ -28,7 +28,7 @@ const Marquee = ({ data }: PartialOptionsProps) => {
 
 const CloneVisits = ({ children }: { children: ReactNode }) => {
   return (
-    <article className="flex w-[500%] xl:w-[200%] border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3">
+    <article className="flex w-[500%] xl:w-[200%] border-t border-b border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3">
       {Children.map(children, (child) => cloneElement(child as any))}
       {Children.map(children, (child) => cloneElement(child as any))}
     </article>
@@ -36,21 +36,7 @@ const CloneVisits = ({ children }: { children: ReactNode }) => {
 };
 
 export const VisitsComponent = () => {
-  const [visitData, setVisitData] = useState({
-    id: 0,
-    ip: "",
-    city: "",
-    state: "",
-    departament: "",
-    country: "",
-    emoji_flag: "",
-    so: "",
-    created_at: "",
-    longitude: 0,
-    latitude: 0,
-    nearest_wifi: "",
-    distance: 0,
-  });
+  const [visitData, setVisitData] = useState();
 
   useEffect(() => {
     const getData = async () => {

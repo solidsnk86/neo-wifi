@@ -5,18 +5,18 @@ interface OptionalProps {
   order: string;
   data: {
     id: number;
+    ip: string;
     city: string;
     state: string;
     departament: string;
     country: string;
+    emoji_flag: string;
+    so: string;
+    created_at: string;
     longitude: number;
     latitude: number;
     nearest_wifi: string;
     distance: number;
-    ip: string;
-    so: string;
-    emoji_flag: string;
-    created_at: Date | string | number;
   };
 }
 

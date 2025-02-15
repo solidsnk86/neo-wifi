@@ -146,7 +146,7 @@ export const GeoPositionCard = () => {
 
       <InfoWifi location={location} loading={isLoading} />
 
-      <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
+      <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary fade-in">
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <h2
             title="Información válida para la provincia de San Luis"

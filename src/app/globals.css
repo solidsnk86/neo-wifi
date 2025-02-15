@@ -87,3 +87,106 @@ dialog {
     opacity: 0;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scroll-Driven Animations */
+.fade-in {
+  view-timeline-name: --fade;
+  view-timeline-axis: block;
+  animation: fadeIn linear;
+  animation-timeline: view();
+  animation-range: entry 25% cover 50%;
+}
+
+.slide-in-left {
+  view-timeline-name: --slide-left;
+  view-timeline-axis: block;
+  animation: slideInLeft linear;
+  animation-timeline: view();
+  animation-range: entry 5% cover 50%;
+}
+
+.slide-in-right {
+  view-timeline-name: --slide-right;
+  view-timeline-axis: block;
+  animation: slideInRight linear;
+  animation-timeline: view();
+  animation-range: entry 5% cover 50%;
+}
+
+.scale-up {
+  view-timeline-name: --scale;
+  view-timeline-axis: block;
+  animation: scaleUp linear;
+  animation-timeline: view();
+  animation-range: entry 25% cover 50%;
+}
+
+/* Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e5e7eb;
+  z-index: 100;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #4f46e5;
+  transform-origin: left;
+  animation: progress auto linear;
+  animation-timeline: scroll();
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

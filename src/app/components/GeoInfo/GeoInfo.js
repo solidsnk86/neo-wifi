@@ -6,7 +6,7 @@ import { Search } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition";
 import { InfoWifi } from "./components/InfoWifi";
 import { showDialog } from "@/utils/dialog";
-import { SupabaseDB } from "@/services/ModelSB";
+import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
 
 export const InfoRow = ({ label, value, loading }) => (

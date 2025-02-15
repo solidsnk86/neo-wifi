@@ -29,7 +29,7 @@ const HomeBlockTitle = ({ children }: { children: string }) => {
 
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
+    <div className="font-[family-name:var(--font-geist-sans)] overflow-hidden">
       <Navbar />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

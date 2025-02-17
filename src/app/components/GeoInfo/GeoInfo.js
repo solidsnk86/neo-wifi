@@ -97,8 +97,9 @@ export const GeoPositionCard = () => {
         const { ip: lastIP } = await SupabaseDB.getLastIP();
 
         if (lastIP !== ip) {
-          setTimeout(async () => {
+          const time = setTimeout(async () => {
             await SupabaseDB.sendVisits({ data: objectVisit });
+            clearTimeout(time);
           }, 5000);
         }
       } catch (error) {
@@ -106,7 +107,7 @@ export const GeoPositionCard = () => {
       }
     };
 
-    send();
+    if (location) send();
   }, [location]);
 
   const sendQuery = async (searchQuery) => {

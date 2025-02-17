@@ -83,7 +83,7 @@ export default function Home() {
         <DownloadCard />
       </HomeBlock> */}
 
-      <section className=" overflow-hidden">
+      <section className="overflow-hidden">
         <VisitsComponent />
       </section>
 

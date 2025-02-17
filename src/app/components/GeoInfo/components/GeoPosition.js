@@ -4,7 +4,7 @@ import { Copy, MapPin } from "lucide-react";
 
 export const GeoPosition = ({ location, coords, loading }) => {
   return (
-    <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden slide-in-left">
+    <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
       <h2
         title="Información válida para la provincia Argentina"
         className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"

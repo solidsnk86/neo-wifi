@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
 import { Search } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition";
@@ -8,6 +8,7 @@ import { InfoWifi } from "./components/InfoWifi";
 import { showDialog } from "@/utils/dialog";
 import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
+import { writeMAC } from "@/utils/mac-writer";
 
 export const InfoRow = ({ label, value, loading }) => (
   <div className="flex items-center space-x-2">
@@ -17,10 +18,6 @@ export const InfoRow = ({ label, value, loading }) => (
     </span>
   </div>
 );
-
-export const writeMAC = (mac = "") => {
-  return mac ? mac.split(" ").join("-") : "No disponible";
-};
 
 export const GeoPositionCard = () => {
   const [location, setLocation] = useState({
@@ -77,38 +74,38 @@ export const GeoPositionCard = () => {
     fetchInitialData();
   }, []);
 
-  useEffect(() => {
-    const send = async () => {
-      const { ip, sysInfo, emojiFlag } = await getIP();
-      try {
-        const objectVisit = {
-          city: location.city,
-          state: location.state,
-          departament: location.departament,
-          country: location.country,
-          longitude: parseFloat(location.current_position.longitude),
-          latitude: parseFloat(location.current_position.latitude),
-          nearest_wifi: location.closest_wifi.antenna,
-          distance: parseFloat(location.closest_wifi.distance),
-          ip: ip,
-          so: sysInfo.system || "No disponible",
-          emoji_flag: emojiFlag,
-        };
-        const { ip: lastIP } = await SupabaseDB.getLastIP();
+  const send = useCallback(async () => {
+    const { ip, sysInfo, emojiFlag } = await getIP();
+    try {
+      const objectVisit = {
+        city: location.city,
+        state: location.state,
+        departament: location.departament,
+        country: location.country,
+        longitude: parseFloat(location.current_position.longitude),
+        latitude: parseFloat(location.current_position.latitude),
+        nearest_wifi: location.closest_wifi.antenna,
+        distance: parseFloat(location.closest_wifi.distance),
+        ip: ip,
+        so: sysInfo.system || "No disponible",
+        emoji_flag: emojiFlag,
+      };
+      const { ip: lastIP } = await SupabaseDB.getLastIP();
 
-        if (lastIP !== ip) {
-          const time = setTimeout(async () => {
-            await SupabaseDB.sendVisits({ data: objectVisit });
-            clearTimeout(time);
-          }, 5000);
-        }
-      } catch (error) {
-        console.error("Cannot send data: " + error);
+      if (lastIP !== ip) {
+        const time = setTimeout(async () => {
+          await SupabaseDB.sendVisits({ data: objectVisit });
+          clearTimeout(time);
+        }, 5000);
       }
-    };
-
-    if (location) send();
+    } catch (error) {
+      console.error("Cannot send data: " + error);
+    }
   }, [location]);
+
+  useEffect(() => {
+    if (location) send();
+  }, [location, send]);
 
   const sendQuery = async (searchQuery) => {
     try {

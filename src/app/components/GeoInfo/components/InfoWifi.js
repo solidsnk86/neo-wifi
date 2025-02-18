@@ -1,4 +1,5 @@
-import { InfoRow, writeMAC } from "../GeoInfo";
+import { InfoRow } from "../GeoInfo";
+import { writeMAC } from "@/utils/mac-writer";
 import { Wifi } from "lucide-react";
 
 export const InfoWifi = ({ location, loading }) => {

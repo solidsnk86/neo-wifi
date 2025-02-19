@@ -12,7 +12,7 @@ import {
   BookOpenText,
   AlignRight,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
 import { share } from "@/utils/share";
@@ -56,11 +56,13 @@ export const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  if (isMenuOpen) {
-    document.documentElement.style.scrollbarWidth = "none";
-  } else if (!isMenuOpen) {
-    document.documentElement.style.scrollbarWidth = "thin";
-  }
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isMenuOpen]);
 
   return (
     <nav className="flex justify-between items-center md:px-6 px-4 fixed top-0 left-0 w-full z-50 bg-[#F5F5F5] dark:bg-[#111] border-b border-zinc-200/70 dark:border-zinc-800">

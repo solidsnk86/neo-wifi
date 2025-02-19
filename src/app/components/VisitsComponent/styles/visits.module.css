@@ -3,8 +3,7 @@
   display: flex;
   font-size: 0.8rem;
   animation: xScrolling 24s linear infinite;
-  color: lightgreen;
-  text-shadow: 1px 2px 6px lightgreen;
+  color: #777;
 }
 
 @keyframes xScrolling {

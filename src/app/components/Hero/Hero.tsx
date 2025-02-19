@@ -10,7 +10,7 @@ export const Hero = () => {
         <h1 className={`text-center text-pretty ${styles.h1}`}>
           Configura tu CPE WiFi en segundos
         </h1>
-        <p className="my-6 text-pretty text-center text-gray-400">
+        <p className="my-6 text-pretty text-center text-gray-600">
           Simplifica la conexión a las redes WiFi del Gobierno de San Luis con
           esta herramienta especializada. Configura tu dispositivo TP-LINK CPE
           de forma rápida y segura, garantizando una conectividad óptima a la

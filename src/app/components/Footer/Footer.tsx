@@ -34,11 +34,11 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="text-gray-400 pt-12 pb-8 relative">
+    <footer className="text-zinc-900 pt-12 pb-8 relative">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4" id="about">
+            <h3 className="text-lg font-semibold mb-4" id="about">
               ACERCA DE
             </h3>
             <p className="text-sm leading-relaxed">
@@ -53,15 +53,13 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">
-              CATEGORÍAS
-            </h3>
+            <h3 className="text-lg font-semibold mb-4">CATEGORÍAS</h3>
             <ul className="space-y-2">
               {categories.map((category) => (
                 <li key={category.name}>
                   <Link
                     href={category.url}
-                    className="text-sm hover:text-white transition-colors duration-200"
+                    className="text-sm hover:text-zinc-600 transition-colors duration-200"
                   >
                     {category.name}
                   </Link>
@@ -71,15 +69,13 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">
-              ENLACES RÁPIDOS
-            </h3>
+            <h3 className="text-lg font-semibold mb-4">ENLACES RÁPIDOS</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.url}
-                    className="text-sm hover:text-white transition-colors duration-200"
+                    className="text-sm hover:text-gray-600 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -89,7 +85,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 mt-8">
+        <div className="border-t border-zinc-300 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm mb-4 md:mb-0">
               Copyright © {new Date().getFullYear()} • Todos los derechos
@@ -101,7 +97,7 @@ export const Footer = () => {
                   key={ariaLabel}
                   href={url}
                   aria-label={ariaLabel}
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-zinc-600 transition-colors duration-200"
                 >
                   <Icon className="w-5 h-5" />
                 </Link>

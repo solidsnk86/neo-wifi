@@ -28,7 +28,7 @@ const Marquee = ({ data }: Pick<PartialOptionsProps, "data">) => {
 
 const CloneVisits = ({ children }: { children: ReactNode }) => {
   return (
-    <article className="flex w-[500%] xl:w-[200%] border-t border-b border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 overflow-hidden">
+    <article className="flex w-[500%] xl:w-[200%] border-t border-b border-zinc-200/70 bg-[#FFFFFF] p-3 overflow-hidden">
       {Children.map(children, (child) => cloneElement(child as any))}
       {Children.map(children, (child) => cloneElement(child as any))}
     </article>

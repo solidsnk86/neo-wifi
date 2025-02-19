@@ -12,7 +12,7 @@ import { writeMAC } from "@/utils/mac-writer";
 
 export const InfoRow = ({ label, value, loading }) => (
   <div className="flex items-center space-x-2">
-    <span className="text-zinc-500 dark:text-zinc-400 text-sm">{label}:</span>
+    <span className="text-zinc-600 text-sm">{label}:</span>
     <span className="text-text-primary text-sm font-medium" title={value}>
       {loading ? "Cargando..." : value || "No disponible"}
     </span>
@@ -144,13 +144,13 @@ export const GeoPositionCard = () => {
 
       <InfoWifi location={location} loading={isLoading} />
 
-      <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary">
+      <div className="border bg-[#FFFFFF] border-zinc-200/70 p-3 rounded-2xl relative text-text-primary">
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <h2
             title="Información válida para la provincia de San Luis"
             className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"
           >
-            <Search className="w-10 h-10 py-1 px-2 border border-slate-700/50 rounded-xl bg-gradient-to-b from-blue-400/10 to-slate-500/10 text-zinc-300" />
+            <Search className="w-10 h-10 py-1 px-2 border border-zinc-200/70 rounded-xl bg-gradient-to-b from-zinc-400/10 to-zinc-500/10 text-zinc-600" />
             Buscar antena
           </h2>
           <div className="md:flex grid justify-center mx-auto md:gap-4 gap-2">
@@ -160,7 +160,7 @@ export const GeoPositionCard = () => {
                 type="text"
                 name="antenna"
                 placeholder="Ej: WiFi4.0-CO-08"
-                className="border border-slate-800 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
+                className="border border-zinc-300/7 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 required
@@ -169,7 +169,7 @@ export const GeoPositionCard = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="py-[6px] md:w-24 px-2 text-white bg-slate-800 rounded-md border border-slate-700/50 hover:brightness-110 text-base disabled:cursor-not-allowed"
+              className="py-[6px] md:w-24 px-2 text-white bg-zinc-800 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
             >
               {isLoading ? "Buscando..." : "Buscar"}
             </button>

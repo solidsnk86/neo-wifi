@@ -4,12 +4,12 @@ import { Copy, MapPin } from "lucide-react";
 
 export const GeoPosition = ({ location, coords, loading }) => {
   return (
-    <div className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 p-3 rounded-2xl relative text-text-primary overflow-hidden">
+    <div className="border bg-[#FFFFFF] border-zinc-200/70 p-3 rounded-2xl relative text-text-primary overflow-hidden">
       <h2
         title="Información válida para la provincia Argentina"
         className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"
       >
-        <MapPin className="w-10 h-10 py-1 px-2 border border-slate-700/50 rounded-xl bg-gradient-to-b from-blue-300/10 to-slate-600/10 text-red-400/80" />
+        <MapPin className="w-10 h-10 py-1 px-2 border border-zinc-200/70 rounded-xl bg-gradient-to-b from-zinc-300/10 to-zinc-600/10 text-red-400/80" />
         Tú posición geográfica
       </h2>
       <div className="p-4">
@@ -29,7 +29,7 @@ export const GeoPosition = ({ location, coords, loading }) => {
             loading={loading}
           />
           <button
-            className="flex text-zinc-500 font-semibold items-center text-sm hover:brightness-200 transition-all duration-150"
+            className="flex text-zinc-700 font-semibold items-center text-sm hover:brightness-200 transition-all duration-150"
             onClick={() => copy(String(coords.latitude), "latitud")}
             title={`Copiar ${coords.latitude}`}
             aria-label={`Copiar la coordenada de latitud ${coords.latitude}`}
@@ -37,7 +37,7 @@ export const GeoPosition = ({ location, coords, loading }) => {
             Copiar Latitud <Copy className="ml-2 w-4 h-4" />
           </button>
           <button
-            className="flex text-zinc-500 font-semibold items-center text-sm hover:brightness-200 transition-all duration-150"
+            className="flex text-zinc-700 font-semibold items-center text-sm hover:brightness-200 transition-all duration-150"
             onClick={() => copy(String(coords.longitude), "longitud")}
             title={`Copiar ${coords.longitude}`}
             aria-label={`Copiar la coordenada de longitud ${coords.longitude}`}

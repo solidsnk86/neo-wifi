@@ -58,15 +58,15 @@ export const AccordionList = () => {
       {accordionLists.map((list) => (
         <div
           key={list.id}
-          className="border border-slate-800 bg-gradient-to-b from-blue-400/10 to-slate-500/10 rounded-lg overflow-hidden shadow-sm"
+          className="border border-zinc-300/70 bg-gradient-to-b from-zinc-400/10 to-zinc-500/10 rounded-lg overflow-hidden shadow-sm"
         >
           <header
-            className="flex justify-between items-center p-4 cursor-pointer hover:bg-slate-800/30 transition-colors duration-150"
+            className="flex justify-between items-center p-4 cursor-pointer hover:bg-zinc-300/30 transition-colors duration-150"
             onClick={() => toggle(list.id)}
           >
             <h3 className="text-lg font-semibold">{list.question}</h3>
             <ChevronDown
-              className={`transform transition-transform duration-200 text-gray-100 ${
+              className={`transform transition-transform duration-200 text-zinc-600 ${
                 activeItems.includes(list.id) ? "rotate-180" : ""
               }`}
             />
@@ -76,7 +76,7 @@ export const AccordionList = () => {
               activeItems.includes(list.id) ? "max-h-48" : "max-h-0"
             }`}
           >
-            <p className="p-4 text-gray-400 border-t border-slate-800">
+            <p className="p-4 text-gray-700 border-t border-zinc-300/70">
               {list.answer}
             </p>
           </div>

@@ -66,10 +66,10 @@ export const Navbar = () => {
       />
 
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black/50 z-40" onClick={toggleMenu}>
+        <div className="fixed inset-0 bg-zinc-100/50 z-40" onClick={toggleMenu}>
           <div className={styles.menu} onClick={(e) => e.stopPropagation()}>
             <X
-              className="absolute top-4 right-4 w-8 h-8 hover:text-sky-400 cursor-pointer z-50"
+              className="absolute top-4 right-4 w-8 h-8 hover:text-zinc-700 cursor-pointer z-50"
               onClick={toggleMenu}
             />
 
@@ -78,7 +78,7 @@ export const Navbar = () => {
                 <ul key={name} className="w-16 text-left -translate-x-9">
                   <Link
                     href={url}
-                    className="inline-flex items-center gap-3 text-2xl hover:text-sky-400 transition-colors"
+                    className="inline-flex items-center gap-3 text-2xl hover:text-zinc-700 transition-colors"
                     aria-label={ariaLabel}
                     onClick={name === "Compartir" ? fx : toggleMenu}
                   >

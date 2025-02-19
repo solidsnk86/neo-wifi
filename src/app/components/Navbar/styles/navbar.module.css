@@ -4,7 +4,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #00000058;
   animation: slideFrom 180ms forwards linear;
   backdrop-filter: blur(6px);
 }

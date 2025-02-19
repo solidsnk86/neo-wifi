@@ -93,7 +93,7 @@ export const Navbar = () => {
           />
         ) : (
           <MoonStar
-            aria-label="Cambiar a modod oscuro"
+            aria-label="Cambiar a modo oscuro"
             className="cursor-pointer w-5 h-5 translate-y-[1px]"
             onClick={() => dispatch(toggleTheme())}
           />

@@ -39,7 +39,6 @@ export const Navbar = () => {
     {
       name: "Documentación",
       url: "/start/introduction",
-      fx: share,
       icon: BookOpenText,
       ariaLabel: "Documentación",
     },

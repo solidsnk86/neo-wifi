@@ -14,7 +14,7 @@ export const ThemeInitializer = ({
   const dispacth = useDispatch();
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("neo-wifi-theme");
     const isTrue = savedTheme === "true" ? true : false;
     if (isTrue) {
       dispacth(setTheme(isTrue));

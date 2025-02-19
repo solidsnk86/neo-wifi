@@ -9,7 +9,7 @@ const initialState: ThemeState = {
 };
 
 function saveInLocalStorage({ key, value }: { key: string; value: string }) {
-  localStorage.setItem(key, value);
+  return localStorage.setItem(key, value);
 }
 
 export const themeSlice = createSlice({
@@ -18,7 +18,7 @@ export const themeSlice = createSlice({
   reducers: {
     toggleTheme(state) {
       state.darkMode = !state.darkMode;
-      saveInLocalStorage({ key: "theme", value: `${state.darkMode}` });
+      saveInLocalStorage({ key: "neo-wifi-theme", value: `${state.darkMode}` });
     },
     setTheme(state, action: PayloadAction<boolean>) {
       state.darkMode = action.payload;

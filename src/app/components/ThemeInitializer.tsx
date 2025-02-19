@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setTheme } from "@/store/themeSlice";
 import { RootState } from "@/store";
 
 export const ThemeInitializer = ({
@@ -10,14 +11,15 @@ export const ThemeInitializer = ({
   children: React.ReactNode;
 }) => {
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
+  const dispacth = useDispatch();
 
   useEffect(() => {
-    const isDarkMode = localStorage.getItem("theme");
-
-    if (isDarkMode === "true") {
-      document.documentElement.classList.add("dark");
+    const savedTheme = localStorage.getItem("theme");
+    const isTrue = savedTheme === "true" ? true : false;
+    if (isTrue) {
+      dispacth(setTheme(isTrue));
     } else {
-      document.documentElement.classList.remove("dark");
+      dispacth(setTheme(isTrue));
     }
   });
 

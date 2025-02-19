@@ -2,19 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #f5f5f5;
-  --foreground: #222;
-  --border-color: #ddd;
-  --span-color: #eee;
-  --hero-gradient: linear-gradient(
-    135deg,
-    #01497c 10%,
-    #2a6f97 50%,
-    #61a5c2 90%
-  );
-
-  scroll-behavior: smooth;
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #f5f5f5;
+    --foreground: #222;
+    --border-color: #ddd;
+    --span-color: #eee;
+    --hero-gradient: linear-gradient(
+      135deg,
+      #01497c 10%,
+      #2a6f97 50%,
+      #61a5c2 90%
+    );
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,13 +29,13 @@
       #6a994e 50%,
       #386641 90%
     );
-    scroll-behavior: smooth;
   }
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .nav {

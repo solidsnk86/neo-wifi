@@ -8,6 +8,21 @@
   backdrop-filter: blur(5px);
 }
 
+.xEffect {
+  animation: iconEffect 0.4s linear both;
+}
+
+@keyframes iconEffect {
+  from {
+    scale: 0;
+    transform: rotate(0);
+  }
+  to {
+    scale: 1;
+    transform: rotate(180deg);
+  }
+}
+
 @keyframes slideFrom {
   from {
     transform: translate(100%, -100%);

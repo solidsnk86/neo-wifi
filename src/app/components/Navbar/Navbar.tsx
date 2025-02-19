@@ -4,13 +4,13 @@ import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
 import {
   Info,
-  Menu,
   MoonStar,
   File,
   Share,
   Sun,
   X,
   BookOpenText,
+  AlignRight,
 } from "lucide-react";
 import { useState } from "react";
 import styles from "./styles/navbar.module.css";
@@ -56,6 +56,12 @@ export const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  if (isMenuOpen) {
+    document.documentElement.style.scrollbarWidth = "none";
+  } else if (!isMenuOpen) {
+    document.documentElement.style.scrollbarWidth = "thin";
+  }
+
   return (
     <nav className="flex justify-between items-center md:px-6 px-4 fixed top-0 left-0 w-full z-50 bg-[#F5F5F5] dark:bg-[#111] border-b border-zinc-200/70 dark:border-zinc-800">
       <Link
@@ -92,7 +98,7 @@ export const Navbar = () => {
         )}
       </div>
 
-      <Menu
+      <AlignRight
         className="md:hidden block cursor-pointer w-8 h-8"
         aria-label="Menú desplegable"
         onClick={toggleMenu}
@@ -105,7 +111,7 @@ export const Navbar = () => {
         >
           <div className={styles.menu} onClick={(e) => e.stopPropagation()}>
             <X
-              className="absolute top-4 right-4 w-8 h-8 hover:text-red-400/80 cursor-pointer z-50"
+              className={`absolute top-4 right-4 w-8 h-8 hover:text-red-400/80 cursor-pointer z-50 ${styles.xEffect}`}
               onClick={toggleMenu}
             />
 
@@ -129,7 +135,7 @@ export const Navbar = () => {
                 ))}
                 {darkMode ? (
                   <span
-                    className="flex items-center gap-3 text-2xl cursor-pointer px-3"
+                    className="flex items-center gap-3 text-2xl cursor-pointer px-3 hover:opacity-75"
                     onClick={() => dispatch(toggleTheme())}
                   >
                     <Sun />
@@ -137,7 +143,7 @@ export const Navbar = () => {
                   </span>
                 ) : (
                   <span
-                    className="flex items-center gap-3 text-2xl cursor-pointer px-3"
+                    className="flex items-center gap-3 text-2xl cursor-pointer px-3 hover:opacity-75"
                     onClick={() => dispatch(toggleTheme())}
                   >
                     <MoonStar />

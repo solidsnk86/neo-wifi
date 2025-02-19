@@ -34,7 +34,7 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="text-zinc-900 pt-12 pb-8 relative">
+    <footer className="text-zinc-900 dark:text-zinc-200 pt-12 pb-8 relative">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <div>
@@ -75,7 +75,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     href={link.url}
-                    className="text-sm hover:text-gray-600 transition-colors duration-200"
+                    className="text-sm hover:text-gray-600 dark:text-zinc-200 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -85,7 +85,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-zinc-300 pt-8 mt-8">
+        <div className="border-t border-zinc-300 dark:border-zinc-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm mb-4 md:mb-0">
               Copyright © {new Date().getFullYear()} • Todos los derechos
@@ -97,7 +97,7 @@ export const Footer = () => {
                   key={ariaLabel}
                   href={url}
                   aria-label={ariaLabel}
-                  className="hover:text-zinc-600 transition-colors duration-200"
+                  className="hover:text-zinc-600 dark:text-zinc-200 transition-colors duration-200"
                 >
                   <Icon className="w-5 h-5" />
                 </Link>

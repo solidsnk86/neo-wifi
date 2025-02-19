@@ -5,7 +5,17 @@
 :root {
   --background: #f5f5f5;
   --foreground: #222;
+  --border-color: #ddd;
   scroll-behavior: smooth;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111;
+    --foreground: #fafafa;
+    --border-color: #333;
+    scroll-behavior: smooth;
+  }
 }
 
 body {

@@ -35,7 +35,7 @@ const HomeBlockTitle = ({ children }: { children: string }) => {
 
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
+    <div className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
       <Navbar />
 
       <HomeBlock>

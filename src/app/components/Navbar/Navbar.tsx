@@ -2,16 +2,21 @@
 
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
-import { Info, Menu, Share, X } from "lucide-react";
+import { Info, Menu, MoonStar, Share, Sun, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
 import { share } from "@/utils/share";
 import NeoWifiCode from "../Footer/icon/NeoWifiCode";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "@/store/themeSlice";
+import { RootState } from "@/store";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const path = usePathname();
+  const dispatch = useDispatch();
+  const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
   const navLinks = [
     { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
@@ -57,6 +62,11 @@ export const Navbar = () => {
               <span>{name}</span>
             </Link>
           ))}
+        {darkMode ? (
+          <Sun onClick={() => dispatch(toggleTheme())} />
+        ) : (
+          <MoonStar onClick={() => dispatch(toggleTheme())} />
+        )}
       </div>
 
       <Menu

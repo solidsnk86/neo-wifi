@@ -7,7 +7,11 @@ export const Hero = () => {
   return (
     <div className="w-full px-4 mx-auto justify-center">
       <div>
-        <h1 className={`text-center text-pretty ${styles.h1}`}>
+        <h1
+          className={`text-center text-pretty ${styles.h1} 
+          dark:bg-gradient-to-br dark:from-[#a7c957] dark:via-[#6a994e] dark:to-[#386641] 
+          bg-gradient-to-br from-[#01497c] via-[#2a6f97] to-[#61a5c2] transition-colors duration-300`}
+        >
           Configura tu CPE WiFi en segundos
         </h1>
         <p className="my-14 text-pretty text-center text-zinc-600 dark:text-zinc-400">

@@ -98,6 +98,25 @@ export const Navbar = () => {
                 </ul>
               ))}
               <footer className="absolute bottom-4">
+                <div className="flex justify-center mx-auto my-4">
+                  {darkMode ? (
+                    <span
+                      className="flex items-center gap-3 text-2xl"
+                      onClick={() => dispatch(toggleTheme())}
+                    >
+                      <Sun />
+                      Claro
+                    </span>
+                  ) : (
+                    <span
+                      className="flex items-center gap-3 text-2xl"
+                      onClick={() => dispatch(toggleTheme())}
+                    >
+                      <MoonStar />
+                      Oscuro
+                    </span>
+                  )}
+                </div>
                 <NeoWifiCode />
               </footer>
             </div>

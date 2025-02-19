@@ -78,7 +78,7 @@ export const Navbar = () => {
                 <ul key={name} className="w-16 text-left -translate-x-9">
                   <Link
                     href={url}
-                    className="inline-flex items-center gap-3 text-2xl hover:text-zinc-700 transition-colors"
+                    className="inline-flex items-center gap-3 text-2xl hover:text-zinc-700 transition-colors cursor-auto"
                     aria-label={ariaLabel}
                     onClick={name === "Compartir" ? fx : toggleMenu}
                   >

@@ -18,7 +18,7 @@ export const Hero = () => {
         </p>
       </div>
       <aside className="flex justify-center mx-auto mt-24 mb-2">
-        <ArrowBigDownDash className="w-8 h-8 animate-bounce text-[#90B45B]" />
+        <ArrowBigDownDash className="w-8 h-8 animate-bounce dark:text-[#90B45B] text-[#2B7097]" />
       </aside>
       {/* <aside className="flex justify-center gap-10 relative">
         <Link

@@ -6,6 +6,14 @@
   --background: #f5f5f5;
   --foreground: #222;
   --border-color: #ddd;
+  --span-color: #eee;
+  --hero-gradient: linear-gradient(
+    135deg,
+    #01497c 10%,
+    #2a6f97 50%,
+    #61a5c2 90%
+  );
+
   scroll-behavior: smooth;
 }
 
@@ -14,6 +22,13 @@
     --background: #111;
     --foreground: #fafafa;
     --border-color: #333;
+    --span-color: #222;
+    --hero-gradient: linear-gradient(
+      135deg,
+      #a7c957 10%,
+      #6a994e 50%,
+      #386641 90%
+    );
     scroll-behavior: smooth;
   }
 }
@@ -41,6 +56,10 @@ body {
   z-index: 99;
 }
 
+.cursor {
+  cursor: url("/cursor.png") 16 16, auto;
+}
+
 @keyframes blur {
   to {
     backdrop-filter: blur(15px);
@@ -55,11 +74,11 @@ dialog::backdrop {
 
 dialog {
   padding: 20px;
-  background: #ffffff;
+  background: var(--background);
   border: none;
   border-radius: 16px;
-  border: 1px solid #ccc;
-  color: #222;
+  border: 1px solid var(--border-color);
+  color: var(--foreground);
   font-weight: 600;
   animation: 200ms slideEffect ease-in-out;
 
@@ -69,9 +88,9 @@ dialog {
 
   & span {
     padding: 2px 4px;
-    background: #eee;
+    background: var(--span-color);
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
   }
 }
 

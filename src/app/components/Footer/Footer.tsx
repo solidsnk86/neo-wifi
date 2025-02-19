@@ -14,7 +14,7 @@ const quickLinks = [
   { name: "Contacto", url: "mailto:tutosneotecs@gmail.com" },
   { name: "Descargas", url: "#" },
   { name: "Política de Privacidad", url: "/policies" },
-  { name: "Mapa del Sitio", url: "#" },
+  { name: "Mapa del Sitio", url: "/sitemap" },
 ];
 
 const socialLinks = [

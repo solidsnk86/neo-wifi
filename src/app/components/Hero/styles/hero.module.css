@@ -1,5 +1,5 @@
 .h1 {
-  background: linear-gradient(135deg, #a7c957 10%, #6a994e 50%, #386641 90%);
+  background: var(--hero-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

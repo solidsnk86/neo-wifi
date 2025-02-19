@@ -87,12 +87,14 @@ export const Navbar = () => {
           ))}
         {darkMode ? (
           <Sun
-            className="cursor-pointer w-5 h-5 translate-y-[1px] "
+            aria-label="Cambiar a modo claro"
+            className="cursor-pointer w-5 h-5 translate-y-[1px]"
             onClick={() => dispatch(toggleTheme())}
           />
         ) : (
           <MoonStar
-            className="cursor-pointer w-5 h-5 translate-y-[1px] "
+            aria-label="Cambiar a modod oscuro"
+            className="cursor-pointer w-5 h-5 translate-y-[1px]"
             onClick={() => dispatch(toggleTheme())}
           />
         )}

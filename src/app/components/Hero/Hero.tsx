@@ -5,7 +5,7 @@ import styles from "./styles/hero.module.css";
 
 export const Hero = () => {
   return (
-    <div className="w-full px-4 mx-auto justify-center">
+    <div className="w-full px-4 mx-auto justify-center pt-12">
       <div>
         <h1
           className={`text-center text-pretty ${styles.h1} 

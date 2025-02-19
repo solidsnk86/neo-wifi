@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Twitter, Github, Linkedin } from "lucide-react";
+import { socialLinks } from "@/constants";
 
 const categories = [
   { name: "Windows", url: "#" },
@@ -15,21 +15,6 @@ const quickLinks = [
   { name: "Descargas", url: "#" },
   { name: "Política de Privacidad", url: "/policies" },
   { name: "Mapa del Sitio", url: "/sitemap" },
-];
-
-const socialLinks = [
-  {
-    icon: Instagram,
-    url: "https://www.instagram.com/calcagnigabriel/",
-    ariaLabel: "Instagram",
-  },
-  { icon: Twitter, url: "https://x.com/CalcagniGabriel", ariaLabel: "Twitter" },
-  { icon: Github, url: "https://github.com/solidsnk86/", ariaLabel: "Github" },
-  {
-    icon: Linkedin,
-    url: "https://www.linkedin.com/in/gabriel-calcagni/",
-    ariaLabel: "LinkedIn",
-  },
 ];
 
 export const Footer = () => {
@@ -59,7 +44,7 @@ export const Footer = () => {
                 <li key={category.name}>
                   <Link
                     href={category.url}
-                    className="text-sm hover:text-zinc-600 transition-colors duration-200"
+                    className="text-sm hover:opacity-75 transition-colors duration-200"
                   >
                     {category.name}
                   </Link>
@@ -75,7 +60,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     href={link.url}
-                    className="text-sm hover:text-gray-600 dark:text-zinc-200 transition-colors duration-200"
+                    className="text-sm hover:opacity-75 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -97,7 +82,7 @@ export const Footer = () => {
                   key={ariaLabel}
                   href={url}
                   aria-label={ariaLabel}
-                  className="hover:text-zinc-600 dark:text-zinc-200 transition-colors duration-200"
+                  className="hover:opacity-75 transition-colors duration-200"
                 >
                   <Icon className="w-5 h-5" />
                 </Link>

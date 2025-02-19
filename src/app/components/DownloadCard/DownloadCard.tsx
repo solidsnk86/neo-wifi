@@ -3,7 +3,9 @@ import styles from "./styles/card.module.css";
 
 export const DownloadCard = () => {
   return (
-    <article className={styles.article}>
+    <article
+      className={`${styles.article} border border-zinc-200/50 dark:border-zinc-700`}
+    >
       <div className={styles.text_container}>
         <h2>
           Neo-WiFi App <small>v1.0.1</small>

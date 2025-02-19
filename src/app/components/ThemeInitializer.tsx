@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setTheme } from "@/store/themeSlice";
+import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 
 export const ThemeInitializer = ({
@@ -10,25 +9,17 @@ export const ThemeInitializer = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const dispatch = useDispatch();
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const isDarkMode = localStorage.getItem("theme");
 
-      dispatch(setTheme(mediaQuery.matches));
-
-      const handleChange = (e: MediaQueryListEvent) => {
-        dispatch(setTheme(e.matches));
-      };
-
-      mediaQuery.addEventListener("change", handleChange);
-      return () => {
-        mediaQuery.removeEventListener("change", handleChange);
-      };
+    if (isDarkMode === "true") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
-  }, [dispatch]);
+  });
 
   useEffect(() => {
     if (darkMode) {

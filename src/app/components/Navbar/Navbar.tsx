@@ -2,7 +2,16 @@
 
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
-import { Info, Menu, MoonStar, Share, Sun, X } from "lucide-react";
+import {
+  Info,
+  Menu,
+  MoonStar,
+  File,
+  Share,
+  Sun,
+  X,
+  BookOpenText,
+} from "lucide-react";
 import { useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
@@ -11,6 +20,7 @@ import NeoWifiCode from "../Footer/icon/NeoWifiCode";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "@/store/themeSlice";
 import { RootState } from "@/store";
+import { socialLinks } from "@/constants";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,12 +30,19 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
-    // {
-    //   name: "Introducción",
-    //   url: "/start/introduction",
-    //   icon: File,
-    //   ariaLabel: "Documentación",
-    // },
+    {
+      name: "Introducción",
+      url: "/start/introduction",
+      icon: File,
+      ariaLabel: "Documentación",
+    },
+    {
+      name: "Documentación",
+      url: "/start/introduction",
+      fx: share,
+      icon: BookOpenText,
+      ariaLabel: "Documentación",
+    },
     {
       name: "Compartir",
       url: "",
@@ -40,7 +57,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center md:px-6 px-4 relative w-full z-50">
+    <nav className="flex justify-between items-center md:px-6 px-4 fixed top-0 left-0 w-full z-50 bg-[#F5F5F5] dark:bg-[#111] border-b border-zinc-200/70 dark:border-zinc-800">
       <Link
         href="/"
         className="flex gap-2 hover:scale-105 transition-transform duration-300 hover:drop-shadow-md"
@@ -63,9 +80,15 @@ export const Navbar = () => {
             </Link>
           ))}
         {darkMode ? (
-          <Sun onClick={() => dispatch(toggleTheme())} />
+          <Sun
+            className="cursor-pointer w-5 h-5 translate-y-[1px] "
+            onClick={() => dispatch(toggleTheme())}
+          />
         ) : (
-          <MoonStar onClick={() => dispatch(toggleTheme())} />
+          <MoonStar
+            className="cursor-pointer w-5 h-5 translate-y-[1px] "
+            onClick={() => dispatch(toggleTheme())}
+          />
         )}
       </div>
 
@@ -76,48 +99,66 @@ export const Navbar = () => {
       />
 
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-zinc-100/50 z-40" onClick={toggleMenu}>
+        <div
+          className="fixed inset-0 bg-zinc-100/50 dark:bg-zinc-800/50 z-40"
+          onClick={toggleMenu}
+        >
           <div className={styles.menu} onClick={(e) => e.stopPropagation()}>
             <X
-              className="absolute top-4 right-4 w-8 h-8 hover:text-zinc-700 cursor-pointer z-50"
+              className="absolute top-4 right-4 w-8 h-8 hover:text-red-400/80 cursor-pointer z-50"
               onClick={toggleMenu}
             />
 
-            <div className="flex flex-col items-center justify-center h-full space-y-6">
-              {navLinks.map(({ name, ariaLabel, icon: Icon, url, fx }) => (
-                <ul key={name} className="w-16 text-left -translate-x-9">
-                  <Link
-                    href={url}
-                    className="inline-flex items-center gap-3 text-2xl hover:text-zinc-700 transition-colors cursor-auto"
-                    aria-label={ariaLabel}
-                    onClick={name === "Compartir" ? fx : toggleMenu}
+            <div className="flex flex-col w-full h-full pt-20">
+              <article className="space-y-5">
+                {navLinks.map(({ name, ariaLabel, icon: Icon, url, fx }) => (
+                  <ul
+                    key={name}
+                    className="text-left border-b border-zinc-200 dark:border-zinc-800"
                   >
-                    <Icon className="w-6 h-6" />
-                    <span>{name}</span>
-                  </Link>
-                </ul>
-              ))}
-              <footer className="absolute bottom-4">
-                <div className="flex justify-center mx-auto my-4">
-                  {darkMode ? (
-                    <span
-                      className="flex items-center gap-3 text-2xl"
-                      onClick={() => dispatch(toggleTheme())}
+                    <Link
+                      href={url}
+                      className="flex items-center gap-3 text-2xl hover:opacity-75 transition-colors cursor-pointer p-3"
+                      aria-label={ariaLabel}
+                      onClick={name === "Compartir" ? fx : toggleMenu}
                     >
-                      <Sun />
-                      Claro
-                    </span>
-                  ) : (
-                    <span
-                      className="flex items-center gap-3 text-2xl"
-                      onClick={() => dispatch(toggleTheme())}
+                      <Icon className="w-6 h-6" />
+                      <span>{name}</span>
+                    </Link>
+                  </ul>
+                ))}
+                {darkMode ? (
+                  <span
+                    className="flex items-center gap-3 text-2xl cursor-pointer px-3"
+                    onClick={() => dispatch(toggleTheme())}
+                  >
+                    <Sun />
+                    Claro
+                  </span>
+                ) : (
+                  <span
+                    className="flex items-center gap-3 text-2xl cursor-pointer px-3"
+                    onClick={() => dispatch(toggleTheme())}
+                  >
+                    <MoonStar />
+                    Oscuro
+                  </span>
+                )}
+              </article>
+              <footer className="absolute bottom-4 w-full">
+                <aside className="flex justify-between pt-8 border-t border-zinc-300/50 dark:border-zinc-800 px-4">
+                  {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (
+                    <Link
+                      key={ariaLabel}
+                      href={url}
+                      aria-label={ariaLabel}
+                      className="inline-flex"
                     >
-                      <MoonStar />
-                      Oscuro
-                    </span>
-                  )}
-                </div>
-                <NeoWifiCode />
+                      <Icon />
+                    </Link>
+                  ))}
+                </aside>
+                <NeoWifiCode className="flex justify-center mx-auto mt-8" />
               </footer>
             </div>
           </div>

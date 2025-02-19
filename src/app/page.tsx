@@ -18,7 +18,7 @@ interface HomeBlockProps {
 const HomeBlock = ({ children, className }: HomeBlockProps) => {
   return (
     <section
-      className={`max-w-3xl flex justify-center mx-auto my-28 ${className}`}
+      className={`max-w-3xl flex justify-center mx-auto py-28 ${className}`}
     >
       {children}
     </section>
@@ -27,7 +27,7 @@ const HomeBlock = ({ children, className }: HomeBlockProps) => {
 
 const HomeBlockTitle = ({ children }: { children: string }) => {
   return (
-    <h1 className="md:text-[2.5rem] text-3xl font-semibold my-20 flex justify-center mx-auto">
+    <h1 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto">
       {children}
     </h1>
   );

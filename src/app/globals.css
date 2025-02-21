@@ -75,7 +75,7 @@ html.dark {
     background: var(--background);
     border: none;
     border-radius: 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #222;
     color: var(--foreground);
     font-weight: 600;
     animation: 200ms slideEffect ease-in-out;

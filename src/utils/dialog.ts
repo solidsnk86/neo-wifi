@@ -1,9 +1,12 @@
-export const showDialog = ({ content }: { content: string }) => {
-  if (!content) return;
+import { ReactNode } from "react";
+import { createRoot } from "react-dom/client";
 
+export const showDialog = ({ content }: { content: ReactNode }) => {
   const dialog = document.createElement("dialog");
-  dialog.innerHTML = `<div>${content}</div>`;
   document.body.appendChild(dialog);
+  const root = createRoot(dialog);
+  root.render(content);
+
   dialog.showModal();
 
   const closeDialogWithAnimation = () => {

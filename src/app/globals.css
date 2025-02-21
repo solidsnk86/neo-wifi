@@ -7,19 +7,17 @@
   scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #f5f5f5;
-    --foreground: #222;
-    --border-color: #ddd;
-    --span-color: #eee;
-    --hero-gradient: linear-gradient(
-      135deg,
-      #01497c 10%,
-      #2a6f97 50%,
-      #61a5c2 90%
-    );
-  }
+:root {
+  --background: #f5f5f5;
+  --foreground: #222;
+  --border-color: #ddd;
+  --span-color: #eee;
+  --hero-gradient: linear-gradient(
+    135deg,
+    #01497c 10%,
+    #2a6f97 50%,
+    #61a5c2 90%
+  );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,10 +57,6 @@ body {
   z-index: 99;
 }
 
-.cursor {
-  cursor: url("/cursor.png") 16 16, auto;
-}
-
 @keyframes blur {
   to {
     backdrop-filter: blur(15px);
@@ -75,25 +69,51 @@ dialog::backdrop {
   backdrop-filter: blur(6px);
 }
 
-dialog {
-  padding: 20px;
-  background: var(--background);
-  border: none;
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
-  color: var(--foreground);
-  font-weight: 600;
-  animation: 200ms slideEffect ease-in-out;
-
-  & p {
-    text-align: center;
-  }
-
-  & span {
-    padding: 2px 4px;
-    background: var(--span-color);
-    border-radius: 4px;
+html.dark {
+  & dialog {
+    padding: 20px;
+    background: var(--background);
+    border: none;
+    border-radius: 16px;
     border: 1px solid var(--border-color);
+    color: var(--foreground);
+    font-weight: 600;
+    animation: 200ms slideEffect ease-in-out;
+
+    & p {
+      text-align: center;
+    }
+
+    & span {
+      padding: 2px 4px;
+      background: var(--span-color);
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+    }
+  }
+}
+
+html {
+  & dialog {
+    padding: 20px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    color: #111;
+    font-weight: 600;
+    animation: 200ms slideEffect ease-in-out;
+
+    & p {
+      text-align: center;
+    }
+
+    & span {
+      padding: 2px 4px;
+      background: #eee;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
   }
 }
 

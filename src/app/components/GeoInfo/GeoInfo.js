@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
-import { Search } from "lucide-react";
+import { Search, TriangleAlert } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition";
 import { InfoWifi } from "./components/InfoWifi";
 import { showDialog } from "@/utils/dialog";
@@ -120,7 +120,16 @@ export const GeoPositionCard = () => {
       const data = await response.json();
       if (data.antenna.name === "Antena inexistente")
         showDialog({
-          content: ` La antena <span>${query}</span> es inexistente o está mal escrita, chequea que el SSID de la antena sea el correcto.`,
+          content: (
+            <div className="">
+              <h2 className="flex justify-center text-center font-semibold items-center gap-2">
+                <TriangleAlert className="text-amber-400 -translate-y-[1px]" />
+                Error en la búsqueda
+              </h2>
+              La antena <span>{query}</span> es inexistente o está mal escrita,
+              chequea que el SSID de la antena sea el correcto.
+            </div>
+          ),
         });
       setSearchResult(data);
     } catch (error) {

@@ -16,10 +16,17 @@ export const copy = async (coord: string, title: string): Promise<boolean> => {
 
     await navigator.clipboard.writeText(coord);
     showDialog({
-      content: `
-      <p>📌 Se ha copiado la coordenada para <span>${title}: ${coord}</span></p>
-      <p>Podés emplearla en la aplicación ahora!</p>
-      `,
+      content: (
+        <div>
+          <p>
+            📌 Se ha copiado la coordenada para{" "}
+            <span>
+              {title}: {coord}
+            </span>
+          </p>
+          <p>Podés emplearla en la aplicación ahora!</p>
+        </div>
+      ),
     });
     return true;
   } catch (error) {

@@ -189,9 +189,9 @@ export const GeoPositionCard = () => {
             <InfoRow label="SSID-1" value={searchResult.antenna?.name} />
             <InfoRow label="SSID-2" value={searchResult.antenna?.name5g} />
             <InfoRow label="Distancia" value={searchResult.distance} />
+            <InfoRow label="Tipo" value={searchResult.type} />
             <InfoRow label="MAC" value={writeMAC(searchResult.MAC)} />
             <InfoRow label="MAC-5G" value={writeMAC(searchResult.MAC5G)} />
-            <InfoRow label="Tipo" value={searchResult.type} />
           </div>
         )}
       </div>

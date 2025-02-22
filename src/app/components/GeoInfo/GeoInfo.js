@@ -121,8 +121,8 @@ export const GeoPositionCard = () => {
       if (data.antenna.name === "Antena inexistente")
         showDialog({
           content: (
-            <div className="">
-              <h2 className="flex justify-center text-center font-semibold items-center gap-2">
+            <div className="p-5">
+              <h2 className="flex justify-center text-center font-semibold items-center gap-2 my-3">
                 <TriangleAlert className="text-amber-400 -translate-y-[1px]" />
                 Error en la búsqueda
               </h2>
@@ -191,7 +191,7 @@ export const GeoPositionCard = () => {
             <InfoRow label="Distancia" value={searchResult.distance} />
             <InfoRow label="MAC" value={writeMAC(searchResult.MAC)} />
             <InfoRow label="MAC-5G" value={writeMAC(searchResult.MAC5G)} />
-            <InfoRow label="MAC-5G" value={searchResult.type} />
+            <InfoRow label="Tipo" value={searchResult.type} />
           </div>
         )}
       </div>

@@ -25,28 +25,6 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
      - El Durazno
      - Estancia Grande
 
-3. **Funcionalidades Adicionales**
-
-   - **Cálculo de Distancia**:
-     Mostrar no solo la antena más cercana, sino también:
-
-     - Distancia exacta de la antena.
-
-   - **Interfaz de Usuario Intuitiva**:
-
-     - Opción de filtrado por tipo de antena (2.4GHz | 5GHz)
-     - Permite buscar la antena que deseas si la más próxima no es la ideal.
-
-   - **Modo Offline**:
-     - Capacidad de guardar información de antenas para consulta sin conexión, la aplicación permite ingresarle las coordenadas para determinar tu ubicación y la antena más próxima.
-
-### Próximos Pasos
-
-- Expandir la cobertura a toda la provincia de San Luis
-- Integrar más proveedores de internet
-- Desarrollar una versión móvil de la aplicación
-- Implementar retroalimentación de usuarios para mejorar el mapeo
-
 ### Tecnologías Utilizadas
 
 - Fórmula de Haversine para cálculos de geolocalización
@@ -56,3 +34,5 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
 - Tecnologías:
   - Nextjs
   - Electronjs
+
+3. Aún queda seguir ampliando el mapa de las antenas WiFi de la provincia.

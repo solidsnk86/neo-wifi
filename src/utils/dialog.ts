@@ -9,29 +9,27 @@ export const showDialog = ({ content }: { content: ReactNode }) => {
 
   dialog.showModal();
 
-  const closeDialogWithAnimation = () => {
-    if (dialog.getAttribute("data-closing") === "true") return;
-    dialog.setAttribute("data-closing", "true");
+  const controller = new AbortController();
 
+  const closeDialogWithAnimation = () => {
     dialog.style.animation = "slideOutEffect 300ms ease-in-out";
 
-    dialog.addEventListener(
-      "animationend",
-      () => {
-        dialog.close();
-        dialog.remove();
-      },
-      { once: true }
-    );
+    dialog.addEventListener("animationend", () => {
+      dialog.close();
+      dialog.remove();
+      root.unmount();
+      controller.abort();
+    });
   };
 
-  document.addEventListener(
+  document.documentElement.addEventListener(
     "click",
     (event: MouseEvent) => {
-      if (dialog.contains(event.target as Node)) {
+      const firstChildDialog = document.querySelector("dialog")?.children[0];
+      if (dialog.open && !firstChildDialog?.contains(event.target as Node)) {
         closeDialogWithAnimation();
       }
     },
-    { once: true }
+    { signal: controller.signal }
   );
 };

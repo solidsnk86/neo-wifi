@@ -26,7 +26,7 @@ const accordionLists = [
     id: 4,
     question: "¿Qué información puedo encontrar sobre las antenas?",
     answer:
-      "Podrás ver la ubicación exacta basada en las coordenadas, a que distancia te encuentras del la antena más cercana y detalles técnicos específicos de cada antena.",
+      "Podrás ver la ubicación exacta basada en las coordenadas, a que distancia en metros te encuentras de la antena más cercana y detalles técnicos específicos de cada antena.",
   },
   {
     id: 5,

@@ -92,6 +92,48 @@ html.dark {
   }
 }
 
+.img_card {
+  -webkit-mask-image: linear-gradient(90deg, transparent 5%, black 40%),
+    linear-gradient(270deg, transparent 5%, black 40%),
+    linear-gradient(180deg, transparent 5%, black 40%),
+    linear-gradient(0deg, transparent 5%, black 40%);
+  -webkit-mask-composite: source-in;
+
+  mask-image: linear-gradient(90deg, transparent 5%, black 40%),
+    linear-gradient(270deg, transparent 5%, black 40%),
+    linear-gradient(180deg, transparent 5%, black 40%),
+    linear-gradient(0deg, transparent 5%, black 40%);
+  mask-composite: intersect;
+  opacity: 0.9;
+  transition: all 0.8s ease;
+  view-timeline-name: --card;
+  view-timeline-axis: block;
+  background: #232322;
+
+  animation-timeline: --card;
+  animation-name: vanish;
+
+  animation-range: entry 50% cover 50%;
+  animation-fill-mode: both;
+}
+
+.dark .img_card {
+  opacity: 0.7;
+}
+
+@keyframes vanish {
+  0% {
+    opacity: 0.1;
+    transform: translateY(60%);
+    filter: contrast(115%);
+  }
+  1% {
+    opacity: 0;
+    transform: translateY(0%);
+    filter: contrast(125%);
+  }
+}
+
 html {
   & dialog {
     background: #f5f5f5;

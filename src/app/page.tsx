@@ -9,6 +9,7 @@ import {
 import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";
+import Image from "next/image";
 
 interface HomeBlockProps {
   children: ReactNode;
@@ -52,12 +53,17 @@ export default function Home() {
       {/* <HomeBlockTitle>Descarga la App</HomeBlockTitle>
 
       <HomeBlock>
-        <Main />
-      </HomeBlock>
-
-      <HomeBlock>
         <DownloadCard />
       </HomeBlock> */}
+      <HomeBlock>
+        <Image
+          src="/neo-wifi-app-card.webp"
+          width={300}
+          height={300}
+          alt="Neo-Wifi app image"
+          className="rounded-[16px] img_card"
+        />
+      </HomeBlock>
 
       <section className="overflow-hidden">
         <VisitsComponent />

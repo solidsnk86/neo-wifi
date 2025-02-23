@@ -58,7 +58,7 @@ export default function Home() {
       <HomeBlock>
         <Image
           src="/neo-wifi-app-card.webp"
-          width={300}
+          width={400}
           height={300}
           alt="Neo-Wifi app image"
           className="rounded-[16px] img_card"

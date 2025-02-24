@@ -20,7 +20,7 @@ const accordionLists = [
     id: 3,
     question: "¿Cómo puedo usar la aplicación?",
     answer:
-      "Para usar Neo-Wifi, simplemente descarga la aplicación proporcionada en esta web, crea una cuenta y comienza a explorar el mapa de antenas. La interfaz es intuitiva y fácil de usar.",
+      "Para usar Neo-Wifi, simplemente descarga la aplicación proporcionada en esta web, instala la app en tu ordenador y listo!. La interfaz es intuitiva y fácil de usar. Recuerda que hay que insertar las coordenadas obtenidas de esta web siempre y cuando permitas la localización en tu navegador.",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const accordionLists = [
     id: 5,
     question: "¿La aplicación funciona en toda la provincia?",
     answer:
-      "Neo-Wifi no cubre toda la provincia de San Luis por ahora. El servicio está disponible en las siguientes zonas urbanas: San Luis, La Punta, Juana Koslay, El Trapiche, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca, Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, La Toma, Naschel.",
+      "Neo-Wifi no cubre toda la provincia de San Luis por ahora. El servicio está disponible en las siguientes zonas urbanas: San Luis, La Punta, Juana Koslay, El Trapiche, La Florida, Potrero de los Funes, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca, Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, La Toma, Naschel.",
   },
   {
     id: 6,

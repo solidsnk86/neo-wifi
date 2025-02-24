@@ -10,6 +10,7 @@ import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
+import { Donation } from "./components/DonationCard/Donation";
 
 interface HomeBlockProps {
   children: ReactNode;
@@ -49,6 +50,8 @@ export default function Home() {
         <span id="geoposition" />
         <GeoPositionCard />
       </HomeBlock>
+
+      <Donation />
 
       {/* <HomeBlockTitle>Descarga la App</HomeBlockTitle>
 

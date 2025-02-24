@@ -92,7 +92,7 @@ export const GeoPositionCard = () => {
       };
       const { ip: lastIP } = await SupabaseDB.getLastIP();
 
-      if (lastIP !== ip) {
+      if (lastIP !== ip && location.city !== "No disponible") {
         const time = setTimeout(async () => {
           await SupabaseDB.sendVisits({ data: objectVisit });
           clearTimeout(time);

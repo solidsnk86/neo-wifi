@@ -9,6 +9,7 @@ import { showDialog } from "@/utils/dialog";
 import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
 import { writeMAC } from "@/utils/mac-writer";
+import Link from "next/link";
 
 export const InfoRow = ({ label, value, loading }) => (
   <div className="flex items-center space-x-2">
@@ -126,8 +127,18 @@ export const GeoPositionCard = () => {
                 <TriangleAlert className="text-amber-400 -translate-y-[1px]" />
                 Error en la búsqueda
               </h2>
-              La antena <span>{query}</span> es inexistente o está mal escrita,
-              chequea que el SSID de la antena sea el correcto.
+              <p>
+                La antena <span>{query}</span> es inexistente o está mal
+                escrita, chequea que el SSID de la antena sea el correcto.
+                Puedes ver el mapa de antenas
+                <Link
+                  className="underline text-blue-500 mx-1"
+                  href="https://wifi.sanluis.gov.ar/#"
+                >
+                  aquí
+                </Link>
+                .
+              </p>
             </div>
           ),
         });

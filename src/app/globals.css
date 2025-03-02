@@ -284,7 +284,7 @@ html {
   }
 }
 
-@media (width < 400px) {
+@media (width < 762px) {
   body {
     overflow-x: hidden;
   }

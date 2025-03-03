@@ -4,7 +4,6 @@ interface OptionalProps {
   limit: number;
   order: string;
   data: {
-    id: number;
     ip: string;
     city: string;
     state: string;
@@ -20,5 +19,14 @@ interface OptionalProps {
   };
 }
 
-export type { OptionalProps };
+interface DownloadsProps {
+  data: {
+    download_count?: number;
+    ip: string;
+    city: string;
+    so: string;
+  };
+}
+
+export type { OptionalProps, DownloadsProps };
 export type PartialOptionsProps = Partial<OptionalProps>;

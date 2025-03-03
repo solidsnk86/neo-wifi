@@ -1,3 +1,5 @@
+"Use client";
+
 import { DownloadButton } from "../DownloadButton/DownloadButton";
 import styles from "./styles/card.module.css";
 

@@ -1,4 +1,4 @@
-import { OptionalProps } from "@/types/definitions";
+import { DownloadsProps, OptionalProps } from "@/types/definitions";
 
 export class SupabaseDB {
   public static async getAllData() {
@@ -77,6 +77,37 @@ export class SupabaseDB {
     try {
       const response = await fetch(
         "https://supabase-rest-api.vercel.app/supabase/optional?from=neo_wifi_visitors&select=id&limit=1&order=created_at"
+      );
+      if (!response.ok) throw new Error(response.statusText);
+      const data = await response.json();
+      return data[0];
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  public static async sendDownloads({ data }: DownloadsProps) {
+    try {
+      const response = await fetch(
+        "https://supabase-rest-api.vercel.app/supabase/?from=downloads",
+        { method: "POST", mode: "cors", body: JSON.stringify(data) }
+      );
+      if (!response.ok)
+        throw new Error("Cannot send data: " + response.statusText);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  public static async getDownloads() {
+    try {
+      const response = await fetch(
+        "https://supabase-rest-api.vercel.app/supabase/?from=downloads&select=*&limit=1&order=created_at",
+        {
+          method: "GET",
+          mode: "cors",
+          headers: { "Content-Type": "application/json" },
+        }
       );
       if (!response.ok) throw new Error(response.statusText);
       const data = await response.json();

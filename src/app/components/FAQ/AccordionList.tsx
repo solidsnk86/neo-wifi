@@ -14,7 +14,7 @@ const accordionLists = [
     id: 2,
     question: "¿Cuánto cuesta el servicio de la aplicación?",
     answer:
-      "El costo de la aplicación por reconfiguración sin reseteo de la antena es gratis.",
+      "El costo de la aplicación es gratis, tiene un período de prueba de 30 días.",
   },
   {
     id: 3,

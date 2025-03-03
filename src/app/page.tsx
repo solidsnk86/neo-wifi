@@ -53,11 +53,6 @@ export default function Home() {
 
       <Donation />
 
-      {/* <HomeBlockTitle>Descarga la App</HomeBlockTitle>
-
-      <HomeBlock>
-        <DownloadCard />
-      </HomeBlock> */}
       <HomeBlock>
         <Image
           src="/neo-wifi-app-card.png"
@@ -68,9 +63,11 @@ export default function Home() {
         />
       </HomeBlock>
 
-      <section className="overflow-hidden">
+      <section className="overflow-hidden my-24">
         <VisitsComponent />
       </section>
+
+      <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
 
       <HomeBlock>
         <DownloadCard />

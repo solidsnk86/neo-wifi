@@ -91,12 +91,20 @@ export const GeoPositionCard = () => {
         so: sysInfo.system || "No disponible",
         emoji_flag: emojiFlag,
       };
+      const values = Object.values(objectVisit);
+      if (
+        values.includes("No disponible") ||
+        values.includes(undefined) ||
+        values.includes(null)
+      ) {
+        return;
+      }
+
       const { ip: lastIP } = await SupabaseDB.getLastIP();
 
-      if (lastIP !== ip && objectVisit.city !== "No disponible") {
-        const time = setTimeout(async () => {
+      if (lastIP !== ip) {
+        setTimeout(async () => {
           await SupabaseDB.sendVisits({ data: objectVisit });
-          clearTimeout(time);
         }, 5000);
       }
     } catch (error) {

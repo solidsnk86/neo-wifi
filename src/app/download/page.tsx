@@ -46,22 +46,31 @@ export default function DownloadPage() {
 
   const sendDataToSupabase = useCallback(async () => {
     const { ip, sysInfo, cityName } = await getIP();
-    await SupabaseDB.sendDownloads({
-      data: { ip, so: sysInfo, city: cityName },
-    });
+    const objDownload = {
+      ip: ip,
+      city: cityName,
+      so: sysInfo.system,
+    };
+    await SupabaseDB.sendDownloads({ data: objDownload });
   }, []);
 
   const getDownloadsCount = async () => {
-    const data = await SupabaseDB.getDownloads();
-    const { download_count, ip, city, so } = data;
-    setDownloads({ data: { download_count, ip, city, so } });
+    const download = await SupabaseDB.getDownloads();
+    setDownloads({
+      data: {
+        download_count: download?.download_count,
+        city: download?.city,
+        ip: download?.ip,
+        so: download?.so,
+      },
+    });
   };
 
   const createLink = async () => {
     const link = document.createElement("a");
     link.href = "/Neo-Wifi Setup 1.0.1.exe";
     link.download = "Neo-Wifi Setup 1.0.1.exe";
-    sendDataToSupabase().catch((err) =>
+    await sendDataToSupabase().catch((err) =>
       console.error("Error al enviar datos:", err)
     );
     document.body.appendChild(link);
@@ -115,7 +124,7 @@ export default function DownloadPage() {
               onClick={createLink}
             >
               <span className={`text-white ${styles.button}`}>
-                Descargar ({fileInfo?.size}MB)
+                Descargar ({fileInfo?.size || 0}MB)
               </span>
             </button>
           </aside>

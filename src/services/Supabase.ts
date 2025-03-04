@@ -90,10 +90,14 @@ export class SupabaseDB {
     try {
       const response = await fetch(
         "https://supabase-rest-api.vercel.app/supabase/?from=downloads",
-        { method: "POST", mode: "cors", body: JSON.stringify(data) }
+        {
+          method: "POST",
+          mode: "cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }
       );
-      if (!response.ok)
-        throw new Error("Cannot send data: " + response.statusText);
+      if (!response.ok) throw new Error(response.statusText);
     } catch (error) {
       console.error(error);
     }

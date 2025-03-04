@@ -106,7 +106,7 @@ export class SupabaseDB {
   public static async getDownloads() {
     try {
       const response = await fetch(
-        "https://supabase-rest-api.vercel.app/supabase/?from=downloads&select=*&limit=1&order=created_at",
+        "https://supabase-rest-api.vercel.app/supabase/optional?from=downloads&select=download_count&limit=1&order=created_at",
         {
           method: "GET",
           mode: "cors",

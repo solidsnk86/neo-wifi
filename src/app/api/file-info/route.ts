@@ -9,7 +9,7 @@ export async function GET() {
       "Neo-Wifi Setup 1.0.1.exe"
     );
     const stat = await fs.stat(filePath);
-    const fileName = path.basename(filePath);
+    const fileName = path.basename(filePath).replace(".exe", "");
     const formattedSize = (stat.size / 1_048_576).toFixed(2);
     const fileExtension = path.extname(filePath);
 

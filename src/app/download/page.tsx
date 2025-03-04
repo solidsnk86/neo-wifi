@@ -3,7 +3,7 @@
 import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
 import { useCallback, useEffect, useState } from "react";
-import { Navbar } from "../components";
+import { Footer, Navbar } from "../components";
 import styles from "./styles/button.module.css";
 import {
   Activity,
@@ -83,41 +83,44 @@ export default function DownloadPage() {
   }, []);
 
   return (
-    <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200 h-[100dvh]">
+    <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
       <Navbar />
-      <section style={{ padding: "2rem" }} className="">
-        <h1 className="flex justify-center mx-auto text-4xl font-bold pt-16">
+      <section className="pb-10">
+        <h1 className="flex justify-center mx-auto text-4xl font-bold pt-24">
           Descarga
         </h1>
-        <div className="flex flex-col space-y-2 border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-4 rounded-2xl relative text-text-primary my-12 w-fit mx-auto">
-          <h3 className="font-semibold text-xl my-2">
+        <article className="flex flex-col border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 w-fit mx-auto">
+          <h3 className="font-semibold text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b p-2">
             Información del archivo
           </h3>
-          <p className="flex items-center">
-            <FileText className="mx-2 w-6 h-6" />{" "}
-            {fileInfo?.file || "Actualizando..."}
-          </p>
-          <p className="flex items-center">
-            <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:{" "}
-            {fileInfo?.size || 0}Mb.
-          </p>
-          <p className="flex items-center">
-            <FileBox className="mx-2 w-6 h-6" /> Extensión:{" "}
-            {fileInfo?.extension || "Actualizando..."}
-          </p>
-          <p className="flex items-center">
-            <FilePenIcon className="mx-2 w-6 h-6" /> Creación:{" "}
-            {formatDate(fileInfo?.creation || "") || "Actualizando..."}
-          </p>
-          <p className="flex items-center">
-            <Activity className="mx-2 w-6 h-6" /> Última actualización:{" "}
-            {formatDate(fileInfo?.mod || "") || "Actualizando..."}
-          </p>
-          <p className="flex items-center">
-            <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
-            {downloads?.data.download_count || 0}
-          </p>
-          <aside className="flex justify-end">
+          <div className="flex flex-col p-2 gap-2">
+            <p className="flex items-center text-sm">
+              <FileText className="mx-2 w-6 h-6" />{" "}
+              {fileInfo?.file || "Actualizando información..."}
+            </p>
+            <p className="flex items-center text-sm">
+              <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:{" "}
+              {fileInfo?.size || 0}Mb.
+            </p>
+            <p className="flex items-center text-sm">
+              <FileBox className="mx-2 w-6 h-6" /> Extensión:{" "}
+              {fileInfo?.extension || "Actualizando información..."}
+            </p>
+            <p className="flex items-center text-sm">
+              <FilePenIcon className="mx-2 w-6 h-6" /> Creación:{" "}
+              {formatDate(fileInfo?.creation || "") ||
+                "Actualizando información..."}
+            </p>
+            <p className="flex items-center text-sm">
+              <Activity className="mx-2 w-6 h-6" /> Última actualización:{" "}
+              {formatDate(fileInfo?.mod || "") || "Actualizando información..."}
+            </p>
+            <p className="flex items-center text-sm">
+              <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
+              {downloads?.data.download_count || 0}
+            </p>
+          </div>
+          <aside className="flex justify-end p-4">
             <button
               title={`Descargar ${fileInfo?.file}`}
               className="py-2 px-4 bg-green-500 w-fit mt-4 rounded-xl hover:scale-105 transition-transform duration-300"
@@ -128,8 +131,9 @@ export default function DownloadPage() {
               </span>
             </button>
           </aside>
-        </div>
+        </article>
       </section>
+      <Footer />
     </main>
   );
 }

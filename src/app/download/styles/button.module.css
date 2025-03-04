@@ -1,0 +1,10 @@
+.button {
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  paint-order: stroke fill;
+  display: inline-block;
+  letter-spacing: -0.1ch;
+  text-shadow: 0 0 6px black, 1px 1px 0 #fff;
+  font-style: italic;
+}

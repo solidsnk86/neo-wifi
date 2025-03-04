@@ -4,6 +4,7 @@ interface OptionalProps {
   limit: number;
   order: string;
   data: {
+    id: number;
     ip: string;
     city: string;
     state: string;

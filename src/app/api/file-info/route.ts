@@ -10,12 +10,13 @@ export async function GET() {
     );
     const stat = await fs.stat(filePath);
     const fileName = path.basename(filePath);
+    const formattedSize = (stat.size / 1_048_576).toFixed(2);
     const fileExtension = path.extname(filePath);
 
     return Response.json(
       {
         file: fileName,
-        size: (stat.size / 1_048_576).toFixed(2),
+        size: formattedSize,
         creation: stat.birthtime,
         mod: stat.mtime,
         extension: fileExtension,

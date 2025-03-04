@@ -61,10 +61,12 @@ export default function DownloadPage() {
     const link = document.createElement("a");
     link.href = "/Neo-Wifi Setup 1.0.1.exe";
     link.download = "Neo-Wifi Setup 1.0.1.exe";
+    sendDataToSupabase().catch((err) =>
+      console.error("Error al enviar datos:", err)
+    );
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    await sendDataToSupabase();
   };
 
   useEffect(() => {

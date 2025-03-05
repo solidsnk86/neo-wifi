@@ -18,6 +18,7 @@ export const YouTubeLiteVideo: React.FC<Partial<YouTubeLiteVideoProps>> = ({
       height={height}
       frameBorder={border}
       allowFullScreen
+      className="rounded-xl"
     />
   );
 };

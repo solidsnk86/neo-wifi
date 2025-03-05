@@ -89,8 +89,8 @@ export default function DownloadPage() {
         <h1 className="flex justify-center mx-auto text-4xl font-bold pt-24">
           Descarga
         </h1>
-        <article className="flex flex-col border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 w-fit mx-auto">
-          <h3 className="font-semibold text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b p-2">
+        <article className="flex flex-col xl:max-w-md max-w-[364px] border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto">
+          <h3 className="font-semibold text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b py-2 px-3">
             Información del archivo
           </h3>
           <div className="flex flex-col p-2 gap-2">

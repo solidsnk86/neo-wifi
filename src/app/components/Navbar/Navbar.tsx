@@ -68,6 +68,7 @@ export const Navbar = () => {
       <Link
         href="/"
         className="flex gap-2 hover:scale-105 transition-transform duration-300 hover:drop-shadow-md"
+        title="Inicio"
       >
         <NeoWifiLogo className="cursor-pointer" width={150} height={56} />
       </Link>

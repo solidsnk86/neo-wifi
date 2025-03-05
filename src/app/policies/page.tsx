@@ -1,42 +1,17 @@
 import Link from "next/link";
 import styles from "./styles/policies.module.css";
 import { MoveLeft } from "lucide-react";
-import { Navbar } from "../components";
+import { Footer, Navbar } from "../components";
 
 export default function Page() {
   return (
-    <>
+    <main className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
       <Navbar />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/beams.webp"
-        width="100%"
-        height="auto"
-        alt="bg-image"
-        className="absolute top-0"
-      />
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        version="1.1"
-        width="100%"
-        height="100%"
-        className="filter-svg-bg fixed top-0 left-0 opacity-10"
-      >
-        <filter id="noiseFilter">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="9.5"
-            numOctaves="2"
-            stitchTiles="stitch"
-          />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#noiseFilter)" />
-      </svg>
       <section className="max-w-3xl flex justify-center mx-auto p-4">
-        <article className="my-10">
+        <article className="my-16">
           <Link
             href="/"
-            className="flex gap-1 items-center group cursor-pointer relative my-2 text-gray-400 hover:brightness-150"
+            className="flex gap-1 items-center group cursor-pointer relative my-2 hover:brightness-150"
           >
             <MoveLeft className="group-hover:-translate-x-1 w-5 h-5 transition-transform duration-300" />{" "}
             Volver
@@ -46,12 +21,15 @@ export default function Page() {
             Última actualización: <time>28 de enero de 2025</time>
           </h6>
           <p className={styles.p}>
-            Gracias por utilizar <span>Neo-Wifi</span> y sus aplicaciones
-            respectivas. Esta política de uso y privacidad describe cómo
-            recopilamos, utilizamos y protegemos la información que nos
-            proporcionas o que obtenemos a través de tu uso del Sitio. Al
-            acceder y utilizar el Sitio, aceptas los términos descritos en esta
-            política.
+            Gracias por utilizar
+            <span className="border border-zinc-300/70 dark:border-zinc-800 mx-1 rounded-md">
+              Neo-Wifi
+            </span>
+            y sus aplicaciones respectivas. Esta política de uso y privacidad
+            describe cómo recopilamos, utilizamos y protegemos la información
+            que nos proporcionas o que obtenemos a través de tu uso del Sitio.
+            Al acceder y utilizar el Sitio, aceptas los términos descritos en
+            esta política.
           </p>
           <h2 className={styles.h2}>1. Información que recopilamos</h2>
           <p>
@@ -78,13 +56,13 @@ export default function Page() {
               >
                 https://wifi.sanluis.gov.ar/#
               </a>
-              en el cual he creado mi propio mapa de datos en formato{" "}
+              en el cual he creado mi propio mapa de datos en formato
               <a
                 className="mx-1 underline text-blue-400 relative"
                 href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON"
               >
                 JSON
-              </a>{" "}
+              </a>
               para poder calcular la distancia.
             </li>
             <li>
@@ -215,6 +193,7 @@ export default function Page() {
           </div>
         </article>
       </section>
-    </>
+      <Footer />
+    </main>
   );
 }

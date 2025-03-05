@@ -24,7 +24,11 @@ export const DownloadCard = () => {
       <div className={styles.img_container}>
         <div className={styles.bg_left}></div>
         {/*eslint-disable-next-line @next/next/no-img-element*/}
-        <img src="/rocket.png" alt="rocket image" className={styles.img} />
+        <img
+          src="/assets/rocket.png"
+          alt="rocket image"
+          className={styles.img}
+        />
       </div>
     </article>
   );

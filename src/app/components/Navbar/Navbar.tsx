@@ -5,7 +5,7 @@ import NeoWifiLogo from "./Icon/NeoWifiLogo";
 import {
   Info,
   MoonStar,
-  // File,
+  File,
   Share,
   Sun,
   X,
@@ -30,12 +30,12 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
-    // {
-    //   name: "Introducción",
-    //   url: "/start/introduction",
-    //   icon: File,
-    //   ariaLabel: "Documentación",
-    // },
+    {
+      name: "Introducción",
+      url: "/start/introduction",
+      icon: File,
+      ariaLabel: "Documentación",
+    },
     // {
     //   name: "Documentación",
     //   url: "/start/introduction",

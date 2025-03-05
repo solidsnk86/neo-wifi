@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import {
   Navbar,
   Hero,
@@ -12,29 +11,7 @@ import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { YouTubeLiteVideo } from "./components//YoutubeVideo";
-
-interface HomeBlockProps {
-  children: ReactNode;
-  className?: string;
-}
-
-const HomeBlock = ({ children, className }: HomeBlockProps) => {
-  return (
-    <section
-      className={`max-w-3xl flex justify-center mx-auto py-28 ${className}`}
-    >
-      {children}
-    </section>
-  );
-};
-
-const HomeBlockTitle = ({ children }: { children: string }) => {
-  return (
-    <h1 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto fade-in">
-      {children}
-    </h1>
-  );
-};
+import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 
 export default function Home() {
   return (
@@ -56,7 +33,7 @@ export default function Home() {
 
       <HomeBlock>
         <Image
-          src="/neo-wifi-app-card.png"
+          src="/assets/neo-wifi-app-card.png"
           width={400}
           height={300}
           alt="Neo-Wifi app image"
@@ -66,7 +43,7 @@ export default function Home() {
 
       <HomeBlockTitle>Introducción</HomeBlockTitle>
       <HomeBlock>
-        <p>
+        <p className="text-center">
           Este es un video introductorio y explicativo al uso de la aplicación.
         </p>
       </HomeBlock>

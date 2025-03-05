@@ -123,7 +123,7 @@ export default function DownloadPage() {
           <aside className="flex justify-end p-4">
             <button
               title={`Descargar ${fileInfo?.file}`}
-              className="py-2 px-4 bg-green-500 w-fit mt-4 rounded-xl hover:scale-105 transition-transform duration-300"
+              className="py-2 px-4 bg-green-500 w-fit mt-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 hover:shadow-lg"
               onClick={createLink}
             >
               <span className={`text-white ${styles.button}`}>

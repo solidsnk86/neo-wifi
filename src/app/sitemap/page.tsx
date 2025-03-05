@@ -1,5 +1,6 @@
 import {
   Contact2,
+  DownloadCloud,
   Home,
   Info,
   Settings,
@@ -13,6 +14,7 @@ const mapSites = [
   { name: "Página de Inicio", icon: Home, url: "/" },
   { name: "Sobre Nosotros", icon: Info, url: "/#about" },
   { name: "Servicios", icon: Settings, url: "/services" },
+  { name: "Descargas", icon: DownloadCloud, url: "/download" },
   {
     name: "Uso de la app",
     icon: SquareMousePointer,

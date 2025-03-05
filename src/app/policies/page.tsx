@@ -150,7 +150,7 @@ export default function Page() {
             </li>
           </ul>
           <p>
-            Para ejecrcer estos derechos contáctate a este correo:{" "}
+            Para ejercer estos derechos contáctate a este correo:{" "}
             <a
               className="underline text-blue-400 relative"
               href="mailto:tutosneotecs@gmail.com"

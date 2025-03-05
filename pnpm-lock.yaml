@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@justinribeiro/lite-youtube':
-    specifier: ^1.7.1
-    version: 1.7.1
   '@reduxjs/toolkit':
     specifier: ^2.5.1
     version: 2.5.1(react-redux@9.2.0)(react@19.0.0)
@@ -391,10 +388,6 @@ packages:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
     dev: true
-
-  /@justinribeiro/lite-youtube@1.7.1:
-    resolution: {integrity: sha512-nbasgHAmjw7g6zy8sK//nL7CQoJcBmvfBM3jWulKVJPRIhBHa6ZnHtQbMdd6TAukU3h0udZP09N8EEyLGWVysA==}
-    dev: false
 
   /@next/env@15.1.6:
     resolution: {integrity: sha512-d9AFQVPEYNr+aqokIiPLNK/MTyt3DWa/dpKveiAaVccUadFbhFEvY6FXYX2LJO2Hv7PHnLBu2oWwB4uBuHjr/w==}

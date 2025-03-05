@@ -64,16 +64,19 @@ export default function Home() {
         />
       </HomeBlock>
 
-      <HomeBlockTitle>Tutorial</HomeBlockTitle>
-
+      <HomeBlockTitle>Introducción</HomeBlockTitle>
       <HomeBlock>
-        <YouTubeLiteVideo
-          videoId="7ZqQ-NsTzYA"
-          width={400}
-          height={300}
-          border={0}
-        />
+        <p>
+          Este es un video introductorio y explicativo al uso de la aplicación.
+        </p>
       </HomeBlock>
+      <YouTubeLiteVideo
+        videoId="7ZqQ-NsTzYA"
+        width={400}
+        height={300}
+        className="rounded-xl flex justify-center mx-auto"
+        border={0}
+      />
 
       <section className="overflow-hidden my-24">
         <VisitsComponent />

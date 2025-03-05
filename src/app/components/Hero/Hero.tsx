@@ -29,7 +29,7 @@ export const Hero = () => {
         </Link>
         <Link
           href="/download"
-          className="py-3 px-4 cursor-pointer flex items-center gap-2 group hover:opacity-80"
+          className="py-3 px-4 cursor-pointer flex items-center gap-2 group"
         >
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />

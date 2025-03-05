@@ -1,5 +1,6 @@
 import { Footer, Navbar } from "@/app/components";
 import { HomeBlock, HomeBlockTitle } from "@/app/components/BlockComp";
+import { YouTubeLiteVideo } from "@/app/components/YoutubeVideo";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -63,7 +64,7 @@ export default async function Page() {
             src="/assets/product_overview.png"
             width={400}
             height={400}
-            alt="Imagen del adaptador POE de TP-LINK"
+            alt="Imagen router TP-LINK modelo TL-WR841N"
             className="flex justify-center mx-auto my-10"
           />
           <p>
@@ -81,7 +82,7 @@ export default async function Page() {
             src="/assets/0qrxocgUxk.png"
             width={400}
             height={400}
-            alt="Imagen del adaptador POE de TP-LINK"
+            alt="Imagen del instalador aplicación Neo-WiFi"
             className="flex justify-center mx-auto my-10"
           />
           <p>
@@ -93,11 +94,13 @@ export default async function Page() {
             src="/assets/Neo-Wifi_wJQ5REdFJa.png"
             width={800}
             height={400}
-            alt="Imagen del adaptador POE de TP-LINK"
+            alt="Imagen de pantalla principal Neo-WiFi App"
             className="flex justify-center mx-auto my-10"
           />
         </HomeBlock>
-        <HomeBlockTitle>Obtención de Coordenadas</HomeBlockTitle>
+
+        <HomeBlockTitle>Coordenadas</HomeBlockTitle>
+
         <HomeBlock className="flex-col">
           <p>
             En esta misma web en la sección principal se proveen las coordenadas
@@ -109,8 +112,66 @@ export default async function Page() {
             src="/assets/DL317doHxn.png"
             width={800}
             height={400}
-            alt="Imagen del adaptador POE de TP-LINK"
+            alt="Imagen permitir ubicación en el navegador"
             className="flex justify-center mx-auto my-10"
+          />
+          <p>
+            Una vez que hemos podido permitir a la aplicación web obtener tu
+            ubicación podemos emplear las coordenadas obtenidas de tu posición
+            geográfica.
+          </p>
+          <Image
+            src="/assets/brave_qmKz7s0kVL.png"
+            width={800}
+            height={400}
+            alt="Imagen posición geográfica"
+            className="flex justify-center mx-auto my-10"
+          />
+          <p>
+            Colocamos la cordenada de latitud y de longitud y la aplicación ya
+            podrá saber donde te encuentras y cual es tu antena más cercana, a
+            que distancia te encuentras del nodo WiFi más cercano.
+          </p>
+          <Image
+            src="/assets/Neo-Wifi_g91otTkNqQ.png"
+            width={800}
+            height={400}
+            alt="Imagen aplicación con ingreso de coordenadas"
+            className="flex justify-center mx-auto my-10"
+          />
+        </HomeBlock>
+        <HomeBlockTitle>Configuración Router</HomeBlockTitle>
+        <HomeBlock className="flex-col">
+          <p>
+            El paso que sigue es hacer click en (Configurar Router). Una vez que
+            termina de configurar los puertos a estáticos que demora no más de 5
+            segundos, debemos seleccionar la frecuencia de nuestra antena, si
+            los modelos son:
+            <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 mx-1 rounded-md font-mono text-sm">
+              CPE710, CPE610, CPE510
+            </span>
+            quiere decir que estos trabajan en 5Ghz. Si son:
+            <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 mx-1 rounded-md font-mono text-sm">
+              CPE220, CPE210, CPE205
+            </span>{" "}
+            estos trabajan en frecuencia de 2.4Ghz.
+          </p>
+          <p>
+            Dependiendo de nuestro modelo seleccionamos la frecuencia indicada y
+            hacemos click en (Configurar), luego nos quedaría que la app
+            configure de manera automática la antena CPE. Se abrirá una ventana
+            del navegador y la aplicación va a realizar su trabajo.
+          </p>
+          <p>
+            Pueden ver éste video que es una introducción a la aplicación y su
+            correcto funcionamiento:
+          </p>
+          <YouTubeLiteVideo
+            videoId="7ZqQ-NsTzYA"
+            width={400}
+            height={300}
+            className="rounded-xl flex justify-center mx-auto mt-16"
+            border={0}
           />
         </HomeBlock>
       </section>

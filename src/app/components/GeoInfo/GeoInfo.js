@@ -49,6 +49,7 @@ export const GeoPositionCard = () => {
     try {
       const { lat, lon } = await getCoords();
       setCoords({ latitude: lat, longitude: lon });
+      if (!lat || !lon) return null;
       const response = await fetch(
         `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${lat}&lon=${lon}`
       );
@@ -79,13 +80,10 @@ export const GeoPositionCard = () => {
     const { ip, sysInfo, emojiFlag, cityName, countryName } = await getIP();
     try {
       const objectVisit = {
-        city: location.city === null || undefined ? cityName : location.city,
+        city: location.city === null ? cityName : location.city,
         state: location.state || "Sin geolocalización",
         departament: location.departament,
-        country:
-          location.country === null || undefined
-            ? countryName
-            : location.country,
+        country: location.country === null ? countryName : location.country,
         longitude: parseFloat(location.current_position.longitude),
         latitude: parseFloat(location.current_position.latitude),
         nearest_wifi: location.closest_wifi.antenna,
@@ -108,7 +106,7 @@ export const GeoPositionCard = () => {
       if (lastIP !== ip) {
         setTimeout(async () => {
           await SupabaseDB.sendVisits({ data: objectVisit });
-        }, 5000);
+        }, 6000);
       }
     } catch (error) {
       console.error("Cannot send data: " + error);

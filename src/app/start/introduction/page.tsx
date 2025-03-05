@@ -1,5 +1,6 @@
 import { Footer, Navbar } from "@/app/components";
 import { HomeBlock, HomeBlockTitle } from "@/app/components/BlockComp";
+import { Donation } from "@/app/components/DonationCard/Donation";
 import { YouTubeLiteVideo } from "@/app/components/YoutubeVideo";
 import Image from "next/image";
 import Link from "next/link";
@@ -110,7 +111,7 @@ export default async function Page() {
           </p>
           <Image
             src="/assets/DL317doHxn.png"
-            width={800}
+            width={400}
             height={400}
             alt="Imagen permitir ubicación en el navegador"
             className="flex justify-center mx-auto my-10"
@@ -176,6 +177,7 @@ export default async function Page() {
         className="rounded-xl flex justify-center mx-auto my-12"
         border={0}
       />
+      <Donation />
       <Footer />
     </main>
   );

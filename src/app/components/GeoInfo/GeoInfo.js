@@ -83,7 +83,7 @@ export const GeoPositionCard = () => {
         city: location.city || cityName,
         state: location.state || "Sin localización",
         departament: location.departament || "Sin localización",
-        country: location.country === null ? countryName : location.country,
+        country: countryName,
         longitude: parseFloat(location.current_position.longitude) || 0,
         latitude: parseFloat(location.current_position.latitude) || 0,
         nearest_wifi: location.closest_wifi.antenna || "Sin localización",

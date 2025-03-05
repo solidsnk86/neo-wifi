@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/GeoInfo/GeoInfo.js",
-    "src/app/components/Map/PositionMap.js"
+    "src/app/components/Map/PositionMap.js",
+    "src/app/components/YoutubeVideo.tsx"
   ],
   "exclude": ["node_modules"]
 }

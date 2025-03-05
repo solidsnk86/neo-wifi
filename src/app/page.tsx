@@ -11,6 +11,7 @@ import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
+import { YouTubeLiteVideo } from "./components//YoutubeVideo";
 
 interface HomeBlockProps {
   children: ReactNode;
@@ -60,6 +61,17 @@ export default function Home() {
           height={300}
           alt="Neo-Wifi app image"
           className="rounded-[16px] img_card"
+        />
+      </HomeBlock>
+
+      <HomeBlockTitle>Tutorial</HomeBlockTitle>
+
+      <HomeBlock>
+        <YouTubeLiteVideo
+          videoId="7ZqQ-NsTzYA"
+          width={400}
+          height={300}
+          border={0}
         />
       </HomeBlock>
 

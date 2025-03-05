@@ -76,19 +76,22 @@ export const GeoPositionCard = () => {
   }, []);
 
   const send = useCallback(async () => {
-    const { ip, sysInfo, emojiFlag } = await getIP();
+    const { ip, sysInfo, emojiFlag, cityName, countryName } = await getIP();
     try {
       const objectVisit = {
-        city: location.city,
-        state: location.state,
+        city: location.city === null || undefined ? cityName : location.city,
+        state: location.state || "Sin geolocalización",
         departament: location.departament,
-        country: location.country,
+        country:
+          location.country === null || undefined
+            ? countryName
+            : location.country,
         longitude: parseFloat(location.current_position.longitude),
         latitude: parseFloat(location.current_position.latitude),
         nearest_wifi: location.closest_wifi.antenna,
         distance: parseFloat(location.closest_wifi.distance),
         ip: ip,
-        so: sysInfo.system || "No disponible",
+        so: sysInfo.system,
         emoji_flag: emojiFlag,
       };
       const values = Object.values(objectVisit);

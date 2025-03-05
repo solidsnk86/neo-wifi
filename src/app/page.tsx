@@ -12,6 +12,7 @@ import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { YouTubeLiteVideo } from "./components//YoutubeVideo";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
+import { ArrowBigDownDash } from "lucide-react";
 
 export default function Home() {
   return (
@@ -20,6 +21,10 @@ export default function Home() {
 
       <HomeBlock>
         <Hero />
+      </HomeBlock>
+
+      <HomeBlock className="flex justify-center mx-auto">
+        <ArrowBigDownDash className="w-8 h-8 animate-bounce dark:text-[#90B45B] text-[#2B7097]" />
       </HomeBlock>
 
       <HomeBlockTitle>Información Geográfica</HomeBlockTitle>

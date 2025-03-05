@@ -13,36 +13,10 @@ import {
   FilePenIcon,
   FileText,
 } from "lucide-react";
-import { formatDate } from "@/utils/format-date";
 import { DownloadsProps } from "@/types/definitions";
 
-interface FileInfoProps {
-  file: string;
-  size: number;
-  creation: string;
-  mod: string;
-  extension: string;
-}
-
 export default function DownloadPage() {
-  const [fileInfo, setFileInfo] = useState<FileInfoProps>();
   const [downloads, setDownloads] = useState<DownloadsProps>();
-
-  const getFileInfo = async () => {
-    const res = await fetch("/api/file-info");
-    const data: FileInfoProps = await res.json();
-    setFileInfo({
-      file: data.file,
-      size: data.size,
-      creation: data.creation,
-      mod: data.mod,
-      extension: data.extension,
-    });
-  };
-
-  useEffect(() => {
-    getFileInfo();
-  }, []);
 
   const sendDataToSupabase = useCallback(async () => {
     const { ip, sysInfo, cityName } = await getIP();
@@ -95,25 +69,22 @@ export default function DownloadPage() {
           </h3>
           <div className="flex flex-col p-2 gap-2">
             <p className="flex items-center text-sm">
-              <FileText className="mx-2 w-6 h-6" />{" "}
-              {fileInfo?.file || "Actualizando información..."}
+              <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup 1.0.1
             </p>
             <p className="flex items-center text-sm">
-              <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:{" "}
-              {fileInfo?.size || 0}Mb.
+              <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:
+              80.82Mb.
             </p>
             <p className="flex items-center text-sm">
-              <FileBox className="mx-2 w-6 h-6" /> Extensión:{" "}
-              {fileInfo?.extension || "Actualizando información..."}
+              <FileBox className="mx-2 w-6 h-6" /> Extensión: (.exe)
             </p>
             <time className="flex items-center text-sm">
-              <FilePenIcon className="mx-2 w-6 h-6" /> Creación:{" "}
-              {formatDate(fileInfo?.creation || "") ||
-                "Actualizando información..."}
+              <FilePenIcon className="mx-2 w-6 h-6" /> Creación: 04/03/2025,
+              12:38:29p.m.
             </time>
             <time className="flex items-center text-sm">
-              <Activity className="mx-2 w-6 h-6" /> Última actualización:{" "}
-              {formatDate(fileInfo?.mod || "") || "Actualizando información..."}
+              <Activity className="mx-2 w-6 h-6" /> Última actualización:
+              04/03/2025, 14:58:29p.m.
             </time>
             <p className="flex items-center text-sm">
               <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
@@ -122,12 +93,12 @@ export default function DownloadPage() {
           </div>
           <aside className="flex justify-end p-4">
             <button
-              title={`Descargar ${fileInfo?.file}`}
+              title="Neo-Wifi Setup 1.0.1"
               className="py-2 px-4 bg-green-500 w-fit mt-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 hover:shadow-lg"
               onClick={createLink}
             >
               <span className={`text-white ${styles.button}`}>
-                Descargar ({fileInfo?.size || 0}MB)
+                Descargar (80.82MB)
               </span>
             </button>
           </aside>

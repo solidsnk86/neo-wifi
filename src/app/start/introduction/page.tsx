@@ -163,18 +163,19 @@ export default async function Page() {
             del navegador y la aplicación va a realizar su trabajo.
           </p>
           <p>
-            Pueden ver éste video que es una introducción a la aplicación y su
+            Pueden ver el video que es una introducción a la aplicación y su
             correcto funcionamiento:
           </p>
-          <YouTubeLiteVideo
-            videoId="7ZqQ-NsTzYA"
-            width={400}
-            height={300}
-            className="rounded-xl flex justify-center mx-auto mt-16"
-            border={0}
-          />
         </HomeBlock>
       </section>
+      <HomeBlockTitle>Video</HomeBlockTitle>
+      <YouTubeLiteVideo
+        videoId="7ZqQ-NsTzYA"
+        width={400}
+        height={300}
+        className="rounded-xl flex justify-center mx-auto my-12"
+        border={0}
+      />
       <Footer />
     </main>
   );

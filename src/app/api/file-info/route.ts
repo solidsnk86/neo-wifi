@@ -17,8 +17,8 @@ export async function GET() {
       {
         file: fileName,
         size: formattedSize,
-        creation: stat.birthtime,
-        mod: stat.mtime,
+        creation: new Date(stat.ctime).toISOString(),
+        mod: new Date(stat.mtime).toISOString(),
         extension: fileExtension,
       },
       { status: 200 }

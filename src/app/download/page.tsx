@@ -106,15 +106,15 @@ export default function DownloadPage() {
               <FileBox className="mx-2 w-6 h-6" /> Extensión:{" "}
               {fileInfo?.extension || "Actualizando información..."}
             </p>
-            <p className="flex items-center text-sm">
+            <time className="flex items-center text-sm">
               <FilePenIcon className="mx-2 w-6 h-6" /> Creación:{" "}
               {formatDate(fileInfo?.creation || "") ||
                 "Actualizando información..."}
-            </p>
-            <p className="flex items-center text-sm">
+            </time>
+            <time className="flex items-center text-sm">
               <Activity className="mx-2 w-6 h-6" /> Última actualización:{" "}
               {formatDate(fileInfo?.mod || "") || "Actualizando información..."}
-            </p>
+            </time>
             <p className="flex items-center text-sm">
               <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
               {downloads?.data.download_count || 0}

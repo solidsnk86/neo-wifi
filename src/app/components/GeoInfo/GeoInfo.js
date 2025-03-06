@@ -80,14 +80,14 @@ export const GeoPositionCard = () => {
     const { ip, sysInfo, emojiFlag, cityName, countryName } = await getIP();
     try {
       const objectVisit = {
-        city: location.city || cityName,
-        state: location.state || "Sin localización",
-        departament: location.departament || "Sin localización",
+        city: location.city ?? cityName,
+        state: location.state ?? "Sin localización",
+        departament: location.departament ?? "Sin localización",
         country: countryName,
-        longitude: parseFloat(location.current_position.longitude) || 0,
-        latitude: parseFloat(location.current_position.latitude) || 0,
-        nearest_wifi: location.closest_wifi.antenna || "Sin localización",
-        distance: parseFloat(location.closest_wifi.distance) || 0,
+        longitude: parseFloat(location.current_position.longitude) ?? 0,
+        latitude: parseFloat(location.current_position.latitude) ?? 0,
+        nearest_wifi: location.closest_wifi.antenna ?? "Sin localización",
+        distance: parseFloat(location.closest_wifi.distance) ?? 0,
         ip: ip,
         so: sysInfo.system,
         emoji_flag: emojiFlag,

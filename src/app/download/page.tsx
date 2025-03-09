@@ -14,6 +14,10 @@ import {
   FileText,
 } from "lucide-react";
 import { DownloadsProps } from "@/types/definitions";
+import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
+import Link from "next/link";
+import { CurveArrowIcon } from "./Icon/ArrowIcon";
+import { YouTubeLiteVideo } from "../components/YoutubeVideo";
 
 export default function DownloadPage() {
   const [downloads, setDownloads] = useState<DownloadsProps>();
@@ -60,9 +64,30 @@ export default function DownloadPage() {
     <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
       <Navbar />
       <section className="pb-10">
-        <h1 className="flex justify-center mx-auto text-4xl font-bold pt-24">
+        <HomeBlock className="flex-col justify-center text-center">
+          <HomeBlockTitle>Introducción</HomeBlockTitle>
+          <YouTubeLiteVideo
+            videoId="7ZqQ-NsTzYA"
+            width={400}
+            height={300}
+            className="rounded-xl flex justify-center mx-auto my-12"
+            border={0}
+          />
+          <p className="my-4 text-pretty">
+            Antes de comenzar con la descarga te recomiendo que veas el video
+            introductorio, o leas la documentación
+            <Link
+              href="/start/introduction"
+              className="mx-1 underline text-blue-400 relative"
+            >
+              aquí.
+              <CurveArrowIcon className="absolute top-6 left-[-8px]" />
+            </Link>
+          </p>
+        </HomeBlock>
+        <h2 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto">
           Descarga
-        </h1>
+        </h2>
         <article className="flex flex-col xl:max-w-md max-w-[364px] border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto">
           <h3 className="font-semibold text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b py-2 px-3">
             Información del archivo
@@ -93,8 +118,8 @@ export default function DownloadPage() {
           </div>
           <aside className="flex justify-end p-4">
             <button
-              title="Neo-Wifi Setup 1.0.1"
-              className="py-2 px-4 bg-green-500 w-fit mt-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 hover:shadow-lg"
+              title="Descargar Neo-Wifi Setup 1.0.1"
+              className="py-2 px-4 bg-red-500 w-fit mt-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 hover:shadow-lg"
               onClick={createLink}
             >
               <span className={`text-white ${styles.button}`}>

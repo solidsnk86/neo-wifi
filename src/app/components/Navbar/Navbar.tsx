@@ -5,11 +5,10 @@ import NeoWifiLogo from "./Icon/NeoWifiLogo";
 import {
   Info,
   MoonStar,
-  File,
   Share,
   Sun,
   X,
-  // BookOpenText,
+  BookOpenText,
   AlignRight,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -31,17 +30,11 @@ export const Navbar = () => {
   const navLinks = [
     { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
     {
-      name: "Introducción",
+      name: "Documentación",
       url: "/start/introduction",
-      icon: File,
+      icon: BookOpenText,
       ariaLabel: "Documentación",
     },
-    // {
-    //   name: "Documentación",
-    //   url: "/start/introduction",
-    //   icon: BookOpenText,
-    //   ariaLabel: "Documentación",
-    // },
     {
       name: "Compartir",
       url: "",
@@ -80,7 +73,7 @@ export const Navbar = () => {
             <Link
               href={url}
               key={name}
-              className="flex items-center gap-2 hover:opacity-80 hover:dark:text-[#a1ca63] hover:text-[#2B7097] transition-colors duration-300"
+              className="flex items-center gap-2 hover:opacity-80 hover:dark:text-[#a1ca63] hover:text-[#2B7097] transition-colors duration-300 font-semibold"
               aria-label={ariaLabel}
               onClick={fx}
             >

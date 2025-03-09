@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
 import { TriangleAlert } from "lucide-react";
-import { GeoPosition } from "./components/GeoPosition";
+import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
 import { showDialog } from "@/utils/dialog";

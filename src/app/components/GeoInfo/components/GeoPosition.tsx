@@ -2,7 +2,22 @@ import { copy } from "@/utils/copy";
 import { InfoRow } from "../GeoInfo";
 import { Copy, MapPin } from "lucide-react";
 
-export const GeoPosition = ({ location, coords, loading }) => {
+interface GeoPositionProps {
+  location: {
+    city: string;
+    state: string;
+    departament: string;
+    country: string;
+  };
+  coords: { latitude: string; longitude: string };
+  loading: boolean;
+}
+
+export const GeoPosition = ({
+  location,
+  coords,
+  loading,
+}: GeoPositionProps) => {
   return (
     <div className="border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary overflow-hidden">
       <h2

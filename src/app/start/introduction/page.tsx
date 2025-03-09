@@ -1,11 +1,25 @@
+"use client";
+
 import { Footer, Navbar } from "@/app/components";
 import { HomeBlock, HomeBlockTitle } from "@/app/components/BlockComp";
 import { Donation } from "@/app/components/DonationCard/Donation";
+import { GeoPosition } from "@/app/components/GeoInfo/components/GeoPosition";
 import { YouTubeLiteVideo } from "@/app/components/YoutubeVideo";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Page() {
+export default function Page() {
+  const location = {
+    city: "Merlo",
+    state: "San Luis",
+    departament: "Junín",
+    country: "Argentina",
+  };
+  const coords = {
+    latitude: "-32.3426293326",
+    longitude: "-65.013554958",
+  };
+
   return (
     <main className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
       <Navbar />
@@ -119,19 +133,17 @@ export default async function Page() {
           <p>
             Una vez que hemos podido permitir a la aplicación web obtener tu
             ubicación podemos emplear las coordenadas obtenidas de tu posición
-            geográfica.
+            geográfica como se muestra a continuación en el siguiente ejemplo.
+            (Posición a modo de ejemplo, no es real.)
           </p>
-          <Image
-            src="/assets/brave_qmKz7s0kVL.png"
-            width={800}
-            height={400}
-            alt="Imagen posición geográfica"
-            className="flex justify-center mx-auto my-10"
-          />
+          <div className="my-10">
+            <GeoPosition loading={false} location={location} coords={coords} />
+          </div>
           <p>
-            Colocamos la cordenada de latitud y de longitud y la aplicación ya
-            podrá saber donde te encuentras y cual es tu antena más cercana, a
-            que distancia te encuentras del nodo WiFi más cercano.
+            Colocamos las cordenadas de latitud y de longitud entonces la
+            aplicación ya podrá saber donde te encuentras y cual es tu antena
+            más cercana, y que distancia te encuentras del nodo WiFi más
+            cercano.
           </p>
           <Image
             src="/assets/Neo-Wifi_g91otTkNqQ.png"

@@ -42,7 +42,7 @@ export default function Sitemap() {
             <Link
               key={name}
               href={url}
-              className="p-4 bg-[#FFFFFF] dark:bg-zinc-800/50 border border-zinc-200/70 dark:border-zinc-800 flex justify-center items-center gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+              className="p-4 bg-[#FFFFFF] dark:bg-zinc-800/50 border border-zinc-200/70 dark:border-zinc-800 flex justify-center items-center gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:scale-[1.02] duration-300"
             >
               <Icon />
               <p>{name}</p>

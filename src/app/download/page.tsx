@@ -73,7 +73,7 @@ export default function DownloadPage() {
             className="rounded-xl flex justify-center mx-auto my-12"
             border={0}
           />
-          <p className="my-4 text-pretty">
+          <p className="my-4 text-pretty px-3">
             Antes de comenzar con la descarga te recomiendo que veas el video
             introductorio, o leas la documentación
             <Link

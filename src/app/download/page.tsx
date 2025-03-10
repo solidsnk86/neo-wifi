@@ -93,7 +93,7 @@ export default function DownloadPage() {
             viewBox="0 0 206 8"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute -bottom-5"
+            className="absolute -bottom-5 w-36 md:w-[200px]"
           >
             <path
               d="M2 6C21.2566 4.1224 68.616 0.784449 204 2.45343"

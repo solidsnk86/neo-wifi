@@ -49,14 +49,14 @@ export default function Page() {
         <HomeBlockTitle>Primeros Pasos</HomeBlockTitle>
         <HomeBlock className="flex-col">
           <p>
-            Para poder usar ésta aplicación debemos tener reseteada la antena,
-            debido a que no sabemos las credenciales de usuario
-            correspondientes, como el nombre de usaurio y contraseña que el
-            técnico puede haber fijado en el sistema de configuración de la CPE
-            de TP-LINK en este caso. Para ello hay que resetear la antena
-            mediante el adaptador POE que va enchufado a la corriente y éste
-            tiene dos puertos, WAN y POE, uno lleva energía y transmisión de
-            datos (POE), el otro lleva los datos al router (WAN):
+            Para utilizar esta aplicación, es necesario restablecer la antena,
+            ya que desconocemos las credenciales de acceso, como el nombre de
+            usuario y la contraseña, que el técnico pudo haber configurado en el
+            sistema de la CPE de TP-Link. Para hacerlo, debemos resetear la
+            antena a través del adaptador PoE, el cual se conecta a la
+            corriente. Este adaptador cuenta con dos puertos: PoE, que
+            suministra energía y transmite datos, y WAN, que envía los datos al
+            router.
           </p>
           <Image
             src="/assets/tp-link-Outdoor-CPE-Passive-PoE-Adapter-300x218-removebg.png"

@@ -24,7 +24,7 @@ export default function Home() {
       </HomeBlock>
 
       <HomeBlock className="flex justify-center mx-auto">
-        <ArrowBigDownDash className="w-8 h-8 animate-bounce dark:text-[#90B45B] text-[#2B7097]" />
+        <ArrowBigDownDash className="w-10 h-10 animate-bounce dark:text-[#90B45B] text-[#2B7097]" />
       </HomeBlock>
 
       <HomeBlockTitle>Información Geográfica</HomeBlockTitle>

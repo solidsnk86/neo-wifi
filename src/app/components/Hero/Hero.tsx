@@ -20,13 +20,13 @@ export const Hero = () => {
             <svg
               width="266"
               height="8"
-              viewBox="0 0 266 8"
+              viewBox="0 0 284 8"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute -bottom-1 left-1 text-[#2a6f97] dark:text-[#6a994e] w-48 md:w-[270px]"
+              className="absolute -bottom-[6px] left-[2px] text-[#2a6f97] dark:text-[#6a994e] w-48 md:w-[284px]"
             >
               <path
-                d="M2 6C21.2566 4.1224 68.616 0.784449 266 2.45343"
+                d="M2 6C21.2566 4.1224 68.616 0.784449 284 2.45343"
                 stroke="currentColor"
                 stroke-width="4"
                 stroke-linecap="round"

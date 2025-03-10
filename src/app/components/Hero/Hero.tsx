@@ -25,11 +25,11 @@ export const Hero = () => {
           href="/start/introduction"
           className="py-3 px-4 border border-zinc-300/70 dark:border-zinc-800 rounded-full text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 cursor-pointer hover:opacity-80"
         >
-          Aprender más
+          Aprende más
         </Link>
         <Link
           href="/download"
-          className="py-3 px-4 cursor-pointer flex items-center gap-2 group"
+          className="py-3 px-4 cursor-pointer flex items-center gap-2 group border border-zinc-300/70 dark:border-zinc-800 rounded-full hover:border-[#2a6f97] dark:hover:border-[#6a994e]"
         >
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />

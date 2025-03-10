@@ -12,7 +12,7 @@ import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { YouTubeLiteVideo } from "./components//YoutubeVideo";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import { ArrowBigDownDash } from "lucide-react";
+import { ArrowBigDownDash, Quote } from "lucide-react";
 
 export default function Home() {
   return (
@@ -66,7 +66,14 @@ export default function Home() {
 
       <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
 
-      <HomeBlock>
+      <HomeBlock className="flex-col">
+        <p className="text-center relative flex mx-auto justify-center font-semibold">
+          <Quote className="rotate-180 text-zinc-400 w-10 h-10" />
+          Creo que todos en el planeta merecen una conexión a Internet estable y
+          segura. Ayúdame a desbloquear el poder de la conectividad y hacer
+          realidad esta misión 😃.
+          <Quote className=" text-zinc-400 w-10 h-10" />
+        </p>
         <DownloadCard />
       </HomeBlock>
 

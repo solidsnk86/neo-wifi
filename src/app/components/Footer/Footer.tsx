@@ -1,21 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { socialLinks } from "@/constants";
-
-const categories = [
-  { name: "Windows", url: "/download" },
-  { name: "MacOS", url: "/download" },
-  { name: "Redes WiFi", url: "https://wifi.sanluis.gov.ar/#" },
-  { name: "Tutoriales", url: "https://neotecs.vercel.app" },
-];
-
-const quickLinks = [
-  { name: "Contacto", url: "mailto:tutosneotecs@gmail.com" },
-  { name: "Descargas", url: "/download" },
-  { name: "Política de Privacidad", url: "/policies" },
-  { name: "Mapa del Sitio", url: "/sitemap" },
-];
+import { categories, quickLinks, socialLinks } from "@/constants";
 
 export const Footer = () => {
   return (

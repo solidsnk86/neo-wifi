@@ -87,21 +87,6 @@ export default function DownloadPage() {
         </HomeBlock>
         <h2 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto relative">
           Descarga
-          <svg
-            width="206"
-            height="8"
-            viewBox="0 0 206 8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute -bottom-5 w-36 md:w-[200px]"
-          >
-            <path
-              d="M2 6C21.2566 4.1224 68.616 0.784449 204 2.45343"
-              stroke="#FF5555"
-              stroke-width="4"
-              stroke-linecap="round"
-            />
-          </svg>
         </h2>
         <article className="flex flex-col xl:max-w-md max-w-[364px] border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto">
           <h3 className="font-semibold text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b py-2 px-3">

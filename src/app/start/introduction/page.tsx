@@ -66,14 +66,13 @@ export default function Page() {
             className="flex justify-center mx-auto my-10"
           />
           <p>
-            En uno de los laterales se puede observar un orificio el cual
-            introduciendo un clip o un objeto punzante sin necesidad de
-            presionar o atravesarlo con demasiada fuerza se puede sentir un
-            botón, que si lo mantienes durante unos 20 segundos aproximadamete
-            se va a resetear la antena a valores de fábrica. El indicador más
-            visible que tenemos para darnos cuenta de que ésto sucede es el
-            router, normalmente en el led de conexión WAN en el panel frontal el
-            led 🌐 estará de color 🟠 (naranja) o apagado:
+            En uno de los laterales del dispositivo hay un pequeño orificio. Si
+            introduces un clip o un objeto punzante con suavidad, sin aplicar
+            demasiada presión, notarás un botón interno. Manteniéndolo
+            presionado durante aproximadamente 20 segundos, la antena se
+            reseteará a los valores de fábrica. El principal indicador de este
+            proceso es el router: en el panel frontal, el LED de conexión WAN 🌐
+            se tornará de color 🟠 (naranja) o permanecerá apagado.
           </p>
           <Image
             src="/assets/product_overview.png"

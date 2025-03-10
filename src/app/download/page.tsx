@@ -46,8 +46,8 @@ export default function DownloadPage() {
 
   const createLink = async () => {
     const link = document.createElement("a");
-    link.href = "/Neo-Wifi Setup 1.0.1.exe";
-    link.download = "Neo-Wifi Setup 1.0.1.exe";
+    link.href = "/Neo-Wifi Setup 1.0.2.exe";
+    link.download = "Neo-Wifi Setup 1.0.2.exe";
     await sendDataToSupabase().catch((err) =>
       console.error("Error al enviar datos:", err)
     );
@@ -94,7 +94,7 @@ export default function DownloadPage() {
           </h3>
           <div className="flex flex-col p-2 gap-2">
             <p className="flex items-center text-sm">
-              <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup 1.0.1
+              <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup 1.0.2
             </p>
             <p className="flex items-center text-sm">
               <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:
@@ -109,7 +109,7 @@ export default function DownloadPage() {
             </time>
             <time className="flex items-center text-sm">
               <Activity className="mx-2 w-6 h-6" /> Última actualización:
-              04/03/2025, 14:58:29p.m.
+              10/03/2025, 21:58:29p.m.
             </time>
             <p className="flex items-center text-sm">
               <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}

@@ -156,28 +156,35 @@ export default function IntroductionPage() {
         <HomeBlockTitle>Configuración Router</HomeBlockTitle>
         <HomeBlock className="flex-col">
           <p>
-            El paso que sigue es hacer click en (Configurar Router). Una vez que
-            termina de configurar los puertos a estáticos que demora no más de 5
-            segundos, debemos seleccionar la frecuencia de nuestra antena, si
-            los modelos son:
+            El siguiente paso es hacer clic en
+            <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 ml-1 rounded-md font-mono text-sm">
+              Configurar Router
+            </span>
+            . Una vez completada la configuración de los puertos a estáticos, lo
+            cual toma menos de 5 segundos, debemos seleccionar la frecuencia de
+            nuestra antena. Si el modelo es:
             <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 mx-1 rounded-md font-mono text-sm">
               CPE710, CPE610, CPE510
             </span>
-            quiere decir que estos trabajan en 5Ghz. Si son:
+            significa que opera en 5 GHz. Si el modelo es:
             <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 mx-1 rounded-md font-mono text-sm">
               CPE220, CPE210, CPE205
-            </span>{" "}
-            estos trabajan en frecuencia de 2.4Ghz.
+            </span>
+            entonces funciona en 2.4 GHz.
           </p>
           <p>
-            Dependiendo de nuestro modelo seleccionamos la frecuencia indicada y
-            hacemos click en (Configurar), luego nos quedaría que la app
-            configure de manera automática la antena CPE. Se abrirá una ventana
-            del navegador y la aplicación va a realizar su trabajo.
+            Dependiendo del modelo, seleccionamos la frecuencia correspondiente
+            y hacemos clic en
+            <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 ml-[2px] rounded-md font-mono text-sm">
+              Configurar
+            </span>
+            . A partir de aquí, la aplicación se encargará de configurar
+            automáticamente la antena CPE. Durante el proceso, se abrirá una
+            ventana en el navegador donde la aplicación realizará su trabajo.
           </p>
           <p>
-            Pueden ver el video que es una introducción a la aplicación y su
-            correcto funcionamiento:
+            Para más detalles, pueden ver el video introductorio sobre la
+            aplicación y su correcto funcionamiento.
           </p>
         </HomeBlock>
       </section>

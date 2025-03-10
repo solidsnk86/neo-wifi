@@ -11,7 +11,28 @@ export const Hero = () => {
           dark:bg-gradient-to-br dark:from-[#a7c957] dark:via-[#6a994e] dark:to-[#386641] 
           bg-gradient-to-br from-[#01497c] via-[#2a6f97] to-[#61a5c2] transition-colors duration-300`}
         >
-          Configura tu CPE WiFi en segundos
+          Configura tu CPE WiFi en
+          <span
+            className={`${styles.h1} relative ml-2 dark:bg-gradient-to-br dark:from-[#a7c957] dark:via-[#6a994e] dark:to-[#386641] 
+            bg-gradient-to-br from-[#01497c] via-[#2a6f97] to-[#61a5c2]`}
+          >
+            segundos
+            <svg
+              width="266"
+              height="8"
+              viewBox="0 0 266 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute -bottom-1 left-1 text-[#2a6f97] dark:text-[#6a994e] w-48 md:w-[270px]"
+            >
+              <path
+                d="M2 6C21.2566 4.1224 68.616 0.784449 266 2.45343"
+                stroke="currentColor"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
         </h1>
         <p className="my-14 text-pretty text-center text-zinc-600 dark:text-zinc-400">
           Simplifica la conexión a las redes WiFi del Gobierno de San Luis con

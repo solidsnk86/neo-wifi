@@ -16,7 +16,7 @@ import {
 import { DownloadsProps } from "@/types/definitions";
 import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
 import Link from "next/link";
-import { CurveArrowIcon } from "./Icon/ArrowIcon";
+import { CurveArrowIcon } from "./Icons/ArrowIcon";
 import { YouTubeLiteVideo } from "../components/YoutubeVideo";
 
 export default function DownloadPage() {
@@ -85,8 +85,23 @@ export default function DownloadPage() {
             </Link>
           </p>
         </HomeBlock>
-        <h2 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto">
+        <h2 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto relative">
           Descarga
+          <svg
+            width="206"
+            height="8"
+            viewBox="0 0 206 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute -bottom-5"
+          >
+            <path
+              d="M2 6C21.2566 4.1224 68.616 0.784449 204 2.45343"
+              stroke="#FF5555"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
         </h2>
         <article className="flex flex-col xl:max-w-md max-w-[364px] border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto">
           <h3 className="font-semibold text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b py-2 px-3">
@@ -118,7 +133,7 @@ export default function DownloadPage() {
           </div>
           <aside className="flex justify-end p-4">
             <button
-              title="Descargar Neo-Wifi Setup 1.0.1"
+              title="Descargar Neo-Wifi Setup 1.0.2"
               className="py-2 px-4 bg-red-500 w-fit mt-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 hover:shadow-lg"
               onClick={createLink}
             >

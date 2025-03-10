@@ -67,7 +67,7 @@ export default function Home() {
       <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
 
       <HomeBlock className="flex-col">
-        <p className="text-center relative flex mx-auto justify-center font-semibold">
+        <p className="text-center relative flex mx-auto justify-center font-semibold px-3">
           <Quote className="rotate-180 text-zinc-400 w-10 h-10" />
           Creo que todos en el planeta merecen una conexión a Internet estable y
           segura. Ayúdame a desbloquear el poder de la conectividad y hacer

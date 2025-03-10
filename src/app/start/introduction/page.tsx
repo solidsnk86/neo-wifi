@@ -43,7 +43,8 @@ export default function Page() {
             instalación. Ya sea para despliegues individuales o configuraciones
             masivas, esta solución ofrece una manera rápida, segura y eficaz de
             ajustar los parámetros esenciales de los dispositivos, garantizando
-            una conectividad estable y optimizada.
+            una conectividad estable y optimizada. Cabe destacar que la posición
+            de la antena (CPE) debe ser ajustada por el mismo usuario.
           </p>
         </HomeBlock>
         <HomeBlockTitle>Primeros Pasos</HomeBlockTitle>

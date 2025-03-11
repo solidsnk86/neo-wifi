@@ -27,9 +27,13 @@ export default function Home() {
         <ArrowBigDownDash className="w-10 h-10 animate-bounce dark:text-[#90B45B] text-[#2B7097]" />
       </HomeBlock>
 
-      <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
-
-      <HomeBlock>
+      <HomeBlock className="flex-col">
+        <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
+        <p className="my-16 text-center text-pretty px-3">
+          Además de la red WiFi gratuita del Gobierno de la Provincia de San
+          Luis, también hay disponibles 93 espacios WiFi gratuitos provistos por
+          el Gobierno de la Provincia de Córdoba.
+        </p>
         <span id="geoposition" />
         <GeoPositionCard />
       </HomeBlock>

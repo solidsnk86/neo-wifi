@@ -31,8 +31,10 @@ const accordionLists = [
   {
     id: 5,
     question: "¿La aplicación funciona en toda la provincia?",
-    answer:
-      "Neo-Wifi no cubre toda la provincia de San Luis por ahora. El servicio está disponible en las siguientes zonas urbanas: San Luis, La Punta, Juana Koslay, El Trapiche, La Florida, Potrero de los Funes, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca, Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, La Toma, Naschel.",
+    answer: `Neo-Wifi no cubre toda la provincia de San Luis por ahora. El servicio está disponible en las siguientes zonas urbanas: 
+      San Luis, La Punta, Juana Koslay, El Trapiche, La Florida, Potrero de los Funes, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca, 
+      Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, San Francisco del Monte de Oro, La Toma, Naschel, Alto Pelado, Alto Pencoso, 
+      Arizona, Anchorena, Buena Esperanza, Unión.`,
   },
   {
     id: 6,

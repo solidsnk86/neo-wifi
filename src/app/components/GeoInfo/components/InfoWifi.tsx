@@ -2,7 +2,22 @@ import { InfoRow } from "../GeoInfo";
 import { writeMAC } from "@/utils/mac-writer";
 import { Wifi } from "lucide-react";
 
-export const InfoWifi = ({ location, loading }) => {
+interface InfoWifiProps {
+  location: {
+    state: string;
+    closest_wifi: {
+      antenna: string;
+      name: string;
+      distance: string;
+      type: string;
+      MAC: string;
+      MAC5G: string;
+    };
+  };
+  loading: boolean;
+}
+
+export const InfoWifi = ({ location, loading }: InfoWifiProps) => {
   return (
     <div className="border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary overflow-hidden">
       <h2

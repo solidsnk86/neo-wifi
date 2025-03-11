@@ -29,9 +29,10 @@ export default function Home() {
 
       <HomeBlock className="flex-col">
         <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
-        <p className="my-16 text-center text-pretty px-3">
+        <p className="my-24 text-center text-pretty px-3">
           Además de la red WiFi gratuita del Gobierno de la Provincia de San
-          Luis, también hay disponibles 93 espacios WiFi gratuitos provistos por
+          Luis, también hay disponibles 93 espacios WiFi gratuitos provistos en
+          espacios públicos, instituciones educativas, clínicas y hospitales por
           el Gobierno de la Provincia de Córdoba.
         </p>
         <span id="geoposition" />

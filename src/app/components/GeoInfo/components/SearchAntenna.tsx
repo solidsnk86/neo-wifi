@@ -1,6 +1,21 @@
 import { InfoRow } from "../GeoInfo";
 import { Search } from "lucide-react";
 
+interface SearchAntennaProps {
+  submit: () => Promise<void>;
+  query: string;
+  setQuery: (value: string) => void;
+  search: {
+    antenna: { name: string; name5g: string };
+    distance: string;
+    type: string;
+    MAC: string;
+    MAC5G: string;
+  };
+  isLoading: boolean;
+  mac: (macValue: string) => void;
+}
+
 export const SearchAntenna = ({
   submit,
   query,
@@ -8,7 +23,7 @@ export const SearchAntenna = ({
   search,
   isLoading,
   mac,
-}) => {
+}: SearchAntennaProps) => {
   return (
     <div className="border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary">
       <form onSubmit={submit} className="flex flex-col gap-2">
@@ -43,12 +58,28 @@ export const SearchAntenna = ({
       </form>
       {search && (
         <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-2">
-          <InfoRow label="SSID-1" value={search.antenna?.name} />
-          <InfoRow label="SSID-2" value={search.antenna?.name5g} />
-          <InfoRow label="Distancia" value={search.distance} />
-          <InfoRow label="Tipo" value={search.type} />
-          <InfoRow label="MAC" value={mac(search.MAC)} />
-          <InfoRow label="MAC-5G" value={mac(search.MAC5G)} />
+          <InfoRow
+            label="SSID-1"
+            value={search.antenna?.name}
+            loading={isLoading}
+          />
+          <InfoRow
+            label="SSID-2"
+            value={search.antenna?.name5g}
+            loading={isLoading}
+          />
+          <InfoRow
+            label="Distancia"
+            value={search.distance}
+            loading={isLoading}
+          />
+          <InfoRow label="Tipo" value={search.type} loading={isLoading} />
+          <InfoRow label="MAC" value={mac(search.MAC)} loading={isLoading} />
+          <InfoRow
+            label="MAC-5G"
+            value={mac(search.MAC5G)}
+            loading={isLoading}
+          />
         </div>
       )}
     </div>

@@ -1,25 +1,27 @@
-# Licencia MIT para Neo WiFi
+# Licencia GNU GPL v3 para Neo WiFi
 
 ## Derechos de Autor (Copyright)
 
-Copyright (c) 2025 [Calcagni Gabriel/Neo-WiFi]
+Copyright (c) 2025 Calcagni Gabriel/Neo-WiFi App
 
-Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia de este software y de los archivos de documentación asociados ("Neo-WiFi-App"), para utilizar el Software sin restricción, incluyendo sin limitación los derechos de usar, copiar, modificar, fusionar, publicar y permitir a las personas a quienes se les proporcione el Software hacer lo mismo, sujeto a las siguientes condiciones:
+Este programa es software libre: puedes redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública General de GNU publicada por la Free Software Foundation, ya sea la versión 3 de la Licencia, o (a tu elección) cualquier versión posterior.
 
-## Condiciones
+Este programa se distribuye con la esperanza de que sea útil, pero **SIN NINGUNA GARANTÍA**; incluso sin la garantía implícita de **COMERCIABILIDAD** o **IDONEIDAD PARA UN PROPÓSITO PARTICULAR**. Consulta la Licencia Pública General de GNU para más detalles.
 
-El aviso de derechos de autor anterior y este aviso de permiso se incluirán en todas las copias o partes sustanciales del Software.
+Deberías haber recibido una copia de la Licencia Pública General de GNU junto con este programa. Si no es así, visita <https://www.gnu.org/licenses/>.
 
-## Garantía
+## Condiciones de Uso
 
-EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A GARANTÍAS DE COMERCIALIZACIÓN, IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES O TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑOS U OTRAS RESPONSABILIDADES, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O DE OTRO MODO, QUE SURJA DE O EN CONEXIÓN CON EL SOFTWARE O EL USO U OTROS TRATOS EN EL SOFTWARE.
+- Puedes usar, copiar, modificar y distribuir este software bajo los términos de la GNU GPL v3.
+- Todas las copias o modificaciones deben incluir una copia de esta licencia.
+- Cualquier software derivado debe mantenerse bajo la misma licencia GPL-3.0 o una posterior.
 
 ## Términos Adicionales para Neo WiFi
 
 ### Uso Específico
 
-- Esta licencia permite el uso gratuito del software para usuarios en la provincia de San Luis, Argentina.
-- Se permite la modificación del código fuente con atribución al autor original.
+- Se recomienda el uso del software en la provincia de San Luis, Argentina, pero no se limita a esta región.
+- Se permite la modificación del código fuente, siempre y cuando se mantenga la atribución al autor original.
 
 ### Restricciones
 

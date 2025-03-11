@@ -16,6 +16,12 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
      - San Luis, La Punta, Juana Koslay, El Trapiche, La Florida, Potrero de los Funes, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca,
        Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, San Francisco del Monte de Oro, La Toma, Naschel, Alto Pelado, Alto Pencoso,
        Arizona, Anchorena, Buena Esperanza, Unión.
+   - También se provee informació de espacios WiFi gratuitos de Córdoba Capital:
+     - Como Universidades, Hospitales, Espacios Públicos, entre otros puntos
+     - Podrás saber la distancia de cuál es tu punto WiFi más cercano y a que distancia te encuentras de algún punto WiFi
+
+3. **Aplicación de escritorio (Windows • MacOs)**
+   - NeoWiFi App es una aplicación para instalar en la pc para automatizar la conectividad WiFi en sistemas TP-LINK en las redes del Gobierno de la Provincia de San Luis.
 
 ### Tecnologías Utilizadas
 

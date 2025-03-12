@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
-  const location = {
+  const dataLocation = {
     city: "Merlo",
     state: "San Luis",
     departament: "Junín",
@@ -137,7 +137,11 @@ export default function Page() {
             (Posición a modo de ejemplo, no es real.)
           </p>
           <div className="my-10">
-            <GeoPosition loading={false} location={location} coords={coords} />
+            <GeoPosition
+              loading={false}
+              location={dataLocation}
+              coords={coords}
+            />
           </div>
           <p>
             Colocamos las cordenadas de latitud y de longitud entonces la

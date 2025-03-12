@@ -22,11 +22,11 @@ export const share = {
     });
   },
   facebook: () => {
-    const encodeUrl = encodeURIComponent(window.location.href);
+    const encodeUrl = encodeURIComponent(typeOfWindow);
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeUrl}`);
   },
   x: () => {
-    const url = encodeURIComponent(window.location.href);
+    const url = encodeURIComponent(typeOfWindow);
     const text = encodeURIComponent(description);
     const hashtags = encodeURIComponent("WiFi,Configuración,Automatización");
     window.open(
@@ -34,7 +34,7 @@ export const share = {
     );
   },
   linkedIn: () => {
-    const url = encodeURIComponent(window.location.href);
+    const url = encodeURIComponent(typeOfWindow);
     const title = encodeURIComponent(document.title);
     const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`;
     window.open(shareUrl, "_blank");

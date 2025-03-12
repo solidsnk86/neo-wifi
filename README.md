@@ -2,7 +2,7 @@
   <img src="public/Neo-Wifi.svg" alt="Neo Wifi Logo" />
 </div>
 
-# Neo WiFi: Localización Inteligente de Antenas WiFi en San Luis y Córdoba 🇦🇷
+# Localización Inteligente de Antenas WiFi en San Luis y Córdoba 🇦🇷
 
 Neo WiFi es una aplicación innovadora diseñada específicamente para los habitantes de San Luis, Argentina. Su objetivo principal es simplificar la configuración de conexiones WiFi mediante una localización precisa de antenas cercanas.
 

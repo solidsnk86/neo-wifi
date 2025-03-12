@@ -27,15 +27,18 @@ export default function Home() {
         <ArrowBigDownDash className="w-10 h-10 animate-bounce dark:text-[#90B45B] text-[#2B7097]" />
       </HomeBlock>
 
-      <HomeBlock className="flex-col">
-        <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
-        <p className="my-24 text-center text-pretty px-3">
+      <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
+      <HomeBlock>
+        <p className="text-center text-pretty px-3">
           Además de la red WiFi gratuita del Gobierno de la Provincia de San
           Luis, también hay disponibles 93 espacios WiFi gratuitos provistos en
           espacios públicos, instituciones educativas, clínicas y hospitales
           entre otros puntos importantes de la ciudad, por el Gobierno de la
           Provincia de Córdoba.
         </p>
+      </HomeBlock>
+
+      <HomeBlock>
         <span id="geoposition" />
         <GeoPositionCard />
       </HomeBlock>
@@ -60,7 +63,7 @@ export default function Home() {
       </HomeBlock>
       <YouTubeLiteVideo
         videoId="7ZqQ-NsTzYA"
-        width={400}
+        width={360}
         height={300}
         className="rounded-xl flex justify-center mx-auto"
         border={0}

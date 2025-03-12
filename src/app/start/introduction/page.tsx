@@ -8,7 +8,7 @@ import { YouTubeLiteVideo } from "@/app/components/YoutubeVideo";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function IntroductionPage() {
+export default function Page() {
   const location = {
     city: "Merlo",
     state: "San Luis",

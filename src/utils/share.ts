@@ -1,14 +1,48 @@
-const sharer = () =>
-  navigator.share({
-    title: document.title,
-    text: "Configura tu WiFi de manera automatizada en segundos con esta aplicación! 🚀",
-    url: typeof window !== "undefined" ? window.location.href : location.href,
-  });
+import { toast } from "react-toastify";
 
-export const share = () => {
-  if ("share" in navigator) {
-    sharer();
-  } else {
-    throw new Error(`Navigartor doesn't support share`);
-  }
+const typeOfWindow =
+  typeof window !== "undefined" ? window.location.href : location.href;
+const description =
+  "Obtiene información de tu WiFi 📡 más cercano y a que distancia te encuentras con ésta aplicación y configura de manera automatizada cualquier dispositivo inlámbrico TP-LINK CPE con la app de escritorio ";
+
+export const share = {
+  navigatorShare: () => {
+    navigator.share({
+      title: document.title,
+      text: "Configura tu WiFi de manera automatizada en segundos con esta aplicación! 🚀",
+      url: typeOfWindow,
+    });
+  },
+  copy: async () => {
+    const link = typeOfWindow;
+    await navigator.clipboard.writeText(link);
+    toast.success("Se ha copiado el Link!", {
+      pauseOnHover: true,
+      containerId: "top-toast",
+    });
+  },
+  facebook: () => {
+    const encodeUrl = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeUrl}`);
+  },
+  x: () => {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(description);
+    const hashtags = encodeURIComponent("WiFi,Configuración,Automatización");
+    window.open(
+      `https://twitter.com/share?url=${url}&text=${text}&hashtags=${hashtags}`
+    );
+  },
+  linkedIn: () => {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`;
+    window.open(shareUrl, "_blank");
+  },
+  whatsApp: () => {
+    const url = typeOfWindow;
+    const message = `${description} en ésta web: \n${url}`;
+    const encodeMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/?text=${encodeMessage}`);
+  },
 };

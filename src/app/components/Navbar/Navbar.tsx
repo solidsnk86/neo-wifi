@@ -10,6 +10,9 @@ import {
   X,
   BookOpenText,
   AlignRight,
+  Link2,
+  Facebook,
+  Linkedin,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import styles from "./styles/navbar.module.css";
@@ -20,6 +23,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "@/store/themeSlice";
 import { RootState } from "@/store";
 import { socialLinks } from "@/constants";
+import { showDialog } from "@/utils/dialog";
+import { XIcon } from "../Icons/XIcon";
+import { WhatsAppIcon } from "../Icons/WhatsAppIcon";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +44,36 @@ export const Navbar = () => {
     {
       name: "Compartir",
       url: "",
-      fx: share,
+      fx: () => {
+        showDialog({
+          content: (
+            <div className="p-6 flex gap-3 items-center">
+              <h3>Compartir mediante:</h3>
+              <span className="cursor-pointer" title="Copiar Link">
+                <Link2 onClick={share.copy} />
+              </span>
+              <span className="cursor-pointer" title="Compartir">
+                <Share onClick={share.navigatorShare} />
+              </span>
+              <span className="cursor-pointer" title="Compartir en Facebook">
+                <Facebook onClick={share.facebook} />
+              </span>
+              <span className="cursor-pointer" title="Compartir en LinkedIn">
+                <Linkedin onClick={share.linkedIn} />
+              </span>
+              <span className="cursor-pointer" title="Compartir en Twitter">
+                <XIcon onClick={share.x} />
+              </span>
+              <span className="cursor-pointer" title="Compartir en WhatsApp">
+                <WhatsAppIcon
+                  onClick={share.whatsApp}
+                  className="translate-y-[1.5px]"
+                />
+              </span>
+            </div>
+          ),
+        });
+      },
       icon: Share,
       ariaLabel: "Compartir",
     },

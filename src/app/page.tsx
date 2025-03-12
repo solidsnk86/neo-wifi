@@ -29,7 +29,7 @@ export default function Home() {
 
       <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
       <HomeBlock>
-        <p className="text-center text-pretty px-3">
+        <p className="text-center text-pretty px-3 text-zinc-600 dark:text-zinc-400">
           Además de la red WiFi gratuita del Gobierno de la Provincia de San
           Luis, también hay disponibles 93 espacios WiFi gratuitos provistos en
           espacios públicos, instituciones educativas, clínicas y hospitales
@@ -57,7 +57,7 @@ export default function Home() {
 
       <HomeBlockTitle>Introducción</HomeBlockTitle>
       <HomeBlock>
-        <p className="text-center">
+        <p className="text-center text-zinc-600 dark:text-zinc-400 px-3">
           Este es un video introductorio y explicativo al uso de la aplicación.
         </p>
       </HomeBlock>
@@ -76,12 +76,12 @@ export default function Home() {
       <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
 
       <HomeBlock className="flex-col">
-        <p className="text-center relative flex mx-auto justify-center font-semibold px-3">
-          <Quote className="rotate-180 text-zinc-400 w-10 h-10" />
+        <p className="text-center relative flex mx-auto justify-center font-semibold px-3 text-zinc-600 dark:text-zinc-400">
+          <Quote className="rotate-180 text-zinc-300/70 dark:text-zinc-800 w-10 h-10 fill-[#2B7097] dark:fill-[#90B45B]" />
           Creo que todos merecen una conexión a Internet estable y segura.
           Ayúdame a desbloquear el poder de la conectividad y hacer realidad
           esta misión 😃.
-          <Quote className=" text-zinc-400 w-10 h-10" />
+          <Quote className=" text-zinc-300/70 dark:text-zinc-800 w-10 h-10 fill-[#2B7097] dark:fill-[#90B45B]" />
         </p>
         <DownloadCard />
       </HomeBlock>

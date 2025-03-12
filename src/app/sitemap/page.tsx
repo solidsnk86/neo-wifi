@@ -32,7 +32,7 @@ const mapSites = [
   { name: "Contacto", icon: Contact2, url: "mailto:tutosneotecs@gmail.com" },
 ];
 
-export default function Sitemap() {
+export default function Page() {
   return (
     <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200 h-[100dvh]">
       <Navbar />

@@ -19,7 +19,7 @@ import Link from "next/link";
 import { CurveArrowIcon } from "./Icons/ArrowIcon";
 import { YouTubeLiteVideo } from "../components/YoutubeVideo";
 
-export default function DownloadPage() {
+export default function Page() {
   const [downloads, setDownloads] = useState<DownloadsProps>();
 
   const sendDataToSupabase = useCallback(async () => {

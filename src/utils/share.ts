@@ -1,7 +1,8 @@
+"use client";
+
 import { toast } from "react-toastify";
 
-const typeOfWindow =
-  typeof window !== "undefined" ? window.location.href : location.href;
+const typeOfWindow = typeof window !== "undefined" ? window.location.href : "";
 const description =
   "Obtiene información de tu WiFi 📡 más cercano y a que distancia te encuentras con ésta aplicación y configura de manera automatizada cualquier dispositivo inlámbrico TP-LINK CPE con la app de escritorio ";
 
@@ -22,11 +23,11 @@ export const share = {
     });
   },
   facebook: () => {
-    const encodeUrl = encodeURIComponent(typeOfWindow);
+    const encodeUrl = encodeURIComponent(window.location.href);
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeUrl}`);
   },
   x: () => {
-    const url = encodeURIComponent(typeOfWindow);
+    const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(description);
     const hashtags = encodeURIComponent("WiFi,Configuración,Automatización");
     window.open(
@@ -34,7 +35,7 @@ export const share = {
     );
   },
   linkedIn: () => {
-    const url = encodeURIComponent(typeOfWindow);
+    const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(document.title);
     const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`;
     window.open(shareUrl, "_blank");

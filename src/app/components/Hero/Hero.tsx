@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <div className="w-full px-4 mx-auto justify-center pt-20 md:pt-14">
+    <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-14">
       <div>
         <h1
           className={`text-center text-pretty ${styles.h1} 

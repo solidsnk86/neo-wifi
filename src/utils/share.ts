@@ -45,4 +45,7 @@ export const share = {
     const encodeMessage = encodeURIComponent(message);
     window.open(`https://wa.me/?text=${encodeMessage}`);
   },
+  instagram: () => {
+    window.open(`https://www.instagram.com/direct/new/`, "_blank");
+  },
 };

@@ -68,7 +68,7 @@ export default function DownloadPage() {
           <HomeBlockTitle>Introducción</HomeBlockTitle>
           <YouTubeLiteVideo
             videoId="7ZqQ-NsTzYA"
-            width={400}
+            width={360}
             height={300}
             className="rounded-xl flex justify-center mx-auto my-12"
             border={0}

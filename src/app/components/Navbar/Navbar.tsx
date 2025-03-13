@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
-import { MoonStar, Sun, X, AlignRight, SunMoon } from "lucide-react";
+import { MoonStar, Sun, X, AlignRight, Palette } from "lucide-react";
 import { useEffect, useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
@@ -130,9 +130,11 @@ export const Navbar = () => {
                     </Link>
                   </ul>
                 ))}
-                <aside className="flex px-3 items-center gap-3 hover:border-red-400">
-                  <SunMoon className="w-6 h-6" />
-                  <h3 className="text-2xl">Apariencia: </h3>
+                <aside className="flex px-3 items-center gap-3">
+                  <Palette className="w-6 h-6" />
+                  <h3 className="text-2xl">
+                    Apariencia: {darkMode ? "(Oscuro)" : "(Claro)"}
+                  </h3>
                   <div
                     className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
                     ${darkMode ? "bg-zinc-800" : "bg-[#EFF0F3]"}

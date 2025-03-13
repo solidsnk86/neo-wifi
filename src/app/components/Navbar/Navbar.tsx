@@ -103,7 +103,7 @@ export const Navbar = () => {
 
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-zinc-500/50 dark:bg-zinc-900/50 z-40"
+          className="fixed inset-0 h-screen bg-zinc-500/80 dark:bg-zinc-900/80 z-50"
           onClick={toggleMenu}
         >
           <div className={styles.menu} onClick={(e) => e.stopPropagation()}>

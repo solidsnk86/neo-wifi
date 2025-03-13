@@ -251,10 +251,13 @@ export async function POST(req: Request) {
 
     await transporter.sendMail(mailOptions);
 
-    return Response.json({
-      success: true,
-      message: `¡Genial! 🎉 Hemos enviado un correo de confirmación a ${email}. No olvides revisar tu bandeja de entrada y, si no lo ves, échale un vistazo a la carpeta de SPAM. 🚀`,
-    });
+    return Response.json(
+      {
+        success: true,
+        message: `Se ha enviado un correo a ${email}. No olvides revisar tu bandeja de entrada y, si no lo ves, échale un vistazo a la carpeta de SPAM. 🚀`,
+      },
+      { status: 200 }
+    );
   } catch (error) {
     return Response.json(
       { error: "Error al enviar email: " + error },

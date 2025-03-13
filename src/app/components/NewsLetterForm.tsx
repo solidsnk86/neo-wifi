@@ -8,10 +8,11 @@ import { MailCheck } from "lucide-react";
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setIsLoading(true);
     const res = await fetch("/api/subscribe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -23,8 +24,10 @@ export default function NewsletterForm() {
     if (data.success) {
       setMessage(data.message);
       setEmail("");
+      setIsLoading(false);
     } else {
       setMessage("Hubo un error. Intenta de nuevo.");
+      setIsLoading(false);
     }
   };
 
@@ -33,9 +36,10 @@ export default function NewsletterForm() {
       content: (
         <div className="flex p-5 flex-col">
           <h2 className="flex justify-center text-center font-semibold items-center gap-2 my-3">
-            <MailCheck className="text-blue-400 -translate-y-[1px]" />
-            <p>{message}</p>
+            <MailCheck className="text-blue-500 -translate-y-[1px]" />
+            ¡Gracias por suscribirte!
           </h2>
+          <p>{message}</p>
         </div>
       ),
     });
@@ -59,7 +63,7 @@ export default function NewsletterForm() {
         className="w-fit mx-auto p-2 bg-gradient-to-b from-blue-500 to-blue-700 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 hover:scale-105 transition-transform flex gap-2 items-center"
       >
         <PlaneIcon />
-        Suscribirme
+        {isLoading ? "Enviando..." : "Suscribirme"}
       </button>
     </form>
   );

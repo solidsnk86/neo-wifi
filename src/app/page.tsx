@@ -16,6 +16,7 @@ import { YouTubeLiteVideo } from "./components//YoutubeVideo";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import { ArrowBigDownDash, Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
+import NewsletterForm from "./components/NewsLetterForm";
 
 export default function Home() {
   return (
@@ -98,6 +99,11 @@ export default function Home() {
         <HomeBlock className="px-3">
           <AccordionList />
         </HomeBlock>
+
+        <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center">
+          Recibe las últimas novedades sobre Neo WiFi App 🚀
+        </h2>
+        <NewsletterForm />
 
         <Footer />
       </div>

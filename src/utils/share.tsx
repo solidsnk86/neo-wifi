@@ -36,7 +36,8 @@ export const share = {
     const text = encodeURIComponent(description);
     const hashtags = encodeURIComponent("WiFi,Configuración,Automatización");
     window.open(
-      `https://twitter.com/share?url=${url}&text=${text}&hashtags=${hashtags}`
+      `https://twitter.com/share?url=${url}&text=${text}&hashtags=${hashtags}`,
+      "_blank"
     );
   },
   linkedIn: () => {
@@ -49,7 +50,7 @@ export const share = {
     const url = typeOfWindow;
     const message = `${description} en ésta web: \n${url}`;
     const encodeMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/?text=${encodeMessage}`);
+    window.open(`https://wa.me/?text=${encodeMessage}`, "_blank");
   },
   instagram: () => {
     window.open(`https://www.instagram.com/direct/new/`, "_blank");

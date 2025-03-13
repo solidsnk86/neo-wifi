@@ -77,8 +77,8 @@ export default function Page() {
             border={0}
           />
           <p className="my-4 text-pretty px-3 z-50">
-            Antes de comenzar con la descarga te recomiendo que veas el video
-            introductorio, o leas la documentación
+            Antes de comenzar con la descarga te recomiendo que veas el video, o
+            leas la documentación
             <Link
               href="/start/introduction"
               className="mx-1 underline text-blue-400 relative"

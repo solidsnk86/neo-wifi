@@ -85,7 +85,7 @@ export default function Page() {
             width={400}
             height={400}
             alt="Imagen router TP-LINK modelo TL-WR841N"
-            className="flex justify-center mx-auto my-10"
+            className="flex justify-center mx-auto my-10 z-50"
           />
           <p>
             Una vez reseteada la antena (CPE) de TP-LINK, procederemos a
@@ -103,7 +103,7 @@ export default function Page() {
             width={400}
             height={400}
             alt="Imagen del instalador aplicación Neo-WiFi"
-            className="flex justify-center mx-auto my-10"
+            className="flex justify-center mx-auto my-10 z-50"
           />
           <p>
             Le damos a siguiente, y luego instalar. Una vez que finaliza la
@@ -115,7 +115,7 @@ export default function Page() {
             width={800}
             height={400}
             alt="Imagen de pantalla principal Neo-WiFi App"
-            className="flex justify-center mx-auto my-10"
+            className="flex justify-center mx-auto my-10 z-50"
           />
         </HomeBlock>
 
@@ -133,7 +133,7 @@ export default function Page() {
             width={400}
             height={400}
             alt="Imagen permitir ubicación en el navegador"
-            className="flex justify-center mx-auto my-10"
+            className="flex justify-center mx-auto my-10 z-50"
           />
           <p>
             Una vez que hemos podido permitir a la aplicación web obtener tu
@@ -159,11 +159,11 @@ export default function Page() {
             width={800}
             height={400}
             alt="Imagen aplicación con ingreso de coordenadas"
-            className="flex justify-center mx-auto my-10"
+            className="flex justify-center mx-auto my-10 z-50"
           />
         </HomeBlock>
         <HomeBlockTitle>Configuración Router</HomeBlockTitle>
-        <HomeBlock className="flex-col">
+        <HomeBlock className="flex-col z-50">
           <p>
             El siguiente paso es hacer clic en
             <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 ml-1 rounded-md font-mono text-sm">

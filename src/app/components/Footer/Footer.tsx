@@ -68,7 +68,7 @@ export const Footer = () => {
                   key={ariaLabel}
                   href={url}
                   aria-label={ariaLabel}
-                  className="hover:opacity-75 transition-colors duration-200"
+                  className="hover:brightness-200 transition-colors duration-200"
                 >
                   <Icon className="w-5 h-5" />
                 </Link>

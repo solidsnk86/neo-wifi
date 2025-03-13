@@ -100,7 +100,7 @@ export default function Home() {
           <AccordionList />
         </HomeBlock>
 
-        <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center">
+        <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50">
           Recibe las últimas novedades sobre Neo WiFi App 🚀
         </h2>
         <NewsletterForm />

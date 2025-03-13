@@ -115,8 +115,8 @@ export async function POST(req: Request) {
         box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
       }
       .features {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         margin: 30px 0;
         flex-wrap: wrap;
       }

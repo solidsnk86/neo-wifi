@@ -19,8 +19,8 @@ export default function NewsletterForm() {
       body: JSON.stringify({ email }),
     });
 
-    const text = await res.text();
-    const data = text ? JSON.parse(text) : {};
+    const data = await res.json();
+
     if (data.success) {
       setMessage(data.message);
       setEmail("");

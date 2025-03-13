@@ -62,7 +62,10 @@ export default function Page() {
             router.
           </p>
           <div className="relative">
-            <span className="img-dot animate-pulse" />
+            <span
+              className="img-dot before:outline before:outline-1 before:outline-red-500 animate-pulse"
+              title="Botón de reset"
+            />
             <Image
               src="/assets/tp-link-Outdoor-CPE-Passive-PoE-Adapter-300x218-removebg.png"
               width={300}

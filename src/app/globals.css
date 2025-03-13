@@ -325,13 +325,13 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  translate: -300% -145%;
-  width: 8px;
-  height: 8px;
+  translate: -385% -180%;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: #addb42;
   z-index: 999;
-  filter: drop-shadow(0 0 9px #addb42);
+  filter: drop-shadow(0 0 10px #b4ed31);
 }
 
 @keyframes fadeOut {

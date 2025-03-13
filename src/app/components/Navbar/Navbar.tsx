@@ -133,7 +133,7 @@ export const Navbar = () => {
                 <aside className="flex px-3 items-center gap-3">
                   <Palette className="w-6 h-6" />
                   <h3 className="text-2xl">
-                    Apariencia: {darkMode ? "(Oscuro)" : "(Claro)"}
+                    Apariencia: {darkMode ? "Oscuro" : "Claro"}
                   </h3>
                   <div
                     className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1

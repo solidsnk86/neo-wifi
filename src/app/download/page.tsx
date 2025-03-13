@@ -12,6 +12,7 @@ import {
   FileDown,
   FilePenIcon,
   FileText,
+  Grid2X2,
 } from "lucide-react";
 import { DownloadsProps } from "@/types/definitions";
 import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
@@ -63,7 +64,7 @@ export default function Page() {
   return (
     <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
       <Navbar />
-      <section className="pb-10">
+      <section className="py-16">
         <HomeBlock className="flex-col justify-center text-center">
           <HomeBlockTitle>Introducción</HomeBlockTitle>
           <YouTubeLiteVideo
@@ -114,6 +115,10 @@ export default function Page() {
             <p className="flex items-center text-sm">
               <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
               {downloads?.data.download_count || 0}
+            </p>
+            <p className="flex items-center text-sm">
+              <Grid2X2 className="mx-2 w-6 h-6" /> Compatible para SO Windows
+              x64/x86
             </p>
           </div>
           <aside className="flex justify-end p-4">

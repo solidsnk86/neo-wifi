@@ -7,6 +7,7 @@ import {
   Facebook,
   BookOpenText,
   Info,
+  Bug,
 } from "lucide-react";
 import { XIcon } from "./app/components/Icons/XIcon";
 import { showDialog } from "./utils/dialog";
@@ -17,7 +18,7 @@ import { PlaneIcon } from "./app/components/Icons/PlaneIcon";
 
 export const categories = [
   { name: "Windows", url: "/download" },
-  { name: "MacOS", url: "/download" },
+  { name: "Bugs", url: "https://github.com/solidsnk86/neo-wifi/issues/new" },
   { name: "Redes WiFi", url: "https://wifi.sanluis.gov.ar/#" },
   { name: "Tutoriales", url: "https://neotecs.vercel.app" },
 ];
@@ -56,6 +57,12 @@ export const navLinks = [
     url: "/start/introduction",
     icon: BookOpenText,
     ariaLabel: "Documentación",
+  },
+  {
+    name: "Bugs",
+    url: "https://github.com/solidsnk86/neo-wifi/issues/new",
+    icon: Bug,
+    ariaLabel: "Bugs",
   },
   {
     name: "Compartir",

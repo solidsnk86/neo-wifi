@@ -31,7 +31,7 @@ export const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="flex justify-between items-center md:px-6 px-4 fixed top-0 left-0 w-full z-[9999] bg-[#F5F5F5] dark:bg-[#111] border-b border-zinc-200/70 dark:border-zinc-800">
+    <nav className="flex justify-between items-center md:px-6 px-4 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl bg-[#F5F5F5] dark:bg-zinc-900/50 border-b border-zinc-200/70 dark:border-zinc-800">
       <Link
         href="/"
         className="flex gap-2 hover:scale-105 transition-transform duration-300 hover:drop-shadow-md"
@@ -58,7 +58,7 @@ export const Navbar = () => {
           className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
             ${darkMode ? "bg-zinc-800" : "bg-[#EFF0F3]"}
             border border-zinc-300/30 dark:border-zinc-700/50
-            shadow-sm cursor-pointer hover:border-red-300 dark:hover:border-red-400/70`}
+            shadow-sm hover:border-red-300 dark:hover:border-red-400/70`}
           onClick={() => dispatch(toggleTheme())}
           role="switch"
           aria-checked={darkMode}

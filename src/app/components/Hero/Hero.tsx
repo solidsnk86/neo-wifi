@@ -3,25 +3,8 @@
 import { ArrowRight } from "lucide-react";
 import styles from "./styles/hero.module.css";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export const Hero = () => {
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((prev) => {
-        if (prev >= 266) {
-          clearInterval(interval);
-          return prev;
-        }
-        return prev + 1;
-      });
-    }, 1);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-14">
       <div>
@@ -45,7 +28,7 @@ export const Hero = () => {
               className="absolute -bottom-[6px] left-[2px] text-[#2a6f97] dark:text-[#6a994e] w-48 md:w-[284px]"
             >
               <path
-                d={`M2 6C21.2566 4.1224 68.616 0.784449 ${seconds} 2.45343`}
+                d={`M2 6C21.2566 4.1224 68.616 0.784449 286 2.45343`}
                 stroke="currentColor"
                 strokeWidth="4"
                 strokeLinecap="round"

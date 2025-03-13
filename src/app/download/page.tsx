@@ -19,6 +19,7 @@ import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
 import Link from "next/link";
 import { CurveArrowIcon } from "./Icons/ArrowIcon";
 import { YouTubeLiteVideo } from "../components/YoutubeVideo";
+import MouseTrail from "../components/MouseTrail";
 
 export default function Page() {
   const [downloads, setDownloads] = useState<DownloadsProps>();
@@ -63,6 +64,7 @@ export default function Page() {
 
   return (
     <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
+      <MouseTrail />
       <Navbar />
       <section className="py-16">
         <HomeBlock className="flex-col justify-center text-center">
@@ -74,7 +76,7 @@ export default function Page() {
             className="rounded-xl flex justify-center mx-auto my-12"
             border={0}
           />
-          <p className="my-4 text-pretty px-3">
+          <p className="my-4 text-pretty px-3 z-50">
             Antes de comenzar con la descarga te recomiendo que veas el video
             introductorio, o leas la documentación
             <Link
@@ -86,10 +88,10 @@ export default function Page() {
             </Link>
           </p>
         </HomeBlock>
-        <h2 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto relative">
+        <h2 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto relative z-50">
           Descarga
         </h2>
-        <article className="flex flex-col xl:max-w-md max-w-[364px] border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto">
+        <article className="flex flex-col xl:max-w-md max-w-[364px] border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto backdrop-blur-xl z-50">
           <h3 className="font-semibold text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b py-2 px-3">
             Información del archivo
           </h3>

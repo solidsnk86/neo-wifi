@@ -13,6 +13,7 @@ import { showDialog } from "./utils/dialog";
 import { share } from "./utils/share";
 import { WhatsAppIcon } from "./app/components/Icons/WhatsAppIcon";
 import styles from "@/app/components/Navbar/styles/navbar.module.css";
+import { PlaneIcon } from "./app/components/Icons/PlaneIcon";
 
 export const categories = [
   { name: "Windows", url: "/download" },
@@ -30,9 +31,9 @@ export const quickLinks = [
 
 export const socialLinks = [
   {
-    icon: Instagram,
-    url: "https://www.instagram.com/calcagnigabriel/",
-    ariaLabel: "Instagram",
+    icon: PlaneIcon,
+    url: "mailto:tutosneotecs@gmail.com",
+    ariaLabel: "Gmail",
   },
   { icon: XIcon, url: "https://x.com/CalcagniGabriel", ariaLabel: "Twitter" },
   { icon: Github, url: "https://github.com/solidsnk86/", ariaLabel: "Github" },
@@ -40,6 +41,11 @@ export const socialLinks = [
     icon: Linkedin,
     url: "https://www.linkedin.com/in/gabriel-calcagni/",
     ariaLabel: "LinkedIn",
+  },
+  {
+    icon: Instagram,
+    url: "https://www.instagram.com/calcagnigabriel/",
+    ariaLabel: "Instagram",
   },
 ];
 
@@ -57,7 +63,7 @@ export const navLinks = [
     fx: () => {
       showDialog({
         content: (
-          <div className="p-6 flex gap-3 items-center w-fit justify-center">
+          <div className="p-6 flex gap-3 items-center justify-center">
             <h3>Compartir mediante:</h3>
             <span className={styles.span} title="Copiar Link">
               <Link2 onClick={share.copyUrl} />

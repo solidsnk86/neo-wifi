@@ -26,22 +26,22 @@ const MouseTrail = () => {
     return () => clearTimeout(timeout);
   }, [x, y]);
 
+  if (!darkMode) return null;
+
   return (
     <>
-      {darkMode
-        ? trails.map((trail) => (
-            <div
-              key={trail.id}
-              className="mouse-trail"
-              style={{
-                left: trail.x,
-                top: trail.y,
-                transform: "translate(-50%, -50%) scale(1.5)",
-                animation: "fadeOut 0.5s ease-out forwards",
-              }}
-            />
-          ))
-        : null}
+      {trails.map((trail) => (
+        <div
+          key={trail.id}
+          className="mouse-trail"
+          style={{
+            left: trail.x,
+            top: trail.y,
+            transform: "translate(-50%, -50%) scale(1.5)",
+            animation: "fadeOut 0.5s ease-out forwards",
+          }}
+        />
+      ))}
     </>
   );
 };

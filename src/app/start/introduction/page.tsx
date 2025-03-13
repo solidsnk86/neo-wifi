@@ -4,6 +4,7 @@ import { Footer, Navbar } from "@/app/components";
 import { HomeBlock, HomeBlockTitle } from "@/app/components/BlockComp";
 import { Donation } from "@/app/components/DonationCard/Donation";
 import { GeoPosition } from "@/app/components/GeoInfo/components/GeoPosition";
+import MouseTrail from "@/app/components/MouseTrail";
 import { YouTubeLiteVideo } from "@/app/components/YoutubeVideo";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,10 +23,11 @@ export default function Page() {
 
   return (
     <main className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
+      <MouseTrail />
       <Navbar />
       <section style={{ padding: "2rem" }}>
-        <HomeBlockTitle className="pt-24">Introducción</HomeBlockTitle>
-        <HomeBlock className="flex-col text-pretty space-y-3 text-center">
+        <HomeBlockTitle className="pt-24 z-50">Introducción</HomeBlockTitle>
+        <HomeBlock className="flex-col text-pretty space-y-3 text-center z-50">
           <p>
             Bienvenido a esta aplicación de configuración automatizada para
             dispositivos TP-Link.

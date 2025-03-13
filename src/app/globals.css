@@ -82,6 +82,12 @@ html.dark {
     font-weight: 600;
     animation: 200ms slideEffect ease-in-out;
 
+    & > div {
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
     & p {
       text-align: center;
     }
@@ -147,6 +153,12 @@ html {
     color: #111;
     font-weight: 600;
     animation: 200ms slideEffect ease-in-out;
+
+    & > div {
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
+    }
 
     & p {
       text-align: center;

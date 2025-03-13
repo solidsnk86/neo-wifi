@@ -17,7 +17,7 @@ export const copy = async (coord: string, title: string): Promise<boolean> => {
     await navigator.clipboard.writeText(coord);
     showDialog({
       content: (
-        <div className="p-6">
+        <div className="p-6 flex flex-col items-center justify-center">
           <p>
             📌 Se ha copiado la coordenada para {title}:<span>{coord}</span>
           </p>

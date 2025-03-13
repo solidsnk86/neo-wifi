@@ -54,19 +54,38 @@ export const Navbar = () => {
               <span>{name}</span>
             </Link>
           ))}
-        {darkMode ? (
-          <Sun
-            aria-label="Cambiar a modo claro"
-            className="cursor-pointer w-5 h-5 translate-y-[1px]"
-            onClick={() => dispatch(toggleTheme())}
-          />
-        ) : (
-          <MoonStar
-            aria-label="Cambiar a modo oscuro"
-            className="cursor-pointer w-5 h-5 translate-y-[1px]"
-            onClick={() => dispatch(toggleTheme())}
-          />
-        )}
+        <aside
+          className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
+    ${darkMode ? "bg-zinc-800" : "bg-blue-100"}
+    border border-zinc-300/30 dark:border-zinc-700/50
+    shadow-sm`}
+          onClick={() => dispatch(toggleTheme())}
+          role="switch"
+          aria-checked={darkMode}
+          tabIndex={0}
+          aria-label={
+            darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
+          }
+        >
+          <div
+            className={`absolute w-6 h-6 rounded-full transition-transform duration-300 ease-in-out
+      flex items-center justify-center
+      shadow-md
+      ${darkMode ? "transform translate-x-8 bg-blue-900" : "bg-white"}`}
+          >
+            {darkMode ? (
+              <MoonStar
+                className="w-4 h-4 text-yellow-300"
+                aria-hidden="true"
+              />
+            ) : (
+              <Sun className="w-4 h-4 text-amber-500" aria-hidden="true" />
+            )}
+          </div>
+          <span className="sr-only">
+            {darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+          </span>
+        </aside>
       </div>
 
       <AlignRight

@@ -18,6 +18,7 @@
     #2a6f97 50%,
     #61a5c2 90%
   );
+  --shadow: #f5f5f5;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,6 +33,7 @@
       #6a994e 50%,
       #386641 90%
     );
+    --shadow: #444;
   }
 }
 

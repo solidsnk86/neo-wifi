@@ -37,6 +37,7 @@
 }
 
 .span:hover {
-  transform: scale(1.05);
-  transition: transform ease-in-out;
+  transform: scale(1.08);
+  transition: transform 0.3s ease-in-out;
+  filter: drop-shadow(0 0 6px var(--shadow));
 }

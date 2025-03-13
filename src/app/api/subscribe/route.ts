@@ -244,15 +244,9 @@ export async function POST(req: Request) {
         </div>
 
         <div class="social">
-        <a href="mailto:calcagni.gabriel86@gmail.com">
-        <img src="https://raw.githubusercontent.com/solidsnk86/neo-wifi/refs/heads/master/public/envelope.svg" width="20" height="20" alt="Email">
-        </a>
-        <a href="https://calcagni-gabriel.vercel.app">
-        <img src="https://raw.githubusercontent.com/solidsnk86/neo-wifi/refs/heads/master/public/globe.svg" width="20" height="20" alt="Sitio Web">
-        </a>
-        <a href="tel:5492665290020">
-        <img src="https://raw.githubusercontent.com/solidsnk86/neo-wifi/refs/heads/master/public/incoming-phone.svg" width="20" height="20" alt="Teléfono">
-        </a>
+        <a href="mailto:calcagni.gabriel86@gmail.com">✉️</a>
+        <a href="https://calcagni-gabriel.vercel.app">🌐</a>
+        <a href="tel:5492665290020">📱</a>
         </div>
         </div>
         </body>

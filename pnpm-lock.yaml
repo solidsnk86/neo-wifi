@@ -29,9 +29,6 @@ dependencies:
   react-redux:
     specifier: ^9.2.0
     version: 9.2.0(@types/react@19.0.8)(react@19.0.0)(redux@5.0.1)
-  react-toastify:
-    specifier: ^11.0.5
-    version: 11.0.5(react-dom@19.0.0)(react@19.0.0)
 
 devDependencies:
   '@eslint/eslintrc':
@@ -983,11 +980,6 @@ packages:
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
-    dev: false
-
-  /clsx@2.1.1:
-    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
-    engines: {node: '>=6'}
     dev: false
 
   /color-convert@2.0.1:
@@ -2625,17 +2617,6 @@ packages:
       react: 19.0.0
       redux: 5.0.1
       use-sync-external-store: 1.4.0(react@19.0.0)
-    dev: false
-
-  /react-toastify@11.0.5(react-dom@19.0.0)(react@19.0.0):
-    resolution: {integrity: sha512-EpqHBGvnSTtHYhCPLxML05NLY2ZX0JURbAdNYa6BUkk+amz4wbKBQvoKQAB0ardvSarUBuY4Q4s1sluAzZwkmA==}
-    peerDependencies:
-      react: ^18 || ^19
-      react-dom: ^18 || ^19
-    dependencies:
-      clsx: 2.1.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
     dev: false
 
   /react@19.0.0:

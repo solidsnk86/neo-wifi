@@ -228,6 +228,25 @@ html {
   }
 }
 
+/* Delicius Toast */
+@keyframes toastyIn {
+  from {
+    transform: translateY(-500%);
+  }
+  to {
+    transform: translateY(10%);
+  }
+}
+
+@keyframes toastyOut {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(-500%);
+  }
+}
+
 /* Scroll-Driven Animations */
 .fade-in {
   view-timeline-name: --fade;

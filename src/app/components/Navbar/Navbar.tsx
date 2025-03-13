@@ -2,82 +2,21 @@
 
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
-import {
-  Info,
-  MoonStar,
-  Share,
-  Sun,
-  X,
-  BookOpenText,
-  AlignRight,
-  Link2,
-  Facebook,
-  Linkedin,
-} from "lucide-react";
+import { MoonStar, Sun, X, AlignRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
-import { share } from "@/utils/share";
 import NeoWifiCode from "../Footer/icon/NeoWifiCode";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "@/store/themeSlice";
 import { RootState } from "@/store";
-import { socialLinks } from "@/constants";
-import { showDialog } from "@/utils/dialog";
-import { XIcon } from "../Icons/XIcon";
-import { WhatsAppIcon } from "../Icons/WhatsAppIcon";
+import { navLinks, socialLinks } from "@/constants";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const path = usePathname();
   const dispatch = useDispatch();
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
-
-  const navLinks = [
-    { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
-    {
-      name: "Documentación",
-      url: "/start/introduction",
-      icon: BookOpenText,
-      ariaLabel: "Documentación",
-    },
-    {
-      name: "Compartir",
-      url: "",
-      fx: () => {
-        showDialog({
-          content: (
-            <div className="p-6 flex gap-3 items-center">
-              <h3>Compartir mediante:</h3>
-              <span className="cursor-pointer" title="Copiar Link">
-                <Link2 onClick={share.copy} />
-              </span>
-              <span className="cursor-pointer" title="Compartir">
-                <Share onClick={share.navigatorShare} />
-              </span>
-              <span className="cursor-pointer" title="Compartir en Facebook">
-                <Facebook onClick={share.facebook} />
-              </span>
-              <span className="cursor-pointer" title="Compartir en LinkedIn">
-                <Linkedin onClick={share.linkedIn} />
-              </span>
-              <span className="cursor-pointer" title="Compartir en Twitter">
-                <XIcon onClick={share.x} />
-              </span>
-              <span className="cursor-pointer" title="Compartir en WhatsApp">
-                <WhatsAppIcon
-                  onClick={share.whatsApp}
-                  className="translate-y-[1.5px]"
-                />
-              </span>
-            </div>
-          ),
-        });
-      },
-      icon: Share,
-      ariaLabel: "Compartir",
-    },
-  ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

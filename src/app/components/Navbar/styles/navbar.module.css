@@ -31,3 +31,12 @@
     transform: translate(0);
   }
 }
+
+.span {
+  cursor: pointer;
+}
+
+.span:hover {
+  transform: scale(1.05);
+  transition: transform ease-in-out;
+}

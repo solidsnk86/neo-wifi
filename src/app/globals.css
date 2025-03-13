@@ -319,6 +319,20 @@ html {
   z-index: 3;
 }
 
+.img-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -255% -125%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #addb42;
+  z-index: 999;
+  filter: drop-shadow(0 0 10px #a7a7a7);
+}
+
 @keyframes fadeOut {
   0% {
     opacity: 0.8;

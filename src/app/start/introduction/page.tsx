@@ -50,7 +50,7 @@ export default function Page() {
           </p>
         </HomeBlock>
         <HomeBlockTitle>Primeros Pasos</HomeBlockTitle>
-        <HomeBlock className="flex-col">
+        <HomeBlock className="flex-col z-50">
           <p>
             Para utilizar esta aplicación, es necesario restablecer la antena,
             ya que desconocemos las credenciales de acceso, como el nombre de
@@ -61,13 +61,16 @@ export default function Page() {
             suministra energía y transmite datos, y WAN, que envía los datos al
             router.
           </p>
-          <Image
-            src="/assets/tp-link-Outdoor-CPE-Passive-PoE-Adapter-300x218-removebg.png"
-            width={300}
-            height={300}
-            alt="Imagen del adaptador POE de TP-LINK"
-            className="flex justify-center mx-auto my-10"
-          />
+          <div className="relative">
+            <span className="img-dot animate-pulse" />
+            <Image
+              src="/assets/tp-link-Outdoor-CPE-Passive-PoE-Adapter-300x218-removebg.png"
+              width={300}
+              height={300}
+              alt="Imagen del adaptador POE de TP-LINK"
+              className="flex justify-center mx-auto my-10"
+            />
+          </div>
           <p>
             En uno de los laterales del dispositivo hay un pequeño orificio. Si
             introduces un clip o un objeto punzante con suavidad, sin aplicar

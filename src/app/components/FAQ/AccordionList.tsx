@@ -75,7 +75,9 @@ export const AccordionList = () => {
           </header>
           <div
             className={`overflow-hidden transition-all duration-200 ease-in-out ${
-              activeItems.includes(list.id) ? "max-h-48" : "max-h-0"
+              activeItems.includes(list.id)
+                ? "max-h-48 overflow-y-auto"
+                : "max-h-0"
             }`}
           >
             <p className="p-4 text-zinc-700 dark:text-zinc-300 border-t border-zinc-300/70 dark:border-zinc-700/50">

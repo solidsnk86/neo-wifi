@@ -19,7 +19,7 @@ interface InfoWifiProps {
 
 export const InfoWifi = ({ location, loading }: InfoWifiProps) => {
   return (
-    <div className="border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary overflow-hidden backdrop-blur-lg z-50">
+    <div className="border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary overflow-hidden backdrop-blur-xl z-50">
       <h2
         title={`Información válida para la provincia de ${
           location.state || "Sin localización"

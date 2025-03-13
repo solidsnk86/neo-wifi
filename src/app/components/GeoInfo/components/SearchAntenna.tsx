@@ -25,7 +25,7 @@ export const SearchAntenna = ({
   mac,
 }: SearchAntennaProps) => {
   return (
-    <div className="border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary backdrop-blur-lg z-50">
+    <div className="border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary backdrop-blur-xl z-50">
       <form onSubmit={submit} className="flex flex-col gap-2">
         <h2
           title="Información válida para la provincia de San Luis"

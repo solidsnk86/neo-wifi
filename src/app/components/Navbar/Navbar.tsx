@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import NeoWifiLogo from "./Icon/NeoWifiLogo";
-import { MoonStar, Sun, X, AlignRight } from "lucide-react";
+import { MoonStar, Sun, X, AlignRight, SunMoon } from "lucide-react";
 import { useEffect, useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
@@ -56,9 +56,9 @@ export const Navbar = () => {
           ))}
         <aside
           className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
-            ${darkMode ? "bg-zinc-800" : "bg-[#4DA9DD]"}
+            ${darkMode ? "bg-zinc-800" : "bg-[#EFF0F3]"}
             border border-zinc-300/30 dark:border-zinc-700/50
-            shadow-sm`}
+            shadow-sm cursor-pointer hover:border-red-300 dark:hover:border-red-400/70`}
           onClick={() => dispatch(toggleTheme())}
           role="switch"
           aria-checked={darkMode}
@@ -70,8 +70,12 @@ export const Navbar = () => {
           <div
             className={`absolute w-6 h-6 rounded-full transition-transform duration-300 ease-in-out
             flex items-center justify-center
-            shadow-md
-            ${darkMode ? "transform translate-x-8 bg-blue-900" : "bg-white"}`}
+            shadow-md 
+            ${
+              darkMode
+                ? "transform translate-x-8 bg-zinc-900 hover:border-red-400"
+                : "bg-white"
+            }`}
           >
             {darkMode ? (
               <MoonStar
@@ -126,46 +130,52 @@ export const Navbar = () => {
                     </Link>
                   </ul>
                 ))}
-                <aside
-                  className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
-                    ${darkMode ? "bg-zinc-800" : "bg-blue-100"}
+                <aside className="flex px-3 items-center gap-3 hover:border-red-400">
+                  <SunMoon className="w-6 h-6" />
+                  <h3 className="text-2xl">Apariencia: </h3>
+                  <div
+                    className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
+                    ${darkMode ? "bg-zinc-800" : "bg-[#EFF0F3]"}
                     border border-zinc-300/30 dark:border-zinc-700/50
                     shadow-sm`}
-                  onClick={() => dispatch(toggleTheme())}
-                  role="switch"
-                  aria-checked={darkMode}
-                  tabIndex={0}
-                  aria-label={
-                    darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
-                  }
-                >
-                  <div
-                    className={`absolute w-6 h-6 rounded-full transition-transform duration-300 ease-in-out
+                    onClick={() => dispatch(toggleTheme())}
+                    role="switch"
+                    aria-checked={darkMode}
+                    tabIndex={0}
+                    aria-label={
+                      darkMode
+                        ? "Cambiar a modo claro"
+                        : "Cambiar a modo oscuro"
+                    }
+                  >
+                    <div
+                      className={`absolute w-6 h-6 rounded-full transition-transform duration-300 ease-in-out
                     flex items-center justify-center
                     shadow-md
                     ${
                       darkMode
-                        ? "transform translate-x-8 bg-blue-900"
+                        ? "transform translate-x-8 bg-zinc-900"
                         : "bg-white"
                     }`}
-                  >
-                    {darkMode ? (
-                      <MoonStar
-                        className="w-4 h-4 text-yellow-300"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <Sun
-                        className="w-4 h-4 text-amber-500"
-                        aria-hidden="true"
-                      />
-                    )}
+                    >
+                      {darkMode ? (
+                        <MoonStar
+                          className="w-4 h-4 text-yellow-300"
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <Sun
+                          className="w-4 h-4 text-amber-500"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </div>
+                    <span className="sr-only">
+                      {darkMode
+                        ? "Cambiar a modo claro"
+                        : "Cambiar a modo oscuro"}
+                    </span>
                   </div>
-                  <span className="sr-only">
-                    {darkMode
-                      ? "Cambiar a modo claro"
-                      : "Cambiar a modo oscuro"}
-                  </span>
                 </aside>
               </article>
               <footer className="absolute bottom-4 w-full">

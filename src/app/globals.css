@@ -72,7 +72,7 @@ body {
 
 dialog::backdrop {
   background: rgba(40, 40, 40, 0.1);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
   cursor: alias;
 }
 

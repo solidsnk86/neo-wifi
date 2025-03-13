@@ -4,7 +4,7 @@ import { CoffeeIcon } from "./CoffeeIcon";
 export const Donation = () => {
   return (
     <Link
-      className={`w-fit border border-zinc-200/70 dark:border-zinc-800/50 p-3 my-16 rounded-[14px] flex justify-center mx-auto hover:scale-110 
+      className={`w-fit border border-zinc-200/70 dark:border-zinc-800/50 p-3 my-16 rounded-[14px] flex justify-center mx-auto hover:scale-110 z-50 backdrop-blur-lg
         items-center cursor-pointer gap-2 bg-[#ffffff] hover:shadow-lg dark:bg-zinc-800/50 relative dark:hover:brightness-125 transition-all duration-300`}
       href="https://link.mercadopago.com.ar/neotecs"
     >

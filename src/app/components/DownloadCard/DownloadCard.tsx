@@ -6,7 +6,7 @@ import styles from "./styles/card.module.css";
 export const DownloadCard = () => {
   return (
     <article
-      className={`${styles.article} border border-zinc-200/70 dark:border-zinc-700/80`}
+      className={`${styles.article} border border-zinc-200/70 dark:border-zinc-700/80 z-50`}
     >
       <div className={styles.text_container}>
         <h2>

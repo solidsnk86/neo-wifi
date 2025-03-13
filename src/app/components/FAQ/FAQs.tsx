@@ -4,7 +4,7 @@ export const Faqs = () => {
   const currentYear = new Date().getFullYear();
   return (
     <>
-      <section className={`${styles.marquee} w-[600%] my-24`}>
+      <section className={`${styles.marquee} w-[600%] my-24 z-50 relative`}>
         <p className={styles.p}>
           PREGUNTAS FRECUENTES · PREGUNTAS FRECUENTES · PREGUNTAS FRECUENTES ·
           PREGUNTAS FRECUENTES · PREGUNTAS FRECUENTES · PREGUNTAS FRECUENTES ·

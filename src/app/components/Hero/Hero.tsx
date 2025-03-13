@@ -1,8 +1,23 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import styles from "./styles/hero.module.css";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export const Hero = () => {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1);
+
+    if (seconds > 266) clearInterval(interval);
+
+    return () => clearInterval(interval);
+  }, [seconds]);
+
   return (
     <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-14">
       <div>
@@ -26,10 +41,10 @@ export const Hero = () => {
               className="absolute -bottom-[6px] left-[2px] text-[#2a6f97] dark:text-[#6a994e] w-48 md:w-[284px]"
             >
               <path
-                d="M2 6C21.2566 4.1224 68.616 0.784449 284 2.45343"
+                d={`M2 6C21.2566 4.1224 68.616 0.784449 ${seconds} 2.45343`}
                 stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
+                strokeWidth="4"
+                strokeLinecap="round"
               />
             </svg>
           </span>
@@ -41,7 +56,7 @@ export const Hero = () => {
           red provincial.
         </p>
       </div>
-      <aside className="flex justify-center gap-10 relative">
+      <aside className="flex justify-center gap-10 relative z-50">
         <Link
           href="/start/introduction"
           className="py-3 px-4 border border-zinc-300/70 dark:border-zinc-800 rounded-full text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 cursor-pointer hover:opacity-80"

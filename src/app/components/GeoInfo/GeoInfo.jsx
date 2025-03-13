@@ -132,7 +132,7 @@ export const GeoPositionCard = () => {
       if (data.antenna.name === "Antena inexistente")
         showDialog({
           content: (
-            <div className="p-5">
+            <div className="p-5 flex-col">
               <h2 className="flex justify-center text-center font-semibold items-center gap-2 my-3">
                 <TriangleAlert className="text-amber-400 -translate-y-[1px]" />
                 Error en la búsqueda

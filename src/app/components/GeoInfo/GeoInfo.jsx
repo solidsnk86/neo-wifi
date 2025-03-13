@@ -169,7 +169,7 @@ export const GeoPositionCard = () => {
   };
 
   return (
-    <div className="justify-center mx-auto space-y-3 w-[672px] px-4 z-50">
+    <div className="justify-center mx-auto space-y-3 w-[672px] z-50">
       <GeoPosition location={location} coords={coords} loading={isLoading} />
 
       <InfoWifi location={location} loading={isLoading} />

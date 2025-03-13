@@ -56,7 +56,7 @@ export const AccordionList = () => {
   };
 
   return (
-    <article className="flex flex-col justify-center mx-auto mt-16 space-y-4 px-4 relative backdrop-blur-xl z-50">
+    <article className="flex flex-col justify-center mx-auto mt-16 space-y-4 rounded-xl relative backdrop-blur-xl z-50">
       {accordionLists.map((list) => (
         <div
           key={list.id}

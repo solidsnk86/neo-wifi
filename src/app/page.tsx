@@ -42,7 +42,7 @@ export default function Home() {
           </p>
         </HomeBlock>
 
-        <HomeBlock>
+        <HomeBlock className="px-3">
           <span id="geoposition" />
           <GeoPositionCard />
         </HomeBlock>
@@ -95,7 +95,7 @@ export default function Home() {
         <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
         <Faqs />
 
-        <HomeBlock>
+        <HomeBlock className="px-3">
           <AccordionList />
         </HomeBlock>
 

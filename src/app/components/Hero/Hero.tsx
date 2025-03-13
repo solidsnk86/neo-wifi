@@ -10,13 +10,17 @@ export const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prev) => prev + 1);
+      setSeconds((prev) => {
+        if (prev >= 266) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 1;
+      });
     }, 1);
 
-    if (seconds > 266) clearInterval(interval);
-
     return () => clearInterval(interval);
-  }, [seconds]);
+  }, []);
 
   return (
     <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-14">

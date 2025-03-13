@@ -56,7 +56,7 @@ export const Navbar = () => {
           ))}
         <aside
           className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
-            ${darkMode ? "bg-zinc-800" : "bg-blue-100"}
+            ${darkMode ? "bg-zinc-800" : "bg-[#4DA9DD]"}
             border border-zinc-300/30 dark:border-zinc-700/50
             shadow-sm`}
           onClick={() => dispatch(toggleTheme())}
@@ -79,7 +79,10 @@ export const Navbar = () => {
                 aria-hidden="true"
               />
             ) : (
-              <Sun className="w-4 h-4 text-amber-500" aria-hidden="true" />
+              <Sun
+                className="w-4 h-4 text-amber-500 fill-amber-500"
+                aria-hidden="true"
+              />
             )}
           </div>
           <span className="sr-only">

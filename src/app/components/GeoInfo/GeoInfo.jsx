@@ -107,7 +107,7 @@ export const GeoPositionCard = () => {
       if (lastIP !== ip) {
         setTimeout(async () => {
           await SupabaseDB.sendVisits({ data: objectVisit });
-        }, 10000);
+        }, 30000);
       }
     } catch (error) {
       console.error("Cannot send data: " + error);

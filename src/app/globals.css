@@ -153,7 +153,7 @@ html {
     border: 1px solid #ddd;
     color: #111;
     font-weight: 600;
-    animation: 200ms slideEffect ease-in-out;
+    animation: 300ms slideEffect ease-in-out;
 
     & > div {
       display: flex;

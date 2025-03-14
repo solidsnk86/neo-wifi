@@ -48,7 +48,7 @@ export default function NewsletterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-fit mx-auto md:flex grid gap-3 my-16 border bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary overflow-hidden"
+      className="w-full max-w-lg mx-auto flex flex-wrap gap-2 my-16 border bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary overflow-hidden"
     >
       <input
         type="email"
@@ -56,11 +56,11 @@ export default function NewsletterForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="p-2 border rounded md:w-80"
+        className="p-2 border rounded w-full max-w-md md:w-80"
       />
       <button
         type="submit"
-        className="w-fit mx-auto p-2 bg-gradient-to-b from-blue-500 to-blue-700 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 hover:scale-105 transition-transform flex gap-2 items-center"
+        className="w-full md:w-fit mx-auto p-2 bg-gradient-to-b from-blue-500 to-blue-700 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 hover:scale-105 transition-transform flex gap-2 items-center justify-center"
       >
         <PlaneIcon />
         {isLoading ? "Enviando..⏳" : "Suscribirme"}

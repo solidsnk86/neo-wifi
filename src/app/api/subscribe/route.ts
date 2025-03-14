@@ -3,8 +3,6 @@ import nodemailer from "nodemailer";
 export async function POST(req: Request) {
   try {
     const { email } = await req.json();
-    const gmailUser = process.env.NEXT_PUBLIC_GAMIL_USER;
-    const gmailPass = process.env.NEXT_PUBLIC_GMAIL_PASS;
 
     if (!email) {
       return Response.json({ error: "Email requerido" }, { status: 400 });
@@ -13,13 +11,13 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: gmailUser,
-        pass: gmailPass,
+        user: process.env.NEXT_PUBLIC_GMAIL_USER,
+        pass: process.env.NEXT_PUBLIC_GMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: gmailUser,
+      from: process.env.NEXT_PUBLIC_GMAIL_USER,
       to: email,
       subject: "¡Gracias por suscribirte a Neo WiFi!",
       html: `

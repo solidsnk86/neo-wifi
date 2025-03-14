@@ -63,7 +63,7 @@ export default function NewsletterForm() {
         className="w-full md:w-fit mx-auto p-2 bg-gradient-to-b from-blue-500 to-blue-700 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 hover:scale-105 transition-transform flex gap-2 items-center justify-center"
       >
         <PlaneIcon />
-        {isLoading ? "Enviando..⏳" : "Suscribirme"}
+        {isLoading ? "Enviando..." : "Suscribirme"}
       </button>
     </form>
   );

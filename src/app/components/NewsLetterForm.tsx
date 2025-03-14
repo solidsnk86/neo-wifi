@@ -20,35 +20,32 @@ export default function NewsletterForm() {
     });
 
     const data = await res.json();
+    setIsLoading(false);
 
     if (data.success) {
       setMessage(data.message);
       setEmail("");
-      setIsLoading(false);
+
+      showDialog({
+        content: (
+          <div className="flex p-5 flex-col">
+            <h2 className="flex justify-center text-center font-semibold items-center gap-2 my-3">
+              <MailCheck className="text-blue-500 -translate-y-[1px]" />
+              ¡Gracias por suscribirte!
+            </h2>
+            <p>{message}</p>
+          </div>
+        ),
+      });
     } else {
       setMessage("Hubo un error. Intenta de nuevo.");
-      setIsLoading(false);
     }
   };
-
-  if (message) {
-    showDialog({
-      content: (
-        <div className="flex p-5 flex-col">
-          <h2 className="flex justify-center text-center font-semibold items-center gap-2 my-3">
-            <MailCheck className="text-blue-500 -translate-y-[1px]" />
-            ¡Gracias por suscribirte!
-          </h2>
-          <p>{message}</p>
-        </div>
-      ),
-    });
-  }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-lg mx-auto flex flex-wrap gap-2 my-16 border bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative text-text-primary overflow-hidden"
+      className="w-full max-w-lg mx-auto flex flex-wrap gap-2 my-16 border bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 p-3 rounded-2xl relative overflow-hidden"
     >
       <input
         type="email"
@@ -56,7 +53,7 @@ export default function NewsletterForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="p-2 border rounded w-full max-w-md md:w-80"
+        className="p-2 border rounded w-full max-w-md md:w-80 text-zinc-950"
       />
       <button
         type="submit"

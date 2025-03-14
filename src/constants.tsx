@@ -53,12 +53,6 @@ export const socialLinks = [
 export const navLinks = [
   { name: "Acerca", url: "/#about", icon: Info, ariaLabel: "Link acerca" },
   {
-    name: "Documentación",
-    url: "/start/introduction",
-    icon: BookOpenText,
-    ariaLabel: "Documentación",
-  },
-  {
     name: "Bugs",
     url: "https://github.com/solidsnk86/neo-wifi/issues/new",
     icon: Bug,
@@ -96,5 +90,11 @@ export const navLinks = [
     },
     icon: Share,
     ariaLabel: "Compartir",
+  },
+  {
+    name: "Documentación",
+    url: "/start/introduction",
+    icon: BookOpenText,
+    ariaLabel: "Documentación",
   },
 ];

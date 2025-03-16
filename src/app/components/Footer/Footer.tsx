@@ -30,7 +30,7 @@ export const Footer = () => {
                 <li key={category.name}>
                   <Link
                     href={category.url}
-                    className="text-sm hover:opacity-75 transition-colors duration-200"
+                    className="text-sm hover:text-[#2a6f97] hover:dark:text-[#6a994e] transition-colors duration-200"
                   >
                     {category.name}
                   </Link>
@@ -46,7 +46,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     href={link.url}
-                    className="text-sm hover:opacity-75 transition-colors duration-200"
+                    className="text-sm hover:text-[#2a6f97] hover:dark:text-[#6a994e] transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -68,7 +68,7 @@ export const Footer = () => {
                   key={ariaLabel}
                   href={url}
                   aria-label={ariaLabel}
-                  className="hover:opacity-75 hover:scale-105 transition-colors duration-200"
+                  className="hover:opacity-75 hover:scale-110 transition-transform duration-200"
                 >
                   <Icon className="w-5 h-5" />
                 </Link>

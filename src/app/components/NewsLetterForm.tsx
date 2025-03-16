@@ -3,11 +3,10 @@
 import { useState } from "react";
 import { PlaneIcon } from "./Icons/PlaneIcon";
 import { showDialog } from "@/utils/dialog";
-import { MailCheck } from "lucide-react";
+import { Info, MailCheck } from "lucide-react";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -23,7 +22,6 @@ export default function NewsletterForm() {
     setIsLoading(false);
 
     if (data.success) {
-      setMessage(data.message);
       setEmail("");
 
       showDialog({
@@ -33,12 +31,22 @@ export default function NewsletterForm() {
               <MailCheck className="text-blue-500 -translate-y-[1px]" />
               ¡Gracias por suscribirte!
             </h2>
-            <p>{message}</p>
+            <p className="text-black dark:text-zinc-50">{data.message}</p>
           </div>
         ),
       });
     } else {
-      setMessage("Hubo un error. Intenta de nuevo.");
+      showDialog({
+        content: (
+          <div className="flex flex-col p-5">
+            <h2 className="flex justify-center text-center font-semibold items-center gap-2 my-3">
+              <Info className="text-red-500 -translate-y-[1px]" />
+              Error en la subscripción
+            </h2>
+            <p className="text-black dark:text-zinc-50">Intente nuevamente.</p>
+          </div>
+        ),
+      });
     }
   };
 

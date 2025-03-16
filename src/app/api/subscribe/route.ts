@@ -5,7 +5,10 @@ export async function POST(req: Request) {
     const { email } = await req.json();
 
     if (!email) {
-      return Response.json({ error: "Email requerido" }, { status: 400 });
+      return Response.json(
+        { success: false, error: "Email requerido" },
+        { status: 400 }
+      );
     }
 
     const transporter = nodemailer.createTransport({

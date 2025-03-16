@@ -183,7 +183,7 @@ export async function POST(req: Request) {
         <div class="logo">
         <div class="logo-icon">📡</div>
         </div>
-        <div class="header">Neo-Wifi App 1.0.2</div>
+        <div class="header">Neo-Wifi App 1.1.3</div>
         <div class="subheader">Conectividad inteligente para San Luis</div>
 
         <div class="divider"></div>

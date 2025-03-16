@@ -17,7 +17,7 @@ const MouseTrail = () => {
   useEffect(() => {
     const newTrail: Trail = { x, y, id: Date.now() };
 
-    setTrails((prev) => [...prev.slice(-15), newTrail]);
+    setTrails((prev) => [...prev.slice(-18), newTrail]);
 
     const timeout = setTimeout(() => {
       setTrails((prev) => prev.filter((t) => t.id !== newTrail.id));

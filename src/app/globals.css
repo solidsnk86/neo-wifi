@@ -308,7 +308,9 @@ html {
   animation: progress auto linear;
   animation-timeline: scroll();
 }
-
+/*
+# Mouse Trail Effect
+*/
 .mouse-trail {
   position: fixed;
   width: 12px;

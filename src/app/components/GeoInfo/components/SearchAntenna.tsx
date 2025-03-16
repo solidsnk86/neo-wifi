@@ -57,33 +57,32 @@ export const SearchAntenna = ({
             </button>
           </div>
         </form>
-      </article>
-      {search && (
+
         <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-2">
           <InfoRow
             label="SSID-1"
-            value={search.antenna?.name}
+            value={search?.antenna?.name}
             loading={isLoading}
           />
           <InfoRow
             label="SSID-2"
-            value={search.antenna?.name5g}
+            value={search?.antenna?.name5g}
             loading={isLoading}
           />
           <InfoRow
             label="Distancia"
-            value={search.distance}
+            value={search?.distance}
             loading={isLoading}
           />
-          <InfoRow label="Tipo" value={search.type} loading={isLoading} />
-          <InfoRow label="MAC" value={mac(search.MAC)} loading={isLoading} />
+          <InfoRow label="Tipo" value={search?.type} loading={isLoading} />
+          <InfoRow label="MAC" value={mac(search?.MAC)} loading={isLoading} />
           <InfoRow
             label="MAC-5G"
-            value={mac(search.MAC5G)}
+            value={mac(search?.MAC5G)}
             loading={isLoading}
           />
         </div>
-      )}
+      </article>
     </div>
   );
 };

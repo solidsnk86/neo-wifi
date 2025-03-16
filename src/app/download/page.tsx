@@ -48,8 +48,8 @@ export default function Page() {
 
   const createLink = async () => {
     const link = document.createElement("a");
-    link.href = "/Neo-Wifi Setup 1.0.2.exe";
-    link.download = "Neo-Wifi Setup 1.0.2.exe";
+    link.href = "/Neo-Wifi Setup 1.1.3.exe";
+    link.download = "Neo-Wifi Setup 1.1.3.exe";
     await sendDataToSupabase().catch((err) =>
       console.error("Error al enviar datos:", err)
     );
@@ -97,7 +97,7 @@ export default function Page() {
           </h3>
           <div className="flex flex-col p-2 gap-2">
             <p className="flex items-center text-sm">
-              <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup 1.0.2
+              <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup 1.1.3
             </p>
             <p className="flex items-center text-sm">
               <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:
@@ -125,7 +125,7 @@ export default function Page() {
           </div>
           <aside className="flex justify-end p-4">
             <button
-              title="Descargar Neo-Wifi Setup 1.0.2"
+              title="Descargar Neo-Wifi Setup 1.1.3"
               className="py-2 px-4 bg-green-500 w-fit mt-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 hover:shadow-lg"
               onClick={createLink}
             >

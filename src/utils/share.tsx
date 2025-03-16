@@ -2,7 +2,6 @@
 
 import { showDeliciusToast } from "./delicius-toast";
 
-const typeOfWindow = typeof window !== "undefined" ? window.location.href : "";
 const description =
   "Configura tu CPE WiFi ensegundos con ésta aplicación para PC 🚀";
 
@@ -11,11 +10,11 @@ export const share = {
     navigator.share({
       title: document.title,
       text: "Configura tu WiFi de manera automatizada en segundos con esta aplicación! 🚀",
-      url: typeOfWindow,
+      url: document.location.href,
     });
   },
   copyUrl: async () => {
-    const link = typeOfWindow;
+    const link = document.location.href;
     await navigator.clipboard.writeText(link);
     showDeliciusToast({
       content: (
@@ -28,11 +27,11 @@ export const share = {
     });
   },
   facebook: () => {
-    const encodeUrl = encodeURIComponent(typeOfWindow);
+    const encodeUrl = encodeURIComponent(document.location.href);
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeUrl}`);
   },
   x: () => {
-    const url = encodeURIComponent(typeOfWindow);
+    const url = encodeURIComponent(document.location.href);
     const text = encodeURIComponent(description);
     const hashtags = encodeURIComponent("WiFi,Configuración,Automatización");
     window.open(
@@ -41,13 +40,13 @@ export const share = {
     );
   },
   linkedIn: () => {
-    const url = encodeURIComponent(typeOfWindow);
+    const url = encodeURIComponent(document.location.href);
     const title = encodeURIComponent(document.title);
     const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`;
     window.open(shareUrl, "_blank");
   },
   whatsApp: () => {
-    const url = typeOfWindow;
+    const url = document.location.href;
     const message = `${description} en ésta web: \n${url}`;
     const encodeMessage = encodeURIComponent(message);
     window.open(`https://wa.me/?text=${encodeMessage}`, "_blank");

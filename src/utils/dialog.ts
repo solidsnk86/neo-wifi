@@ -14,12 +14,16 @@ export const showDialog = ({ content }: { content: ReactNode }) => {
   const closeDialogWithAnimation = () => {
     dialog.style.animation = "slideOutEffect 300ms ease-in-out";
 
-    dialog.addEventListener("animationend", () => {
-      dialog.close();
-      dialog.remove();
-      root.unmount();
-      controller.abort();
-    });
+    dialog.addEventListener(
+      "animationend",
+      () => {
+        dialog.close();
+        dialog.remove();
+        root.unmount();
+        controller.abort();
+      },
+      { once: true, signal: controller.signal }
+    );
   };
 
   document.documentElement.addEventListener(

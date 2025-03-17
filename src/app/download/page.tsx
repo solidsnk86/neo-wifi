@@ -81,7 +81,7 @@ export default function Page() {
             leas la documentación
             <Link
               href="/start/introduction"
-              className="mx-1 underline text-blue-400 relative"
+              className="mx-1 underline text-yellow-400 relative"
             >
               aquí.
               <CurveArrowIcon className="absolute top-6 left-[-8px]" />

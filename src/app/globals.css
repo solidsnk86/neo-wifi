@@ -422,11 +422,11 @@ html {
   font-weight: lighter;
   width: 100px;
   position: relative;
-  translate: -15% 55%;
+  translate: -15% 75%;
   margin-bottom: 2rem;
   transform-origin: 0 0;
   white-space: nowrap;
-  rotate: -20deg;
+  rotate: -30deg;
   display: inline-block;
 }
 /* Progress Bar */

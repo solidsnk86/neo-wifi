@@ -58,7 +58,7 @@ export const Navbar = () => {
           className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
             ${darkMode ? "bg-zinc-800" : "bg-[#EFF0F3]"}
             border border-zinc-300/30 dark:border-zinc-700/50
-            shadow-sm hover:border-red-300 dark:hover:border-red-400/70`}
+            shadow-sm hover:border-yellow-300 dark:hover:border-yellow-400/70`}
           onClick={() => dispatch(toggleTheme())}
           role="switch"
           aria-checked={darkMode}

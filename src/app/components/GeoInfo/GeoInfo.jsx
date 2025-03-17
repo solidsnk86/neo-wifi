@@ -171,7 +171,7 @@ export const GeoPositionCard = () => {
         className="flex group mx-auto mb-16 w-fit gap-2 items-center justify-center p-2 bg-gradient-to-b btn from-zinc-700 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl hover:scale-105"
         onClick={handleGetLocation}
       >
-        <LocateFixed className="text-red-500 group-hover:animate-pulse group-hover:scale-105 group-hover:drop-shadow-md" />
+        <LocateFixed className="text-red-500 group-hover:animate-pulse group-hover:drop-shadow-md" />
         Obtener Ubicación
       </button>
       <GeoPosition location={location} coords={coords} loading={isLoading} />

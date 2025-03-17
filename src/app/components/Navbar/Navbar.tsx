@@ -137,7 +137,7 @@ export const Navbar = () => {
                   </h3>
                   <div
                     className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
-                    ${darkMode ? "bg-zinc-800" : "bg-[#EFF0F3]"}
+                    ${darkMode ? "bg-zinc-800" : "bg-[#adafb4]"}
                     border border-zinc-300/30 dark:border-zinc-700/50
                     shadow-sm`}
                     onClick={() => dispatch(toggleTheme())}

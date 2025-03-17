@@ -8,19 +8,19 @@ const accordionLists = [
     id: 1,
     question: "¿Qué es Neo-Wifi?",
     answer:
-      "Neo-Wifi es una aplicación para poder ver información precisa sobre las antenas del Gobierno de la provincia de San Luis. Permite a los usuarios localizar y obtener detalles técnicos de las antenas wifi públicas de la provincia y cual es la más próxima a su domicilio.",
+      "Neo-Wifi es una aplicación diseñada para configurar automáticamente las antenas CPE (TP-Link) en los nodos del Gobierno de la provincia de San Luis. Además, permite a los usuarios localizar las antenas WiFi públicas más cercanas a su domicilio y acceder a información técnica detallada, facilitando una conexión más rápida y eficiente.",
   },
   {
     id: 2,
     question: "¿Cuánto cuesta el servicio de la aplicación?",
     answer:
-      "El costo de la aplicación es gratis, tiene un período de prueba de 30 días.",
+      "El costo de la aplicación es gratis, Si te ha sido de utilidad puedes colaborar con el desarrollador 💖.",
   },
   {
     id: 3,
     question: "¿Cómo puedo usar la aplicación?",
     answer:
-      "Para usar Neo-Wifi, simplemente descarga la aplicación proporcionada en esta web, instala la app en tu ordenador y listo!. La interfaz es intuitiva y fácil de usar. Recuerda que hay que insertar las coordenadas obtenidas de esta web siempre y cuando permitas la localización en tu navegador.",
+      "Para usar Neo-Wifi, solo necesitas descargar la aplicación desde esta web, instalarla en tu ordenador y ¡listo! Su interfaz intuitiva facilita la configuración. Recuerda ingresar las coordenadas obtenidas en esta web, siempre que hayas permitido la localización en tu navegador. Para más detalles, consulta la documentación o mira el tutorial disponible.",
   },
   {
     id: 4,
@@ -31,10 +31,9 @@ const accordionLists = [
   {
     id: 5,
     question: "¿La aplicación funciona en toda la provincia?",
-    answer: `Neo-Wifi no cubre toda la provincia de San Luis por ahora. El servicio está disponible en las siguientes zonas urbanas: 
-      San Luis, La Punta, Juana Koslay, El Trapiche, La Florida, Potrero de los Funes, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca, 
-      Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, San Francisco del Monte de Oro, La Toma, Naschel, Alto Pelado, Alto Pencoso, 
-      Arizona, Anchorena, Buena Esperanza, Unión.`,
+    answer: `Actualmente, Neo-Wifi no cubre toda la provincia de San Luis, pero el servicio está disponible en las siguientes zonas urbanas:
+    San Luis, La Punta, Juana Koslay, El Trapiche, La Florida, Potrero de los Funes, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca, Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, San Francisco del Monte de Oro, La Toma, Naschel, Alto Pelado, Alto Pencoso, Arizona, Anchorena, Buena Esperanza y Unión.
+    Además, se han incluido los espacios WiFi de Córdoba Capital.`,
   },
   {
     id: 6,

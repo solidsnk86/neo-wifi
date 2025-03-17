@@ -95,19 +95,19 @@ export default function Home() {
             <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
               <p className="relative flex text-center font-semibold text-zinc-600 dark:text-zinc-400">
                 <Quote className="rotate-180 text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
-                Creo que todos merecen una conexión a Internet estable y segura.
-                Ayúdame a desbloquear el poder de la conectividad y hacer
-                realidad esta misión 😃.
+                Creo que el acceso a una conexión a Internet estable y segura es
+                un derecho para todos. Quiero ayudar a potenciar la conectividad
+                y hacer de esta misión una realidad. ¡Vamos por ello! 😃
                 <Quote className=" text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
               </p>
               <header>
                 <div className="flex gap-3 items-center justify-center mt-6">
                   <Image
-                    src="https://avatars.githubusercontent.com/u/93176365?s=400&u=67c3cf77e7d7ed34c1e5add1715e8ea2bb78db4c&v=4"
-                    width={45}
-                    height={45}
+                    src="/assets/avatar-solidsnk86.png"
+                    width={48}
+                    height={48}
                     alt=""
-                    className="rounded-full"
+                    className="rounded-full bg-yellow-300"
                   />
                   <aside className="flex items-center">
                     <span className="font-semibold flex flex-col text-zinc-600 dark:text-zinc-200">

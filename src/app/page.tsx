@@ -54,7 +54,7 @@ export default function Home() {
           </p>
         </HomeBlock>
 
-        <HomeBlock className="px-3 flex-col">
+        <HomeBlock className="px-3">
           <GeoPositionCard />
         </HomeBlock>
 

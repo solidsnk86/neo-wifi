@@ -14,7 +14,7 @@ import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { YouTubeLiteVideo } from "./components//YoutubeVideo";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import { ArrowBigDownDash, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 
@@ -29,7 +29,15 @@ export default function Home() {
         </HomeBlock>
 
         <HomeBlock className="flex justify-center mx-auto">
-          <ArrowBigDownDash className="w-10 h-10 animate-bounce text-yellow-300" />
+          <div className="flex animate-bounce">
+            <Image
+              src="/bucle-arrow.svg"
+              width={60}
+              height={60}
+              alt=""
+              className="text-yellow-300 rotate-[125deg]"
+            />
+          </div>
         </HomeBlock>
 
         <HomeBlockTitle>Información Geográfica</HomeBlockTitle>

@@ -61,7 +61,7 @@ export default function NewsletterForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="p-2 border rounded w-full max-w-md md:w-80 text-zinc-950"
+        className="p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded w-full max-w-md md:w-80 outline-none focus:outline-blue-500 outline-offset-0"
       />
       <button
         type="submit"

@@ -88,11 +88,11 @@ export default function Page() {
             </Link>
           </p>
         </HomeBlock>
-        <h2 className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto relative z-50">
+        <HomeBlockTitle className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto relative z-50">
           Descarga
-        </h2>
+        </HomeBlockTitle>
         <article className="flex flex-col xl:max-w-md max-w-[364px] border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto backdrop-blur-xl z-50">
-          <h3 className="font-semibold text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b py-2 px-3">
+          <h3 className="font-semibold font-['bogue-black'] text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b py-2 px-3">
             Información del archivo
           </h3>
           <div className="flex flex-col p-2 gap-2">

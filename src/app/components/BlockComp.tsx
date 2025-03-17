@@ -18,7 +18,7 @@ const HomeBlock = ({ children, className }: HomeBlockProps) => {
 const HomeBlockTitle = ({ children, className }: Partial<HomeBlockProps>) => {
   return (
     <h1
-      className={`md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto fade-in ${className}`}
+      className={`md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto fade-in font-["bogue-black"] ${className}`}
     >
       {children}
     </h1>

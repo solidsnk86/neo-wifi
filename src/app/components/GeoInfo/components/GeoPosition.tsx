@@ -20,7 +20,7 @@ export const GeoPosition = ({
 }: GeoPositionProps) => {
   return (
     <div className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary overflow-hidden">
-      <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-xl p-3">
+      <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
         <h2
           title="Información válida para la provincia Argentina"
           className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"

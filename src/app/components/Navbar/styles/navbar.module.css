@@ -41,3 +41,7 @@
   transition: transform 0.3s ease-in-out;
   filter: drop-shadow(0 0 6px var(--shadow));
 }
+
+.link {
+  font-weight: 600;
+}

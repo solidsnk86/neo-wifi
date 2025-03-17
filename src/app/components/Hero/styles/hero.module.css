@@ -1,9 +1,8 @@
 .h1 {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  font-size: 3.7rem;
+  font-family: "bogue-black";
+  font-weight: 900;
+  font-size: 4rem;
+  color: #333;
 }
 
 @media (width < 700px) {

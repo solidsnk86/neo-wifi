@@ -29,7 +29,7 @@ export default function Home() {
         </HomeBlock>
 
         <HomeBlock className="flex justify-center mx-auto">
-          <ArrowBigDownDash className="w-10 h-10 animate-bounce dark:text-[#90B45B] text-[#2B7097]" />
+          <ArrowBigDownDash className="w-10 h-10 animate-bounce dark:text-[#90B45B] text-[#e4ea31]" />
         </HomeBlock>
 
         <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
@@ -100,7 +100,7 @@ export default function Home() {
           <AccordionList />
         </HomeBlock>
 
-        <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50">
+        <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50 font-['bogue-black']">
           Recibe las últimas novedades sobre Neo WiFi App 🚀
         </h2>
 

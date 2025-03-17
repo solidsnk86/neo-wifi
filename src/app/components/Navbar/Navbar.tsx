@@ -47,7 +47,7 @@ export const Navbar = () => {
             <Link
               href={url}
               key={name}
-              className="flex items-center gap-2 hover:opacity-80 hover:dark:text-[#a1ca63] hover:text-[#2B7097] transition-colors duration-300 font-[500]"
+              className={`flex items-center gap-2 hover:opacity-80 hover:dark:text-[#a1ca63] hover:text-[#e4ea31] transition-colors duration-300 ${styles.link}`}
               aria-label={ariaLabel}
               onClick={fx}
             >
@@ -84,7 +84,7 @@ export const Navbar = () => {
               />
             ) : (
               <Sun
-                className="w-4 h-4 text-amber-500 fill-amber-500"
+                className="w-4 h-4 text-yellow-400 fill-yellow-400"
                 aria-hidden="true"
               />
             )}

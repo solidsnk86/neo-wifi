@@ -32,6 +32,70 @@
   }
 }
 
+@font-face {
+  font-family: "bogue-black";
+  src: url("/Bogue-Serif-Font-Family/Demo_Fonts/Fontspring-DEMO-bogue-regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bogue-black";
+  src: url("/Bogue-Serif-Font-Family/Demo_Fonts/Fontspring-DEMO-bogue-bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bogue-black";
+  src: url("/Bogue-Serif-Font-Family/Demo_Fonts/Fontspring-DEMO-bogue-extrabold.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bogue-black";
+  src: url("/Bogue-Serif-Font-Family/Demo_Fonts/Fontspring-DEMO-bogue-light.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bogue-black";
+  src: url("/Bogue-Serif-Font-Family/Demo_Fonts/Fontspring-DEMO-bogue-semibold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bogue-black";
+  src: url("/Bogue-Serif-Font-Family/Demo_Fonts/Fontspring-DEMO-bogue-italic.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "bogue-black";
+  src: url("/Bogue-Serif-Font-Family/Demo_Fonts/Fontspring-DEMO-bogue-bolditalic.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "bogue-black";
+  src: url("/Bogue-Serif-Font-Family/Demo_Fonts/Fontspring-DEMO-bogue-lightitalic.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -334,6 +398,35 @@ html {
   background-color: #addb42;
   z-index: 999;
   filter: drop-shadow(0 0 10px #b4ed31);
+}
+
+.loader-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.dot {
+  opacity: 0;
+  margin-left: 4px;
+  animation: fade 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {

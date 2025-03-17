@@ -29,7 +29,7 @@ export default function Home() {
         </HomeBlock>
 
         <HomeBlock className="flex justify-center mx-auto">
-          <ArrowBigDownDash className="w-10 h-10 animate-bounce dark:text-[#90B45B] text-[#e4ea31]" />
+          <ArrowBigDownDash className="w-10 h-10 animate-bounce text-yellow-300" />
         </HomeBlock>
 
         <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
@@ -84,11 +84,11 @@ export default function Home() {
 
         <HomeBlock className="flex-col">
           <p className="text-center relative flex mx-auto justify-center font-semibold px-3 text-zinc-600 dark:text-zinc-400">
-            <Quote className="rotate-180 text-zinc-300/70 dark:text-zinc-800 w-10 h-10 fill-[#2B7097] dark:fill-[#90B45B]" />
+            <Quote className="rotate-180 text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
             Creo que todos merecen una conexión a Internet estable y segura.
             Ayúdame a desbloquear el poder de la conectividad y hacer realidad
             esta misión 😃.
-            <Quote className=" text-zinc-300/70 dark:text-zinc-800 w-10 h-10 fill-[#2B7097] dark:fill-[#90B45B]" />
+            <Quote className=" text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
           </p>
           <DownloadCard />
         </HomeBlock>

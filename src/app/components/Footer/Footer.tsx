@@ -30,7 +30,7 @@ export const Footer = () => {
                 <li key={category.name}>
                   <Link
                     href={category.url}
-                    className="text-sm hover:text-[#2a6f97] hover:dark:text-[#6a994e] transition-colors duration-200"
+                    className="text-sm hover:underline transition-colors duration-200"
                   >
                     {category.name}
                   </Link>
@@ -46,7 +46,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     href={link.url}
-                    className="text-sm hover:text-[#2a6f97] hover:dark:text-[#6a994e] transition-colors duration-200"
+                    className="text-sm hover:underline transition-colors duration-200"
                   >
                     {link.name}
                   </Link>

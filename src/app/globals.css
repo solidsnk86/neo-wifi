@@ -380,7 +380,7 @@ html {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--hero-gradient);
+  background: #fde047;
   pointer-events: none;
   filter: blur(6px);
   z-index: 3;

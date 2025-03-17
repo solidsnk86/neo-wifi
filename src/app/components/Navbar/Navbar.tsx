@@ -47,7 +47,7 @@ export const Navbar = () => {
             <Link
               href={url}
               key={name}
-              className={`flex items-center gap-2 hover:opacity-80 hover:dark:text-[#a1ca63] hover:text-[#e4ea31] transition-colors duration-300 ${styles.link}`}
+              className={`flex items-center gap-2 hover:opacity-80 hover:text-yellow-300 transition-colors duration-300 ${styles.link}`}
               aria-label={ariaLabel}
               onClick={fx}
             >

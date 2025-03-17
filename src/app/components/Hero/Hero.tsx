@@ -9,12 +9,10 @@ export const Hero = () => {
     <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-12">
       <div>
         <h1
-          className={`text-center text-pretty ${styles.h1} text-zinc-800 dark:text-white`}
+          className={`text-center text-pretty ${styles.h1} dark:text-zinc-100`}
         >
           Configura tu CPE WiFi en
-          <span
-            className={`${styles.h1} relative ml-2 text-zinc-800 dark:text-white`}
-          >
+          <span className={`${styles.h1} relative ml-2 dark:text-zinc-100`}>
             segundos
             <svg
               width="294"
@@ -22,7 +20,7 @@ export const Hero = () => {
               viewBox="0 0 294 8"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute -bottom-[6px] left-[4px] text-[#e4ea31] dark:text-[#6a994e] w-48 md:w-[294px]"
+              className="absolute -bottom-[6px] left-[4px] text-yellow-300 w-48 md:w-[294px]"
             >
               <path
                 d={`M2 6C21.2566 4.1224 68.616 0.784449 294 2.45343`}
@@ -49,7 +47,7 @@ export const Hero = () => {
         </Link>
         <Link
           href="/download"
-          className={`py-3 px-4 backdrop-blur-xl cursor-pointer flex items-center gap-2 group border border-zinc-300/70 dark:border-zinc-800 rounded-full hover:border-[#e4ea31] dark:hover:border-[#6a994e]`}
+          className={`py-3 px-4 backdrop-blur-xl cursor-pointer flex items-center gap-2 group border border-zinc-300/70 dark:border-zinc-800 rounded-full hover:border-yellow-300 dark:hover:border-yellow-300`}
         >
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />

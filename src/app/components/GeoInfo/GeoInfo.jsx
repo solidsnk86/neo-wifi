@@ -65,17 +65,14 @@ export const GeoPositionCard = () => {
     }
   };
 
-  useEffect(() => {
-    async function fetchInitialData() {
-      setIsLoading(true);
-      const dataLocation = await getCityLocation();
-      if (dataLocation) {
-        setLocation(dataLocation);
-      }
-      setIsLoading(false);
+  const handleGetLocation = async () => {
+    setIsLoading(true);
+    const dataLocation = await getCityLocation();
+    if (dataLocation) {
+      setLocation(dataLocation);
     }
-    fetchInitialData();
-  }, []);
+    setIsLoading(false);
+  };
 
   const send = useCallback(async () => {
     const { ip, sysInfo, emojiFlag, cityName, countryName } = await getIP();
@@ -170,6 +167,12 @@ export const GeoPositionCard = () => {
 
   return (
     <div className="justify-center mx-auto space-y-3 w-[672px] z-50">
+      <button
+        className="btn flex mx-auto w-full md:w-fit gap-2 items-center justify-center p-2 bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50"
+        onClick={handleGetLocation}
+      >
+        Obtener Ubicación
+      </button>
       <GeoPosition location={location} coords={coords} loading={isLoading} />
 
       <InfoWifi location={location} loading={isLoading} />

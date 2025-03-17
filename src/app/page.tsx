@@ -29,13 +29,14 @@ export default function Home() {
         </HomeBlock>
 
         <HomeBlock className="flex justify-center mx-auto">
-          <div className="flex animate-bounce">
+          <div className="flex flex-col">
+            <span className="arrow text-zinc-500">mirá esto!</span>
             <Image
               src="/bucle-arrow.svg"
               width={60}
               height={60}
               alt=""
-              className="text-yellow-300 rotate-[125deg]"
+              className="text-yellow-300 rotate-[125deg] "
             />
           </div>
         </HomeBlock>
@@ -43,11 +44,13 @@ export default function Home() {
         <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
         <HomeBlock>
           <p className="text-center text-pretty px-3 text-zinc-600 dark:text-zinc-400">
-            Además de la red WiFi gratuita del Gobierno de la Provincia de San
-            Luis, también hay disponibles 93 espacios WiFi gratuitos provistos
-            en espacios públicos, instituciones educativas, clínicas y
-            hospitales entre otros puntos importantes de la ciudad, por el
-            Gobierno de la Provincia de Córdoba.
+            Además de la red WiFi gratuita ofrecida por el Gobierno de la
+            Provincia de San Luis, la Provincia de Córdoba también dispone de 93
+            puntos de acceso gratuito a internet. Estos espacios WiFi están
+            estratégicamente ubicados en lugares públicos, instituciones
+            educativas, clínicas, hospitales y otros sitios clave de la ciudad,
+            brindando conectividad a los ciudadanos de manera accesible y
+            eficiente.
           </p>
         </HomeBlock>
 

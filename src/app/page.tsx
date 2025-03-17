@@ -43,8 +43,7 @@ export default function Home() {
           </p>
         </HomeBlock>
 
-        <HomeBlock className="px-3">
-          <span id="geoposition" />
+        <HomeBlock className="px-3 flex-col">
           <GeoPositionCard />
         </HomeBlock>
 
@@ -56,7 +55,7 @@ export default function Home() {
             width={400}
             height={300}
             alt="Neo-Wifi app image"
-            className="rounded-[16px] img_card"
+            className="rounded-[16px] img_card relative z-50"
           />
         </HomeBlock>
 
@@ -72,7 +71,7 @@ export default function Home() {
           videoId="7ZqQ-NsTzYA"
           width={360}
           height={300}
-          className="rounded-xl flex justify-center mx-auto"
+          className="rounded-xl flex justify-center mx-auto relative"
           border={0}
         />
 

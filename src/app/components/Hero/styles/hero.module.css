@@ -3,6 +3,8 @@
   font-weight: 900;
   font-size: 4rem;
   color: #333;
+  z-index: 999;
+  position: relative;
 }
 
 @media (width < 700px) {

@@ -90,20 +90,37 @@ export default function Home() {
           <VisitsComponent />
         </section>
 
-        <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
-
         <HomeBlock className="flex-col px-3">
           <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
             <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
-              <p className="text-center relative flex mx-auto justify-center font-semibold text-zinc-600 dark:text-zinc-400">
+              <p className="relative flex text-center font-semibold text-zinc-600 dark:text-zinc-400">
                 <Quote className="rotate-180 text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
                 Creo que todos merecen una conexión a Internet estable y segura.
                 Ayúdame a desbloquear el poder de la conectividad y hacer
                 realidad esta misión 😃.
                 <Quote className=" text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
               </p>
+              <aside>
+                <div className="flex gap-3 items-center justify-center mt-4">
+                  <Image
+                    src="https://avatars.githubusercontent.com/u/93176365?s=400&u=67c3cf77e7d7ed34c1e5add1715e8ea2bb78db4c&v=4"
+                    width={45}
+                    height={45}
+                    alt=""
+                    className="rounded-full"
+                  />
+                  <span className="font-semibold text-zinc-700 dark:text-zinc-200">
+                    Gabriel Calcagni
+                  </span>
+                </div>
+              </aside>
             </article>
           </div>
+        </HomeBlock>
+
+        <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
+
+        <HomeBlock>
           <DownloadCard />
         </HomeBlock>
 

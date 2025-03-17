@@ -18,7 +18,10 @@ import { PlaneIcon } from "./app/components/Icons/PlaneIcon";
 
 export const categories = [
   { name: "Windows", url: "/download" },
-  { name: "Bugs", url: "https://github.com/solidsnk86/neo-wifi/issues/new" },
+  {
+    name: "Reportar bugs",
+    url: "https://github.com/solidsnk86/neo-wifi/issues/new",
+  },
   { name: "Redes WiFi", url: "https://wifi.sanluis.gov.ar/#" },
   { name: "Tutoriales", url: "https://neotecs.vercel.app" },
 ];

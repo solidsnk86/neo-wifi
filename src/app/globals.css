@@ -386,6 +386,9 @@ html {
   z-index: 3;
 }
 
+/*
+* Image POE
+*/
 .img-dot::before {
   content: "";
   position: absolute;
@@ -399,7 +402,9 @@ html {
   z-index: 999;
   filter: drop-shadow(0 0 10px #b4ed31);
 }
-
+/*
+* Loader (Newsletter)
+*/
 .loader-container {
   display: inline-flex;
   align-items: center;

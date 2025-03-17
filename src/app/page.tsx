@@ -110,6 +110,13 @@ export default function Home() {
 
         <div className="px-3">
           <NewsletterForm />
+          <Image
+            src="/squirrel.svg"
+            width={300}
+            height={300}
+            alt="Imagen de ardilla"
+            className="flex justify-center mx-auto z-50 relative"
+          />
         </div>
 
         <Footer />

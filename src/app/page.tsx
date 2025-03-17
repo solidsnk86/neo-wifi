@@ -100,8 +100,8 @@ export default function Home() {
                 realidad esta misión 😃.
                 <Quote className=" text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
               </p>
-              <aside>
-                <div className="flex gap-3 items-center justify-center mt-4">
+              <header>
+                <div className="flex gap-3 items-center justify-center mt-6">
                   <Image
                     src="https://avatars.githubusercontent.com/u/93176365?s=400&u=67c3cf77e7d7ed34c1e5add1715e8ea2bb78db4c&v=4"
                     width={45}
@@ -109,11 +109,16 @@ export default function Home() {
                     alt=""
                     className="rounded-full"
                   />
-                  <span className="font-semibold text-zinc-700 dark:text-zinc-200">
-                    Gabriel Calcagni
-                  </span>
+                  <aside className="flex items-center">
+                    <span className="font-semibold flex flex-col text-zinc-600 dark:text-zinc-200">
+                      Gabriel Calcagni,
+                      <span className="text-zinc-600">
+                        desarrollador de Neo-WiFi
+                      </span>
+                    </span>
+                  </aside>
                 </div>
-              </aside>
+              </header>
             </article>
           </div>
         </HomeBlock>

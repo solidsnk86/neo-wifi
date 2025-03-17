@@ -30,7 +30,7 @@ export default function Home() {
 
         <HomeBlock className="flex justify-center mx-auto">
           <div className="flex flex-col">
-            <span className="arrow text-zinc-500">mirá esto!</span>
+            <span className="arrow text-zinc-500">desliza!</span>
             <Image
               src="/bucle-arrow.svg"
               width={60}

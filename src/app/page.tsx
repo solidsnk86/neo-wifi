@@ -33,8 +33,8 @@ export default function Home() {
             <span className="arrow text-zinc-500">desliza!</span>
             <Image
               src="/bucle-arrow.svg"
-              width={60}
-              height={60}
+              width={90}
+              height={90}
               alt=""
               className="text-yellow-300 rotate-[125deg] "
             />

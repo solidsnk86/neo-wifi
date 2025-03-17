@@ -73,7 +73,7 @@ export default function Page() {
             videoId="7ZqQ-NsTzYA"
             width={360}
             height={300}
-            className="rounded-xl flex justify-center mx-auto my-12"
+            className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
             border={0}
           />
           <p className="my-4 text-pretty px-3 z-50">

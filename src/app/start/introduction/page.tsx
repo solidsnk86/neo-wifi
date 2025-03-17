@@ -205,7 +205,7 @@ export default function Page() {
         videoId="7ZqQ-NsTzYA"
         width={400}
         height={300}
-        className="rounded-xl flex justify-center mx-auto my-12"
+        className="rounded-xl flex justify-center mx-auto my-12 relative z-50"
         border={0}
       />
       <Donation />

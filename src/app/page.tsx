@@ -92,8 +92,8 @@ export default function Home() {
 
         <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
 
-        <HomeBlock className="flex-col">
-          <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl px-3">
+        <HomeBlock className="flex-col px-3">
+          <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
             <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
               <p className="text-center relative flex mx-auto justify-center font-semibold px-3 text-zinc-600 dark:text-zinc-400">
                 <Quote className="rotate-180 text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />

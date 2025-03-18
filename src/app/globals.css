@@ -509,7 +509,7 @@ html {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(253, 223, 71, 0.841),
+    rgba(173, 168, 143, 0.841),
     transparent
   );
   transition: 0.6s;
@@ -523,7 +523,7 @@ html {
   left: 100%;
 }
 
-.btn:hover svg {
+.btn:hover {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 

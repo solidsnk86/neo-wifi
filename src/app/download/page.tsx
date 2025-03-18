@@ -130,7 +130,7 @@ export default function Page() {
               onClick={createLink}
             >
               <span className={`text-white ${styles.button}`}>
-                Descargar (80.82MB)
+                Descargar (81.77MB)
               </span>
             </button>
           </aside>

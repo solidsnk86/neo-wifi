@@ -82,14 +82,15 @@ export const GeoPositionCard = () => {
         state: location.state ?? "Sin localización",
         departament: location.departament ?? "Sin localización",
         country: countryName,
-        longitude: parseFloat(location.current_position.longitude) ?? 0,
-        latitude: parseFloat(location.current_position.latitude) ?? 0,
+        longitude: parseFloat(location.current_position.longitude) || 0,
+        latitude: parseFloat(location.current_position.latitude) || 0,
         nearest_wifi: location.closest_wifi.antenna ?? "Sin localización",
-        distance: parseFloat(location.closest_wifi.distance) ?? 0,
+        distance: parseFloat(location.closest_wifi.distance) || 0,
         ip: ip,
         so: sysInfo.system,
         emoji_flag: emojiFlag,
       };
+
       const values = Object.values(objectVisit);
       if (
         values.includes("No disponible") ||

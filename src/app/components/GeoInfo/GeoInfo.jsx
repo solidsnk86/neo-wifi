@@ -114,7 +114,7 @@ export const GeoPositionCard = () => {
   }, [location]);
 
   useEffect(() => {
-    if (location) send();
+    if (location.current_position.latitude !== 0) send();
   }, [location, send]);
 
   const sendQuery = async (searchQuery) => {

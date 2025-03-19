@@ -89,7 +89,7 @@ export const GeoPositionCard = () => {
         ip: ip,
         so: sysInfo.system,
         emoji_flag: emojiFlag,
-        browser: `${sysInfo.webBrowser.browser} v(${sysInfo.webBrowser.version})`,
+        browser: `${sysInfo.webBrowser.browser} v${sysInfo.webBrowser.version}`,
       };
 
       const values = Object.values(objectVisit);

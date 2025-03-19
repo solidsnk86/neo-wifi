@@ -211,9 +211,9 @@ export const GeoPositionCard = () => {
   return (
     <div className="justify-center mx-auto space-y-3 w-[672px] z-50">
       <header className="flex group justify-center mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
-        <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3 active:group-hover:scale-95 dark:active:group-hover:border-[#1C1C1D] active:group-hover:border-[#ffffff]">
+        <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
           <p
-            className="flex gap-2 items-center text-blue-500 cursor-pointer"
+            className="flex gap-2 items-center text-blue-500 cursor-pointer hover:underline"
             onClick={handleGetLocation}
           >
             <MapPin className="w-5 h-5" />

@@ -16,6 +16,7 @@ import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import { Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
+import { YouTubeLiteVideo } from "./components/YoutubeVideo";
 
 export default function Home() {
   return (
@@ -76,6 +77,13 @@ export default function Home() {
             donde voy a mostar sus principales funciones y cómo sacarle el
             máximo provecho. Vamos a ver que podés hacer con ella!
           </p>
+          <YouTubeLiteVideo
+            videoId="7ZqQ-NsTzYA"
+            width={360}
+            height={300}
+            className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
+            border={0}
+          />
         </HomeBlock>
 
         <section className="overflow-hidden my-24">

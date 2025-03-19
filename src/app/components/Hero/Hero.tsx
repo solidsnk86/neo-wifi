@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
 import styles from "./styles/hero.module.css";
 import Link from "next/link";

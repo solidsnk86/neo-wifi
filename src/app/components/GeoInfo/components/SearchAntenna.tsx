@@ -51,7 +51,7 @@ export const SearchAntenna = ({
             <button
               type="submit"
               disabled={isLoading}
-              className="py-[6px] md:w-24 px-2 text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
+              className="py-[6px] md:w-24 px-2 text-white btn dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
             >
               {isLoading ? "Buscando..." : "Buscar"}
             </button>

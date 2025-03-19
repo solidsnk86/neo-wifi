@@ -12,7 +12,6 @@ import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
-import { YouTubeLiteVideo } from "./components//YoutubeVideo";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import { Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
@@ -78,13 +77,6 @@ export default function Home() {
             máximo provecho. Vamos a ver que podés hacer con ella!
           </p>
         </HomeBlock>
-        <YouTubeLiteVideo
-          videoId="7ZqQ-NsTzYA"
-          width={360}
-          height={300}
-          className="rounded-xl flex justify-center mx-auto relative"
-          border={0}
-        />
 
         <section className="overflow-hidden my-24">
           <VisitsComponent />

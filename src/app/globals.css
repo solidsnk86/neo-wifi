@@ -523,8 +523,8 @@ html {
   left: 100%;
 }
 
-.btn:hover {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+.btn:active {
+  box-shadow: none;
 }
 
 .loader-container {

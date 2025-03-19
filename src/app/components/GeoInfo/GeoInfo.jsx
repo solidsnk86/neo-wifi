@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
-import { LocateFixed, TriangleAlert } from "lucide-react";
+import { LocateFixed, TriangleAlert, BadgeInfo } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
@@ -45,6 +45,7 @@ export const GeoPositionCard = () => {
   const [searchResult, setSearchResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [coords, setCoords] = useState({ latitude: 0, longitude: 0 });
+  const [seconds, setSeconds] = useState(0);
 
   const getCityLocation = async () => {
     try {
@@ -67,6 +68,8 @@ export const GeoPositionCard = () => {
 
   const handleGetLocation = async () => {
     setIsLoading(true);
+    const dialog = document.querySelector("dialog");
+    if (dialog.open) dialog.close();
     const dataLocation = await getCityLocation();
     if (dataLocation) {
       setLocation(dataLocation);
@@ -167,15 +170,46 @@ export const GeoPositionCard = () => {
     }
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1000);
+
+    if (seconds === 12) {
+      clearInterval(timer);
+      showDialog({
+        content: (
+          <article className="">
+            <div className=" border-b-8 border-zinc-300 dark:border-[#111111] rounded-xl p-3">
+              <h2 className="text-3xl  font-semibold flex justify-center mx-auto items-center gap-3">
+                <BadgeInfo className="text-blue-500" />
+                Información
+              </h2>
+              <p className="my-3 text-pretty">
+                Si deseas conocer tu ubicación y obtener información sobre las
+                antenas WiFi más cercanas, puedes habilitar la geolocalización
+                de tu dispositivo. Así podrás ver detalles adicionales y
+                descubrir a qué distancia te encuentras de la más próxima.
+                ¡Actívala para más precisión!
+              </p>
+              <button
+                className="flex mx-auto w-fit gap-1 items-center justify-center p-2 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl hover:scale-95 transition-transform"
+                onClick={handleGetLocation}
+              >
+                <LocateFixed className="text-red-500" />
+                Obtener Ubicación
+              </button>
+            </div>
+          </article>
+        ),
+      });
+    }
+
+    return () => clearInterval(timer);
+  }, [seconds]);
+
   return (
     <div className="justify-center mx-auto space-y-3 w-[672px] z-50">
-      <button
-        className="flex group mx-auto mb-16 w-fit gap-2 items-center justify-center p-2 bg-gradient-to-b btn from-zinc-700 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl"
-        onClick={handleGetLocation}
-      >
-        <LocateFixed className="text-red-500 group-hover:animate-pulse group-hover:drop-shadow-md" />
-        Obtener Ubicación
-      </button>
       <GeoPosition location={location} coords={coords} loading={isLoading} />
 
       <InfoWifi location={location} loading={isLoading} />

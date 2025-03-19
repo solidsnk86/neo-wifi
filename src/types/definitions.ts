@@ -12,6 +12,7 @@ interface OptionalProps {
     country: string;
     emoji_flag: string;
     so: string;
+    browser: string;
     created_at: string;
     longitude: number;
     latitude: number;

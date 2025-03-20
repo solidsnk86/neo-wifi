@@ -438,6 +438,7 @@ html {
 
 .arrow {
   font-family: "Gloria Hallelujah", cursive;
+  font-display: swap;
   font-weight: lighter;
   width: 100px;
   position: relative;

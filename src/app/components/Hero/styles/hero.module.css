@@ -5,10 +5,28 @@
   color: #333;
   z-index: 999;
   position: relative;
+  animation: zoomIn 0.6s ease-in;
 }
 
 @media (width < 700px) {
   .h1 {
     font-size: 2.5rem;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: translateY(-200%);
+    scale: 0;
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-100%);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    scale: 1;
+    opacity: 1;
   }
 }

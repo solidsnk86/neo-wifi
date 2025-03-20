@@ -29,7 +29,7 @@ export const Hero = () => {
             </svg>
           </span>
         </h1>
-        <p className="py-20 text-pretty text-center text-zinc-600 dark:text-zinc-400 antialiased">
+        <p className="py-20 text-pretty text-center text-zinc-600 dark:text-zinc-400 antialiased hero-animate">
           Simplifica la conexión a las redes WiFi del Gobierno de San Luis con
           esta herramienta especializada. Configura tu dispositivo TP-LINK CPE
           de forma rápida y segura, garantizando una conectividad óptima a la

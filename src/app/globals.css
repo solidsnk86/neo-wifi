@@ -10,6 +10,7 @@
 :root {
   scrollbar-width: thin;
   scroll-behavior: smooth;
+  transition: background 0.4s ease-in-out;
 }
 
 :root {
@@ -300,6 +301,10 @@ html {
 
 .dark .img_card {
   opacity: 0.7;
+}
+
+.hero-animate {
+  animation: scaleUp 0.9s ease-in;
 }
 
 @keyframes vanish {

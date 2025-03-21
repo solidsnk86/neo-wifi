@@ -1,33 +1,32 @@
 import { ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 
-export const closeDialogWithAnimation = () => {
-  const dialog = document.createElement("dialog");
-  const controller = new AbortController();
-  const root = createRoot(dialog);
-  dialog.style.animation = "slideOutEffect 300ms ease-in-out";
-
-  dialog.addEventListener(
-    "animationend",
-    () => {
-      dialog.close();
-      dialog.remove();
-      root.unmount();
-      controller.abort();
-    },
-    { once: true, signal: controller.signal }
-  );
-};
-
 export const showDialog = ({ content }: { content: ReactNode }) => {
   const dialog = document.createElement("dialog");
-  const controller = new AbortController();
-  const root = createRoot(dialog);
   document.body.appendChild(dialog);
+  const root = createRoot(dialog);
   root.render(content);
+
   dialog.showModal();
 
-  document.documentElement.addEventListener(
+  const controller = new AbortController();
+
+  const closeDialogWithAnimation = () => {
+    dialog.style.animation = "slideOutEffect 300ms ease-in-out";
+
+    dialog.addEventListener(
+      "animationend",
+      () => {
+        dialog.close();
+        dialog.remove();
+        root.unmount();
+        controller.abort();
+      },
+      { once: true, signal: controller.signal }
+    );
+  };
+
+  dialog.addEventListener(
     "click",
     (event: MouseEvent) => {
       const firstChildDialog = document.querySelector("dialog")?.children[0];

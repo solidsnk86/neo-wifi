@@ -6,7 +6,7 @@ import { LocateFixed, TriangleAlert, BadgeInfo, MapPin } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
-import { closeDialogWithAnimation, showDialog } from "@/utils/dialog";
+import { showDialog } from "@/utils/dialog";
 import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
 import Link from "next/link";
@@ -63,6 +63,18 @@ export const GeoPositionCard = () => {
     } catch (error) {
       console.error("Error fetching location:", error);
       return null;
+    }
+  };
+
+  const closeDialogWithAnimation = () => {
+    const dialog = document.querySelector("dialog");
+    if (dialog) {
+      dialog.style.animation = "slideOutEffect 300ms ease-in-out";
+
+      dialog.addEventListener("animationend", () => {
+        dialog.close();
+        dialog.remove();
+      });
     }
   };
 

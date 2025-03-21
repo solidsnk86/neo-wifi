@@ -6,7 +6,7 @@ import { LocateFixed, TriangleAlert, BadgeInfo, MapPin } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
-import { showDialog } from "@/utils/dialog";
+import { closeDialogWithAnimation, showDialog } from "@/utils/dialog";
 import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
 import Link from "next/link";
@@ -68,8 +68,7 @@ export const GeoPositionCard = () => {
 
   const handleGetLocation = async () => {
     setIsLoading(true);
-    const dialog = document.querySelector("dialog");
-    if (dialog.open) dialog.close();
+    closeDialogWithAnimation();
     const dataLocation = await getCityLocation();
     if (dataLocation) {
       setLocation(dataLocation);
@@ -175,7 +174,7 @@ export const GeoPositionCard = () => {
       setSeconds((prev) => prev + 1);
     }, 1000);
 
-    if (seconds === 12 && location.current_position.latitude === 0) {
+    if (seconds === 12) {
       clearInterval(timer);
       showDialog({
         content: (

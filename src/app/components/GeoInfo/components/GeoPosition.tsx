@@ -55,7 +55,7 @@ export const GeoPosition = ({
             <button
               className="flex text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
               onClick={() => copy(String(coords.latitude), "latitud")}
-              title={`Copiar ${coords.latitude}`}
+              title={`Copiar latitud ${coords.latitude}`}
               aria-label={`Copiar la coordenada de latitud ${coords.latitude}`}
             >
               Copiar Latitud <Copy className="ml-2 w-4 h-4" />
@@ -63,7 +63,7 @@ export const GeoPosition = ({
             <button
               className="flex text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
               onClick={() => copy(String(coords.longitude), "longitud")}
-              title={`Copiar ${coords.longitude}`}
+              title={`Copiar longitud ${coords.longitude}`}
               aria-label={`Copiar la coordenada de longitud ${coords.longitude}`}
             >
               Copiar Longitud <Copy className="ml-2 w-4 h-4" />

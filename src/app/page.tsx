@@ -107,7 +107,7 @@ export default function Home() {
                     src="/assets/avatar-solidsnk86.png"
                     width={48}
                     height={48}
-                    alt=""
+                    alt="Avatar Gabriel Calcagni"
                     className="rounded-full bg-yellow-300"
                   />
                   <aside className="flex items-center">

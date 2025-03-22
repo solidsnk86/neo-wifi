@@ -80,7 +80,7 @@ const LeafMap = ({ currentPosition, antennaPosition }: MapCoordsInterface) => {
     )
       .addTo(map)
       .bindPopup(
-        `Antena 2.4Ghz: ${antennaPosition.name.ssid2g} o 5Ghz: ${antennaPosition.name.ssid5g}`
+        `Antena 2.4Ghz: ${antennaPosition.name.ssid2g} | 5Ghz: ${antennaPosition.name.ssid5g}`
       );
 
     return () => {

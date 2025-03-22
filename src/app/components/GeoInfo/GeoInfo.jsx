@@ -11,6 +11,7 @@ import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
 import Link from "next/link";
 import { writeMAC } from "@/utils/mac-writer";
+import { LeafMap } from "./components/MapLeaf.tsx";
 
 export const InfoRow = ({ label, value, loading }) => (
   <div className="flex items-center space-x-2">
@@ -39,6 +40,7 @@ export const GeoPositionCard = () => {
       type: "",
       MAC: "",
       MAC5G: "",
+      coords: { lat: 0, lon: 0 },
     },
   });
   const [query, setQuery] = useState("");
@@ -236,6 +238,17 @@ export const GeoPositionCard = () => {
       <GeoPosition location={location} coords={coords} loading={isLoading} />
 
       <InfoWifi location={location} loading={isLoading} />
+
+      <LeafMap
+        currentPosition={location.current_position}
+        antennaPosition={{
+          coords: location.closest_wifi.coords,
+          name: {
+            ssid2g: location.closest_wifi.antenna || "No disponible",
+            ssid5g: location.closest_wifi.name || "No disponible",
+          },
+        }}
+      />
 
       <SearchAntenna
         submit={handleSubmit}

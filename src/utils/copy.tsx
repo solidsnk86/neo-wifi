@@ -20,7 +20,7 @@ export const copy = async (coord: string, title: string): Promise<boolean> => {
         content: (
           <div className="p-6 flex flex-col items-center justify-center">
             <h2 className="flex gap-2 items-center text-2xl font-semibold text-red-400">
-              <MapPinOff className="w-6 h-6" /> Sin Localización
+              <MapPinOff className="w-6 h-6 text-red-500" /> Sin Localización
             </h2>
             <p className="my-3">
               Activa la geolocaclización para poder copiar las coordenadas!

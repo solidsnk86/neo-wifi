@@ -1,4 +1,4 @@
-import { MapPinOff } from "lucide-react";
+import { MapPinCheck, MapPinOff } from "lucide-react";
 import { showDialog } from "./dialog";
 
 export const copy = async (coord: string, title: string): Promise<boolean> => {
@@ -19,11 +19,11 @@ export const copy = async (coord: string, title: string): Promise<boolean> => {
       showDialog({
         content: (
           <div className="p-6 flex flex-col items-center justify-center">
-            <h2 className="flex gap-2 items-center text-2xl font-semibold text-red-400">
+            <h2 className="flex gap-2 items-center text-2xl font-semibold">
               <MapPinOff className="w-6 h-6 text-red-500" /> Sin Localización
             </h2>
             <p className="my-3">
-              Activa la geolocaclización para poder copiar las coordenadas!
+              Activa la geolocalización para poder copiar las coordenadas!
             </p>
           </div>
         ),
@@ -35,10 +35,12 @@ export const copy = async (coord: string, title: string): Promise<boolean> => {
     showDialog({
       content: (
         <div className="p-6 flex flex-col items-center justify-center">
-          <p>
-            📌 Se ha copiado la coordenada para {title}:<span>{coord}</span>
+          <h2 className="flex gap-2 items-center text-2xl font-semibold">
+            <MapPinCheck className="w-6 h-6 text-green-500" /> Copiado!
+          </h2>
+          <p className="my-3">
+            Se ha copiado la coordenada para {title}: <span>{coord}</span>
           </p>
-          <p>Podés emplearla en la aplicación ahora!</p>
         </div>
       ),
     });

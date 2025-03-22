@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -48,10 +50,7 @@ const wifiSvg = L.divIcon({
   popupAnchor: [0, -32],
 });
 
-export const LeafMap = ({
-  currentPosition,
-  antennaPosition,
-}: MapCoordsInterface) => {
+const LeafMap = ({ currentPosition, antennaPosition }: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -95,3 +94,5 @@ export const LeafMap = ({
     </div>
   );
 };
+
+export default LeafMap;

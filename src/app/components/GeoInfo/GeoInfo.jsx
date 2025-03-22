@@ -11,7 +11,9 @@ import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
 import Link from "next/link";
 import { writeMAC } from "@/utils/mac-writer";
-import { LeafMap } from "./components/MapLeaf.tsx";
+import dynamic from "next/dynamic.js";
+
+const Map = dynamic(() => import("./components/MapLeaf.tsx"), { ssr: false });
 
 export const InfoRow = ({ label, value, loading }) => (
   <div className="flex items-center space-x-2">
@@ -239,7 +241,7 @@ export const GeoPositionCard = () => {
 
       <InfoWifi location={location} loading={isLoading} />
 
-      <LeafMap
+      <Map
         currentPosition={location.current_position}
         antennaPosition={{
           coords: location.closest_wifi.coords,

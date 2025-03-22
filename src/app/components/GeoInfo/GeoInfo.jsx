@@ -199,7 +199,7 @@ export const GeoPositionCard = () => {
       setSeconds((prev) => prev + 1);
     }, 1000);
 
-    if (seconds === 12) {
+    if (seconds === 6) {
       clearInterval(timer);
       showDialog({
         content: (

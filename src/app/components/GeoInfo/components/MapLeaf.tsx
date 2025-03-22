@@ -107,7 +107,7 @@ const LeafMap = ({
     )
       .addTo(map)
       .bindPopup(`Distancia: ${antennaPosition.distance} m`)
-      .bindTooltip(`Distancia ${antennaPosition.distance} m`, {
+      .bindTooltip(`Más cercana a: ${antennaPosition.distance} m`, {
         permanent: true,
         direction: "auto",
         offset: [5, -10],
@@ -136,11 +136,14 @@ const LeafMap = ({
     )
       .addTo(map)
       .bindPopup(`Distancia: ${secondAntennaPosition.distance} m`)
-      .bindTooltip(`Distancia ${secondAntennaPosition.distance} m`, {
-        permanent: true,
-        direction: "auto",
-        offset: [5, -10],
-      });
+      .bindTooltip(
+        `Segunda más cercana a: ${secondAntennaPosition.distance} m`,
+        {
+          permanent: true,
+          direction: "auto",
+          offset: [5, -10],
+        }
+      );
 
     return () => {
       map.remove();

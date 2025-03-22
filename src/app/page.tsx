@@ -105,10 +105,10 @@ export default function Home() {
                 <div className="flex gap-3 items-center justify-center mt-6">
                   <Image
                     src="/assets/avatar-solidsnk86.png"
-                    width={45}
-                    height={45}
+                    width={48}
+                    height={48}
                     alt=""
-                    className="rounded-full bg-yellow-300 border border-zinc-100"
+                    className="rounded-full bg-yellow-300"
                   />
                   <aside className="flex items-center">
                     <span className="font-semibold flex flex-col text-zinc-800 dark:text-zinc-200">

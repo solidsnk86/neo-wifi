@@ -14,6 +14,7 @@ interface MapCoordsInterface {
   antennaPosition: {
     coords: { lat: number; lon: number };
     name: { ssid2g: string; ssid5g: string };
+    distance: number | string;
   };
 }
 
@@ -36,7 +37,7 @@ const wifiSvg = L.divIcon({
   <!-- Círculo interior con borde suave -->
   <circle cx="100" cy="90" r="65" fill="white" stroke="#EEEEEE" stroke-width="1"/>
   
-  <!-- Símbolo WiFi más grande -->
+  <!-- Símbolo WiFi -->
   <g transform="translate(46, 35) scale(4.5)">
     <path d="M5 12.55a11 11 0 0 1 14.08 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M8.5 16.35a5 5 0 0 1 7 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -82,6 +83,21 @@ const LeafMap = ({ currentPosition, antennaPosition }: MapCoordsInterface) => {
       .bindPopup(
         `Antena 2.4Ghz: ${antennaPosition.name.ssid2g} | 5Ghz: ${antennaPosition.name.ssid5g}`
       );
+
+    L.polyline(
+      [
+        [currentPosition.latitude, currentPosition.longitude],
+        [antennaPosition.coords.lat, antennaPosition.coords.lon],
+      ],
+      { color: "blue", weight: 3, opacity: 0.7, dashArray: "5, 5" }
+    )
+      .addTo(map)
+      .bindPopup(`Distancia: ${antennaPosition.distance} m`)
+      .bindTooltip(`Distancia ${antennaPosition.distance} m`, {
+        permanent: true,
+        direction: "auto",
+        offset: [5, -10],
+      });
 
     return () => {
       map.remove();

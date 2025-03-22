@@ -249,6 +249,7 @@ export const GeoPositionCard = () => {
             ssid2g: location.closest_wifi.antenna || "No disponible",
             ssid5g: location.closest_wifi.name || "No disponible",
           },
+          distance: location.closest_wifi.distance,
         }}
       />
 

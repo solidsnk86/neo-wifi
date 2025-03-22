@@ -51,37 +51,47 @@ export const SearchAntenna = ({
             <button
               type="submit"
               disabled={isLoading}
-              className="py-[6px] md:w-24 px-2 text-white btn dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
+              className="py-[6px] md:w-32 px-2 text-white btn dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
             >
-              {isLoading ? "Buscando..." : "Buscar"}
+              {isLoading ? (
+                <div className="loader-container">
+                  Buscando<span className="dot">.</span>
+                  <span className="dot">.</span>
+                  <span className="dot">.</span>
+                </div>
+              ) : (
+                "Buscar"
+              )}
             </button>
           </div>
         </form>
 
-        <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-2">
-          <InfoRow
-            label="SSID-1"
-            value={search?.antenna?.name}
-            loading={isLoading}
-          />
-          <InfoRow
-            label="SSID-2"
-            value={search?.antenna?.name5g}
-            loading={isLoading}
-          />
-          <InfoRow
-            label="Distancia"
-            value={search?.distance}
-            loading={isLoading}
-          />
-          <InfoRow label="Tipo" value={search?.type} loading={isLoading} />
-          <InfoRow label="MAC" value={mac(search?.MAC)} loading={isLoading} />
-          <InfoRow
-            label="MAC-5G"
-            value={mac(search?.MAC5G)}
-            loading={isLoading}
-          />
-        </div>
+        {search && (
+          <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-2">
+            <InfoRow
+              label="SSID-1"
+              value={search?.antenna?.name}
+              loading={isLoading}
+            />
+            <InfoRow
+              label="SSID-2"
+              value={search?.antenna?.name5g}
+              loading={isLoading}
+            />
+            <InfoRow
+              label="Distancia"
+              value={search?.distance}
+              loading={isLoading}
+            />
+            <InfoRow label="Tipo" value={search?.type} loading={isLoading} />
+            <InfoRow label="MAC" value={mac(search?.MAC)} loading={isLoading} />
+            <InfoRow
+              label="MAC-5G"
+              value={mac(search?.MAC5G)}
+              loading={isLoading}
+            />
+          </div>
+        )}
       </article>
     </div>
   );

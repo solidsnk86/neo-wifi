@@ -7,6 +7,7 @@ interface SearchAntennaProps {
   setQuery: (value: string) => void;
   search: {
     antenna: { name: string; name5g: string };
+    coords: { lat: number; lon: number };
     distance: string;
     type: string;
     MAC: string;
@@ -88,6 +89,16 @@ export const SearchAntenna = ({
             <InfoRow
               label="MAC-5G"
               value={mac(search?.MAC5G)}
+              loading={isLoading}
+            />
+            <InfoRow
+              label="Latitud"
+              value={search.coords.lat}
+              loading={isLoading}
+            />
+            <InfoRow
+              label="Longitud"
+              value={search.coords.lon}
               loading={isLoading}
             />
           </div>

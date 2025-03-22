@@ -8,6 +8,7 @@ interface InfoWifiProps {
     closest_wifi: {
       antenna: string;
       name: string;
+      coords: { lat: number; lon: number };
       distance: string;
       type: string;
       MAC: string;
@@ -61,6 +62,16 @@ export const InfoWifi = ({ location, loading }: InfoWifiProps) => {
               <InfoRow
                 label="MAC-5Ghz"
                 value={writeMAC(location.closest_wifi?.MAC5G)}
+                loading={loading}
+              />
+              <InfoRow
+                label="Latitud"
+                value={location.closest_wifi.coords.lat}
+                loading={loading}
+              />
+              <InfoRow
+                label="Longitud"
+                value={location.closest_wifi.coords.lon}
                 loading={loading}
               />
             </div>

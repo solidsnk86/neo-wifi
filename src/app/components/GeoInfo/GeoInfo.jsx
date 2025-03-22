@@ -37,6 +37,15 @@ export const GeoPositionCard = () => {
     center_city: "",
     current_position: { latitude: 0, longitude: 0 },
     closest_wifi: {
+      name: "",
+      antenna: "",
+      distance: "",
+      type: "",
+      MAC: "",
+      MAC5G: "",
+      coords: { lat: 0, lon: 0 },
+    },
+    second_closest_wifi: {
       antenna: "",
       distance: "",
       type: "",
@@ -250,6 +259,14 @@ export const GeoPositionCard = () => {
             ssid5g: location.closest_wifi.name || "No disponible",
           },
           distance: location.closest_wifi.distance,
+        }}
+        secondAntennaPosition={{
+          coords: location.second_closest_wifi.coords,
+          name: {
+            ssid2g: location.second_closest_wifi.antenna || "No disponible",
+            ssid5g: location.second_closest_wifi.name || "No disponible",
+          },
+          distance: location.second_closest_wifi.distance,
         }}
       />
 

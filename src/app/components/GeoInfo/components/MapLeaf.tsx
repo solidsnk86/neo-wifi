@@ -9,10 +9,20 @@ type Coords = {
   longitude: number;
 };
 
+type AntennaCoords = {
+  lat: number;
+  lon: number;
+};
+
 interface MapCoordsInterface {
   currentPosition: Coords;
   antennaPosition: {
-    coords: { lat: number; lon: number };
+    coords: AntennaCoords;
+    name: { ssid2g: string; ssid5g: string };
+    distance: number | string;
+  };
+  secondAntennaPosition: {
+    coords: AntennaCoords;
     name: { ssid2g: string; ssid5g: string };
     distance: number | string;
   };
@@ -51,7 +61,11 @@ const wifiSvg = L.divIcon({
   popupAnchor: [0, -32],
 });
 
-const LeafMap = ({ currentPosition, antennaPosition }: MapCoordsInterface) => {
+const LeafMap = ({
+  currentPosition,
+  antennaPosition,
+  secondAntennaPosition,
+}: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -99,10 +113,39 @@ const LeafMap = ({ currentPosition, antennaPosition }: MapCoordsInterface) => {
         offset: [5, -10],
       });
 
+    L.marker(
+      [
+        secondAntennaPosition.coords.lat || 0,
+        secondAntennaPosition.coords.lon || 0,
+      ],
+      {
+        icon: wifiSvg,
+      }
+    )
+      .addTo(map)
+      .bindPopup(
+        `Antena 2.4Ghz: ${secondAntennaPosition.name.ssid2g} | 5Ghz: ${secondAntennaPosition.name.ssid5g}`
+      );
+
+    L.polyline(
+      [
+        [currentPosition.latitude, currentPosition.longitude],
+        [secondAntennaPosition.coords.lat, secondAntennaPosition.coords.lon],
+      ],
+      { color: "blue", weight: 3, opacity: 0.7, dashArray: "5, 5" }
+    )
+      .addTo(map)
+      .bindPopup(`Distancia: ${secondAntennaPosition.distance} m`)
+      .bindTooltip(`Distancia ${secondAntennaPosition.distance} m`, {
+        permanent: true,
+        direction: "auto",
+        offset: [5, -10],
+      });
+
     return () => {
       map.remove();
     };
-  }, [currentPosition, antennaPosition]);
+  }, [currentPosition, antennaPosition, secondAntennaPosition]);
 
   return (
     <div>

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { MapPin } from "lucide-react";
 
 type Coords = {
   latitude: number;
@@ -26,6 +27,7 @@ interface MapCoordsInterface {
     name: { ssid2g: string; ssid5g: string };
     distance: number | string;
   };
+  getLocation: () => Promise<void>;
 }
 
 const customIcon = new L.Icon({
@@ -65,6 +67,7 @@ const LeafMap = ({
   currentPosition,
   antennaPosition,
   secondAntennaPosition,
+  getLocation,
 }: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
 
@@ -150,9 +153,36 @@ const LeafMap = ({
     };
   }, [currentPosition, antennaPosition, secondAntennaPosition]);
 
+  if (
+    !currentPosition ||
+    !currentPosition.latitude ||
+    !currentPosition.longitude
+  ) {
+    return (
+      <div className="flex flex-col w-full h-64 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
+        <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+          <h2 className="text-center font-semibold text-xl my-2">
+            Mapa Intercativo 🌍
+          </h2>
+          <button className="flex group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
+            <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+              <p
+                className="flex gap-2 items-center text-blue-500 cursor-pointer hover:underline"
+                onClick={getLocation}
+              >
+                <MapPin className="w-5 h-5" />
+                Obtener Ubicación
+              </p>
+            </div>
+          </button>
+        </article>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <div ref={mapRef} className="w-full h-64 bg-gray-200 rounded-xl"></div>
+      <div ref={mapRef} className="w-full h-64 rounded-xl"></div>
     </div>
   );
 };

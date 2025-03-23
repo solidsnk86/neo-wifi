@@ -234,18 +234,6 @@ export const GeoPositionCard = () => {
 
   return (
     <div className="justify-center mx-auto space-y-3 w-[672px] z-50">
-      <header className="flex group justify-center mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
-        <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
-          <p
-            className="flex gap-2 items-center text-blue-500 cursor-pointer hover:underline"
-            onClick={handleGetLocation}
-          >
-            <MapPin className="w-5 h-5" />
-            Obtener Ubicación
-          </p>
-        </div>
-      </header>
-
       <GeoPosition location={location} coords={coords} loading={isLoading} />
 
       <InfoWifi location={location} loading={isLoading} />
@@ -268,6 +256,7 @@ export const GeoPositionCard = () => {
           },
           distance: location.second_closest_wifi.distance,
         }}
+        getLocation={handleGetLocation}
       />
 
       <SearchAntenna

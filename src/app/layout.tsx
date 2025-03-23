@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Neo-Wifi",
   description:
-    "Obtiene información de tu WiFi 📡 más cercano y a que distancia te encuentras de él con ésta aplicación y configura de manera automatizada cualquier dispositivo inlámbrico TP-LINK CPE con la app de escritorio.",
+    "Obtiene información de tu WiFi 📡 más cercano y a que distancia te encuentras del más cercano en tu ciudad con ésta aplicación y configura de manera automatizada cualquier dispositivo inlámbrico TP-LINK CPE con la app de escritorio.",
   openGraph: {
     type: "website",
     url: "https://neo-wifi.vercel.app/",

@@ -26,7 +26,7 @@ export const showDialog = ({ content }: { content: ReactNode }) => {
     );
   };
 
-  dialog.addEventListener(
+  document.addEventListener(
     "click",
     (event: MouseEvent) => {
       const firstChildDialog = document.querySelector("dialog")?.children[0];

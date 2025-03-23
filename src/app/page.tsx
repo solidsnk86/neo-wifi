@@ -50,7 +50,9 @@ export default function Home() {
             estratégicamente ubicados en lugares públicos, instituciones
             educativas, clínicas, hospitales y otros sitios clave de la ciudad,
             brindando conectividad a los ciudadanos de manera accesible y
-            eficiente.
+            eficiente. A estos se suman más de 45 puntos de conexión WiFi en
+            Mendoza, que puedes consultar en esta aplicación activando la
+            ubicación.
           </p>
         </HomeBlock>
 

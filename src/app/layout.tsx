@@ -27,8 +27,6 @@ export const metadata: Metadata = {
         url: "https://raw.githubusercontent.com/solidsnk86/neo-wifi/refs/heads/master/public/assets/neo-wifi-app-card.png",
       },
     ],
-    description:
-      "Obtiene información de tu WiFi 📡 más cercano y a que distancia te encuentras de él con ésta aplicación y configura de manera automatizada cualquier dispositivo inlámbrico TP-LINK CPE con la app de escritorio.",
   },
 };
 

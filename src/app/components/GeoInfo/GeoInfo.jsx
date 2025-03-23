@@ -243,18 +243,20 @@ export const GeoPositionCard = () => {
         antennaPosition={{
           coords: location.closest_wifi.coords,
           name: {
-            ssid2g: location.closest_wifi.antenna || "No disponible",
-            ssid5g: location.closest_wifi.name || "No disponible",
+            ssid2g: location.closest_wifi.antenna,
+            ssid5g: location.closest_wifi.name,
           },
           distance: location.closest_wifi.distance,
+          type: location.closest_wifi.type,
         }}
         secondAntennaPosition={{
           coords: location.second_closest_wifi.coords,
           name: {
-            ssid2g: location.second_closest_wifi.antenna || "No disponible",
-            ssid5g: location.second_closest_wifi.name || "No disponible",
+            ssid2g: location.second_closest_wifi.antenna,
+            ssid5g: location.second_closest_wifi.name,
           },
           distance: location.second_closest_wifi.distance,
+          type: location.second_closest_wifi.type,
         }}
         getLocation={handleGetLocation}
       />

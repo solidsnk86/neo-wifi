@@ -21,11 +21,13 @@ interface MapCoordsInterface {
     coords: AntennaCoords;
     name: { ssid2g: string; ssid5g: string };
     distance: number | string;
+    type: string;
   };
   secondAntennaPosition: {
     coords: AntennaCoords;
     name: { ssid2g: string; ssid5g: string };
     distance: number | string;
+    type: string;
   };
   getLocation: () => Promise<void>;
 }
@@ -86,6 +88,7 @@ const LeafMap = ({
 
     L.marker([currentPosition.latitude || 0, currentPosition.longitude || 0], {
       icon: customIcon,
+      zIndexOffset: 9,
     })
       .addTo(map)
       .bindPopup("Tu ubicación");
@@ -94,11 +97,16 @@ const LeafMap = ({
       [antennaPosition.coords.lat || 0, antennaPosition.coords.lon || 0],
       {
         icon: wifiSvg,
+        zIndexOffset: 9,
       }
     )
       .addTo(map)
       .bindPopup(
-        `Antena 2.4Ghz: ${antennaPosition.name.ssid2g} | 5Ghz: ${antennaPosition.name.ssid5g}`
+        `Antena 2.4Ghz: <strong>${antennaPosition.name.ssid2g}</strong><br>
+        Antena 5Ghz: <strong>${antennaPosition.name.ssid5g}</strong><br>
+        Distancia: <strong>${antennaPosition.distance}</strong><br>
+        Tipo: <strong>${antennaPosition.type}</strong>
+        `
       );
 
     L.polyline(
@@ -106,14 +114,13 @@ const LeafMap = ({
         [currentPosition.latitude, currentPosition.longitude],
         [antennaPosition.coords.lat, antennaPosition.coords.lon],
       ],
-      { color: "blue", weight: 3, opacity: 0.7, dashArray: "5, 5" }
+      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
     )
       .addTo(map)
-      .bindPopup(`Distancia: ${antennaPosition.distance} m`)
-      .bindTooltip(`Más cercana a: ${antennaPosition.distance} m`, {
+      .bindPopup(`Distancia: ${antennaPosition.distance}`)
+      .bindTooltip(`La más cercana: ${antennaPosition.distance}`, {
         permanent: true,
         direction: "auto",
-        offset: [5, -10],
       });
 
     L.marker(
@@ -127,26 +134,26 @@ const LeafMap = ({
     )
       .addTo(map)
       .bindPopup(
-        `Antena 2.4Ghz: ${secondAntennaPosition.name.ssid2g} | 5Ghz: ${secondAntennaPosition.name.ssid5g}`
-      );
+        `Antena 2.4Ghz: <strong>${secondAntennaPosition.name.ssid2g}</strong><br>
+        Antena 5Ghz: <strong>${secondAntennaPosition.name.ssid5g}</strong><br>
+        Distancia: <strong>${secondAntennaPosition.distance}</strong><br>
+        Tipo: <strong>${secondAntennaPosition.type}</strong>
+        `
+      )
+      .bindTooltip(`Segunda más cercana: ${secondAntennaPosition.distance}`, {
+        permanent: true,
+        direction: "auto",
+      });
 
     L.polyline(
       [
         [currentPosition.latitude, currentPosition.longitude],
         [secondAntennaPosition.coords.lat, secondAntennaPosition.coords.lon],
       ],
-      { color: "blue", weight: 3, opacity: 0.7, dashArray: "5, 5" }
+      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
     )
       .addTo(map)
-      .bindPopup(`Distancia: ${secondAntennaPosition.distance} m`)
-      .bindTooltip(
-        `Segunda más cercana a: ${secondAntennaPosition.distance} m`,
-        {
-          permanent: true,
-          direction: "auto",
-          offset: [5, -10],
-        }
-      );
+      .bindPopup(`Distancia: ${secondAntennaPosition.distance}`);
 
     return () => {
       map.remove();

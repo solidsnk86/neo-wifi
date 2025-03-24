@@ -48,8 +48,9 @@ export default function Page() {
 
   const createLink = async () => {
     const link = document.createElement("a");
-    link.href = "/Neo-Wifi Setup 1.1.3.exe";
-    link.download = "Neo-Wifi Setup 1.1.3.exe";
+    link.href =
+      "https://github.com/solidsnk86/neo-wifi/releases/download/v1.1.3/Neo-Wifi.Setup.1.1.3.rar";
+    link.download = "Neo-Wifi Setup 1.1.3.rar";
     await sendDataToSupabase().catch((err) =>
       console.error("Error al enviar datos:", err)
     );

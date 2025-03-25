@@ -7,12 +7,12 @@ import { Footer, Navbar } from "../components";
 import styles from "./styles/button.module.css";
 import {
   Activity,
+  CheckCircle,
   FileArchive,
   FileBox,
   FileDown,
   FilePenIcon,
   FileText,
-  Grid2X2,
 } from "lucide-react";
 import { DownloadsProps } from "@/types/definitions";
 import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
@@ -20,9 +20,11 @@ import Link from "next/link";
 import { CurveArrowIcon } from "./Icons/ArrowIcon";
 import { YouTubeLiteVideo } from "../components/YoutubeVideo";
 import MouseTrail from "../components/MouseTrail";
+import { WindowsLogo } from "../components/DownloadButton/Icon/WindowsLogo";
 
 export default function Page() {
   const [downloads, setDownloads] = useState<DownloadsProps>();
+  const [downloadComplete, setDownloadComplete] = useState(false);
 
   const sendDataToSupabase = useCallback(async () => {
     const { ip, sysInfo, cityName } = await getIP();
@@ -30,6 +32,7 @@ export default function Page() {
       ip: ip,
       city: cityName,
       so: sysInfo.system,
+      browser: sysInfo.webBrowser.browser,
     };
     await SupabaseDB.sendDownloads({ data: objDownload });
   }, []);
@@ -47,6 +50,7 @@ export default function Page() {
   };
 
   const createLink = async () => {
+    setDownloadComplete(false);
     const link = document.createElement("a");
     link.href =
       "https://github.com/solidsnk86/neo-wifi/releases/download/v1.1.3/Neo-Wifi.Setup.1.1.3.rar";
@@ -57,11 +61,56 @@ export default function Page() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setTimeout(() => {
+      setDownloadComplete(true);
+    }, 3000);
   };
 
   useEffect(() => {
     getDownloadsCount();
   }, []);
+
+  if (downloadComplete) {
+    window.scrollTo({
+      top: 0,
+    });
+    return (
+      <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
+        <MouseTrail />
+        <Navbar />
+        <section className="py-24">
+          <HomeBlockTitle>Gracias por descargar Neo WiFi App 😃</HomeBlockTitle>
+          <div className="flex xl:max-w-md max-w-[364px] p-6 border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto backdrop-blur-xl z-50">
+            <article className="flex flex-col gap-3 justify-center mx-auto text-center">
+              <CheckCircle className="w-16 h-16 text-blue-500 mx-auto" />
+              <h1 className="text-2xl font-bold">¡Tu descarga ha comenzado!</h1>
+              <p className="text-center">
+                La descarga de <strong>Neo-WiFi</strong> está en proceso y
+                finalizará pronto.
+              </p>
+              <Link
+                href="/"
+                className={`text-white py-2 px-4 mx-auto bg-blue-500 w-fit mt-4 rounded-lg transition-transform duration-300 hover:shadow-lg hover:scale-105 ${styles.button}`}
+              >
+                Volver al inicio
+              </Link>
+            </article>
+          </div>
+          <p className="my-4 text-center text-pretty px-3 z-50">
+            Recuerda que puedes leer la documentación
+            <Link
+              href="/start/introduction"
+              className="mx-1 text-blue-500 relative hover:underline"
+            >
+              aquí.
+              <CurveArrowIcon className="absolute top-6 left-[-8px]" />
+            </Link>
+          </p>
+        </section>
+        <Footer />
+      </main>
+    );
+  }
 
   return (
     <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
@@ -82,7 +131,7 @@ export default function Page() {
             leas la documentación
             <Link
               href="/start/introduction"
-              className="mx-1 underline text-yellow-400 relative"
+              className="mx-1 text-yellow-400 relative hover:underline"
             >
               aquí.
               <CurveArrowIcon className="absolute top-6 left-[-8px]" />
@@ -113,15 +162,15 @@ export default function Page() {
             </time>
             <time className="flex items-center text-sm">
               <Activity className="mx-2 w-6 h-6" /> Última actualización:
-              10/03/2025, 21:58:29p.m.
+              24/03/2025, 17:18:33p.m.
             </time>
             <p className="flex items-center text-sm">
               <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
               {downloads?.data.download_count || 0}
             </p>
             <p className="flex items-center text-sm">
-              <Grid2X2 className="mx-2 w-6 h-6" /> Compatible para SO Windows
-              x64/x86
+              <WindowsLogo width={24} height={24} className="mx-2" /> Compatible
+              para SO Windows x64/x86
             </p>
           </div>
           <aside className="flex justify-end p-4">
@@ -136,6 +185,18 @@ export default function Page() {
             </button>
           </aside>
         </article>
+        <div>
+          <h2 className="text-center">
+            Haz click
+            <span
+              className="mx-[3px] text-blue-500 dark:text-yellow-400 hover:underline cursor-pointer"
+              onClick={createLink}
+            >
+              aquí
+            </span>
+            si la descarga aún no ha comenzado..
+          </h2>
+        </div>
       </section>
       <Footer />
     </main>

@@ -1,6 +1,6 @@
-import { Download } from "lucide-react";
 import Link from "next/link";
 import { ComponentProps } from "react";
+import { WindowsLogo } from "./Icon/WindowsLogo";
 
 export const DownloadButton = (props: ComponentProps<"button">) => {
   return (
@@ -9,7 +9,8 @@ export const DownloadButton = (props: ComponentProps<"button">) => {
         href="/download"
         className="flex items-center gap-3 font-semibold text-lg"
       >
-        <Download /> Descargar
+        <WindowsLogo width={24} height={24} color="#ddd" />
+        Descargar
       </Link>
     </button>
   );

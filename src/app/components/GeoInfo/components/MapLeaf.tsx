@@ -55,20 +55,15 @@ const customIcon = new L.Icon({
 
 const wifiSvg = L.divIcon({
   html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280">
-  <!-- Pin de mapa estilizado -->
-  <path d="M100 0 C45 0 0 45 0 100 C0 140 50 200 100 280 C150 200 200 140 200 100 C200 45 155 0 100 0 Z" fill="#FF3D71" stroke="#C02855" stroke-width="3"/>
-  
-  <!-- Círculo interior con borde suave -->
-  <circle cx="100" cy="90" r="65" fill="white" stroke="#EEEEEE" stroke-width="1"/>
-  
-  <!-- Símbolo WiFi -->
-  <g transform="translate(46, 35) scale(4.5)">
-    <path d="M5 12.55a11 11 0 0 1 14.08 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M8.5 16.35a5 5 0 0 1 7 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M2 8.82a15 15 0 0 1 20 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="12" cy="20" r="1" fill="#0078D7" stroke="#0078D7" stroke-width="2"/>
-  </g>
-</svg>`,
+    <path d="M100 0 C45 0 0 45 0 100 C0 140 50 200 100 280 C150 200 200 140 200 100 C200 45 155 0 100 0 Z" fill="#FF3D71" stroke="#C02855" stroke-width="3"/>
+    <circle cx="100" cy="90" r="65" fill="white" stroke="#EEEEEE" stroke-width="1"/>
+    <g transform="translate(46, 35) scale(4.5)">
+      <path d="M5 12.55a11 11 0 0 1 14.08 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8.5 16.35a5 5 0 0 1 7 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M2 8.82a15 15 0 0 1 20 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="12" cy="20" r="1" fill="#0078D7" stroke="#0078D7" stroke-width="2"/>
+    </g>
+  </svg>`,
   className: "wifi-icon",
   iconSize: [32, 32],
   iconAnchor: [16, 32],
@@ -82,17 +77,8 @@ const LeafMap = ({
   getLocation,
 }: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
-  const [antennas, setAntennas] = useState<WifiDataProps[]>([
-    {
-      name: "",
-      name5g: "",
-      type: "",
-      MAC: "",
-      MAC5g: "",
-      lat: 0,
-      lon: 0,
-    },
-  ]);
+  const mapInstance = useRef<L.Map | null>(null);
+  const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
 
   const getAllAntennas = useCallback(async () => {
     try {
@@ -111,104 +97,83 @@ const LeafMap = ({
   }, [getAllAntennas]);
 
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current || mapInstance.current) return;
     if (!currentPosition.latitude || !currentPosition.longitude) return;
 
     const map = L.map(mapRef.current).setView(
       [currentPosition.latitude, currentPosition.longitude],
       16
     );
+    mapInstance.current = map;
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
       map
     );
 
-    L.marker([currentPosition.latitude || 0, currentPosition.longitude || 0], {
+    L.marker([currentPosition.latitude, currentPosition.longitude], {
       icon: customIcon,
-      zIndexOffset: 9,
     })
       .addTo(map)
       .bindPopup("Tu ubicación");
 
-    L.marker(
-      [antennaPosition.coords.lat || 0, antennaPosition.coords.lon || 0],
-      {
-        icon: wifiSvg,
-        zIndexOffset: 9,
-      }
-    )
-      .addTo(map)
-      .bindPopup(
-        `Antena 2.4Ghz: <strong>${antennaPosition.name.ssid2g}</strong><br>
-        Antena 5Ghz: <strong>${antennaPosition.name.ssid5g}</strong><br>
-        Distancia: <strong>${antennaPosition.distance}</strong><br>
-        Tipo: <strong>${antennaPosition.type}</strong>
-        `
-      );
-
-    L.polyline(
-      [
-        [currentPosition.latitude, currentPosition.longitude],
-        [antennaPosition.coords.lat, antennaPosition.coords.lon],
-      ],
-      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
-    )
-      .addTo(map)
-      .bindPopup(`Distancia: ${antennaPosition.distance}`)
-      .bindTooltip(`La más cercana: ${antennaPosition.distance}`, {
-        permanent: true,
-        direction: "auto",
-      });
-
-    L.marker(
-      [
-        secondAntennaPosition.coords.lat || 0,
-        secondAntennaPosition.coords.lon || 0,
-      ],
-      {
-        icon: wifiSvg,
-      }
-    )
-      .addTo(map)
-      .bindPopup(
-        `Antena 2.4Ghz: <strong>${secondAntennaPosition.name.ssid2g}</strong><br>
-        Antena 5Ghz: <strong>${secondAntennaPosition.name.ssid5g}</strong><br>
-        Distancia: <strong>${secondAntennaPosition.distance}</strong><br>
-        Tipo: <strong>${secondAntennaPosition.type}</strong>
-        `
-      )
-      .bindTooltip(`Segunda más cercana: ${secondAntennaPosition.distance}`, {
-        permanent: true,
-        direction: "auto",
-      });
-
-    L.polyline(
-      [
-        [currentPosition.latitude, currentPosition.longitude],
-        [secondAntennaPosition.coords.lat, secondAntennaPosition.coords.lon],
-      ],
-      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
-    )
-      .addTo(map)
-      .bindPopup(`Distancia: ${secondAntennaPosition.distance}`);
-
-    antennas.forEach((antenna) => {
-      L.marker([(antenna.lat as number) || 0, (antenna.lon as number) || 0], {
-        icon: wifiSvg,
-      })
+    const addAntennaMarker = (
+      position: AntennaCoords,
+      name: { ssid2g: string; ssid5g: string },
+      distance: number | string,
+      type: string
+    ) => {
+      L.marker([position.lat, position.lon], { icon: wifiSvg })
         .addTo(map)
         .bindPopup(
-          `Antena 2.4Ghz: <strong>${
-            antenna.name || "No disponible"
-          }</strong><br>
-        Antena 5Ghz: <strong>${antenna.name5g || "No disponible"}</strong><br>
-        Tipo: <strong>${antenna.type}</strong>
-        `
+          `Antena 2.4Ghz: <strong>${name.ssid2g}</strong><br>
+          Antena 5Ghz: <strong>${name.ssid5g}</strong><br>
+          Distancia: <strong>${distance}</strong><br>
+          Tipo: <strong>${type}</strong>`
         );
+      L.polyline(
+        [
+          [currentPosition.latitude, currentPosition.longitude],
+          [position.lat, position.lon],
+        ],
+        { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
+      ).addTo(map);
+    };
+
+    addAntennaMarker(
+      antennaPosition.coords,
+      antennaPosition.name,
+      antennaPosition.distance,
+      antennaPosition.type
+    );
+
+    addAntennaMarker(
+      secondAntennaPosition.coords,
+      secondAntennaPosition.name,
+      secondAntennaPosition.distance,
+      secondAntennaPosition.type
+    );
+
+    antennas.forEach((antenna) => {
+      if (antenna.lat && antenna.lon) {
+        L.marker([antenna.lat as number, antenna.lon as number], {
+          icon: wifiSvg,
+        })
+          .addTo(map)
+          .bindPopup(
+            `Antena 2.4Ghz: <strong>${
+              antenna.name || "No disponible"
+            }</strong><br>
+             Antena 5Ghz: <strong>${
+               antenna.name5g || "No disponible"
+             }</strong><br>
+             Tipo: <strong>${antenna.type}</strong>`
+          );
+      }
     });
 
     return () => {
-      map.remove();
+      mapInstance.current?.remove();
+      mapInstance.current = null;
     };
   }, [currentPosition, antennaPosition, secondAntennaPosition, antennas]);
 

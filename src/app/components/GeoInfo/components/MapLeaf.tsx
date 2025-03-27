@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapPin } from "lucide-react";
@@ -96,6 +96,14 @@ const LeafMap = ({
     getAllAntennas();
   }, [getAllAntennas]);
 
+  const optimizedAntennas = useMemo(() => {
+    return antennas.map((antenna) => ({
+      ...antenna,
+      lat: Number(antenna.lat) || 0,
+      lon: Number(antenna.lon) || 0,
+    }));
+  }, [antennas]);
+
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
     if (!currentPosition.latitude || !currentPosition.longitude) return;
@@ -153,7 +161,7 @@ const LeafMap = ({
       secondAntennaPosition.type
     );
 
-    antennas.forEach((antenna) => {
+    optimizedAntennas.forEach((antenna) => {
       if (antenna.lat && antenna.lon) {
         L.marker([antenna.lat as number, antenna.lon as number], {
           icon: wifiSvg,
@@ -175,7 +183,12 @@ const LeafMap = ({
       mapInstance.current?.remove();
       mapInstance.current = null;
     };
-  }, [currentPosition, antennaPosition, secondAntennaPosition, antennas]);
+  }, [
+    currentPosition,
+    antennaPosition,
+    secondAntennaPosition,
+    optimizedAntennas,
+  ]);
 
   if (
     !currentPosition ||

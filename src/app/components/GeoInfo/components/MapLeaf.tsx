@@ -139,7 +139,8 @@ const LeafMap = ({
             📏 <strong>Distancia:</strong> <span style="color:#0078D7;">${distance}</span><br>
             ⚡ <strong>Tipo:</strong> ${type}
           </div>`
-        );
+        )
+        .openPopup();
       L.polyline(
         [
           [currentPosition.latitude, currentPosition.longitude],
@@ -180,17 +181,16 @@ const LeafMap = ({
       );
 
     addAntennaMarker(
-      antennaPosition.coords,
-      antennaPosition.name,
-      antennaPosition.distance,
-      antennaPosition.type
-    );
-
-    addAntennaMarker(
       secondAntennaPosition.coords,
       secondAntennaPosition.name,
       secondAntennaPosition.distance,
       secondAntennaPosition.type
+    );
+    addAntennaMarker(
+      antennaPosition.coords,
+      antennaPosition.name,
+      antennaPosition.distance,
+      antennaPosition.type
     );
 
     optimizedAntennas

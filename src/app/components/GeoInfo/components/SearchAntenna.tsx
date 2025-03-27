@@ -55,7 +55,7 @@ export const SearchAntenna = ({
                 name="antenna"
                 placeholder="Ej: WiFi4.0-CO-08"
                 className="border border-zinc-300/70 dark:border-zinc-700/50 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
-                value={query}
+                defaultValue={query}
                 ref={inputRef}
                 required
               />

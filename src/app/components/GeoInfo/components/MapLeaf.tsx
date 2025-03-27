@@ -133,10 +133,12 @@ const LeafMap = ({
       L.marker([position.lat, position.lon], { icon: wifiSvg })
         .addTo(map)
         .bindPopup(
-          `Antena 2.4Ghz: <strong>${name.ssid2g}</strong><br>
-          Antena 5Ghz: <strong>${name.ssid5g}</strong><br>
-          Distancia: <strong>${distance}</strong><br>
-          Tipo: <strong>${type}</strong>`
+          `<div style="font-size:14px; font-weight:bold;">
+            🔹 <strong>Antena 2.4Ghz:</strong> ${name.ssid2g}<br>
+            🔹 <strong>Antena 5Ghz:</strong> ${name.ssid5g}<br>
+            📏 <strong>Distancia:</strong> <span style="color:#0078D7;">${distance} m</span><br>
+            ⚡ <strong>Tipo:</strong> ${type}
+          </div>`
         );
       L.polyline(
         [
@@ -146,6 +148,36 @@ const LeafMap = ({
         { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
       ).addTo(map);
     };
+    L.polyline(
+      [
+        [currentPosition.latitude, currentPosition.longitude],
+        [antennaPosition.coords.lat, antennaPosition.coords.lon],
+      ],
+      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
+    )
+      .addTo(map)
+      .bindPopup(`Distancia: ${antennaPosition.distance}`)
+      .bindTooltip(`La más cercana: ${antennaPosition.distance}`, {
+        permanent: true,
+        direction: "auto",
+      });
+
+    L.polyline(
+      [
+        [currentPosition.latitude, currentPosition.longitude],
+        [secondAntennaPosition.coords.lat, secondAntennaPosition.coords.lon],
+      ],
+      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
+    )
+      .addTo(map)
+      .bindPopup(`Distancia: ${secondAntennaPosition.distance}`)
+      .bindTooltip(
+        `La segunda más cercana: ${secondAntennaPosition.distance}`,
+        {
+          permanent: true,
+          direction: "auto",
+        }
+      );
 
     addAntennaMarker(
       antennaPosition.coords,
@@ -161,23 +193,31 @@ const LeafMap = ({
       secondAntennaPosition.type
     );
 
-    optimizedAntennas.forEach((antenna) => {
-      if (antenna.lat && antenna.lon) {
-        L.marker([antenna.lat as number, antenna.lon as number], {
-          icon: wifiSvg,
-        })
-          .addTo(map)
-          .bindPopup(
-            `Antena 2.4Ghz: <strong>${
+    optimizedAntennas
+      .filter(
+        (antenna) =>
+          antenna.name !== antennaPosition.name.ssid2g &&
+          antenna.name !== secondAntennaPosition.name.ssid2g
+      )
+      .forEach((antenna) => {
+        if (antenna.lat && antenna.lon) {
+          L.marker([antenna.lat as number, antenna.lon as number], {
+            icon: wifiSvg,
+          })
+            .addTo(map)
+            .bindPopup(
+              `<div style="font-size:14px; font-weight:bold;">
+            🔹 <strong>Antena 2.4Ghz:</strong> ${
               antenna.name || "No disponible"
-            }</strong><br>
-             Antena 5Ghz: <strong>${
-               antenna.name5g || "No disponible"
-             }</strong><br>
-             Tipo: <strong>${antenna.type}</strong>`
-          );
-      }
-    });
+            }<br>
+            🔹 <strong>Antena 5Ghz:</strong> ${
+              antenna.name5g || "no Disponible"
+            }<br>
+            ⚡ <strong>Tipo:</strong> ${antenna.type}
+          </div>`
+            );
+        }
+      });
 
     return () => {
       mapInstance.current?.remove();
@@ -217,7 +257,7 @@ const LeafMap = ({
     );
   }
 
-  return <div ref={mapRef} className="w-full h-64 rounded-xl"></div>;
+  return <div ref={mapRef} className="w-full h-80 rounded-xl"></div>;
 };
 
 export default LeafMap;

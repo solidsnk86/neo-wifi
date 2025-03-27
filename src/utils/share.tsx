@@ -1,9 +1,9 @@
 "use client";
 
-import { showDeliciusToast } from "./delicius-toast";
+import { showToast } from "./toast";
 
 const description =
-  "Configura tu CPE WiFi ensegundos con ésta aplicación para PC 🚀";
+  "Detecta tu antena más próxima y configura tu CPE WiFi en segundos con ésta aplicación para PC 🚀";
 
 export const share = {
   navigatorShare: () => {
@@ -16,7 +16,7 @@ export const share = {
   copyUrl: async () => {
     const link = document.location.href;
     await navigator.clipboard.writeText(link);
-    showDeliciusToast({
+    showToast({
       content: (
         <div className="p-5">
           <p>

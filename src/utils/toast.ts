@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 
-export const showDeliciusToast = ({ content }: { content: ReactNode }) => {
+export const showToast = ({ content }: { content: ReactNode }) => {
   const dialog = document.createElement("dialog");
   document.body.appendChild(dialog);
   const root = createRoot(dialog);

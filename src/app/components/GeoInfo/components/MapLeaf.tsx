@@ -136,7 +136,7 @@ const LeafMap = ({
           `<div style="font-size:14px; font-weight:bold;">
             🔹 <strong>Antena 2.4Ghz:</strong> ${name.ssid2g}<br>
             🔹 <strong>Antena 5Ghz:</strong> ${name.ssid5g}<br>
-            📏 <strong>Distancia:</strong> <span style="color:#0078D7;">${distance} m</span><br>
+            📏 <strong>Distancia:</strong> <span style="color:#0078D7;">${distance}</span><br>
             ⚡ <strong>Tipo:</strong> ${type}
           </div>`
         );

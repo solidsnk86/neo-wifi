@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapPin } from "lucide-react";
@@ -30,6 +30,16 @@ interface MapCoordsInterface {
     type: string;
   };
   getLocation: () => Promise<void>;
+}
+
+interface WifiDataProps {
+  name: string;
+  name5g: string;
+  type: string;
+  MAC: string;
+  MAC5g: string;
+  lat: number | string;
+  lon: number | string;
 }
 
 const customIcon = new L.Icon({
@@ -72,6 +82,33 @@ const LeafMap = ({
   getLocation,
 }: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
+  const [antennas, setAntennas] = useState<WifiDataProps[]>([
+    {
+      name: "",
+      name5g: "",
+      type: "",
+      MAC: "",
+      MAC5g: "",
+      lat: 0,
+      lon: 0,
+    },
+  ]);
+
+  const getAllAntennas = useCallback(async () => {
+    try {
+      const response = await fetch(
+        "https://raw.githubusercontent.com/solidsnk86/calcagni-gabriel/refs/heads/master/app/api/geolocation/services/wifi-v2.json"
+      );
+      const data = await response.json();
+      setAntennas(data);
+    } catch (error) {
+      console.error((error as Error).message);
+    }
+  }, []);
+
+  useEffect(() => {
+    getAllAntennas();
+  }, [getAllAntennas]);
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -155,10 +192,25 @@ const LeafMap = ({
       .addTo(map)
       .bindPopup(`Distancia: ${secondAntennaPosition.distance}`);
 
+    antennas.forEach((antenna) => {
+      L.marker([(antenna.lat as number) || 0, (antenna.lon as number) || 0], {
+        icon: wifiSvg,
+      })
+        .addTo(map)
+        .bindPopup(
+          `Antena 2.4Ghz: <strong>${
+            antenna.name || "No disponible"
+          }</strong><br>
+        Antena 5Ghz: <strong>${antenna.name5g || "No disponible"}</strong><br>
+        Tipo: <strong>${antenna.type}</strong>
+        `
+        );
+    });
+
     return () => {
       map.remove();
     };
-  }, [currentPosition, antennaPosition, secondAntennaPosition]);
+  }, [currentPosition, antennaPosition, secondAntennaPosition, antennas]);
 
   if (
     !currentPosition ||

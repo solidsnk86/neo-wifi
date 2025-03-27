@@ -104,7 +104,7 @@ export const Navbar = () => {
 
       {isMenuOpen && (
         <div
-          className="fixed inset-0 h-[100dvh] bg-zinc-500/80 dark:bg-zinc-900/80 z-50"
+          className="fixed inset-0 h-[100dvh] bg-[#f5f5f5] dark:bg-[#111] z-50"
           onClick={toggleMenu}
         >
           <div className={styles.menu} onClick={(e) => e.stopPropagation()}>
@@ -118,7 +118,7 @@ export const Navbar = () => {
                 {navLinks.map(({ name, ariaLabel, icon: Icon, url, fx }) => (
                   <ul
                     key={name}
-                    className="text-left border-b border-zinc-400/80 dark:border-zinc-800/80"
+                    className="text-left border-b border-zinc-300/70 dark:border-zinc-800/80"
                   >
                     <Link
                       href={url}
@@ -182,7 +182,7 @@ export const Navbar = () => {
                 </aside>
               </article>
               <footer className="absolute bottom-4 w-full">
-                <aside className="flex justify-between pt-8 border-t border-zinc-400/80 dark:border-zinc-800/80 px-4">
+                <aside className="flex justify-between pt-8 border-t border-zinc-300/70 dark:border-zinc-800/80 px-4">
                   {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (
                     <Link
                       key={ariaLabel}

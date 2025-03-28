@@ -84,13 +84,17 @@ const LeafMap = ({
   const mapRef = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<L.Map | null>(null);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
+  const isLoadingRef = useRef<boolean>(false);
+  isLoadingRef.current = isLoading;
 
   const getAllAntennas = useCallback(async () => {
     try {
+      isLoadingRef.current = true;
       const response = await fetch(
         "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v5.json"
       );
       const data = await response.json();
+      isLoadingRef.current = false;
       setAntennas(data);
     } catch (error) {
       console.error((error as Error).message);

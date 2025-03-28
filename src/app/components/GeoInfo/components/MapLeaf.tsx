@@ -6,7 +6,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet.fullscreen";
 
-import { Loader, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 type Coords = {
   latitude: number;
@@ -33,7 +33,6 @@ interface MapCoordsInterface {
     type: string;
   };
   getLocation: () => Promise<void>;
-  isLoading: boolean;
 }
 
 interface WifiDataProps {
@@ -78,23 +77,18 @@ const LeafMap = ({
   currentPosition,
   antennaPosition,
   secondAntennaPosition,
-  isLoading,
   getLocation,
 }: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<L.Map | null>(null);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
-  const isLoadingRef = useRef<boolean>(false);
-  isLoadingRef.current = isLoading;
 
   const getAllAntennas = useCallback(async () => {
     try {
-      isLoadingRef.current = true;
       const response = await fetch(
         "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v5.json"
       );
       const data = await response.json();
-      isLoadingRef.current = false;
       setAntennas(data);
     } catch (error) {
       console.error((error as Error).message);
@@ -118,12 +112,13 @@ const LeafMap = ({
       .map((antenna) => ({
         ...antenna,
       }))
-      .slice(0, 600);
+      .slice(0, 900);
   }, [optimizedAntennas]);
 
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
     if (!currentPosition.latitude || !currentPosition.longitude) return;
+
     const map = L.map(mapRef.current).setView(
       [currentPosition.latitude, currentPosition.longitude],
       16
@@ -280,21 +275,6 @@ const LeafMap = ({
               </p>
             </div>
           </button>
-        </article>
-      </div>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <div className="flex flex-col w-full h-96 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
-        <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
-          <h2 className="text-center font-semibold text-xl my-2">
-            Cargando Mapa Intercativo 🌍
-          </h2>
-          <div className="flex justify-center mx-auto border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
-            <Loader className="w-12 h-12 animate-spin" />
-          </div>
         </article>
       </div>
     );

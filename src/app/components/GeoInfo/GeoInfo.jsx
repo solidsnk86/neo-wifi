@@ -2,7 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
-import { LocateFixed, TriangleAlert, BadgeInfo, MapPin } from "lucide-react";
+import {
+  LocateFixed,
+  TriangleAlert,
+  BadgeInfo,
+  MapPin,
+  Loader,
+} from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
@@ -230,29 +236,41 @@ export const GeoPositionCard = () => {
 
       <InfoWifi location={location} loading={isLoading} />
 
-      <Map
-        currentPosition={location.current_position}
-        antennaPosition={{
-          coords: location.closest_wifi.coords,
-          name: {
-            ssid2g: location.closest_wifi.antenna,
-            ssid5g: location.closest_wifi.name,
-          },
-          distance: location.closest_wifi.distance,
-          type: location.closest_wifi.type,
-        }}
-        secondAntennaPosition={{
-          coords: location.second_closest_wifi.coords,
-          name: {
-            ssid2g: location.second_closest_wifi.antenna,
-            ssid5g: location.second_closest_wifi.name,
-          },
-          distance: location.second_closest_wifi.distance,
-          type: location.second_closest_wifi.type,
-        }}
-        getLocation={handleGetLocation}
-        isLoading={isLoading}
-      />
+      {isLoading ? (
+        <div className="flex flex-col w-full h-96 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
+          <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+            <h2 className="text-center font-semibold text-xl my-2">
+              Cargando Mapa Intercativo 🌍
+            </h2>
+            <div className="flex justify-center mx-auto border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+              <Loader className="w-12 h-12 animate-spin duration-1000" />
+            </div>
+          </article>
+        </div>
+      ) : (
+        <Map
+          currentPosition={location.current_position}
+          antennaPosition={{
+            coords: location.closest_wifi.coords,
+            name: {
+              ssid2g: location.closest_wifi.antenna,
+              ssid5g: location.closest_wifi.name,
+            },
+            distance: location.closest_wifi.distance,
+            type: location.closest_wifi.type,
+          }}
+          secondAntennaPosition={{
+            coords: location.second_closest_wifi.coords,
+            name: {
+              ssid2g: location.second_closest_wifi.antenna,
+              ssid5g: location.second_closest_wifi.name,
+            },
+            distance: location.second_closest_wifi.distance,
+            type: location.second_closest_wifi.type,
+          }}
+          getLocation={handleGetLocation}
+        />
+      )}
 
       <SearchAntenna
         submit={handleSubmit}

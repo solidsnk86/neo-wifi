@@ -16,7 +16,7 @@ import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import { Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
-import { YouTubeLiteVideo } from "./components/YoutubeVideo";
+// import { YouTubeLiteVideo } from "./components/YoutubeVideo";
 
 export default function Home() {
   return (
@@ -72,7 +72,7 @@ export default function Home() {
           />
         </HomeBlock>
 
-        <HomeBlockTitle>Introducción</HomeBlockTitle>
+        {/* <HomeBlockTitle>Introducción</HomeBlockTitle>
         <HomeBlock>
           <p className="text-center text-zinc-600 dark:text-zinc-400 px-3">
             Este video es una introducción detallada al uso de la aplicación,
@@ -87,7 +87,7 @@ export default function Home() {
           height={300}
           className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
           border={0}
-        />
+        /> */}
 
         <section className="overflow-hidden my-24">
           <VisitsComponent />

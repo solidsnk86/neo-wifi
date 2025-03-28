@@ -256,13 +256,14 @@ const LeafMap = ({
     !currentPosition.longitude
   ) {
     return (
-      <div className="flex flex-col w-full h-96 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
-        <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-5">
+      <div className="flex flex-col w-full h-96 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
+        <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] md:p-5 p-3">
           <h2 className="text-center font-semibold text-xl my-2">
             Mapa Intercativo 🌍
           </h2>
           <p className="my-4 text-pretty">
-            Debes permitir la geolocalcización para poder visualizar el mapa.
+            Necesitas permitir la geolocalcización para poder visualizar el
+            mapa.
           </p>
           <button className="flex group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
             <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">

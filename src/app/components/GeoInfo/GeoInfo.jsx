@@ -165,15 +165,8 @@ export const GeoPositionCard = () => {
               </h2>
               <p>
                 La antena <span>{query}</span> es inexistente o está mal
-                escrita, chequea que el SSID de la antena sea el correcto.
-                Puedes ver el mapa de antenas
-                <Link
-                  className="underline text-blue-500 mx-1"
-                  href="https://wifi.sanluis.gov.ar/#"
-                >
-                  aquí
-                </Link>
-                .
+                escrita, chequea que el SSID de la antena sea el correcto,
+                chequea en el mapa de antenas el nombre.
               </p>
             </div>
           ),
@@ -258,6 +251,7 @@ export const GeoPositionCard = () => {
           type: location.second_closest_wifi.type,
         }}
         getLocation={handleGetLocation}
+        isLoading={isLoading}
       />
 
       <SearchAntenna

@@ -33,6 +33,7 @@ interface MapCoordsInterface {
     type: string;
   };
   getLocation: () => Promise<void>;
+  isLoading: boolean;
 }
 
 interface WifiDataProps {
@@ -77,24 +78,21 @@ const LeafMap = ({
   currentPosition,
   antennaPosition,
   secondAntennaPosition,
+  isLoading,
   getLocation,
 }: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<L.Map | null>(null);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const getAllAntennas = useCallback(async () => {
-    setIsLoading(true);
     try {
       const response = await fetch(
-        "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v4.json"
+        "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v5.json"
       );
       const data = await response.json();
       setAntennas(data);
-      setIsLoading(false);
     } catch (error) {
-      setIsLoading(false);
       console.error((error as Error).message);
     }
   }, []);
@@ -114,7 +112,6 @@ const LeafMap = ({
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
     if (!currentPosition.latitude || !currentPosition.longitude) return;
-    setIsLoading(true);
     const map = L.map(mapRef.current).setView(
       [currentPosition.latitude, currentPosition.longitude],
       16
@@ -240,7 +237,6 @@ const LeafMap = ({
         }
       });
 
-    setIsLoading(false);
     return () => {
       mapInstance.current?.remove();
       mapInstance.current = null;
@@ -287,7 +283,7 @@ const LeafMap = ({
       <div className="flex flex-col w-full h-96 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
         <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
           <h2 className="text-center font-semibold text-xl my-2">
-            Mapa Intercativo 🌍
+            Cargando Mapa Intercativo 🌍
           </h2>
           <div className="flex justify-center mx-auto border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
             <Loader className="w-12 h-12 animate-spin" />

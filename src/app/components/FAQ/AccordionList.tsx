@@ -30,10 +30,9 @@ const accordionLists = [
   },
   {
     id: 5,
-    question: "¿La aplicación funciona en toda la provincia?",
-    answer: `Actualmente, Neo-Wifi no cubre toda la provincia de San Luis, pero el servicio está disponible en las siguientes zonas urbanas:
-    San Luis, La Punta, Juana Koslay, El Trapiche, La Florida, Potrero de los Funes, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca, Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, San Francisco del Monte de Oro, La Toma, Naschel, Alto Pelado, Alto Pencoso, Arizona, Anchorena, Buena Esperanza y Unión.
-    Además, se han incluido los espacios WiFi de Córdoba Capital.`,
+    question: "¿Dónde funciona la aplicación?",
+    answer: `Actualmente, la cobertura de Neo-Wifi abarca un 75% de la totalidad de las antenas de San Luis.
+            Además, se han incluido los espacios WiFi de Córdoba y Mendoza.`,
   },
   {
     id: 6,

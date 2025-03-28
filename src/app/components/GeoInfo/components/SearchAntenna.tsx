@@ -47,19 +47,22 @@ export const SearchAntenna = ({
             </span>
             Buscar antena
           </h2>
+          <p className="mb-3 text-pretty text-center">
+            Si no puedes encontrar tu antena más cercana disponible, puedes
+            utilizar el mapa interactivo para buscar los nombres de las antenas
+            cercanas. De esta manera, podrás conocer la distancia a la que te
+            encuentras de cada una de ellas.
+          </p>
           <div className="md:flex grid justify-center mx-auto md:gap-4 gap-2">
-            <label>
-              SSID:{" "}
-              <input
-                type="text"
-                name="antenna"
-                placeholder="Ej: WiFi4.0-CO-08"
-                className="border border-zinc-300/70 dark:border-zinc-700/50 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
-                defaultValue={query}
-                ref={inputRef}
-                required
-              />
-            </label>
+            <input
+              type="text"
+              name="antenna"
+              placeholder="Ej: WiFi4.0-CO-08"
+              className="border border-zinc-300/70 dark:border-zinc-700/50 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
+              defaultValue={query}
+              ref={inputRef}
+              required
+            />
             <button
               type="submit"
               disabled={isLoading}

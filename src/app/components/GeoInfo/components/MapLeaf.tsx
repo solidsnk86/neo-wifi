@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet.fullscreen";
+
 import { Loader, MapPin } from "lucide-react";
 
 type Coords = {
@@ -116,6 +119,20 @@ const LeafMap = ({
       [currentPosition.latitude, currentPosition.longitude],
       16
     );
+    (map as any).addControl(
+      (L.control as any).fullscreen({
+        position: "topleft",
+        title: "Pantalla completa",
+        titleCancel: "Salir",
+        forceSeparateButton: true,
+        content: `<svg xmlns="http://www www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+        <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+        <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+        <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+        </svg>`,
+      })
+    );
     mapInstance.current = map;
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
@@ -222,6 +239,7 @@ const LeafMap = ({
             );
         }
       });
+
     setIsLoading(false);
     return () => {
       mapInstance.current?.remove();
@@ -241,10 +259,13 @@ const LeafMap = ({
   ) {
     return (
       <div className="flex flex-col w-full h-96 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
-        <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+        <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-5">
           <h2 className="text-center font-semibold text-xl my-2">
             Mapa Intercativo 🌍
           </h2>
+          <p className="my-3 text-pretty">
+            Debes permitir la geolocalcización para poder visualizar el mapa.
+          </p>
           <button className="flex group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
             <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
               <p

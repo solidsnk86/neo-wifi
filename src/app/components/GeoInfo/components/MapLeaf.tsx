@@ -109,6 +109,14 @@ const LeafMap = ({
     }));
   }, [antennas]);
 
+  const nearByAntennas = useMemo(() => {
+    return optimizedAntennas
+      .map((antenna) => ({
+        ...antenna,
+      }))
+      .slice(0, 600);
+  }, [optimizedAntennas]);
+
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
     if (!currentPosition.latitude || !currentPosition.longitude) return;
@@ -211,7 +219,7 @@ const LeafMap = ({
       antennaPosition.type
     );
 
-    optimizedAntennas
+    nearByAntennas
       .filter(
         (antenna) =>
           antenna.name !== antennaPosition.name.ssid2g &&
@@ -241,12 +249,7 @@ const LeafMap = ({
       mapInstance.current?.remove();
       mapInstance.current = null;
     };
-  }, [
-    currentPosition,
-    antennaPosition,
-    secondAntennaPosition,
-    optimizedAntennas,
-  ]);
+  }, [currentPosition, antennaPosition, secondAntennaPosition, nearByAntennas]);
 
   if (
     !currentPosition ||

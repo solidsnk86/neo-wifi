@@ -106,7 +106,7 @@ const LeafMap = ({
         lat: Number(antenna.lat) || 0,
         lon: Number(antenna.lon) || 0,
       }))
-      .slice(0, 1082);
+      .slice(0, 1884);
   }, [antennas]);
 
   useEffect(() => {

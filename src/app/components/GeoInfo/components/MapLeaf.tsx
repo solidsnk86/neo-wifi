@@ -100,11 +100,13 @@ const LeafMap = ({
   }, [getAllAntennas]);
 
   const optimizedAntennas = useMemo(() => {
-    return antennas.map((antenna) => ({
-      ...antenna,
-      lat: Number(antenna.lat) || 0,
-      lon: Number(antenna.lon) || 0,
-    }));
+    return antennas
+      .map((antenna) => ({
+        ...antenna,
+        lat: Number(antenna.lat) || 0,
+        lon: Number(antenna.lon) || 0,
+      }))
+      .slice(0, 1082);
   }, [antennas]);
 
   useEffect(() => {
@@ -129,6 +131,33 @@ const LeafMap = ({
         </svg>`,
       })
     );
+    const locateControl = (L.control as any)({
+      position: "topleft",
+    });
+
+    locateControl.onAdd = function (map: L.Map) {
+      const div = L.DomUtil.create("div", "leaflet-control-locate");
+
+      div.innerHTML = `
+        <button class="leaflet-control-locate-btn" title="Centrar en mi ubicación">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 26" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c-4 0-7.2 3.1-7.4 7c-.1 2.4 1.3 4.5 2.8 6.2c1.4 1.5 2.9 3 4.5 4.3c.3.3.7.5 1.1.5c.4 0 .8-.2 1.1-.5c1.6-1.3 3.1-2.8 4.5-4.3c1.5-1.7 2.9-3.8 2.8-6.2c-.2-3.9-3.4-7-7.4-7z"/>
+            <circle cx="13" cy="8" r="3" fill="#f5f5f5"/>
+          </svg>
+        </button>
+      `;
+
+      div.querySelector("button")!.addEventListener("click", () => {
+        map.flyTo([currentPosition.latitude, currentPosition.longitude], 16, {
+          animate: true,
+          duration: 1,
+        });
+      });
+
+      return div;
+    };
+
+    locateControl.addTo(map);
     mapInstance.current = map;
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
@@ -137,6 +166,7 @@ const LeafMap = ({
 
     L.marker([currentPosition.latitude, currentPosition.longitude], {
       icon: customIcon,
+      zIndexOffset: 99,
     })
       .addTo(map)
       .bindPopup("Tu ubicación");

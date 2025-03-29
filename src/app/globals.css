@@ -566,6 +566,48 @@ html {
   animation-delay: 1s;
 }
 
+.leaflet-control-locate-btn {
+  position: relative;
+  background: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  border: 2px solid #c2bfba;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.leaflet-control-locate-btn:hover {
+  background-color: #f4f4f4;
+}
+
+.leaflet-control-locate-btn svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -57% -45%;
+  color: #111;
+  fill: #2c84cb;
+  width: 22px;
+  height: 26px;
+  margin: 0 auto;
+  filter: drop-shadow(1px 2px 2px #666666);
+  transition: transform 200ms ease-in-out;
+
+  & circle {
+    border: 1px solid #5cb028;
+  }
+}
+
+.leaflet-control-locate-btn:hover svg {
+  transform: scale(1.1);
+  filter: drop-shadow(1px 2px 3px #232323);
+}
+
 @keyframes fade {
   0%,
   100% {

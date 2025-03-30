@@ -1,5 +1,7 @@
-<div align="center" style="padding-block: 86px;">
-  <img src="public/Neo-Wifi.svg" alt="Neo Wifi Logo" />
+<div align="center">
+  <br>
+    <img src="public/Neo-Wifi.svg" alt="Neo Wifi Logo" />
+  <br>
 </div>
 
 # Localización Inteligente de Antenas WiFi en San Luis y Córdoba 🇦🇷

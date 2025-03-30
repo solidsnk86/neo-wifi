@@ -18,11 +18,8 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
 
 2. **Mapeo Inteligente de Antenas**
 
-   - Cobertura actual en localidades clave de San Luis:
-     - San Luis, La Punta, Juana Koslay, El Trapiche, La Florida, Potrero de los Funes, Merlo, Concarán, Santa Rosa, Tilisarao, Villa Larca,
-       Cortaderas, Los Molles, Carpintería, Cerro de Oro, Quines, San Francisco del Monte de Oro, La Toma, Naschel, Alto Pelado, Alto Pencoso,
-       Arizona, Anchorena, Buena Esperanza, Unión.
-   - También se provee informació de espacios WiFi gratuitos de Córdoba Capital:
+   - Cobertura total en localidades de San Luis:
+   - También se provee información de espacios WiFi gratuitos de Córdoba y Mendoza:
      - Como Universidades, Hospitales, Espacios Públicos, entre otros puntos
      - Podrás saber la distancia de cuál es tu punto WiFi más cercano y a que distancia te encuentras de algún punto WiFi
 

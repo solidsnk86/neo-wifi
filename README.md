@@ -12,7 +12,7 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
 
 1. **Geolocalización Precisa**
 
-   - Utiliza una API personalizada con un mapa JSON detallado de provincias argentinas
+   - Utiliza una API personalizada con un mapa JSON detallado de provincias argentinas y antenas WiFi
    - Implementa la fórmula de Haversine para calcular coordenadas con alta precisión
    - Requiere permiso de geolocalización del navegador para un funcionamiento óptimo
 
@@ -31,7 +31,7 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
 - Fórmula de Haversine para cálculos de geolocalización
 - API REST personalizada
 - Mapeo JSON de provincias argentinas
-- Mapeo JSON de antenas de la provincia
+- Mapeo JSON de antenas
 - Tecnologías:
   - Nextjs
   - Electronjs

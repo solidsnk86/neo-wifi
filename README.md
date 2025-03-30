@@ -23,8 +23,8 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
      - Como Universidades, Hospitales, Espacios Públicos, entre otros puntos
      - Podrás saber la distancia de cuál es tu punto WiFi más cercano y a que distancia te encuentras de algún punto WiFi
 
-3. **Aplicación de escritorio (Windows • MacOs)**
-   - NeoWiFi App es una aplicación para instalar en la pc para automatizar la conectividad WiFi en sistemas TP-LINK en las redes del Gobierno de la Provincia de San Luis.
+3. **Aplicación de escritorio (Windows)**
+   - NeoWiFi App es una aplicación para instalar en la pc (Windows) para automatizar la conectividad WiFi en sistemas TP-LINK en las redes del Gobierno de la Provincia de San Luis.
 
 ### Tecnologías Utilizadas
 

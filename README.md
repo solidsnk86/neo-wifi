@@ -4,7 +4,7 @@
   <br>
 </div>
 
-# Localización Inteligente de Antenas WiFi en San Luis y Córdoba 🇦🇷
+# Localización Inteligente de Antenas WiFi en San Luis, Córdoba y Mendoza 🇦🇷
 
 Neo WiFi es una aplicación innovadora diseñada específicamente para los habitantes de San Luis y Córdoba, Argentina. Su objetivo principal es simplificar la configuración de conexiones WiFi mediante una localización precisa de antenas cercanas.
 

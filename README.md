@@ -36,4 +36,4 @@ Neo WiFi es una aplicación innovadora diseñada específicamente para los habit
   - Nextjs
   - Electronjs
 
-3. Aún queda seguir ampliando el mapa de las antenas WiFi de la provincia.
+3. Se podría implementar más datos sobre otros puntos de acceso WiFi.

@@ -2,20 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
-import {
-  LocateFixed,
-  TriangleAlert,
-  BadgeInfo,
-  MapPin,
-  Loader,
-} from "lucide-react";
+import { LocateFixed, TriangleAlert, BadgeInfo, Loader } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
 import { showDialog } from "@/utils/dialog";
 import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
-import Link from "next/link";
 import { writeMAC } from "@/utils/mac-writer";
 import dynamic from "next/dynamic.js";
 
@@ -63,6 +56,7 @@ export const GeoPositionCard = () => {
   const [query, setQuery] = useState("");
   const [searchResult, setSearchResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
   const [coords, setCoords] = useState({ latitude: 0, longitude: 0 });
   const [seconds, setSeconds] = useState(0);
 
@@ -152,7 +146,7 @@ export const GeoPositionCard = () => {
 
   const sendQuery = async (searchQuery) => {
     try {
-      setIsLoading(true);
+      setSearchLoading(true);
       const { lat, lon } = await getCoords();
       const response = await fetch(
         `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${lat}&lon=${lon}&query=${searchQuery}`
@@ -161,7 +155,7 @@ export const GeoPositionCard = () => {
         throw new Error(`Response error: ${response.statusText}`);
       }
       const data = await response.json();
-      if (data.antenna.name === "Antena inexistente")
+      if (data.antenna.name === "Antena inexistente") {
         showDialog({
           content: (
             <div className="p-5 flex-col">
@@ -177,10 +171,14 @@ export const GeoPositionCard = () => {
             </div>
           ),
         });
+        setSearchLoading(false);
+      }
       setSearchResult(data);
+      setSearchLoading(false);
     } catch (error) {
       console.error("Error searching antenna:", error);
       setSearchResult(null);
+      setIsLoading(false);
     } finally {
       setIsLoading(false);
     }
@@ -277,7 +275,7 @@ export const GeoPositionCard = () => {
         search={searchResult}
         query={query}
         setQuery={setQuery}
-        isLoading={isLoading}
+        isLoading={searchLoading}
         mac={writeMAC}
       />
     </div>

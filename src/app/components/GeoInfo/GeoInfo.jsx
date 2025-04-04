@@ -58,7 +58,6 @@ export const GeoPositionCard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
   const [coords, setCoords] = useState({ latitude: 0, longitude: 0 });
-  const [seconds, setSeconds] = useState(0);
 
   const getCityLocation = async () => {
     try {
@@ -191,42 +190,48 @@ export const GeoPositionCard = () => {
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setSeconds((prev) => prev + 1);
-    }, 1000);
+    const worker = new Worker(new URL("./webWorker.ts", import.meta.url));
 
-    if (seconds === 6) {
-      clearInterval(timer);
-      showDialog({
-        content: (
-          <article className=" shadow-md">
-            <div className="border-b-[6px] border-zinc-300 dark:border-zinc-950 rounded-xl p-3">
-              <h2 className="text-2xl font-semibold flex justify-center mx-auto items-center gap-3">
-                <BadgeInfo className="text-blue-500" />
-                Información
-              </h2>
-              <p className="my-3 text-pretty font-thin">
-                Si deseas conocer tu ubicación y obtener información sobre las
-                antenas 📡 WiFi más cercanas, puedes habilitar la
-                geolocalización de tu dispositivo. Así podrás ver detalles
-                adicionales y descubrir a qué distancia te encuentras de la más
-                próxima. ¡Actívala para más precisión!
-              </p>
-              <button
-                className="flex mx-auto w-fit gap-1 items-center justify-center p-2 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl hover:scale-95 transition-transform"
-                onClick={handleGetLocation}
-              >
-                <LocateFixed className="text-red-500" />
-                Obtener Ubicación
-              </button>
-            </div>
-          </article>
-        ),
-      });
-    }
+    worker.postMessage(0);
 
-    return () => clearInterval(timer);
-  }, [seconds]);
+    worker.onmessage = (event) => {
+      const timer = event.data;
+
+      if (timer === 6) {
+        worker.terminate();
+        showDialog({
+          content: (
+            <article className=" shadow-md">
+              <div className="border-b-[6px] border-zinc-300 dark:border-zinc-950 rounded-xl p-3">
+                <h2 className="text-2xl font-semibold flex justify-center mx-auto items-center gap-3">
+                  <BadgeInfo className="text-blue-500" />
+                  Información
+                </h2>
+                <p className="my-3 text-pretty font-thin">
+                  Si deseas conocer tu ubicación y obtener información sobre las
+                  antenas 📡 WiFi más cercanas, puedes habilitar la
+                  geolocalización de tu dispositivo. Así podrás ver detalles
+                  adicionales y descubrir a qué distancia te encuentras de la
+                  más próxima. ¡Actívala para más precisión!
+                </p>
+                <button
+                  className="flex mx-auto w-fit gap-1 items-center justify-center p-2 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl hover:scale-95 transition-transform"
+                  onClick={handleGetLocation}
+                >
+                  <LocateFixed className="text-red-500" />
+                  Obtener Ubicación
+                </button>
+              </div>
+            </article>
+          ),
+        });
+      }
+    };
+
+    return () => {
+      worker.terminate();
+    };
+  }, []);
 
   return (
     <div className="justify-center mx-auto space-y-3 w-[672px] z-50">

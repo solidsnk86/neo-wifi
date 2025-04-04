@@ -143,7 +143,7 @@ body::before {
       50% 50% / var(--size) var(--size),
     linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
       var(--size) var(--size);
-  mask: linear-gradient(-20deg, transparent 50%, white);
+  mask: linear-gradient(-20deg, transparent 10%, white);
   top: 0;
   transform-style: flat;
   pointer-events: none;
@@ -153,11 +153,16 @@ body::before {
 html.dark {
   & body::before {
     --size: 45px;
-    --line: color-mix(in lch, canvasText, #1e1e1e85 70%);
+    --line: color-mix(in lch, canvasText, #111 60%);
     content: "";
-    height: 100vh;
-    width: 100vw;
+    height: 280%;
+    width: 100%;
     position: fixed;
+    top: -25%;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+
     background: linear-gradient(
           90deg,
           var(--line) 1px,
@@ -166,11 +171,68 @@ html.dark {
         50% 50% / var(--size) var(--size),
       linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
         var(--size) var(--size);
-    mask: linear-gradient(-20deg, transparent 50%, white);
-    top: 0;
-    transform-style: flat;
-    pointer-events: none;
-    z-index: 0;
+
+    transform-origin: top bottom;
+    transform: perspective(1000px) rotateX(110deg);
+    animation: 16s effect3d linear infinite;
+  }
+
+  & .effect-1::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    translate: 0 -50%;
+    width: 400px;
+    height: 150px;
+    background: linear-gradient(
+      to bottom,
+      rgba(85, 179, 85, 0.683),
+      rgba(6, 150, 6, 0.724)
+    );
+    border-radius: 100%;
+    filter: drop-shadow(0 0 190px) blur(190px) contrast(80%);
+  }
+
+  & .effect-1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    translate: 0 -50%;
+    width: 400px;
+    height: 150px;
+    background: linear-gradient(
+      to bottom,
+      rgba(85, 179, 85, 0.683),
+      rgba(6, 150, 6, 0.724)
+    );
+    border-radius: 100%;
+    filter: drop-shadow(0 0 190px) blur(190px) contrast(80%);
+  }
+
+  .geo-info-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% 0;
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 80px solid #fde047;
+    filter: blur(100px) drop-shadow(0 0 120px);
+    rotate: 180deg;
+  }
+}
+
+@keyframes effect3d {
+  from {
+    transform: perspective(2000px) rotateX(120deg) translateY(0);
+  }
+  to {
+    transform: perspective(2000px) rotateX(120deg) translateY(40%);
   }
 }
 

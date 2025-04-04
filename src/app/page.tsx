@@ -24,6 +24,26 @@ export default function Home() {
       <MouseTrail />
       <div className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
         <Navbar />
+        <span className="effect-1" />
+        <span className="effect-2" />
+        <div className="fixed top-0 left-0 h-screen inset-0 pointer-events-none z-10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full opacity-[0.05]"
+            preserveAspectRatio="none"
+          >
+            <filter id="noiseFilter">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="9.9"
+                numOctaves="5"
+                stitchTiles="stitch"
+              />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+          </svg>
+        </div>
+
         <HomeBlock>
           <Hero />
         </HomeBlock>
@@ -41,7 +61,9 @@ export default function Home() {
           </div>
         </HomeBlock>
 
-        <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
+        <HomeBlockTitle className="geo-info-title relative">
+          Información Geográfica
+        </HomeBlockTitle>
         <HomeBlock>
           <p className="text-center text-pretty px-3 text-zinc-600 dark:text-zinc-400">
             Además de la red WiFi gratuita ofrecida por el Gobierno de la

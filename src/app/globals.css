@@ -174,7 +174,7 @@ html.dark {
 
     transform-origin: top bottom;
     transform: perspective(1000px) rotateX(110deg);
-    animation: 16s effect3d linear infinite;
+    animation: 18s effect3d linear infinite;
   }
 
   & .effect-1::after {
@@ -224,6 +224,13 @@ html.dark {
     border-top: 80px solid #fde047;
     filter: blur(100px) drop-shadow(0 0 120px);
     rotate: 180deg;
+  }
+
+  @media (width <= 762px) {
+    .effect-1::after,
+    .effect-1::before {
+      width: 360px;
+    }
   }
 }
 

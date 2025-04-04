@@ -26,10 +26,10 @@ export default function Home() {
         <Navbar />
         <span className="effect-1" />
         <span className="effect-2" />
-        <div className="fixed top-14 left-0 h-[100dvh] inset-0 pointer-events-none z-10">
+        {/* <div className="fixed top-14 left-0 h-[100dvh] inset-0 pointer-events-none z-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-[100dvh] opacity-[0.05]"
+            className="w-full h-full opacity-[0.06]"
             preserveAspectRatio="none"
           >
             <filter id="noiseFilter">
@@ -42,7 +42,7 @@ export default function Home() {
             </filter>
             <rect width="100%" height="100%" filter="url(#noiseFilter)" />
           </svg>
-        </div>
+        </div> */}
 
         <HomeBlock>
           <Hero />

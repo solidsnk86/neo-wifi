@@ -3,7 +3,7 @@
 import { showToast } from "./toast";
 
 const description =
-  "Detecta tu antena más próxima y configura tu CPE WiFi en segundos con ésta aplicación para PC 🚀";
+  "Detecta tu antena más próxima y configura tu CPE WiFi en segundos con ésta aplicación para PC 🚀.";
 
 export const share = {
   navigatorShare: () => {
@@ -47,7 +47,7 @@ export const share = {
   },
   whatsApp: () => {
     const url = document.location.href;
-    const message = `${description} en ésta web: \n${url}`;
+    const message = `${description}\n${url}`;
     const encodeMessage = encodeURIComponent(message);
     window.open(`https://wa.me/?text=${encodeMessage}`, "_blank");
   },

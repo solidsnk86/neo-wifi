@@ -16,7 +16,6 @@ import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import { Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
-// import { YouTubeLiteVideo } from "./components/YoutubeVideo";
 
 export default function Home() {
   return (
@@ -82,7 +81,7 @@ export default function Home() {
 
         <Donation />
 
-        <HomeBlock className="relative z-50">
+        <HomeBlock>
           <Image
             src="/assets/neo-wifi-app-card.png"
             width={400}

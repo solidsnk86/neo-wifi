@@ -8,7 +8,7 @@ interface HomeBlockProps {
 const HomeBlock = ({ children, className }: HomeBlockProps) => {
   return (
     <section
-      className={`max-w-3xl flex justify-center mx-auto py-20 ${className}`}
+      className={`max-w-3xl flex justify-center mx-auto py-20 relative z-50 ${className}`}
     >
       {children}
     </section>

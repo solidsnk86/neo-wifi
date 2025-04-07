@@ -183,7 +183,7 @@ const LeafMap = ({
 
     L.marker([currentPosition.latitude, currentPosition.longitude], {
       icon: customIcon,
-      zIndexOffset: 99,
+      zIndexOffset: 999,
     })
       .addTo(map)
       .bindPopup("Tu ubicación");

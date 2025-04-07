@@ -197,7 +197,8 @@ export const GeoPositionCard = () => {
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (query.trim()) {
       await sendQuery(query);
     }

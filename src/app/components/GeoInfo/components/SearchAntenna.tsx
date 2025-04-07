@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { InfoRow } from "../GeoInfo";
 
 interface SearchAntennaProps {
@@ -27,17 +26,10 @@ export const SearchAntenna = ({
   isLoading,
   mac,
 }: SearchAntennaProps) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handelSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setQuery(inputRef.current?.value || "");
-    submit();
-  };
   return (
     <div className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary backdrop-blur-xl z-50">
       <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-xl p-3">
-        <form onSubmit={handelSubmit} className="flex flex-col gap-2">
+        <form onSubmit={submit} className="flex flex-col gap-2">
           <h2
             title="Información válida para la provincia de San Luis"
             className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"
@@ -59,8 +51,8 @@ export const SearchAntenna = ({
               name="antenna"
               placeholder="Ej: WiFi4.0-CO-08"
               className="border border-zinc-300/70 dark:border-zinc-700/50 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
-              defaultValue={query}
-              ref={inputRef}
+              onChange={(e) => setQuery(e.target.value)}
+              value={query}
               required
             />
             <button

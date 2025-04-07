@@ -270,44 +270,46 @@ export const GeoPositionCard = () => {
           </article>
         </div>
       ) : (
-        <Map
-          locationCity={location.city}
-          currentPosition={location.current_position}
-          antennaPosition={{
-            coords: location.closest_wifi.coords,
-            name: {
-              ssid2g: location.closest_wifi.antenna,
-              ssid5g: location.closest_wifi.name,
-            },
-            distance: location.closest_wifi.distance,
-            type: location.closest_wifi.type,
-            location: location.closest_wifi.location,
-            users: location.closest_wifi.users,
-          }}
-          secondAntennaPosition={{
-            coords: location.second_closest_wifi.coords,
-            name: {
-              ssid2g: location.second_closest_wifi.antenna,
-              ssid5g: location.second_closest_wifi.name,
-            },
-            distance: location.second_closest_wifi.distance,
-            type: location.second_closest_wifi.type,
-            location: location.second_closest_wifi.location,
-            users: location.second_closest_wifi.users,
-          }}
-          thirdAntennaPosition={{
-            coords: location.third_closest_wifi.coords,
-            name: {
-              ssid2g: location.third_closest_wifi.antenna,
-              ssid5g: location.third_closest_wifi.name,
-            },
-            distance: location.third_closest_wifi.distance,
-            type: location.third_closest_wifi.type,
-            location: location.third_closest_wifi.location,
-            users: location.third_closest_wifi.users,
-          }}
-          getLocation={handleGetLocation}
-        />
+        <main id="map-container">
+          <Map
+            locationCity={location.city}
+            currentPosition={location.current_position}
+            antennaPosition={{
+              coords: location.closest_wifi.coords,
+              name: {
+                ssid2g: location.closest_wifi.antenna,
+                ssid5g: location.closest_wifi.name,
+              },
+              distance: location.closest_wifi.distance,
+              type: location.closest_wifi.type,
+              location: location.closest_wifi.location,
+              users: location.closest_wifi.users,
+            }}
+            secondAntennaPosition={{
+              coords: location.second_closest_wifi.coords,
+              name: {
+                ssid2g: location.second_closest_wifi.antenna,
+                ssid5g: location.second_closest_wifi.name,
+              },
+              distance: location.second_closest_wifi.distance,
+              type: location.second_closest_wifi.type,
+              location: location.second_closest_wifi.location,
+              users: location.second_closest_wifi.users,
+            }}
+            thirdAntennaPosition={{
+              coords: location.third_closest_wifi.coords,
+              name: {
+                ssid2g: location.third_closest_wifi.antenna,
+                ssid5g: location.third_closest_wifi.name,
+              },
+              distance: location.third_closest_wifi.distance,
+              type: location.third_closest_wifi.type,
+              location: location.third_closest_wifi.location,
+              users: location.third_closest_wifi.users,
+            }}
+            getLocation={handleGetLocation}
+          />
+        </main>
       )}
 
       <div className="flex gap-2 items-center justify-center">
@@ -318,10 +320,13 @@ export const GeoPositionCard = () => {
           disabled={imgLoading}
         >
           {imgLoading ? (
-            <Loader
-              className="animate-spin"
-              style={{ animationDuration: "1.3s" }}
-            />
+            <div className="flex gap-1 items-center">
+              <p>Cargando</p>
+              <Loader
+                className="animate-spin"
+                style={{ animationDuration: "1.3s" }}
+              />
+            </div>
           ) : (
             "Compartir"
           )}

@@ -177,9 +177,9 @@ const LeafMap = ({
     locateControl.addTo(map);
     mapInstance.current = map;
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
-      map
-    );
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      crossOrigin: true,
+    }).addTo(map);
 
     L.marker([currentPosition.latitude, currentPosition.longitude], {
       icon: customIcon,
@@ -226,7 +226,7 @@ const LeafMap = ({
       .bindPopup(`Distancia: ${antennaPosition.distance}`)
       .bindTooltip(`La más cercana: ${antennaPosition.distance}`, {
         permanent: true,
-        direction: "auto",
+        direction: "top",
       });
 
     L.polyline(
@@ -240,7 +240,7 @@ const LeafMap = ({
       .bindPopup(`Distancia: ${secondAntennaPosition.distance}`)
       .bindTooltip(`Segunda más cercana: ${secondAntennaPosition.distance}`, {
         permanent: true,
-        direction: "auto",
+        direction: "top",
       });
 
     L.polyline(
@@ -254,7 +254,7 @@ const LeafMap = ({
       .bindPopup(`Distancia: ${thirdAntennaPosition.distance}`)
       .bindTooltip(`Tercera más cercana: ${thirdAntennaPosition.distance}`, {
         permanent: true,
-        direction: "auto",
+        direction: "top",
       });
 
     addAntennaMarker(
@@ -346,7 +346,7 @@ const LeafMap = ({
     );
   }
 
-  return <div ref={mapRef} className="w-full h-96 rounded-xl" id="map" />;
+  return <div ref={mapRef} className="w-full h-96 rounded-xl" />;
 };
 
 export default LeafMap;

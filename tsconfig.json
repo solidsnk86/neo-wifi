@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "src/app/components/GeoInfo/GeoInfo.jsx",
     "src/app/components/YoutubeVideo.tsx",
-    "src/app/api/badge-counter/route.ts"
+    "src/app/api/badge-counter/route.ts",
+    "src/utils/screenshoot.js"
   ],
   "exclude": ["node_modules"]
 }

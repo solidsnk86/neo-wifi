@@ -3,7 +3,7 @@ import html2canvas from "html2canvas";
 import { BadgeInfo } from "lucide-react";
 
 export const mapSharer = (setIsLoading: (value: boolean) => boolean) => {
-  const mapContainer = document.getElementById("map");
+  const mapContainer = document.getElementById("map-container");
   setIsLoading(true);
   if (!mapContainer) {
     setIsLoading(false);
@@ -26,9 +26,13 @@ export const mapSharer = (setIsLoading: (value: boolean) => boolean) => {
     return;
   }
 
-  html2canvas(mapContainer).then((canvas) => {
+  html2canvas(mapContainer, {
+    useCORS: true,
+    allowTaint: true,
+    logging: true,
+  }).then((canvas) => {
     canvas.toBlob(async (blob) => {
-      const file = new File([blob!], "proximas-antenas.png", {
+      const file = new File([blob!], "antena_mas_proxima_neo-wifi.png", {
         type: "image/png",
       });
 

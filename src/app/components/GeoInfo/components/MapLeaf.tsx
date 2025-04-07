@@ -86,7 +86,7 @@ const LeafMap = ({
   const getAllAntennas = useCallback(async () => {
     try {
       const response = await fetch(
-        "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v5.json"
+        "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v6.json"
       );
       const data = await response.json();
       setAntennas(data);
@@ -106,7 +106,7 @@ const LeafMap = ({
         lat: Number(antenna.lat) || 0,
         lon: Number(antenna.lon) || 0,
       }))
-      .slice(0, 1884);
+      .slice(0, 100);
   }, [antennas]);
 
   useEffect(() => {
@@ -284,26 +284,23 @@ const LeafMap = ({
   ) {
     return (
       <div className="flex flex-col w-full h-96 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
-        <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] md:p-5 p-3">
-          <h2 className="text-center font-semibold text-xl my-2">
-            Mapa Intercativo 🌍
-          </h2>
-          <p className="my-4 text-pretty text-center">
-            Necesitas permitir la geolocalcización para poder visualizar el
-            mapa.
-          </p>
-          <button className="flex group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
-            <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
-              <p
-                className="flex gap-2 items-center text-blue-500 cursor-pointer hover:underline"
-                onClick={getLocation}
-              >
-                <MapPin className="w-5 h-5" />
-                Obtener Ubicación
-              </p>
-            </div>
-          </button>
-        </article>
+        <h2 className="text-center font-semibold text-xl my-2">
+          Mapa Intercativo 🌍
+        </h2>
+        <p className="my-4 text-pretty text-center">
+          Necesitas permitir la geolocalcización para poder visualizar el mapa.
+        </p>
+        <button className="flex group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
+          <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+            <p
+              className="flex gap-2 items-center text-blue-500 cursor-pointer hover:underline"
+              onClick={getLocation}
+            >
+              <MapPin className="w-5 h-5" />
+              Obtener Ubicación
+            </p>
+          </div>
+        </button>
       </div>
     );
   }

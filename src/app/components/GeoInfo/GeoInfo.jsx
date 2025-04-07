@@ -250,9 +250,7 @@ export const GeoPositionCard = () => {
     };
   }, []);
 
-  const imgMapSharer = () => {
-    mapSharer(setImgLoading);
-  };
+  const imgMapSharer = () => mapSharer(setImgLoading);
 
   return (
     <div className="justify-center mx-auto space-y-3 w-[672px] z-50">
@@ -315,11 +313,18 @@ export const GeoPositionCard = () => {
       <div className="flex gap-2 items-center justify-center">
         <p>Comparte tu ubicación!</p>
         <button
-          className="py-[6px] md:w-32 px-2 text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
+          className="py-[6px] flex justify-center md:w-32 px-2 text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
           onClick={imgMapSharer}
           disabled={imgLoading}
         >
-          {imgLoading ? "Cargando.." : "Compartir"}
+          {imgLoading ? (
+            <Loader
+              className="animate-spin"
+              style={{ animationDuration: "1.3s" }}
+            />
+          ) : (
+            "Compartir"
+          )}
         </button>
       </div>
 

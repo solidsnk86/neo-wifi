@@ -132,6 +132,7 @@ body::before {
   --size: 45px;
   --line: color-mix(in lch, canvasText, #ccc 70%);
   content: "";
+  opacity: 0.3;
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -153,8 +154,9 @@ body::before {
 html.dark {
   & body::before {
     --size: 45px;
-    --line: color-mix(in lch, canvasText, #111 60%);
+    --line: color-mix(in lch, canvasText, #333 60%);
     content: "";
+    opacity: 0.9;
     height: 280%;
     width: 100%;
     position: fixed;

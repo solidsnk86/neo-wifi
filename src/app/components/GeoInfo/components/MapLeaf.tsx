@@ -297,7 +297,7 @@ const LeafMap = ({
               antenna.name || "No disponible"
             }<br>
             🔹 <strong>Antena 5Ghz:</strong> ${
-              antenna.name5g || "no Disponible"
+              antenna.name5g || "No disponible"
             }<br>
             ⚡ <strong>Tipo:</strong> ${antenna.type}<br>
             🙇‍♂️ <strong>Usuarios Conectados:</strong> ${antenna.users}

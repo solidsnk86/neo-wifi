@@ -11,6 +11,7 @@ import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
 import { writeMAC } from "@/utils/mac-writer";
 import dynamic from "next/dynamic.js";
+import { mapSharer } from "../MapSharer.tsx";
 
 const Map = dynamic(() => import("./components/MapLeaf.tsx"), { ssr: false });
 
@@ -71,6 +72,7 @@ export const GeoPositionCard = () => {
   const [searchResult, setSearchResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [imgLoading, setImgLoading] = useState(false);
   const [coords, setCoords] = useState({ latitude: 0, longitude: 0 });
 
   const getCityLocation = async () => {
@@ -216,7 +218,7 @@ export const GeoPositionCard = () => {
         worker.terminate();
         showDialog({
           content: (
-            <article className=" shadow-md">
+            <article className="shadow-md">
               <div className="border-b-[6px] border-zinc-300 dark:border-zinc-950 rounded-xl p-3">
                 <h2 className="text-2xl font-semibold flex justify-center mx-auto items-center gap-3">
                   <BadgeInfo className="text-blue-500" />
@@ -247,6 +249,10 @@ export const GeoPositionCard = () => {
       worker.terminate();
     };
   }, []);
+
+  const imgMapSharer = () => {
+    mapSharer(setImgLoading);
+  };
 
   return (
     <div className="justify-center mx-auto space-y-3 w-[672px] z-50">
@@ -305,6 +311,17 @@ export const GeoPositionCard = () => {
           getLocation={handleGetLocation}
         />
       )}
+
+      <div className="flex gap-2 items-center justify-center">
+        <p>Comparte tu ubicación!</p>
+        <button
+          className="py-[6px] md:w-32 px-2 text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
+          onClick={imgMapSharer}
+          disabled={imgLoading}
+        >
+          {imgLoading ? "Cargando.." : "Compartir"}
+        </button>
+      </div>
 
       <SearchAntenna
         submit={handleSubmit}

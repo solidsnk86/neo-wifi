@@ -346,7 +346,7 @@ const LeafMap = ({
     );
   }
 
-  return <div ref={mapRef} className="w-full h-96 rounded-xl" />;
+  return <div ref={mapRef} className="w-full h-96 rounded-xl" id="map" />;
 };
 
 export default LeafMap;

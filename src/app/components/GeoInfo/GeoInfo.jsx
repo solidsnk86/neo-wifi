@@ -43,6 +43,8 @@ export const GeoPositionCard = () => {
       MAC: "",
       MAC5G: "",
       coords: { lat: 0, lon: 0 },
+      users: 0,
+      location: "",
     },
     second_closest_wifi: {
       antenna: "",
@@ -51,6 +53,18 @@ export const GeoPositionCard = () => {
       MAC: "",
       MAC5G: "",
       coords: { lat: 0, lon: 0 },
+      users: 0,
+      location: "",
+    },
+    third_closest_wifi: {
+      antenna: "",
+      distance: "",
+      type: "",
+      MAC: "",
+      MAC5G: "",
+      coords: { lat: 0, lon: 0 },
+      users: 0,
+      location: "",
     },
   });
   const [query, setQuery] = useState("");
@@ -252,6 +266,7 @@ export const GeoPositionCard = () => {
         </div>
       ) : (
         <Map
+          locationCity={location.city}
           currentPosition={location.current_position}
           antennaPosition={{
             coords: location.closest_wifi.coords,
@@ -261,6 +276,8 @@ export const GeoPositionCard = () => {
             },
             distance: location.closest_wifi.distance,
             type: location.closest_wifi.type,
+            location: location.closest_wifi.location,
+            users: location.closest_wifi.users,
           }}
           secondAntennaPosition={{
             coords: location.second_closest_wifi.coords,
@@ -270,6 +287,19 @@ export const GeoPositionCard = () => {
             },
             distance: location.second_closest_wifi.distance,
             type: location.second_closest_wifi.type,
+            location: location.second_closest_wifi.location,
+            users: location.second_closest_wifi.users,
+          }}
+          thirdAntennaPosition={{
+            coords: location.third_closest_wifi.coords,
+            name: {
+              ssid2g: location.third_closest_wifi.antenna,
+              ssid5g: location.third_closest_wifi.name,
+            },
+            distance: location.third_closest_wifi.distance,
+            type: location.third_closest_wifi.type,
+            location: location.third_closest_wifi.location,
+            users: location.third_closest_wifi.users,
           }}
           getLocation={handleGetLocation}
         />

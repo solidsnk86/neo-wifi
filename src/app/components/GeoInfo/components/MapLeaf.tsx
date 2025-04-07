@@ -20,17 +20,30 @@ type AntennaCoords = {
 
 interface MapCoordsInterface {
   currentPosition: Coords;
+  locationCity: string;
   antennaPosition: {
     coords: AntennaCoords;
     name: { ssid2g: string; ssid5g: string };
     distance: number | string;
     type: string;
+    users: number;
+    location: string;
   };
   secondAntennaPosition: {
     coords: AntennaCoords;
     name: { ssid2g: string; ssid5g: string };
     distance: number | string;
     type: string;
+    users: number;
+    location: string;
+  };
+  thirdAntennaPosition: {
+    coords: AntennaCoords;
+    name: { ssid2g: string; ssid5g: string };
+    distance: number | string;
+    type: string;
+    users: number;
+    location: string;
   };
   getLocation: () => Promise<void>;
 }
@@ -43,6 +56,8 @@ interface WifiDataProps {
   MAC5g: string;
   lat: number | string;
   lon: number | string;
+  location: string;
+  users: number;
 }
 
 const customIcon = new L.Icon({
@@ -75,8 +90,10 @@ const wifiSvg = L.divIcon({
 
 const LeafMap = ({
   currentPosition,
+  locationCity,
   antennaPosition,
   secondAntennaPosition,
+  thirdAntennaPosition,
   getLocation,
 }: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
@@ -101,13 +118,13 @@ const LeafMap = ({
 
   const optimizedAntennas = useMemo(() => {
     return antennas
+      .filter((antenna) => antenna.location === locationCity)
       .map((antenna) => ({
         ...antenna,
         lat: Number(antenna.lat) || 0,
         lon: Number(antenna.lon) || 0,
-      }))
-      .slice(0, 100);
-  }, [antennas]);
+      }));
+  }, [antennas, locationCity]);
 
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
@@ -175,7 +192,8 @@ const LeafMap = ({
       position: AntennaCoords,
       name: { ssid2g: string; ssid5g: string },
       distance: number | string,
-      type: string
+      type: string,
+      users: number
     ) => {
       L.marker([position.lat, position.lon], { icon: wifiSvg })
         .addTo(map)
@@ -184,7 +202,8 @@ const LeafMap = ({
             🔹 <strong>Antena 2.4Ghz:</strong> ${name.ssid2g}<br>
             🔹 <strong>Antena 5Ghz:</strong> ${name.ssid5g}<br>
             📏 <strong>Distancia:</strong> <span style="color:#0078D7;">${distance}</span><br>
-            ⚡ <strong>Tipo:</strong> ${type}
+            ⚡ <strong>Tipo:</strong> ${type}<br>
+            🙇‍♂️ <strong>Usuarios Conectados:</strong> ${users}
           </div>`
         )
         .openPopup();
@@ -219,25 +238,45 @@ const LeafMap = ({
     )
       .addTo(map)
       .bindPopup(`Distancia: ${secondAntennaPosition.distance}`)
-      .bindTooltip(
-        `La segunda más cercana: ${secondAntennaPosition.distance}`,
-        {
-          permanent: true,
-          direction: "auto",
-        }
-      );
+      .bindTooltip(`Segunda más cercana: ${secondAntennaPosition.distance}`, {
+        permanent: true,
+        direction: "auto",
+      });
 
+    L.polyline(
+      [
+        [currentPosition.latitude, currentPosition.longitude],
+        [thirdAntennaPosition.coords.lat, thirdAntennaPosition.coords.lon],
+      ],
+      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
+    )
+      .addTo(map)
+      .bindPopup(`Distancia: ${thirdAntennaPosition.distance}`)
+      .bindTooltip(`Tercera más cercana: ${thirdAntennaPosition.distance}`, {
+        permanent: true,
+        direction: "auto",
+      });
+
+    addAntennaMarker(
+      thirdAntennaPosition.coords,
+      thirdAntennaPosition.name,
+      thirdAntennaPosition.distance,
+      thirdAntennaPosition.type,
+      thirdAntennaPosition.users
+    );
     addAntennaMarker(
       secondAntennaPosition.coords,
       secondAntennaPosition.name,
       secondAntennaPosition.distance,
-      secondAntennaPosition.type
+      secondAntennaPosition.type,
+      secondAntennaPosition.users
     );
     addAntennaMarker(
       antennaPosition.coords,
       antennaPosition.name,
       antennaPosition.distance,
-      antennaPosition.type
+      antennaPosition.type,
+      antennaPosition.users
     );
 
     optimizedAntennas
@@ -260,7 +299,8 @@ const LeafMap = ({
             🔹 <strong>Antena 5Ghz:</strong> ${
               antenna.name5g || "no Disponible"
             }<br>
-            ⚡ <strong>Tipo:</strong> ${antenna.type}
+            ⚡ <strong>Tipo:</strong> ${antenna.type}<br>
+            🙇‍♂️ <strong>Usuarios Conectados:</strong> ${antenna.users}
           </div>`
             );
         }
@@ -274,6 +314,7 @@ const LeafMap = ({
     currentPosition,
     antennaPosition,
     secondAntennaPosition,
+    thirdAntennaPosition,
     optimizedAntennas,
   ]);
 

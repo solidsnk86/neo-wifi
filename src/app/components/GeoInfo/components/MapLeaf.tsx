@@ -367,7 +367,7 @@ const LeafMap = ({
     !currentPosition.longitude
   ) {
     return (
-      <div className="flex flex-col w-full h-[390px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
+      <div className="flex flex-col w-full h-[420px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
         <h2 className="text-center font-semibold text-xl my-2">
           Mapa Intercativo 🌍
         </h2>

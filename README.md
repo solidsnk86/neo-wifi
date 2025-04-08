@@ -1,6 +1,8 @@
 <div align="center">
   <br>
-    <img src="public/Neo-Wifi.svg" alt="Neo Wifi Logo" />
+    <br>
+        <img src="public/Neo-Wifi.svg" alt="Neo Wifi Logo" />
+    <br>
   <br>
 </div>
 

@@ -396,7 +396,7 @@ const LeafMap = ({
     <>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 backdrop-blur-xl overflow-hidden rounded-t-xl">
         <article className="flex justify-between">
-          <p className="px-3 py-2">Seleccionar Ciudad:</p>
+          <p className="px-3 py-2">Seleccionar ciudad:</p>
           <select
             className="px-3 py-2 bg-zinc-50 dark:bg-zinc-800 outline-none border-l border-zinc-200/70 dark:border-zinc-800"
             onChange={(e) => setSelectValue(e.target.value)}

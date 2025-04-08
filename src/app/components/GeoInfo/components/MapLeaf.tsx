@@ -391,7 +391,7 @@ const LeafMap = ({
 
   const places = antennas.map((item) => item.location);
   const cleanedPlaces = Array.from(new Set(places)).sort();
-  console.log(selectValue);
+
   return (
     <>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 backdrop-blur-xl overflow-hidden rounded-t-xl">

@@ -27,7 +27,7 @@ export const SearchAntenna = ({
   mac,
 }: SearchAntennaProps) => {
   return (
-    <div className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary backdrop-blur-xl z-50">
+    <div className="border-2 mt-5 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary backdrop-blur-xl z-50">
       <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-xl p-3">
         <form onSubmit={submit} className="flex flex-col gap-2">
           <h2

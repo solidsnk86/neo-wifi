@@ -5,8 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet.fullscreen";
-
-import { MapPin } from "lucide-react";
+import { Loader, MapPin, ScreenShare } from "lucide-react";
 
 type Coords = {
   latitude: number;
@@ -46,6 +45,8 @@ interface MapCoordsInterface {
     location: string;
   };
   getLocation: () => Promise<void>;
+  imgSharer: () => Promise<void>;
+  imgLoading: boolean;
 }
 
 interface WifiDataProps {
@@ -95,15 +96,18 @@ const LeafMap = ({
   secondAntennaPosition,
   thirdAntennaPosition,
   getLocation,
+  imgSharer,
+  imgLoading,
 }: MapCoordsInterface) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<L.Map | null>(null);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
+  const [selectValue, setSelectValue] = useState<string>();
 
   const getAllAntennas = useCallback(async () => {
     try {
       const response = await fetch(
-        "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v6.json"
+        "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v8.json"
       );
       const data = await response.json();
       setAntennas(data);
@@ -132,7 +136,7 @@ const LeafMap = ({
 
     const map = L.map(mapRef.current).setView(
       [currentPosition.latitude, currentPosition.longitude],
-      16
+      17
     );
     (map as any).addControl(
       (L.control as any).fullscreen({
@@ -167,7 +171,7 @@ const LeafMap = ({
       div.querySelector("button")!.addEventListener("click", () => {
         map.flyTo([currentPosition.latitude, currentPosition.longitude], 16, {
           animate: true,
-          duration: 1,
+          duration: 2,
         });
       });
 
@@ -306,6 +310,43 @@ const LeafMap = ({
         }
       });
 
+    if (selectValue) {
+      const locationSelect = antennas
+        .filter((antenna) => antenna.location === selectValue)
+        .map((antenna) => ({
+          ...antenna,
+          lat: Number(antenna.lat) || 0,
+          lon: Number(antenna.lon) || 0,
+        }));
+
+      locationSelect.forEach((antenna) => {
+        if (antenna.lat && antenna.lon) {
+          map.flyTo([antenna.lat as number, antenna.lon as number], 14, {
+            animate: true,
+            duration: 2,
+          });
+          L.marker([antenna.lat as number, antenna.lon as number], {
+            icon: wifiSvg,
+          })
+            .addTo(map)
+            .bindPopup(
+              `<div style="font-size:14px; font-weight:bold;">
+        🔹 <strong>Antena 2.4Ghz:</strong> ${
+          antenna.name || "No disponible"
+        }<br>
+        🔹 <strong>Antena 5Ghz:</strong> ${
+          antenna.name5g || "No disponible"
+        }<br>
+        ⚡ <strong>Tipo:</strong> ${antenna.type}<br>
+        🙇‍♂️ <strong>Usuarios Conectados:</strong> ${
+          antenna.users || "No disponible"
+        }
+      </div>`
+            );
+        }
+      });
+    }
+
     return () => {
       mapInstance.current?.remove();
       mapInstance.current = null;
@@ -316,6 +357,8 @@ const LeafMap = ({
     secondAntennaPosition,
     thirdAntennaPosition,
     optimizedAntennas,
+    selectValue,
+    antennas,
   ]);
 
   if (
@@ -324,7 +367,7 @@ const LeafMap = ({
     !currentPosition.longitude
   ) {
     return (
-      <div className="flex flex-col w-full h-96 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
+      <div className="flex flex-col w-full h-[390px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
         <h2 className="text-center font-semibold text-xl my-2">
           Mapa Intercativo 🌍
         </h2>
@@ -346,7 +389,52 @@ const LeafMap = ({
     );
   }
 
-  return <div ref={mapRef} className="w-full h-96 rounded-xl" />;
+  const places = antennas.map((item) => item.location);
+  const cleanedPlaces = Array.from(new Set(places)).sort();
+  console.log(selectValue);
+  return (
+    <>
+      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 backdrop-blur-xl overflow-hidden rounded-t-xl">
+        <article className="flex justify-between">
+          <p className="px-3 py-2">Seleccionar Ciudad:</p>
+          <select
+            className="px-3 py-2 bg-zinc-50 dark:bg-zinc-800 outline-none border-l border-zinc-200/70 dark:border-zinc-800"
+            onChange={(e) => setSelectValue(e.target.value)}
+          >
+            {cleanedPlaces.map((item, index) => (
+              <option key={index}>{item}</option>
+            ))}
+          </select>
+        </article>
+      </div>
+      <div
+        ref={mapRef}
+        className="w-full h-96 border-x-2 border-zinc-200/70 dark:border-zinc-800"
+        id="map"
+      />
+      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-x-2 border-b-2 backdrop-blur-xl overflow-hidden rounded-b-xl">
+        <article className="flex justify-between items-center gap-2">
+          <p className="p-4">Compartí tu ubicación!</p>
+          <button onClick={imgSharer} disabled={imgLoading}>
+            {imgLoading ? (
+              <div className="flex gap-1 items-center p-4 bg-blue-500">
+                <p>Cargando</p>
+                <Loader
+                  className="animate-spin"
+                  style={{ animationDuration: "1.3s" }}
+                />
+              </div>
+            ) : (
+              <div className="flex gap-1 items-center bg-blue-500 hover:bg-blue-600 p-4 rounded-ee-xl transition-colors">
+                <ScreenShare className="w-5 h-5" />
+                <p>Compartir</p>
+              </div>
+            )}
+          </button>
+        </article>
+      </div>
+    </>
+  );
 };
 
 export default LeafMap;

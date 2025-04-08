@@ -253,7 +253,7 @@ export const GeoPositionCard = () => {
   const imgMapSharer = () => mapSharer(setImgLoading);
 
   return (
-    <div className="justify-center mx-auto space-y-3 w-[672px] z-50">
+    <div className="justify-center mx-auto w-[672px] z-50">
       <GeoPosition location={location} coords={coords} loading={isLoading} />
 
       <InfoWifi location={location} loading={isLoading} />
@@ -270,68 +270,47 @@ export const GeoPositionCard = () => {
           </article>
         </div>
       ) : (
-        <main id="map-container">
-          <Map
-            locationCity={location.city}
-            currentPosition={location.current_position}
-            antennaPosition={{
-              coords: location.closest_wifi.coords,
-              name: {
-                ssid2g: location.closest_wifi.antenna,
-                ssid5g: location.closest_wifi.name,
-              },
-              distance: location.closest_wifi.distance,
-              type: location.closest_wifi.type,
-              location: location.closest_wifi.location,
-              users: location.closest_wifi.users,
-            }}
-            secondAntennaPosition={{
-              coords: location.second_closest_wifi.coords,
-              name: {
-                ssid2g: location.second_closest_wifi.antenna,
-                ssid5g: location.second_closest_wifi.name,
-              },
-              distance: location.second_closest_wifi.distance,
-              type: location.second_closest_wifi.type,
-              location: location.second_closest_wifi.location,
-              users: location.second_closest_wifi.users,
-            }}
-            thirdAntennaPosition={{
-              coords: location.third_closest_wifi.coords,
-              name: {
-                ssid2g: location.third_closest_wifi.antenna,
-                ssid5g: location.third_closest_wifi.name,
-              },
-              distance: location.third_closest_wifi.distance,
-              type: location.third_closest_wifi.type,
-              location: location.third_closest_wifi.location,
-              users: location.third_closest_wifi.users,
-            }}
-            getLocation={handleGetLocation}
-          />
-        </main>
+        <Map
+          locationCity={location.city}
+          currentPosition={location.current_position}
+          antennaPosition={{
+            coords: location.closest_wifi.coords,
+            name: {
+              ssid2g: location.closest_wifi.antenna,
+              ssid5g: location.closest_wifi.name,
+            },
+            distance: location.closest_wifi.distance,
+            type: location.closest_wifi.type,
+            location: location.closest_wifi.location,
+            users: location.closest_wifi.users,
+          }}
+          secondAntennaPosition={{
+            coords: location.second_closest_wifi.coords,
+            name: {
+              ssid2g: location.second_closest_wifi.antenna,
+              ssid5g: location.second_closest_wifi.name,
+            },
+            distance: location.second_closest_wifi.distance,
+            type: location.second_closest_wifi.type,
+            location: location.second_closest_wifi.location,
+            users: location.second_closest_wifi.users,
+          }}
+          thirdAntennaPosition={{
+            coords: location.third_closest_wifi.coords,
+            name: {
+              ssid2g: location.third_closest_wifi.antenna,
+              ssid5g: location.third_closest_wifi.name,
+            },
+            distance: location.third_closest_wifi.distance,
+            type: location.third_closest_wifi.type,
+            location: location.third_closest_wifi.location,
+            users: location.third_closest_wifi.users,
+          }}
+          getLocation={handleGetLocation}
+          imgLoading={imgLoading}
+          imgSharer={imgMapSharer}
+        />
       )}
-
-      <div className="flex gap-2 items-center justify-center">
-        <p>Comparte tu ubicación!</p>
-        <button
-          className="py-[6px] flex justify-center md:w-32 px-2 text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 rounded-md border border-zinc-300/70 hover:brightness-125 text-base disabled:cursor-not-allowed"
-          onClick={imgMapSharer}
-          disabled={imgLoading}
-        >
-          {imgLoading ? (
-            <div className="flex gap-1 items-center">
-              <p>Cargando</p>
-              <Loader
-                className="animate-spin"
-                style={{ animationDuration: "1.3s" }}
-              />
-            </div>
-          ) : (
-            "Compartir"
-          )}
-        </button>
-      </div>
 
       <SearchAntenna
         submit={handleSubmit}

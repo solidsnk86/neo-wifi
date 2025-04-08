@@ -3,7 +3,7 @@ import html2canvas from "html2canvas";
 import { BadgeInfo } from "lucide-react";
 
 export const mapSharer = (setIsLoading: (value: boolean) => boolean) => {
-  const mapContainer = document.getElementById("map-container");
+  const mapContainer = document.getElementById("map");
   setIsLoading(true);
   if (!mapContainer) {
     setIsLoading(false);
@@ -16,8 +16,8 @@ export const mapSharer = (setIsLoading: (value: boolean) => boolean) => {
               Información
             </h2>
             <p className="my-3 text-pretty font-thin">
-              Debe permitir la geolocaclización para poder capturar la imagen
-              del mapa y compartir! 😉
+              Tenés que permitir la geolocaclización para poder capturar la
+              imagen del mapa y compartir! 😉
             </p>
           </div>
         </article>

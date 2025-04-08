@@ -417,7 +417,7 @@ const LeafMap = ({
           <p className="p-4">Compartí tu ubicación!</p>
           <button onClick={imgSharer} disabled={imgLoading}>
             {imgLoading ? (
-              <div className="flex gap-1 items-center p-4 bg-blue-500">
+              <div className="flex gap-1 items-center p-4 bg-blue-400">
                 <p>Cargando</p>
                 <Loader
                   className="animate-spin"
@@ -425,7 +425,7 @@ const LeafMap = ({
                 />
               </div>
             ) : (
-              <div className="flex gap-1 items-center bg-blue-500 hover:bg-blue-600 p-4 rounded-ee-xl transition-colors">
+              <div className="flex gap-1 items-center bg-blue-400 hover:bg-blue-500 p-4 rounded-ee-xl transition-colors">
                 <ScreenShare className="w-5 h-5" />
                 <p>Compartir</p>
               </div>

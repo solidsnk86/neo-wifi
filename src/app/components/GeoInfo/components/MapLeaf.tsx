@@ -396,7 +396,7 @@ const LeafMap = ({
 
   return (
     <>
-      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 backdrop-blur-xl overflow-hidden rounded-t-xl">
+      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
         <article className="flex justify-between">
           <p className="px-3 py-2">Seleccionar ciudad:</p>
           <select
@@ -415,12 +415,12 @@ const LeafMap = ({
         className="w-full h-96 border-x-2 border-zinc-200/70 dark:border-zinc-800"
         id="map"
       />
-      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-x-2 border-b-2 backdrop-blur-xl overflow-hidden rounded-b-xl">
+      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-x-2 border-b-2 border-t backdrop-blur-xl overflow-hidden rounded-b-xl">
         <article className="flex justify-between items-center gap-2">
           <p className="p-4">Compartí tu ubicación!</p>
           <button onClick={imgSharer} disabled={imgLoading}>
             {imgLoading ? (
-              <div className="flex gap-1 items-center p-4 bg-blue-400">
+              <div className="flex gap-1 items-center p-4 bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50">
                 <p>Cargando</p>
                 <Loader
                   className="animate-spin"
@@ -428,7 +428,7 @@ const LeafMap = ({
                 />
               </div>
             ) : (
-              <div className="flex gap-1 items-center bg-blue-400 hover:bg-blue-500 p-4 rounded-ee-xl transition-colors">
+              <div className="flex gap-1 items-center bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50 p-4 rounded-ee-[10px] transition-colors">
                 <ScreenShare className="w-5 h-5" />
                 <p>Compartir</p>
               </div>

@@ -390,7 +390,9 @@ const LeafMap = ({
   }
 
   const places = antennas.map((item) => item.location);
-  const cleanedPlaces = Array.from(new Set(places)).sort();
+  const cleanedPlaces = Array.from(new Set(places))
+    .sort()
+    .filter((item) => item !== "Desconocida");
 
   return (
     <>
@@ -401,6 +403,7 @@ const LeafMap = ({
             className="px-3 py-2 bg-zinc-50 dark:bg-zinc-800 outline-none border-l border-zinc-200/70 dark:border-zinc-800"
             onChange={(e) => setSelectValue(e.target.value)}
           >
+            <option value="">Ciudades/Pueblos</option>
             {cleanedPlaces.map((item, index) => (
               <option key={index}>{item}</option>
             ))}

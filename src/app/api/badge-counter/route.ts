@@ -27,7 +27,7 @@ export async function GET(request: Request): Promise<Response> {
 
   const adjustCounter = (counter: number): string => {
     if (counter >= 10000) return "136";
-    if (counter >= 1000) return "133";
+    if (counter >= 1000) return "132";
     if (counter >= 100) return "134";
     if (counter >= 10) return "137";
     return "140";
@@ -108,7 +108,7 @@ export async function GET(request: Request): Promise<Response> {
         <rect x="128" y="1" width="2" height="24" fill="url(#count-gradient)" class="counter-box"/>
         <rect x="128" y="1" width="34" rx="2.5" height="24" fill="url(#count-gradient)" class="counter-box"/>
         
-        <text id="eyes" y="18" x="4" font-size="15" text-rendering="geometricPrecision">👀</text>
+        <text id="eyes" y="17" x="4" font-size="15" text-rendering="geometricPrecision">👀</text>
         <text id="main-text" x="29" y="18" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-rendering="geometricPrecision" font-weight="500">Visitas al perfil</text>
         <text id="text-counter" x="${adjustCounter(
           newCount

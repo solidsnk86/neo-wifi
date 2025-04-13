@@ -18,9 +18,9 @@ export async function GET(request: Request): Promise<Response> {
   const formatValue = (value: number): string | number => {
     let formattedValue: number | string = 0;
     if (value >= 1000) {
-      formattedValue = (value / 1000).toFixed(1);
+      formattedValue = `${(value / 1000).toFixed(1)}K`;
     } else if (value >= 10000) {
-      formattedValue = (value / 10000).toFixed(1);
+      formattedValue = `${(value / 10000).toFixed(1)}K`;
     }
     return formattedValue === 0 ? value : formattedValue;
   };

@@ -25,6 +25,14 @@ export async function GET(request: Request): Promise<Response> {
     return formattedValue === 0 ? value : formattedValue;
   };
 
+  const adjustCounter = (counter: number): string => {
+    if (counter >= 10000) return "136";
+    if (counter >= 100) return "134";
+    if (counter >= 10) return "137";
+    if (String(counter).includes("1.0K")) return "112";
+    return "140";
+  };
+
   try {
     const { data: lastCount, error } = await supabase
       .from("badge_counter")
@@ -49,14 +57,6 @@ export async function GET(request: Request): Promise<Response> {
     if (insertError) {
       throw new Error("Cannot send data to DB: " + insertError.message);
     }
-
-    const adjustCounter = (counter: number): string => {
-      if (counter >= 10000) return "136";
-      if (counter >= 100) return "134";
-      if (counter >= 10) return "137";
-      if (String(counter).includes("1.0K")) return "112";
-      return "140";
-    };
 
     const svg = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${formatThousand(

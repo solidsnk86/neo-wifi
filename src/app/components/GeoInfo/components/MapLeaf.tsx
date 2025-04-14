@@ -107,7 +107,7 @@ const LeafMap = ({
   const getAllAntennas = useCallback(async () => {
     try {
       const response = await fetch(
-        "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v9.json"
+        "https://cdn.jsdelivr.net/gh/solidsnk86/calcagni-gabriel@refs/heads/master/app/api/geolocation/services/wifi-v10.json"
       );
       const data = await response.json();
       setAntennas(data);

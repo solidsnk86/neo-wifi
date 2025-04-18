@@ -35,7 +35,7 @@ export const InfoWifi = ({ location, loading }: InfoWifiProps) => {
           <div className="p-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <InfoRow
-                label="Antena más próxima"
+                label="Antena"
                 value={location.closest_wifi?.antenna}
                 loading={loading}
               />

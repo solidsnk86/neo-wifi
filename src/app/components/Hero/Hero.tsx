@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-12">
+    <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-8">
       <div>
         <h1
           className={`text-center text-pretty ${styles.h1} dark:text-zinc-100`}
@@ -29,7 +29,7 @@ export const Hero = () => {
             </svg>
           </span>
         </h1>
-        <p className="py-20 text-pretty text-center text-zinc-600 dark:text-zinc-400 antialiased hero-animate">
+        <p className="py-20 text-pretty text-base md:text-lg text-center text-zinc-600 dark:text-zinc-400 antialiased hero-animate">
           Simplifica la conexión a las redes WiFi del Gobierno de San Luis con
           esta herramienta especializada. Configura tu dispositivo TP-LINK CPE
           de forma rápida y segura, garantizando una conectividad óptima a la

@@ -207,15 +207,17 @@ export const GeoPositionCard = () => {
   };
 
   useEffect(() => {
-    const worker = new Worker(new URL("./webWorker.ts", import.meta.url));
+    const timerWorker = new Worker(
+      new URL("./timerWorker.ts", import.meta.url)
+    );
 
-    worker.postMessage(0);
+    timerWorker.postMessage(0);
 
-    worker.onmessage = (event) => {
+    timerWorker.onmessage = (event) => {
       const timer = event.data;
 
       if (timer === 6) {
-        worker.terminate();
+        timerWorker.terminate();
         showDialog({
           content: (
             <article className="shadow-md">
@@ -246,11 +248,17 @@ export const GeoPositionCard = () => {
     };
 
     return () => {
-      worker.terminate();
+      timerWorker.terminate();
     };
   }, []);
 
   const imgMapSharer = () => mapSharer(setImgLoading);
+  const cpeInfo = new Worker("../../cpInfoWorker.ts");
+  cpeInfo.postMessage("");
+  cpeInfo.onmessage = (event) => {
+    const cpeData = event.data;
+    console.log(cpeData);
+  };
 
   return (
     <div className="justify-center mx-auto w-[672px] z-50">

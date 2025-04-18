@@ -6,6 +6,8 @@ const locations = [
   { name: "Córdoba", antennas: 93 },
   { name: "Mendoza", antennas: 45 },
   { name: "Barcelona", antennas: 18 },
+  { name: "Berlín", antennas: 2060 },
+  { name: "Otros puntos", antennas: 7369 },
 ];
 
 export default function WifiLocationsCard() {

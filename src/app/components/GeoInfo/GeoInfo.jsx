@@ -253,12 +253,6 @@ export const GeoPositionCard = () => {
   }, []);
 
   const imgMapSharer = () => mapSharer(setImgLoading);
-  const cpeInfo = new Worker("../../cpInfoWorker.ts");
-  cpeInfo.postMessage("");
-  cpeInfo.onmessage = (event) => {
-    const cpeData = event.data;
-    console.log(cpeData);
-  };
 
   return (
     <div className="justify-center mx-auto w-[672px] z-50">

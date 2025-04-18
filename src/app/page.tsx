@@ -13,9 +13,10 @@ import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import { Quote } from "lucide-react";
+import { MousePointer2, Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
+import WifiLocationsCard from "./components/WifiLocationCard";
 
 export default function Home() {
   return (
@@ -60,20 +61,42 @@ export default function Home() {
           </div>
         </HomeBlock>
 
-        <HomeBlockTitle>Información Geográfica</HomeBlockTitle>
+        <HomeBlockTitle>Características</HomeBlockTitle>
         <HomeBlock>
-          <p className="text-center text-pretty text-base md:text-lg px-3 text-zinc-600 dark:text-zinc-400">
-            Además de la red WiFi gratuita ofrecida por el Gobierno de la
-            Provincia de San Luis, la Provincia de Córdoba también dispone de 93
-            puntos de acceso gratuito a internet. Estos espacios WiFi están
-            estratégicamente ubicados en lugares públicos, instituciones
-            educativas, clínicas, hospitales y otros sitios clave de la ciudad,
-            brindando conectividad a los ciudadanos de manera accesible y
-            eficiente. A estos se suman más de 45 puntos de conexión WiFi en
-            Mendoza, que puedes consultar en esta aplicación activando la
-            ubicación.
-          </p>
+          <div className="flex pl-10 pt-10 pb-10 rounded-[50px] border-2 border-zinc-200/70 dark:border-zinc-800 relative bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-lg">
+            <span className="absolute top-14 -right-6 p-6 bg-blue-500 text-white font-semibold rounded-3xl text-xl">
+              Puntos WiFi cerca
+            </span>
+            <Image
+              src="/neo-wifi-map.png"
+              width={500}
+              height={300}
+              alt="Neo-Wifi map"
+              quality={100}
+              className="rounded-3xl -z-10 border border-zinc-200/70 dark:border-zinc-800"
+            />
+            <span className="absolute -bottom-12 -right-10 p-[30px] rounded-full border-2 border-zinc-200/70 dark:border-zinc-800 dark:bg-zinc-800/90 backdrop-blur-lg z-50">
+              <MousePointer2
+                width={65}
+                height={65}
+                className="rotate-90 text-blue-500"
+              />
+            </span>
+          </div>
         </HomeBlock>
+
+        <article className="flex flex-col justify-center mx-auto mb-24">
+          <HomeBlockTitle>
+            Conecta a WiFi gratuito en San Luis, Córdoba y Mendoza
+          </HomeBlockTitle>
+          <p className="text-center text-2xl mt-5">
+            Obtené acceso a diferentes puntos wifi de éstas zonas
+          </p>
+        </article>
+
+        <WifiLocationsCard />
+
+        <HomeBlockTitle>Información WiFi</HomeBlockTitle>
 
         <HomeBlock className="px-3">
           <GeoPositionCard />

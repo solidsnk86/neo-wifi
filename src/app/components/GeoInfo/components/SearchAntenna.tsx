@@ -1,5 +1,6 @@
 "use client";
 
+import { Podcast } from "lucide-react";
 import { InfoRow } from "../GeoInfo";
 
 interface SearchAntennaProps {
@@ -32,7 +33,7 @@ export const SearchAntenna = ({
         <form onSubmit={submit} className="flex flex-col gap-2">
           <h2 className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start">
             <span className="w-10 h-10 py-1 px-2 flex items-center justify-center border border-zinc-200/70 dark:border-zinc-700/50 rounded-xl bg-gradient-to-b from-zinc-300/10 to-zinc-600/10 text-zinc-600">
-              📡
+              <Podcast className="text-blue-500" />
             </span>
             Buscar antena
           </h2>

@@ -32,8 +32,8 @@ export const Hero = () => {
         <p className="py-20 text-pretty text-base md:text-lg text-center text-zinc-600 dark:text-zinc-400 antialiased hero-animate">
           Simplifica la conexión a las redes WiFi del Gobierno de San Luis con
           esta herramienta especializada. Configura tu dispositivo TP-LINK CPE
-          de forma rápida y segura, garantizando una conectividad óptima a la
-          red provincial.
+          de forma rápida, segura y automatizada, garantizando una conectividad
+          óptima a la red provincial.
         </p>
       </div>
       <aside className="flex justify-center gap-10 relative z-50">

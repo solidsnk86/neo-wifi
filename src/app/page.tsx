@@ -62,14 +62,14 @@ export default function Home() {
         </HomeBlock>
 
         <HomeBlockTitle>Características</HomeBlockTitle>
-        <HomeBlock>
+        <HomeBlock className="overflow-hidden">
           <div className="flex pl-10 pt-10 pb-10 rounded-[50px] border-2 border-zinc-200/70 dark:border-zinc-800 relative bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-lg">
             <span className="absolute top-14 -right-6 p-6 bg-blue-500 text-white font-semibold rounded-3xl text-xl">
               Puntos WiFi cerca
             </span>
             <Image
               src="/neo-wifi-map.png"
-              width={500}
+              width={420}
               height={300}
               alt="Neo-Wifi map"
               quality={100}
@@ -85,7 +85,7 @@ export default function Home() {
           </div>
         </HomeBlock>
 
-        <article className="flex flex-col justify-center mx-auto mb-24">
+        <article className="flex flex-col justify-center mx-auto mb-24 text-center">
           <HomeBlockTitle>
             Conecta a WiFi gratuito en San Luis, Córdoba y Mendoza
           </HomeBlockTitle>
@@ -94,7 +94,9 @@ export default function Home() {
           </p>
         </article>
 
-        <WifiLocationsCard />
+        <section className="px-3">
+          <WifiLocationsCard />
+        </section>
 
         <HomeBlockTitle>Información WiFi</HomeBlockTitle>
 

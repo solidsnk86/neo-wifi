@@ -11,8 +11,8 @@ const locations = [
 export default function WifiLocationsCard() {
   return (
     <HomeBlock>
-      <div className="flex flex-col p-10 rounded-[50px] border-2 border-zinc-200/70 dark:border-zinc-800 relative bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-lg transition-all">
-        <p className="text-center text-pretty text-base md:text-lg px-3 text-zinc-600 dark:text-zinc-400 mb-6">
+      <div className="flex flex-col p-10 rounded-2xl border-2 border-zinc-200/70 dark:border-zinc-800 relative bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-lg transition-all">
+        <p className="text-center text-pretty text-xl md:text-2xl px-3 text-zinc-600 dark:text-zinc-400 mb-6">
           Redes WiFi disponibles en las siguientes localidades
         </p>
 

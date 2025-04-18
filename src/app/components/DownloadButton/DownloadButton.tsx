@@ -10,7 +10,7 @@ export const DownloadButton = (props: ComponentProps<"button">) => {
         className="flex items-center gap-3 font-semibold text-lg"
       >
         <WindowsLogo width={24} height={24} color="#ddd" />
-        Descarga para Windows
+        Descarga
       </Link>
     </button>
   );

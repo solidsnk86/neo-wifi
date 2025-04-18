@@ -85,12 +85,12 @@ export default function Home() {
           </div>
         </HomeBlock>
 
-        <article className="flex flex-col justify-center mx-auto mb-24 text-center">
+        <article className="flex flex-col justify-center mx-auto mb-24 text-center px-3">
           <HomeBlockTitle>
-            Conecta a WiFi gratuito en San Luis, Córdoba y Mendoza
+            Conecta a WiFi gratuito en San Luis y otras ciudades
           </HomeBlockTitle>
           <p className="text-center text-2xl mt-5">
-            Obtené acceso a diferentes puntos wifi de éstas zonas
+            Obtené acceso a diferentes puntos wifi
           </p>
         </article>
 

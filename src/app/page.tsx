@@ -82,7 +82,7 @@ export default function Home() {
               Puntos WiFi cerca
             </span>
             <Image
-              src="/neo-wifi-map.png"
+              src="/neo-wifi-satellite.png"
               width={420}
               height={300}
               alt="Neo-Wifi map"
@@ -181,7 +181,7 @@ export default function Home() {
             </div>
           </HomeBlock>
         )}
-        <ArrowBigDown className="w-10 h-10 text-yellow-300 flex justify-center mx-auto animate-bounce duration-500" />
+        <ArrowBigDown className="w-16 h-16 text-yellow-300 flex justify-center mx-auto animate-bounce duration-500" />
         <HomeBlock>
           <DownloadCard />
         </HomeBlock>

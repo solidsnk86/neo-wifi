@@ -21,10 +21,19 @@ import { CurveArrowIcon } from "./Icons/ArrowIcon";
 import { YouTubeLiteVideo } from "../components/YoutubeVideo";
 import MouseTrail from "../components/MouseTrail";
 import { WindowsLogo } from "../components/DownloadButton/Icon/WindowsLogo";
+import { fetchCpeInfo } from "@/store/cpeInfoSlice";
+import type { AppDispatch, RootState } from "@/store";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Page() {
   const [downloads, setDownloads] = useState<DownloadsProps>();
   const [downloadComplete, setDownloadComplete] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
+  const { data } = useSelector((state: RootState) => state.cpeInfo);
+
+  useEffect(() => {
+    dispatch(fetchCpeInfo());
+  }, [dispatch]);
 
   const sendDataToSupabase = useCallback(async () => {
     const [ipInfo] = await Promise.all([getIP()]);
@@ -54,7 +63,7 @@ export default function Page() {
     const link = document.createElement("a");
     link.href =
       "https://github.com/solidsnk86/neo-wifi/releases/download/v1.1.3/Neo-Wifi.Setup.1.1.3.rar";
-    link.download = "Neo-Wifi Setup 1.1.3.rar";
+    link.download = `Neo-Wifi Setup ${data.version}.rar`;
     await sendDataToSupabase().catch((err) =>
       console.error("Error al enviar datos:", err)
     );
@@ -147,7 +156,8 @@ export default function Page() {
           </h3>
           <div className="flex flex-col p-2 gap-2">
             <p className="flex items-center text-sm">
-              <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup 1.1.3
+              <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup{" "}
+              {data.version || "v1.2.4"}
             </p>
             <p className="flex items-center text-sm">
               <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:

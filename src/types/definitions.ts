@@ -36,7 +36,7 @@ export interface CpeInfoProps {
   devVer: string;
   username: string;
   is2G: boolean;
-  countryId: number | string;
+  version: string;
 }
 
 export type { OptionalProps, DownloadsProps };

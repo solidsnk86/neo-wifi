@@ -27,18 +27,18 @@ export default function Page() {
   const [downloadComplete, setDownloadComplete] = useState(false);
 
   const sendDataToSupabase = useCallback(async () => {
-    const { ip, sysInfo, cityName } = await getIP();
+    const [ipInfo] = await Promise.all([getIP()]);
     const objDownload = {
-      ip: ip,
-      city: cityName,
-      so: sysInfo.system,
-      browser: sysInfo.webBrowser.browser,
+      ip: ipInfo.ip,
+      city: ipInfo.cityName,
+      so: ipInfo.sysInfo.system,
+      browser: ipInfo.sysInfo.webBrowser.browser,
     };
     await SupabaseDB.sendDownloads({ data: objDownload });
   }, []);
 
   const getDownloadsCount = async () => {
-    const download = await SupabaseDB.getDownloads();
+    const [download] = await Promise.all([SupabaseDB.getDownloads()]);
     setDownloads({
       data: {
         download_count: download?.download_count,

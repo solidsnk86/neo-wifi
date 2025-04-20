@@ -76,7 +76,7 @@ const customIcon = new L.Icon({
 
 const wifiSvg = L.divIcon({
   html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280">
-    <path d="M100 0 C45 0 0 45 0 100 C0 140 50 200 100 280 C150 200 200 140 200 100 C200 45 155 0 100 0 Z" fill="#FF3D71" stroke="#C02855" stroke-width="3"/>
+    <path d="M100 0 C45 0 0 45 0 100 C0 140 50 200 100 280 C150 200 200 140 200 100 C200 45 155 0 100 0 Z" fill="#3b82f6" stroke="#000" stroke-width="3"/>
     <circle cx="100" cy="90" r="65" fill="white" stroke="#EEEEEE" stroke-width="1"/>
     <g transform="translate(46, 35) scale(4.5)">
       <path d="M5 12.55a11 11 0 0 1 14.08 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

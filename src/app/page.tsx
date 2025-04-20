@@ -13,23 +13,13 @@ import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import { ArrowBigDown, MousePointer2, Quote } from "lucide-react";
+import { MousePointer2, Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
-import { useEffect } from "react";
 import NeoWifiAppCard from "./components/NeoWifiCard";
-import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch, RootState } from "@/store";
-import { fetchCpeInfo } from "@/store/cpeInfoSlice";
 
 export default function Home() {
-  const dispatch = useDispatch<AppDispatch>();
-  const { data } = useSelector((state: RootState) => state.cpeInfo);
-
-  useEffect(() => {
-    dispatch(fetchCpeInfo());
-  }, [dispatch]);
   return (
     <>
       <MouseTrail />
@@ -164,21 +154,6 @@ export default function Home() {
 
         <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
 
-        {data?.devInfo.includes("CPE") && (
-          <HomeBlock>
-            <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
-              <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
-                <p className="relative flex text-center text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400">
-                  Puedes aproverchar y descargar la app de Neo WiFi ya que
-                  dispones de un antena TP-Link-{data?.devInfo}. Te permitirá
-                  gestionar y configurar tu dispositivo de forma rápida,
-                  eficiente y desde cualquier lugar.
-                </p>
-              </article>
-            </div>
-          </HomeBlock>
-        )}
-        <ArrowBigDown className="w-16 h-16 text-yellow-300 flex justify-center mx-auto animate-bounce duration-500" />
         <HomeBlock>
           <DownloadCard />
         </HomeBlock>

@@ -10,7 +10,7 @@ export default function NeoWifiAppCard() {
     <HomeBlock>
       <div className="flex flex-col md:flex-row items-center p-8 relative rounded-2xl border-2 border-zinc-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-800/50 backdrop-blur-lg transition-all">
         <div className="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
-          <h2 className="text-pretty text-2xl md:text-3xl font-bold text-zinc-600 dark:text-zinc-400 mb-4">
+          <h2 className="text-pretty text-2xl md:text-3xl font-bold mb-4 font-['bogue-black']">
             Obtén la app Neo WiFi
           </h2>
           <p className="text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400 mb-6">

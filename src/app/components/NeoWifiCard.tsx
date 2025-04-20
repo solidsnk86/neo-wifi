@@ -2,23 +2,32 @@ import Image from "next/image";
 import { HomeBlock } from "./BlockComp";
 import { Power } from "lucide-react";
 import { BenQIcon } from "./BenqIcon";
+import { WindowsLogo } from "./DownloadButton/Icon/WindowsLogo";
+import Link from "next/link";
 
 export default function NeoWifiAppCard() {
   return (
     <HomeBlock>
       <div className="flex flex-col md:flex-row items-center p-8 relative rounded-2xl border-2 border-zinc-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-800/50 backdrop-blur-lg transition-all">
-        <div className="w-full md:w-1/2 text-center md:text-left">
+        <div className="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
           <h2 className="text-pretty text-2xl md:text-3xl font-bold text-zinc-600 dark:text-zinc-400 mb-4">
             Obtén la app Neo WiFi
           </h2>
-          <p className="text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400">
+          <p className="text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400 mb-6">
             Descargá la aplicación ahora para automatizar la configuración de
             cualquier modelo CPE de TP-Link, incluyendo también algunos routers
             de la misma marca. Rápido, fácil y sin complicaciones.
           </p>
+          <Link
+            href="/download"
+            className="flex justify-center items-center gap-2 p-6 bg-gradient-to-b from-blue-500 to-blue-700 text-white font-semibold rounded-3xl text-xl hover:opacity-85"
+          >
+            <WindowsLogo width={24} height={24} className="inline" />
+            Descarga para Windows
+          </Link>
         </div>
 
-        <div className="w-full md:w-1/2 mt-6 md:mt-0 flex flex-col justify-center relative md:absolute md:-top-6 md:right-3">
+        <div className="w-full md:w-1/2 mt-6 md:mt-0 flex flex-col justify-center relative">
           <div className="bg-zinc-200 dark:bg-zinc-900 pt-2 px-2 pb-4 rounded shadow-xl border-x border-t border-zinc-300 dark:border-zinc-800">
             <div className="bg-black overflow-hidden">
               <Image

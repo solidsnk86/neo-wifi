@@ -17,22 +17,19 @@ import { ArrowBigDown, MousePointer2, Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
-import { CpeInfoProps } from "@/types/definitions";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import NeoWifiAppCard from "./components/NeoWifiCard";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "@/store";
+import { fetchCpeInfo } from "@/store/cpeInfoSlice";
 
 export default function Home() {
-  const [cpeInfo, setCpeInfo] = useState<CpeInfoProps>();
+  const dispatch = useDispatch<AppDispatch>();
+  const { data } = useSelector((state: RootState) => state.cpeInfo);
 
   useEffect(() => {
-    const getCpeInfo = async () => {
-      await fetch("/api/cpe-info")
-        .then((res) => res.json())
-        .then((res) => setCpeInfo(res))
-        .catch((error) => console.error(error));
-    };
-    getCpeInfo();
-  }, []);
+    dispatch(fetchCpeInfo());
+  }, [dispatch]);
   return (
     <>
       <MouseTrail />
@@ -167,13 +164,13 @@ export default function Home() {
 
         <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
 
-        {cpeInfo?.devInfo.includes("CPE") && (
+        {data?.devInfo.includes("CPE") && (
           <HomeBlock>
             <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
               <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
                 <p className="relative flex text-center text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400">
                   Puedes aproverchar y descargar la app de Neo WiFi ya que
-                  dispones de un antena TP-Link-{cpeInfo?.devInfo}. Te permitirá
+                  dispones de un antena TP-Link-{data?.devInfo}. Te permitirá
                   gestionar y configurar tu dispositivo de forma rápida,
                   eficiente y desde cualquier lugar.
                 </p>

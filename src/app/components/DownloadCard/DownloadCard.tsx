@@ -1,16 +1,30 @@
 "Use client";
 
+import { useEffect, useState } from "react";
 import { DownloadButton } from "../DownloadButton/DownloadButton";
 import styles from "./styles/card.module.css";
 
 export const DownloadCard = () => {
+  const [appVersion, setAppVersion] = useState({
+    version: "",
+  });
+  useEffect(() => {
+    const getVersionApp = async () => {
+      await fetch("/api/cpe-info")
+        .then((res) => res.json())
+        .then((data) => setAppVersion(data))
+        .catch((err) => console.error(err));
+    };
+    getVersionApp();
+  }, []);
+
   return (
     <article
       className={`${styles.article} border border-zinc-200/70 dark:border-zinc-700/80 z-50`}
     >
       <div className={styles.text_container}>
         <h2>
-          Neo-WiFi App <small>v1.1.3(beta)</small>
+          Neo-WiFi App <small>{appVersion.version || "v1.2.4"}</small>
         </h2>
         <p>
           Esta aplicación es una herramienta diseñada para automatizar y

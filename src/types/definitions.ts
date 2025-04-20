@@ -30,5 +30,14 @@ interface DownloadsProps {
   };
 }
 
+export interface CpeInfoProps {
+  mode: string;
+  devInfo: string;
+  devVer: string;
+  username: string;
+  is2G: boolean;
+  countryId: number | string;
+}
+
 export type { OptionalProps, DownloadsProps };
 export type PartialOptionsProps = Partial<OptionalProps>;

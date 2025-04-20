@@ -637,7 +637,9 @@ html {
   animation-delay: 1s;
 }
 
-.leaflet-control-locate-btn {
+.leaflet-control-locate-btn,
+.satellite-control-btn,
+.map-control-btn {
   position: relative;
   background: white;
   border: none;
@@ -652,26 +654,22 @@ html {
   transition: background-color 0.2s;
 }
 
+.leaflet-control-locate-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #333;
+  fill: #3b82f6;
+}
+
 .leaflet-control-locate-btn:hover {
   background-color: #f4f4f4;
 }
 
-.leaflet-control-locate-btn svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -57% -45%;
-  color: #111;
-  fill: #2c84cb;
-  width: 20px;
-  height: 26px;
-  margin: 0 auto;
-  filter: drop-shadow(1px 2px 2px #666666);
-  transition: transform 200ms ease-in-out;
-}
-
-.leaflet-control-locate-btn:hover svg {
-  filter: drop-shadow(1px 2px 3px #232323);
+.leaflet-control .satellite-control-btn svg,
+.map-control-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #333;
 }
 
 @keyframes fade {

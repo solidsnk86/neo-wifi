@@ -61,6 +61,8 @@ interface WifiDataProps {
   users: number;
 }
 
+const TOKEN = process.env.NEXT_PUBLIC_MAPBOX_APIKEY;
+
 const customIcon = new L.Icon({
   iconUrl:
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
@@ -161,10 +163,7 @@ const LeafMap = ({
 
       div.innerHTML = `
         <button class="leaflet-control-locate-btn" title="Centrar en mi ubicación">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 26" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2c-4 0-7.2 3.1-7.4 7c-.1 2.4 1.3 4.5 2.8 6.2c1.4 1.5 2.9 3 4.5 4.3c.3.3.7.5 1.1.5c.4 0 .8-.2 1.1-.5c1.6-1.3 3.1-2.8 4.5-4.3c1.5-1.7 2.9-3.8 2.8-6.2c-.2-3.9-3.4-7-7.4-7z"/>
-            <circle cx="13" cy="8" r="3" fill="#f5f5f5"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle fill="#fff" cx="12" cy="10" r="3"/></svg>
         </button>
       `;
 
@@ -177,13 +176,95 @@ const LeafMap = ({
 
       return div;
     };
+    // View Controller MAP - SATELLITE
+    let currentTileLayer: L.TileLayer | null = null;
+    const mapViewControl = (L.control as any)({
+      position: "bottomleft",
+      forceSeparateButton: true,
+    });
 
+    const satelliteViewControl = (L.control as any)({
+      position: "bottomleft",
+    });
+
+    function switchToSatellite(map: L.Map) {
+      if (currentTileLayer) {
+        map.removeLayer(currentTileLayer);
+      }
+
+      const tile = L.tileLayer(
+        `https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=${TOKEN}`,
+        {
+          attribution: "© Mapbox © OpenStreetMap",
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken: TOKEN,
+          crossOrigin: true,
+        }
+      ).addTo(map);
+
+      currentTileLayer = tile;
+    }
+
+    function switchToMap(map: L.Map) {
+      if (currentTileLayer) {
+        map.removeLayer(currentTileLayer);
+      }
+
+      const tile = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          attribution: "© OpenStreetMap",
+          crossOrigin: true,
+        }
+      ).addTo(map);
+
+      currentTileLayer = tile;
+    }
+
+    mapViewControl.onAdd = function (map: L.Map) {
+      const div = L.DomUtil.create("div", "map-control");
+
+      if (currentTileLayer) {
+        map.removeLayer(currentTileLayer);
+      }
+
+      div.innerHTML = `
+        <button class="map-control-btn" title="Cambiar vista a Mapa">
+         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-icon lucide-map"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+        </button>
+      `;
+      div
+        .querySelector(".map-control-btn")!
+        .addEventListener("click", () => switchToMap(map));
+
+      return div;
+    };
+
+    satelliteViewControl.onAdd = function (map: L.Map) {
+      const div = L.DomUtil.create("div", "satellite-control");
+
+      if (currentTileLayer) {
+        map.removeLayer(currentTileLayer);
+      }
+
+      div.innerHTML = `
+        <button class="satellite-control-btn" title="Cambiar vista a Satélite">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-satellite-icon lucide-satellite"><path d="M13 7 9 3 5 7l4 4"/><path d="m17 11 4 4-4 4-4-4"/><path d="m8 12 4 4 6-6-4-4Z"/><path d="m16 8 3-3"/><path d="M9 21a6 6 0 0 0-6-6"/></svg>
+        </button>
+      `;
+      div
+        .querySelector(".satellite-control-btn")!
+        .addEventListener("click", () => switchToSatellite(map));
+
+      return div;
+    };
+    mapViewControl.addTo(map);
+    satelliteViewControl.addTo(map);
     locateControl.addTo(map);
     mapInstance.current = map;
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      crossOrigin: true,
-    }).addTo(map);
+    switchToMap(map);
 
     L.marker([currentPosition.latitude, currentPosition.longitude], {
       icon: customIcon,

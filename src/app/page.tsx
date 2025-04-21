@@ -133,10 +133,6 @@ export default function Home() {
           border={0}
         /> */}
 
-        <section className="overflow-hidden my-24">
-          <VisitsComponent />
-        </section>
-
         <HomeBlock className="flex-col px-3">
           <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
             <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
@@ -150,6 +146,10 @@ export default function Home() {
             </article>
           </div>
         </HomeBlock>
+
+        <section className="overflow-hidden my-24">
+          <VisitsComponent />
+        </section>
 
         <HomeBlockTitle>Descarga la app!</HomeBlockTitle>
 

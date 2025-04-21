@@ -433,11 +433,12 @@ const LeafMap = ({
   const cleanedPlaces = Array.from(new Set(places))
     .sort()
     .filter((item) => item !== "Desconocida");
-  const germany = cleanedPlaces.find((value) => value === "Berlín");
-  const spain = cleanedPlaces.find((value) => value === "Barcelona");
+  const berlin = cleanedPlaces.find((value) => value === "Berlín");
+  const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
+  const madrid = cleanedPlaces.find((value) => value === "Madrid");
 
   const checkCountry = (value: string) => {
-    return value !== "Berlín" && value !== "Barcelona";
+    return value !== "Berlín" && value !== "Barcelona" && value !== "Madrid";
   };
 
   return (
@@ -458,10 +459,11 @@ const LeafMap = ({
                 ))}
             </optgroup>
             <optgroup label="Alemania 🇩🇪">
-              <option>{germany}</option>
+              <option>{berlin}</option>
             </optgroup>
             <optgroup label="España 🇩🇪">
-              <option>{spain}</option>
+              <option>{barcelona}</option>
+              <option>{madrid}</option>
             </optgroup>
           </select>
         </article>

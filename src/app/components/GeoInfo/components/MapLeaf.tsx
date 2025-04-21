@@ -517,7 +517,7 @@ const LeafMap = ({
       />
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-x-2 border-b-2 backdrop-blur-xl overflow-hidden rounded-b-xl">
         <article className="flex justify-between items-center gap-2">
-          <p className="p-4">Compartí tu ubicación!</p>
+          <p className="p-4">Compartir el mapa!</p>
           <button onClick={imgSharer} disabled={imgLoading}>
             {imgLoading ? (
               <div className="flex gap-1 items-center p-4 bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50">

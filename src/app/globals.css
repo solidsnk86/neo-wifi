@@ -156,7 +156,7 @@ html.dark {
     --size: 45px;
     --line: color-mix(in lch, canvasText, #333 60%);
     content: "";
-    opacity: 0.7;
+    opacity: 0.1;
     height: 280%;
     width: 100%;
     position: fixed;
@@ -230,15 +230,6 @@ html.dark {
     .effect-1::before {
       width: 360px;
     }
-  }
-}
-
-@keyframes effect3d {
-  from {
-    transform: perspective(2000px) rotateX(120deg) translateY(0);
-  }
-  to {
-    transform: perspective(2000px) rotateX(120deg) translateY(40%);
   }
 }
 

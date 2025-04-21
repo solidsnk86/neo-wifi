@@ -433,6 +433,12 @@ const LeafMap = ({
   const cleanedPlaces = Array.from(new Set(places))
     .sort()
     .filter((item) => item !== "Desconocida");
+  const germany = cleanedPlaces.find((value) => value === "Berlín");
+  const spain = cleanedPlaces.find((value) => value === "Barcelona");
+
+  const checkCountry = (value: string) => {
+    return value !== "Berlín" && value !== "Barcelona";
+  };
 
   return (
     <>
@@ -444,9 +450,19 @@ const LeafMap = ({
             onChange={(e) => setSelectValue(e.target.value)}
           >
             <option value="">Ciudades/Pueblos</option>
-            {cleanedPlaces.map((item, index) => (
-              <option key={index}>{item}</option>
-            ))}
+            <optgroup label="San Luis 🇦🇷">
+              {cleanedPlaces
+                .filter((value) => checkCountry(value))
+                .map((item, index) => (
+                  <option key={index}>{item}</option>
+                ))}
+            </optgroup>
+            <optgroup label="Alemania 🇩🇪">
+              <option>{germany}</option>
+            </optgroup>
+            <optgroup label="España 🇩🇪">
+              <option>{spain}</option>
+            </optgroup>
           </select>
         </article>
       </div>

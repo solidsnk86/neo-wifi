@@ -471,9 +471,9 @@ const LeafMap = ({
             </optgroup>
 
             {/* Argentina - Córdoba */}
-            {corrientes && (
+            {cordoba && (
               <optgroup label="🇦🇷 Argentina - Córdoba">
-                <option value={corrientes}>{corrientes}</option>
+                <option value={cordoba}>{cordoba}</option>
               </optgroup>
             )}
 

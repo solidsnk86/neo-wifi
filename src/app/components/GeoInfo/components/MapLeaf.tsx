@@ -433,6 +433,7 @@ const LeafMap = ({
   const cleanedPlaces = Array.from(new Set(places))
     .sort()
     .filter((item) => item !== "Desconocida");
+  const buenosaires = cleanedPlaces.find((value) => value === "Buenos Aires");
   const corrientes = cleanedPlaces.find((value) => value === "Corrientes");
   const cordoba = cleanedPlaces.find((value) => value === "Córdoba");
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
@@ -445,7 +446,8 @@ const LeafMap = ({
       val !== berlin &&
       val !== barcelona &&
       val !== madrid &&
-      val !== cordoba
+      val !== cordoba &&
+      val !== buenosaires
     );
   };
   return (
@@ -469,6 +471,13 @@ const LeafMap = ({
                   </option>
                 ))}
             </optgroup>
+
+            {/* Argentina - Buenos Aires */}
+            {cordoba && (
+              <optgroup label="🇦🇷 Argentina - Buenos Aires">
+                <option value={buenosaires}>{buenosaires}</option>
+              </optgroup>
+            )}
 
             {/* Argentina - Córdoba */}
             {cordoba && (

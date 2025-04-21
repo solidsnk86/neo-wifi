@@ -98,7 +98,7 @@ export default function Home() {
           <WifiLocationsCard />
         </section>
 
-        <HomeBlockTitle>Información WiFi</HomeBlockTitle>
+        <HomeBlockTitle className="my-16">Información WiFi</HomeBlockTitle>
 
         <HomeBlock className="px-3">
           <GeoPositionCard />

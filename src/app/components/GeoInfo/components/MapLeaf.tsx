@@ -433,14 +433,21 @@ const LeafMap = ({
   const cleanedPlaces = Array.from(new Set(places))
     .sort()
     .filter((item) => item !== "Desconocida");
+  const corrientes = cleanedPlaces.find((value) => value === "Corrientes");
+  const cordoba = cleanedPlaces.find((value) => value === "Córdoba");
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
   const madrid = cleanedPlaces.find((value) => value === "Madrid");
 
-  const checkCountry = (value: string) => {
-    return value !== "Berlín" && value !== "Barcelona" && value !== "Madrid";
+  const checkValues = (val: string) => {
+    return (
+      val !== corrientes &&
+      val !== berlin &&
+      val !== barcelona &&
+      val !== madrid &&
+      val !== cordoba
+    );
   };
-
   return (
     <>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
@@ -451,20 +458,46 @@ const LeafMap = ({
             onChange={(e) => setSelectValue(e.target.value)}
           >
             <option value="">Ciudades/Pueblos</option>
-            <optgroup label="San Luis 🇦🇷">
+
+            {/* Argentina - San Luis */}
+            <optgroup label="🇦🇷 Argentina - San Luis">
               {cleanedPlaces
-                .filter((value) => checkCountry(value))
-                .map((item, index) => (
-                  <option key={index}>{item}</option>
+                .filter((value) => checkValues(value))
+                .map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
                 ))}
             </optgroup>
-            <optgroup label="Alemania 🇩🇪">
-              <option>{berlin}</option>
-            </optgroup>
-            <optgroup label="España 🇩🇪">
-              <option>{barcelona}</option>
-              <option>{madrid}</option>
-            </optgroup>
+
+            {/* Argentina - Córdoba */}
+            {corrientes && (
+              <optgroup label="🇦🇷 Argentina - Córdoba">
+                <option value={corrientes}>{corrientes}</option>
+              </optgroup>
+            )}
+
+            {/* Argentina - Corrientes */}
+            {corrientes && (
+              <optgroup label="🇦🇷 Argentina - Corrientes">
+                <option value={corrientes}>{corrientes}</option>
+              </optgroup>
+            )}
+
+            {/* Alemania */}
+            {berlin && (
+              <optgroup label="🇩🇪 Alemania">
+                <option value={berlin}>{berlin}</option>
+              </optgroup>
+            )}
+
+            {/* España */}
+            {(barcelona || madrid) && (
+              <optgroup label="🇪🇸 España">
+                {barcelona && <option value={barcelona}>{barcelona}</option>}
+                {madrid && <option value={madrid}>{madrid}</option>}
+              </optgroup>
+            )}
           </select>
         </article>
       </div>

@@ -17,12 +17,19 @@ export const closeDialog = () => {
   );
 };
 
-export const showDialog = ({ content }: { content: ReactNode }) => {
+export const showDialog = ({
+  content,
+  width,
+}: {
+  content: ReactNode;
+  width?: string;
+  height?: string;
+}) => {
   const dialog = document.createElement("dialog");
   document.body.appendChild(dialog);
   const root = createRoot(dialog);
   root.render(content);
-
+  dialog.style.width = width || "";
   dialog.showModal();
 
   const controller = new AbortController();

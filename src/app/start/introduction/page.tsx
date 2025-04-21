@@ -3,29 +3,17 @@
 import { Footer, Navbar } from "@/app/components";
 import { HomeBlock, HomeBlockTitle } from "@/app/components/BlockComp";
 import { Donation } from "@/app/components/DonationCard/Donation";
-import { GeoPosition } from "@/app/components/GeoInfo/components/GeoPosition";
 import ImageWithDialog from "@/app/components/GeoInfo/components/ImageDialog";
 import MouseTrail from "@/app/components/MouseTrail";
-import Image from "next/image";
-import Link from "next/link";
+import NeoWifiAppCard from "@/app/components/NeoWifiCard";
+import { dialogMap } from "./constants";
 
 export default function Page() {
-  const dataLocation = {
-    city: "Merlo",
-    state: "San Luis",
-    departament: "Junín",
-    country: "Argentina",
-  };
-  const coords = {
-    latitude: "-32.3426293326",
-    longitude: "-65.013554958",
-  };
-
   return (
     <main className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
       <MouseTrail />
       <Navbar />
-      <section style={{ padding: "2rem" }}>
+      <section className="px-8">
         <HomeBlockTitle className="pt-24 z-50">Introducción</HomeBlockTitle>
         <HomeBlock className="flex-col text-pretty space-y-3 text-center z-50 relative">
           <p>
@@ -49,139 +37,19 @@ export default function Page() {
             de la antena (CPE) debe ser ajustada por el mismo usuario.
           </p>
         </HomeBlock>
+
         <HomeBlockTitle>Primeros Pasos</HomeBlockTitle>
-        <HomeBlock className="flex-col z-50 relative">
-          <p>
-            Para utilizar esta aplicación, es necesario restablecer la antena,
-            ya que desconocemos las credenciales de acceso, como el nombre de
-            usuario y la contraseña, que el técnico pudo haber configurado en el
-            sistema de la CPE de TP-Link. Para hacerlo, debemos resetear la
-            antena a través del adaptador PoE, el cual se conecta a la
-            corriente. Este adaptador cuenta con dos puertos: PoE, que
-            suministra energía y transmite datos, y WAN, que envía los datos al
-            router.
-          </p>
-          <ImageWithDialog imgInfo="Adaptador POE de TP-LINK, con indicaciones del botón reset.">
-            <div className="relative">
-              <span
-                className="img-dot before:outline before:outline-1 before:outline-red-500 animate-pulse"
-                title="Botón de reset"
-              />
-              <Image
-                src="/assets/tp-link-Outdoor-CPE-Passive-PoE-Adapter-300x218-removebg.png"
-                width={300}
-                height={300}
-                alt="Imagen del adaptador POE de TP-LINK"
-                className="flex justify-center mx-auto my-10"
-              />
+        <HomeBlock className="flex-col z-50 relative space-y-6">
+          {dialogMap.map((item, index) => (
+            <div key={index} className="space-y-3">
+              {item.paragraph}
+              <ImageWithDialog imgInfo={item.info} urlImg={item.url} />
             </div>
-          </ImageWithDialog>
-          <p>
-            En uno de los laterales del dispositivo hay un pequeño orificio. Si
-            introduces un clip o un objeto punzante con suavidad, sin aplicar
-            demasiada presión, notarás un botón interno. Manteniéndolo
-            presionado durante aproximadamente 20 segundos, la antena se
-            reseteará a los valores de fábrica. El principal indicador de este
-            proceso es el router: en el panel frontal, el LED de conexión WAN 🌐
-            se tornará de color 🟠 (naranja) o permanecerá apagado.
-          </p>
-          <ImageWithDialog imgInfo="Imagen router TP-LINK modelo TL-WR841N y su panel frontal con leds indicadores">
-            <Image
-              src="/assets/product_overview.png"
-              width={400}
-              height={400}
-              alt="Imagen router TP-LINK modelo TL-WR841N"
-              className="flex justify-center mx-auto my-10 z-50"
-            />
-          </ImageWithDialog>
-          <p>
-            Una vez reseteada la antena (CPE) de TP-LINK, procederemos a
-            descargar la aplicación
-            <Link href="/download" className="mx-1 underline text-sky-500">
-              Neo-WiFi App.
-            </Link>
-          </p>
-          <p>
-            Si ya hemos completado la desacarga se procecede con la instalación
-            de la misma.
-          </p>
-          <ImageWithDialog imgInfo="Imagen del instalador de la aplicación Neo-WiFi PC">
-            <Image
-              src="/assets/0qrxocgUxk.png"
-              width={400}
-              height={400}
-              alt="Imagen del instalador aplicación Neo-WiFi"
-              className="flex justify-center mx-auto my-10 z-50"
-            />
-          </ImageWithDialog>
-          <p>
-            Le damos a siguiente, y luego instalar. Una vez que finaliza la
-            instalación podemos ejecutarla y veremos la pantalla principal de la
-            aplicación:
-          </p>
-          <ImageWithDialog imgInfo="Pantalla principal de la aplicación">
-            <Image
-              src="/assets/Neo-Wifi_wJQ5REdFJa.png"
-              width={800}
-              height={400}
-              alt="Imagen de pantalla principal Neo-WiFi App"
-              className="flex justify-center mx-auto my-10 z-50"
-            />
-          </ImageWithDialog>
+          ))}
         </HomeBlock>
 
-        <HomeBlockTitle>Coordenadas</HomeBlockTitle>
-
-        <HomeBlock className="flex-col">
-          <p>
-            En esta misma web en la sección principal se proveen las coordenadas
-            de latitud y longitud para ser empleada en la app. Para ello debemos
-            aceptar y/o permitir la ubicación del dispositivo apenas carga la
-            web.
-          </p>
-          <ImageWithDialog
-            className="relative"
-            imgInfo="Ventana emergente para activación de la ubicación"
-          >
-            <Image
-              src="/assets/DL317doHxn.png"
-              width={400}
-              height={400}
-              alt="Imagen permitir ubicación en el navegador"
-              className="flex justify-center mx-auto my-10 z-50"
-            />
-          </ImageWithDialog>
-          <p>
-            Una vez que hemos podido permitir a la aplicación web obtener tu
-            ubicación podemos emplear las coordenadas obtenidas de tu posición
-            geográfica como se muestra a continuación en el siguiente ejemplo.
-            (Posición a modo de ejemplo, no es real.)
-          </p>
-          <div className="my-10">
-            <GeoPosition
-              loading={false}
-              location={dataLocation}
-              coords={coords}
-            />
-          </div>
-          <p>
-            Colocamos las cordenadas de latitud y de longitud entonces la
-            aplicación ya podrá saber donde te encuentras y cual es tu antena
-            más cercana, y que distancia te encuentras del nodo WiFi más
-            cercano.
-          </p>
-          <ImageWithDialog className="relative">
-            <Image
-              src="/assets/Neo-Wifi_g91otTkNqQ.png"
-              width={800}
-              height={400}
-              alt="Imagen aplicación con ingreso de coordenadas"
-              className="flex justify-center mx-auto my-10 z-50"
-            />
-          </ImageWithDialog>
-        </HomeBlock>
         <HomeBlockTitle>Configuración Router</HomeBlockTitle>
-        <HomeBlock className="flex-col z-50">
+        <HomeBlock className="flex-col z-50 space-y-3">
           <p>
             El siguiente paso es hacer clic en
             <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 ml-1 rounded-md font-mono text-sm">
@@ -214,15 +82,12 @@ export default function Page() {
             aplicación y su correcto funcionamiento.
           </p>
         </HomeBlock>
+
+        <section className="px-3">
+          <NeoWifiAppCard />
+        </section>
       </section>
-      {/* <HomeBlockTitle>Video</HomeBlockTitle>
-      <YouTubeLiteVideo
-        videoId="7ZqQ-NsTzYA"
-        width={400}
-        height={300}
-        className="rounded-xl flex justify-center mx-auto my-12 relative z-50"
-        border={0}
-      /> */}
+
       <Donation />
       <Footer />
     </main>

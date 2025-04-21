@@ -17,7 +17,6 @@ import { MousePointer2, Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
-import NeoWifiAppCard from "./components/NeoWifiCard";
 
 export default function Home() {
   return (
@@ -164,10 +163,6 @@ export default function Home() {
         <HomeBlock className="px-3">
           <AccordionList />
         </HomeBlock>
-
-        <section className="px-3">
-          <NeoWifiAppCard />
-        </section>
 
         <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50 font-['bogue-black']">
           Recibe las últimas novedades sobre Neo WiFi App 🚀

@@ -64,7 +64,7 @@ export default function Home() {
         <HomeBlockTitle>Características</HomeBlockTitle>
         <HomeBlock className="overflow-hidden">
           <div className="flex pl-10 pt-10 pb-10 rounded-[50px] border-2 border-zinc-200/70 dark:border-zinc-800 relative bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-lg">
-            <span className="absolute top-14 -right-6 p-6 bg-gradient-to-b from-blue-500 to-blue-700 text-white font-semibold rounded-3xl text-xl">
+            <span className="absolute top-14 -right-6 p-6 bg-gradient-to-b from-yellow-300 to-yellow-500 text-white font-semibold rounded-3xl text-xl">
               Puntos WiFi cerca
             </span>
             <Image
@@ -152,7 +152,7 @@ export default function Home() {
                   className="rounded-full bg-yellow-300 border-2 border-zinc-200/70"
                 />
                 <div className="flex flex-col font-semibold text-zinc-600">
-                  <span>Gabriel Calcagni</span>
+                  <span>Gabriel Calcagni,</span>
                   <span>desarrollador de Neo-WiFi</span>
                 </div>
               </aside>

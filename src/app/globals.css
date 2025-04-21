@@ -173,10 +173,7 @@ html.dark {
         50% 50% / var(--size) var(--size),
       linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
         var(--size) var(--size);
-
-    transform-origin: top bottom;
-    transform: perspective(1000px) rotateX(110deg);
-    animation: 18s effect3d linear infinite;
+    transform-style: flat;
   }
 
   & .effect-1::after {

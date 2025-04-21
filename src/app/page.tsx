@@ -143,6 +143,19 @@ export default function Home() {
                 y hacer de esta misión una realidad. ¡Vamos por ello! 😃
                 <Quote className=" text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
               </p>
+              <aside className="flex justify-center items-center gap-3 mt-4">
+                <Image
+                  src="/avatar-personal.jpg"
+                  width={45}
+                  height={45}
+                  alt="Avatar Gabriel"
+                  className="rounded-full bg-yellow-300 border-2 border-zinc-200/70"
+                />
+                <div className="flex flex-col font-semibold text-zinc-600">
+                  <span>Gabriel Calcagni</span>
+                  <span>desarrollador de Neo-WiFi</span>
+                </div>
+              </aside>
             </article>
           </div>
         </HomeBlock>

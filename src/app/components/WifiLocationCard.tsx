@@ -22,6 +22,7 @@ export default function WifiLocationsCard() {
           {locations.map((loc) => (
             <div
               key={loc.name}
+              title={loc.name.includes("Otros") ? "Próximamente..." : ""}
               className="flex items-center gap-4 p-4 rounded-2xl cursor-default border border-zinc-100 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/30 backdrop-blur-md transition hover:scale-[1.02] hover:shadow-md"
             >
               <div className="p-3 rounded-full bg-slate-100 dark:bg-zinc-800">

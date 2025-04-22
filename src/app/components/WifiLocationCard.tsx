@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { getCountryFlag } from "@/utils/convert-to-flag";
 import { MapPinCheck } from "lucide-react";
 import { Children, cloneElement, ReactNode, useCallback } from "react";
 
 const locations = [
-  { name: "San Luis", antennas: 1083 },
-  { name: "Buenos Aires", antennas: 602 },
-  { name: "Córdoba", antennas: 93 },
-  { name: "Mendoza", antennas: 45 },
-  { name: "Corrientes", antennas: 57 },
-  { name: "Barcelona", antennas: 18 },
-  { name: "Berlín", antennas: 2060 },
-  { name: "Madrid", antennas: 240 },
-  { name: "San Rafael", antennas: 4 },
+  { name: "San Luis" + " " + getCountryFlag("AR"), antennas: 1083 },
+  { name: "Buenos Aires" + " " + getCountryFlag("AR"), antennas: 602 },
+  { name: "Córdoba" + " " + getCountryFlag("AR"), antennas: 93 },
+  { name: "Mendoza" + " " + getCountryFlag("AR"), antennas: 45 },
+  { name: "Corrientes" + " " + getCountryFlag("AR"), antennas: 57 },
+  { name: "Barcelona" + " " + getCountryFlag("ES"), antennas: 18 },
+  { name: "Berlín" + " " + getCountryFlag("DE"), antennas: 2060 },
+  { name: "Madrid" + " " + getCountryFlag("ES"), antennas: 240 },
+  { name: "San Rafael" + " " + getCountryFlag("AR"), antennas: 4 },
 ];
 
 export default function WifiLocationsCard() {

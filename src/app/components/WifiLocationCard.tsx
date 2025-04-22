@@ -1,29 +1,51 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MapPinCheck } from "lucide-react";
-import { HomeBlock } from "./BlockComp";
+import { Children, cloneElement, ReactNode, useCallback } from "react";
 
 const locations = [
   { name: "San Luis", antennas: 1083 },
+  { name: "Buenos Aires", antennas: 602 },
   { name: "Córdoba", antennas: 93 },
   { name: "Mendoza", antennas: 45 },
+  { name: "Corrientes", antennas: 57 },
   { name: "Barcelona", antennas: 18 },
   { name: "Berlín", antennas: 2060 },
   { name: "Madrid", antennas: 240 },
+  { name: "San Rafael", antennas: 4 },
 ];
 
 export default function WifiLocationsCard() {
-  return (
-    <HomeBlock>
-      <div className="flex flex-col p-10 rounded-2xl border-2 border-zinc-200/70 dark:border-zinc-800 relative bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-lg transition-all">
-        <p className="text-center text-pretty text-xl md:text-2xl px-3 text-zinc-600 dark:text-zinc-400 mb-6">
-          Redes WiFi disponibles en las siguientes localidades
-        </p>
+  const pauseOnHover = useCallback(() => {
+    const marquee = document.getElementById("marquee")!;
+    return (marquee.style.animationPlayState = "paused");
+  }, []);
 
-        <aside className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  const playMarquee = useCallback(() => {
+    const marquee = document.getElementById("marquee")!;
+    return (marquee.style.animationPlayState = "running");
+  }, []);
+
+  const CloneElements = ({ children }: { children: ReactNode }) => {
+    return (
+      <>
+        {Children.map(children, (child) => cloneElement(child as any))}
+        {Children.map(children, (child) => cloneElement(child as any))}
+      </>
+    );
+  };
+  return (
+    <div className="w-[100%] flex p-10 border-y-2 border-zinc-200/70 dark:border-zinc-800 relative bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-lg transition-all z-50">
+      <aside
+        className="flex gap-6"
+        id="marquee"
+        onMouseOver={pauseOnHover}
+        onMouseLeave={playMarquee}
+      >
+        <CloneElements>
           {locations.map((loc) => (
             <div
               key={loc.name}
-              title={loc.name.includes("Otros") ? "Próximamente..." : ""}
-              className="flex items-center gap-4 p-4 rounded-2xl cursor-default border border-zinc-100 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/30 backdrop-blur-md transition hover:scale-[1.02] hover:shadow-md"
+              className="flex items-center gap-4 p-4 w-[260px] rounded-2xl bg-gradient-to-b from-zinc-50/60 to-zinc-200 dark:from-zinc-800/50 dark:to-zinc-900 cursor-default border border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-md transition hover:scale-[1.02] hover:shadow-md"
             >
               <div className="p-3 rounded-full bg-slate-100 dark:bg-zinc-800">
                 <MapPinCheck className="text-blue-500" />
@@ -38,8 +60,8 @@ export default function WifiLocationsCard() {
               </div>
             </div>
           ))}
-        </aside>
-      </div>
-    </HomeBlock>
+        </CloneElements>
+      </aside>
+    </div>
   );
 }

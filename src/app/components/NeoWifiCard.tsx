@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { HomeBlock } from "./BlockComp";
 import { Power } from "lucide-react";
-import { BenQIcon } from "./BenqIcon";
+import { BenQIcon } from "./Icons/BenqIcon";
 import { WindowsLogo } from "./DownloadButton/Icon/WindowsLogo";
 import Link from "next/link";
 

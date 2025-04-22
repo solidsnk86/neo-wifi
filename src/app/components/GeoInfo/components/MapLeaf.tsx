@@ -131,6 +131,7 @@ const LeafMap = ({
           animate: true,
           duration: 2,
         });
+        setSelectValue("");
       });
 
       return div;
@@ -256,21 +257,22 @@ const LeafMap = ({
           [currentPosition.latitude, currentPosition.longitude],
           [position.lat, position.lon],
         ],
-        { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
+        { color: "blue", weight: 2, opacity: 0.7, dashArray: "5, 5" }
       ).addTo(map);
     };
+
     L.polyline(
       [
         [currentPosition.latitude, currentPosition.longitude],
         [antennaPosition.coords.lat, antennaPosition.coords.lon],
       ],
-      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
+      { color: "blue", weight: 2, opacity: 0.7, dashArray: "5, 5" }
     )
       .addTo(map)
       .bindPopup(`Distancia: ${antennaPosition.distance}`)
       .bindTooltip(`La más cercana: ${antennaPosition.distance}`, {
         permanent: true,
-        direction: "top",
+        direction: "auto",
       });
 
     L.polyline(
@@ -278,13 +280,13 @@ const LeafMap = ({
         [currentPosition.latitude, currentPosition.longitude],
         [secondAntennaPosition.coords.lat, secondAntennaPosition.coords.lon],
       ],
-      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
+      { color: "blue", weight: 2, opacity: 0.7, dashArray: "5, 5" }
     )
       .addTo(map)
       .bindPopup(`Distancia: ${secondAntennaPosition.distance}`)
       .bindTooltip(`Segunda más cercana: ${secondAntennaPosition.distance}`, {
         permanent: true,
-        direction: "top",
+        direction: "auto",
       });
 
     L.polyline(
@@ -298,7 +300,7 @@ const LeafMap = ({
       .bindPopup(`Distancia: ${thirdAntennaPosition.distance}`)
       .bindTooltip(`Tercera más cercana: ${thirdAntennaPosition.distance}`, {
         permanent: true,
-        direction: "top",
+        direction: "auto",
       });
 
     addAntennaMarker(
@@ -433,23 +435,35 @@ const LeafMap = ({
   const cleanedPlaces = Array.from(new Set(places))
     .sort()
     .filter((item) => item !== "Desconocida");
+
   const buenosaires = cleanedPlaces.find((value) => value === "Buenos Aires");
+  const mendoza = cleanedPlaces.find((value) => value === "Mendoza");
   const corrientes = cleanedPlaces.find((value) => value === "Corrientes");
   const cordoba = cleanedPlaces.find((value) => value === "Córdoba");
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
   const madrid = cleanedPlaces.find((value) => value === "Madrid");
+  const sanrafael = cleanedPlaces.find((value) => value === "San Rafael");
+  const montecoman = cleanedPlaces.find((value) => value === "Monte Comán");
+  const sosneado = cleanedPlaces.find((value) => value === "El Sosneado");
+  const malargue = cleanedPlaces.find((value) => value === "Malargüe");
 
-  const checkValues = (val: string) => {
+  const filterValues = (val: string) => {
     return (
       val !== corrientes &&
       val !== berlin &&
       val !== barcelona &&
       val !== madrid &&
       val !== cordoba &&
-      val !== buenosaires
+      val !== buenosaires &&
+      val !== mendoza &&
+      val !== sanrafael &&
+      val !== sosneado &&
+      val !== montecoman &&
+      val !== malargue
     );
   };
+
   return (
     <>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
@@ -464,7 +478,7 @@ const LeafMap = ({
             {/* Argentina - San Luis */}
             <optgroup label="🇦🇷 Argentina - San Luis">
               {cleanedPlaces
-                .filter((value) => checkValues(value))
+                .filter((value) => filterValues(value))
                 .map((item) => (
                   <option key={item} value={item}>
                     {item}
@@ -483,6 +497,17 @@ const LeafMap = ({
             {cordoba && (
               <optgroup label="🇦🇷 Argentina - Córdoba">
                 <option value={cordoba}>{cordoba}</option>
+              </optgroup>
+            )}
+
+            {/* Argentina - Mendoza  */}
+            {mendoza && (
+              <optgroup label="🇦🇷 Argentina - Mendoza">
+                <option value={mendoza}>{mendoza}</option>
+                <option value={sanrafael}>{sanrafael}</option>
+                <option value={malargue}>{malargue}</option>
+                <option value={montecoman}>{montecoman}</option>
+                <option value={sosneado}>{sosneado}</option>
               </optgroup>
             )}
 

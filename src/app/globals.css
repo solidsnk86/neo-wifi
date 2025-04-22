@@ -651,6 +651,22 @@ html {
   stroke: #333;
 }
 
+#marquee {
+  display: flex;
+  font-size: 0.8rem;
+  animation: xScrolling 53s linear infinite;
+  color: #777;
+}
+
+@keyframes xScrolling {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @keyframes fade {
   0%,
   100% {

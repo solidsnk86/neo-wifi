@@ -39,6 +39,7 @@ export const mapSharer = (setIsLoading: (value: boolean) => boolean) => {
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
           setIsLoading(false);
+          document.body.click();
           await navigator.share({
             title: "Mi ubicación de antenas!",
             text: `Hola éstas son las antenas más próximas a mi disposición.`,

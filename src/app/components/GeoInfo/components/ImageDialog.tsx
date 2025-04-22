@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useWindowSize } from "@/app/hooks/iseWindowSize";
+import { useWindowSize } from "@/app/hooks/useWindowSize";
 import { closeDialog, showDialog } from "@/utils/dialog";
 import { X } from "lucide-react";
 import { ReactNode } from "react";

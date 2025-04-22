@@ -89,7 +89,7 @@ export default function Home() {
           <HomeBlockTitle>
             Conecta a WiFi gratuito en San Luis y otras ciudades
           </HomeBlockTitle>
-          <p className="text-center text-xl mt-5">
+          <p className="text-center text-xl md:text-2xl mt-5">
             Obtené acceso a diferentes puntos wifi
           </p>
         </article>

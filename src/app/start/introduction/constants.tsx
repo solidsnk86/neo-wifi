@@ -78,7 +78,7 @@ export const dialogMap = [
   {
     paragraph: (
       <>
-        <HomeBlockTitle>Coordenadas</HomeBlockTitle>
+        <HomeBlockTitle className="my-16">Coordenadas</HomeBlockTitle>
         <p>
           En esta misma web en la sección principal se proveen las coordenadas
           de latitud y longitud para ser empleadas en la app. Para ello debemos

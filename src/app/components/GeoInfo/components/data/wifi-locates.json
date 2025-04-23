@@ -47861,5 +47861,60 @@
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
     "location": "Madrid"
+  },
+  {
+    "name": "SQUARE MAURICE GARDETTE",
+    "MAC": null,
+    "name5g": "RUE LACHARRIERE 75011 PARIS France",
+    "MAC55": null,
+    "lat": 48.860935651866896,
+    "lon": 2.375660711152797,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "MAIRIE D'ARRONDISSEMENT 1er - BIBLIOTHEQUE LOUVRE",
+    "MAC": null,
+    "name5g": "4, PLACE DU LOUVRE 75001",
+    "MAC55": null,
+    "lat": 48.86002295247616,
+    "lon": 2.3410407169108445,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "SQUARE ORILLON JULES VERNES",
+    "MAC": null,
+    "name5g": "19 BIS, RUE DE L ORILLON 75011",
+    "MAC55": null,
+    "lat": 48.869952803427374,
+    "lon": 2.375422227302904,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "MAIRIE D'ARRONDISSEMENT 2e",
+    "MAC": null,
+    "name5g": "8, RUE DE LA BANQUE 75002",
+    "MAC55": null,
+    "lat": 48.866873545399294,
+    "lon": 2.3404607695946953,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "ACTIVITES ARTISANALES ET CREATION",
+    "MAC": null,
+    "name5g": "30, RUE DU FAUBOURG SAINT ANTOINE 75012",
+    "MAC55": null,
+    "lat": 48.85244222596271,
+    "lon": 2.3716670622952765,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
   }
 ]

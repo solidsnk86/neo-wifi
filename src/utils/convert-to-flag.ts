@@ -1,4 +1,4 @@
-export const getCountryFlag = (countryCode: string) => {
+const getCountryFlag = (countryCode: string) => {
   const codePoints = countryCode
     .toUpperCase()
     .split("")
@@ -6,3 +6,5 @@ export const getCountryFlag = (countryCode: string) => {
   if (!countryCode) return "🏳";
   return String.fromCodePoint(...codePoints);
 };
+
+console.log(getCountryFlag("fr"));

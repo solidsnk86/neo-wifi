@@ -447,6 +447,7 @@ const LeafMap = ({
   const montecoman = cleanedPlaces.find((value) => value === "Monte Comán");
   const sosneado = cleanedPlaces.find((value) => value === "El Sosneado");
   const malargue = cleanedPlaces.find((value) => value === "Malargüe");
+  const francia = cleanedPlaces.find((value) => value === "Francia");
 
   const filterValues = (val: string) => {
     return (
@@ -460,7 +461,8 @@ const LeafMap = ({
       val !== sanrafael &&
       val !== sosneado &&
       val !== montecoman &&
-      val !== malargue
+      val !== malargue &&
+      val !== francia
     );
   };
 
@@ -530,6 +532,13 @@ const LeafMap = ({
               <optgroup label="🇪🇸 España">
                 {barcelona && <option value={barcelona}>{barcelona}</option>}
                 {madrid && <option value={madrid}>{madrid}</option>}
+              </optgroup>
+            )}
+
+            {/* Francia */}
+            {francia && (
+              <optgroup label="'🇫🇷 Francia">
+                {francia && <option value={francia}>{francia}</option>}
               </optgroup>
             )}
           </select>

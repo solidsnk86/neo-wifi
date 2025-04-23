@@ -8,11 +8,12 @@ const locations = [
   { name: "Buenos Aires" + " " + getCountryFlag("AR"), antennas: 602 },
   { name: "Córdoba" + " " + getCountryFlag("AR"), antennas: 93 },
   { name: "Mendoza" + " " + getCountryFlag("AR"), antennas: 45 },
+  { name: "San Rafael" + " " + getCountryFlag("AR"), antennas: 4 },
   { name: "Corrientes" + " " + getCountryFlag("AR"), antennas: 57 },
   { name: "Barcelona" + " " + getCountryFlag("ES"), antennas: 18 },
   { name: "Berlín" + " " + getCountryFlag("DE"), antennas: 2060 },
   { name: "Madrid" + " " + getCountryFlag("ES"), antennas: 240 },
-  { name: "San Rafael" + " " + getCountryFlag("AR"), antennas: 4 },
+  { name: "Francia" + " " + getCountryFlag("FR"), antennas: 250 },
 ];
 
 export default function WifiLocationsCard() {

@@ -47927,5 +47927,27 @@
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
     "location": "Francia"
+  },
+  {
+    "name": "CENTRE D'HEBERGEMENT MAURICE RAVEL",
+    "MAC": null,
+    "name5g": "6, AVENUE MAURICE RAVEL 75012",
+    "MAC55": null,
+    "lat": 48.84157285052319,
+    "lon": 2.4116867499595562,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "DSTI",
+    "MAC": null,
+    "name5g": "227, RUE DE BERCY 75012",
+    "MAC55": null,
+    "lat": 48.84647580623722,
+    "lon": 2.3697884027309386,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
   }
 ]

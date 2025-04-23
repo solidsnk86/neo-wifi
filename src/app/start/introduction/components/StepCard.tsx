@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { ReactNode } from "react";
 
 export function StepCard({
   paragraph,
   url,
   info,
 }: {
-  paragraph: React.ReactNode;
+  paragraph: ReactNode;
   url: string;
   info: string;
 }) {

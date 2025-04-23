@@ -47916,5 +47916,16 @@
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
     "location": "Francia"
+  },
+  {
+    "name": "BIBLIOTHEQUE HELENE BERR - PICPUS 2",
+    "MAC": null,
+    "name5g": "70, RUE DE PICPUS 75012",
+    "MAC55": null,
+    "lat": 48.8425735811292,
+    "lon": 2.3974447340567213,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
   }
 ]

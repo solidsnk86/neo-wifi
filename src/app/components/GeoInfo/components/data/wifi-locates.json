@@ -47975,10 +47975,43 @@
   {
     "name": "SQUARE PAUL LANGEVIN",
     "MAC": null,
-    "name5g": "RUE DES ECOLES 75005 PARIS",
+    "name5g": "RUE DES ECOLES 75005",
     "MAC55": null,
     "lat": 48.848025946319055,
     "lon": 2.350412775420885,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "JARDIN FLOTTANT",
+    "MAC": null,
+    "name5g": "Berges de Seine Rive Gauche Port du Gros Caillou",
+    "MAC55": null,
+    "lat": 48.8629187352488,
+    "lon": 2.30410803210179935,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "DISCOTHEQUE DES HALLES",
+    "MAC": null,
+    "name5g": "8, PORTE SAINT EUSTACHE 75001",
+    "MAC55": null,
+    "lat": 48.86279441418658,
+    "lon": 2.3453195272425456,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "BIBLIOTHEQUE FRANCOIS TRUFFAUT",
+    "MAC": null,
+    "name5g": "101, RUE BERGER 75001",
+    "MAC55": null,
+    "lat": 48.86267272454399,
+    "lon": 2.3440602603915637,
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
     "location": "Francia"

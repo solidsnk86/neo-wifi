@@ -47949,5 +47949,38 @@
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
     "location": "Francia"
+  },
+  {
+    "name": "MAIRIE D'ARRONDISSEMENT 5e",
+    "MAC": null,
+    "name5g": "21, PLACE DU PANTHEON 75005",
+    "MAC55": null,
+    "lat": 48.846215890141316,
+    "lon": 2.3445443824996133,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "MAIRIE D'ARRONDISSEMENT 6e",
+    "MAC": null,
+    "name5g": "78, RUE BONAPARTE 75006",
+    "MAC55": null,
+    "lat": 48.85059403629957,
+    "lon": 2.332593073917884,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
+  },
+  {
+    "name": "SQUARE PAUL LANGEVIN",
+    "MAC": null,
+    "name5g": "RUE DES ECOLES 75005 PARIS",
+    "MAC55": null,
+    "lat": 48.848025946319055,
+    "lon": 2.350412775420885,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
   }
 ]

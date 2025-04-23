@@ -537,7 +537,7 @@ const LeafMap = ({
 
             {/* Francia */}
             {francia && (
-              <optgroup label="'🇫🇷 Francia">
+              <optgroup label="🇫🇷 Francia">
                 {francia && <option value={francia}>{francia}</option>}
               </optgroup>
             )}

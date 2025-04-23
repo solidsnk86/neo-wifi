@@ -48015,5 +48015,16 @@
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
     "location": "Francia"
+  },
+  {
+    "name": "MAISON DES ASSOCIATIONS DU 02",
+    "MAC": null,
+    "name5g": "23, RUE GRENETA 75002",
+    "MAC55": null,
+    "lat": 48.86516158262107, 
+    "lon": 2.3510103892860568,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Francia"
   }
 ]

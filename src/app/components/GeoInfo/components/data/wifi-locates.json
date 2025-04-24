@@ -26579,7 +26579,7 @@
     "location": "San Juan"
   },
   {
-    "name": "Estación de Transbordo Córdoba",
+    "name": "Estación Córdoba",
     "name5g": null,
     "lat": -31.542006409949547,
     "lon": -68.53656014158454,
@@ -26631,6 +26631,78 @@
     "name5g": null,
     "lat": -30.21360642437197,
     "lon": -69.14141078894794,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Desamparados",
+    "name5g": null,
+    "lat": -31.52689423058347,
+    "lon": -68.56668131185164,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Italia",
+    "name5g": null,
+    "lat": -31.53480408261094,
+    "lon": -68.55071239694006,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Jachal",
+    "name5g": null,
+    "lat": -31.570035850085713,
+    "lon": -68.54557817229329,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Juan Jufré",
+    "name5g": null,
+    "lat": -31.523043241750766,
+    "lon": -68.52365895436148,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Laprida",
+    "name5g": null,
+    "lat": -31.534886542861532,
+    "lon": -68.53117725823365,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Pocito",
+    "name5g": null,
+    "lat": -31.65771483865212,
+    "lon": -68.57903393588947,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Tamberías",
+    "name5g": "Tamberías",
+    "lat": -31.458583009178685,
+    "lon": -69.42161761771975,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Trinidad",
+    "name5g": null,
+    "lat": -31.552271054511102,
+    "lon": -68.52231305893523,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Patricias",
+    "name5g": "Villa Calingasta",
+    "lat": -31.334486710855955,
+    "lon": -69.42076665274128,
     "type": "San Juan Innova",
     "location": "San Juan"
   },

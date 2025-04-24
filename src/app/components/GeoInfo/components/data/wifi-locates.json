@@ -26699,10 +26699,98 @@
     "location": "San Juan"
   },
   {
-    "name": "Plaza Patricias",
+    "name": "Plaza Patricias Sanjuaninas",
     "name5g": "Villa Calingasta",
     "lat": -31.334486710855955,
     "lon": -69.42076665274128,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plazoleta Zonda",
+    "name5g": "Zonda",
+    "lat": -31.55021085096289,
+    "lon": -68.73135374739827,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Punta Negra",
+    "name5g": "Dique",
+    "lat": -31.528611915910876,
+    "lon": -68.83653859521878,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Teatro del Bicentenario",
+    "name5g": "Teatro",
+    "lat": -31.53992031941098,
+    "lon": -68.53765066437447,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Aduana",
+    "name5g": "Aduana Iglesia",
+    "lat": -30.327863678119922,
+    "lon": -69.23616148310163,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Escuela Juan José Ignacio F. de Maradona",
+    "name5g": "Balde del Rosario",
+    "lat": -30.322065702979522,
+    "lon": -67.69672344031525,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Escuela República Argentina",
+    "name5g": "Bermejo",
+    "lat": -31.58909149570437,
+    "lon": -67.66056456803842,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Escuela Hilario Ascasubi",
+    "name5g": "Colanguil",
+    "lat": -30.031360311602132,
+    "lon": -69.29145323965592,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Escuela Paso de los Andes",
+    "name5g": "Malimán de Abajo",
+    "lat": -29.958907050680622,
+    "lon": -69.17908266735691,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Escuela Hipólito Buchardo",
+    "name5g": "Mogna",
+    "lat": -30.694225057626614,
+    "lon": -68.36135035889087,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Parque Ischigualasto",
+    "name5g": "Ischigualasto",
+    "lat": -30.163726724265448,
+    "lon": -67.84318042004018,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Escuela Franklin Rawson",
+    "name5g": null,
+    "lat": -31.571911108613268,
+    "lon": -68.57524666314305,
     "type": "San Juan Innova",
     "location": "San Juan"
   },

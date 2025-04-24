@@ -62,7 +62,7 @@ export default function Page() {
     setDownloadComplete(false);
     const link = document.createElement("a");
     link.href =
-      "https://github.com/solidsnk86/neo-wifi/releases/download/v1.1.3/Neo-Wifi.Setup.1.1.3.rar";
+      "https://github.com/solidsnk86/neo-wifi/releases/download/v1.2.4/Neo-Wifi.Setup.1.2.4.rar";
     link.download = `Neo-Wifi Setup ${data.version}.rar`;
     await sendDataToSupabase().catch((err) =>
       console.error("Error al enviar datos:", err)
@@ -83,6 +83,9 @@ export default function Page() {
     window.scrollTo({
       top: 0,
     });
+    setTimeout(() => {
+      window.open("https://github.com/solidsnk86/neo-wifi/releases/tag/v1.2.4");
+    }, 6000);
     return (
       <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
         <MouseTrail />

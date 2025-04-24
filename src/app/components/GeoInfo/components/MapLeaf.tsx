@@ -440,14 +440,15 @@ const LeafMap = ({
   const mendoza = cleanedPlaces.find((value) => value === "Mendoza");
   const corrientes = cleanedPlaces.find((value) => value === "Corrientes");
   const cordoba = cleanedPlaces.find((value) => value === "Córdoba");
-  const berlin = cleanedPlaces.find((value) => value === "Berlín");
-  const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
-  const madrid = cleanedPlaces.find((value) => value === "Madrid");
+  const sanjuan = cleanedPlaces.find((value) => value === "San Juan");
   const sanrafael = cleanedPlaces.find((value) => value === "San Rafael");
   const montecoman = cleanedPlaces.find((value) => value === "Monte Comán");
   const sosneado = cleanedPlaces.find((value) => value === "El Sosneado");
   const malargue = cleanedPlaces.find((value) => value === "Malargüe");
   const francia = cleanedPlaces.find((value) => value === "Francia");
+  const berlin = cleanedPlaces.find((value) => value === "Berlín");
+  const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
+  const madrid = cleanedPlaces.find((value) => value === "Madrid");
 
   const filterValues = (val: string) => {
     return (
@@ -462,7 +463,8 @@ const LeafMap = ({
       val !== sosneado &&
       val !== montecoman &&
       val !== malargue &&
-      val !== francia
+      val !== francia &&
+      val !== sanjuan
     );
   };
 
@@ -499,6 +501,13 @@ const LeafMap = ({
             {cordoba && (
               <optgroup label="🇦🇷 Argentina - Córdoba">
                 <option value={cordoba}>{cordoba}</option>
+              </optgroup>
+            )}
+
+            {/* Argentina - San Juan */}
+            {sanjuan && (
+              <optgroup label="🇦🇷 Argentina - San Juan">
+                <option value={sanjuan}>{sanjuan}</option>
               </optgroup>
             )}
 

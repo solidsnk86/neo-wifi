@@ -8,6 +8,7 @@ const locations = [
   { name: "Buenos Aires" + " " + getCountryFlag("AR"), antennas: 602 },
   { name: "Córdoba" + " " + getCountryFlag("AR"), antennas: 93 },
   { name: "Mendoza" + " " + getCountryFlag("AR"), antennas: 45 },
+  { name: "San Juan" + " " + getCountryFlag("AR"), antennas: 32 },
   { name: "San Rafael" + " " + getCountryFlag("AR"), antennas: 4 },
   { name: "Corrientes" + " " + getCountryFlag("AR"), antennas: 57 },
   { name: "Barcelona" + " " + getCountryFlag("ES"), antennas: 18 },

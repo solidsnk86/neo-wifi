@@ -7,11 +7,11 @@ export const customIcon = L.divIcon({
   <g transform="translate(2, 2)">
     <path
       d="M100 0 
-           C45 0 0 45 0 100 
-           C0 200 95 250 100 295 
-           C105 250 200 200 200 100 
-           C200 45 155 0 100 0 
-           Z"
+      C45 0 0 45 0 100 
+      C0 200 95 250 100 295 
+      C105 250 200 200 200 100 
+      C200 45 155 0 100 0 
+      Z"
       fill="#EA4335"
       stroke="#B31412"
       stroke-width="3"

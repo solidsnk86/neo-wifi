@@ -26603,6 +26603,38 @@
     "location": "San Juan"
   },
   {
+    "name": "Parque de Mayo",
+    "name5g": null,
+    "lat": -31.533804961671702,
+    "lon": -68.54046521706003,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Paseo La Calle",
+    "name5g": "Parque Infantil",
+    "lat": -31.45999872627584,
+    "lon": -69.42197674776197,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza 25 de Mayo",
+    "name5g": null,
+    "lat": -31.537312793957415,
+    "lon": -68.52492192012309,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Plaza Benita Molina",
+    "name5g": null,
+    "lat": -30.21360642437197,
+    "lon": -69.14141078894794,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
     "name": "Barcelona-Wifi (Pl. de Catalunya - Rda. Sant Pere)",
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "MAC": null,

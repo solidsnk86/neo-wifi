@@ -26563,6 +26563,46 @@
     "location": "Buenos Aires"
   },
   {
+    "name": "25 de Mayo y Av. España",
+    "name5g": null,
+    "lat": -31.53266746631973,
+    "lon": -68.53700633551072,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Museo de la Memoria Urbana",
+    "name5g": null,
+    "lat": -31.530779549229862,
+    "lon": -68.54289459683201,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Estación de Transbordo Córdoba",
+    "name5g": null,
+    "lat": -31.542006409949547,
+    "lon": -68.53656014158454,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Casa de Sarmiento",
+    "name5g": null,
+    "lat": -31.53469240196985,
+    "lon": -68.5289885446547,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
+    "name": "Estadio Aldo Cantoni",
+    "name5g": null,
+    "lat": -31.53217317050085,
+    "lon": -68.544779914683765,
+    "type": "San Juan Innova",
+    "location": "San Juan"
+  },
+  {
     "name": "Barcelona-Wifi (Pl. de Catalunya - Rda. Sant Pere)",
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "MAC": null,
@@ -48021,7 +48061,7 @@
     "MAC": null,
     "name5g": "23, RUE GRENETA 75002",
     "MAC55": null,
-    "lat": 48.86516158262107, 
+    "lat": 48.86516158262107,
     "lon": 2.3510103892860568,
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,

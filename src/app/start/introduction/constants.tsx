@@ -73,7 +73,7 @@ export const dialogMap = [
       </p>
     ),
     info: "Pantalla principal de la aplicación",
-    url: "/assets/Neo-Wifi_wJQ5REdFJa.png",
+    url: "/assets/neo.wifi-app-v1-2-4.png",
   },
   {
     paragraph: (
@@ -87,7 +87,7 @@ export const dialogMap = [
       </>
     ),
     info: "Ventana emergente para activación de la ubicación",
-    url: "/assets/Neo-Wifi_wJQ5REdFJa.png",
+    url: "/assets/neo-wifi-coordenadas.png",
   },
   {
     paragraph: (

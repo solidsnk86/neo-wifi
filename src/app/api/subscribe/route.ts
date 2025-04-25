@@ -183,7 +183,7 @@ export async function POST(req: Request) {
         <div class="logo">
         <div class="logo-icon">📡</div>
         </div>
-        <div class="header">Neo-Wifi App 1.1.3</div>
+        <div class="header">Neo-Wifi App 1.2.4</div>
         <div class="subheader">Conectividad inteligente para San Luis</div>
 
         <div class="divider"></div>
@@ -195,7 +195,7 @@ export async function POST(req: Request) {
         </div>
 
         <div class="highlight">
-        Ahora en versión beta 1.0.2 con nuevas funcionalidades y mayor
+        Ahora en la 1.2.4 con nuevas funcionalidades y mayor
         rendimiento.
         </div>
 

@@ -10,11 +10,6 @@ interface CpeInfoState {
 
 const initialState: CpeInfoState = {
   data: {
-    mode: "",
-    devInfo: "",
-    devVer: "",
-    is2G: false,
-    username: "",
     version: "",
   },
   loading: false,

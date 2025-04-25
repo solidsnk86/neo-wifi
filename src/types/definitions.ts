@@ -31,11 +31,6 @@ interface DownloadsProps {
 }
 
 export interface CpeInfoProps {
-  mode: string;
-  devInfo: string;
-  devVer: string;
-  username: string;
-  is2G: boolean;
   version: string;
 }
 

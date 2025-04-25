@@ -4,8 +4,10 @@ import { Power } from "lucide-react";
 import { BenQIcon } from "./Icons/BenqIcon";
 import { WindowsLogo } from "./DownloadButton/Icon/WindowsLogo";
 import Link from "next/link";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export default function NeoWifiAppCard() {
+  const { width } = useWindowSize();
   return (
     <HomeBlock>
       <div className="flex flex-col md:flex-row items-center p-8 relative rounded-2xl border-2 border-zinc-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-800/50 backdrop-blur-lg transition-all">
@@ -20,10 +22,10 @@ export default function NeoWifiAppCard() {
           </p>
           <Link
             href="/download"
-            className="flex justify-center items-center gap-2 p-6 bg-gradient-to-b from-blue-500 to-blue-700 text-white font-semibold rounded-3xl text-xl hover:opacity-85"
+            className="flex justify-center items-center gap-2 md:p-6 p-4 bg-gradient-to-b from-blue-500 to-blue-700 text-white font-semibold rounded-3xl text-xl hover:opacity-85"
           >
             <WindowsLogo width={24} height={24} className="inline" />
-            Descarga para Windows
+            {width < 762 ? "Descarga" : "Descarga para Windows"}
           </Link>
         </div>
 

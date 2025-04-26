@@ -13,12 +13,77 @@ import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import { MousePointer2, Quote } from "lucide-react";
+import { ArrowUp, MousePointer2, Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
+import { FormEvent, useEffect, useState } from "react";
+import MarkdownRenderer from "./components/MarkDownRender";
+
+interface ContextAIProps {
+  context: {
+    id: string;
+    message: {
+      role: string;
+      content: [{ type: string; text: string }];
+    };
+    finishReason: string;
+  };
+}
 
 export default function Home() {
+  const [response, setResponse] = useState<ContextAIProps>();
+  const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [reply, setReply] = useState("");
+
+  const sendQuery = async (text: string) => {
+    try {
+      setIsLoading(true);
+      await Promise.all([
+        fetch(`/api/neo-ai/?query=${encodeURIComponent(text)}`)
+          .then((res) => res.json())
+          .then((data) => setResponse(data)),
+      ]);
+    } catch (err) {
+      setIsLoading(false);
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (query) {
+      await sendQuery(query);
+      setQuery("");
+      setReply("");
+    }
+  };
+
+  useEffect(() => {
+    if (response && response.context && response.context.message.content) {
+      const fullText = response.context.message.content
+        .map((chunk) => chunk.text)
+        .join("")
+        .trim();
+
+      let currentIndex = 0;
+
+      const interval = setInterval(() => {
+        if (currentIndex < fullText.length) {
+          setReply((prev) => prev + fullText[currentIndex]);
+          currentIndex++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 50);
+
+      return () => clearInterval(interval);
+    }
+  }, [response]);
+
   return (
     <>
       <MouseTrail />
@@ -181,6 +246,38 @@ export default function Home() {
 
         <HomeBlock className="px-3">
           <AccordionList />
+        </HomeBlock>
+
+        <HomeBlock className="flex-col gap-4">
+          <h3 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50 font-['bogue-black']">
+            ¿Necesitas ayuda con la documentación?
+          </h3>
+          <section className="w-full border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
+            <div className="max-h-96 overflow-y-auto p-6">
+              <MarkdownRenderer content={reply} />
+            </div>
+            {isLoading && <p className="pl-6">Pensando...</p>}
+            <form
+              onSubmit={handleSubmit}
+              className="p-6 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800"
+            >
+              <input
+                type="text"
+                name=""
+                id=""
+                className="p-2 border border-zinc-200/70 dark:border-zinc-800 rounded-xl w-full"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Pregunta lo que quieras"
+              />
+              <button
+                type="submit"
+                className="px-2 border border-zinc-200/70 dark:border-zinc-800 rounded-full bg-zinc-200 hover:opacity-80"
+              >
+                <ArrowUp className="text-zinc-800" />
+              </button>
+            </form>
+          </section>
         </HomeBlock>
 
         <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50 font-['bogue-black']">

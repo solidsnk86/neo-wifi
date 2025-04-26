@@ -57,6 +57,7 @@ export async function GET(req: NextRequest) {
             ---
             
             6. La aplicación es solamente para ordenadores PC Windows de 32 bits o 64 bits.
+            El desarrollador se llama Gabriel Calcagni y es un buen chico!
             Sé claro, ordenado y paciente en tus respuestas. Si ves que el usuario está confundido, propón ejemplos o guíalo con preguntas amables. ☀️
             `,
           },

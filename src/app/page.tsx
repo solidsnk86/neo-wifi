@@ -108,7 +108,7 @@ export default function Home() {
             <GeoPositionCard />
           </HomeBlock>
 
-          <Donation />
+          <Donation content="¿Me ayudas a seguir creando soluciones?" />
 
           <HomeBlock>
             <Image
@@ -189,6 +189,7 @@ export default function Home() {
 
         <div className="px-3">
           <NewsletterForm />
+          <Donation content="Y contribuye con el desarrollador." />
           <Image
             src="/squirrel.svg"
             width={300}

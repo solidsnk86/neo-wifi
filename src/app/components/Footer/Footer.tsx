@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { categories, quickLinks, socialLinks } from "@/constants";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
@@ -58,10 +59,18 @@ export const Footer = () => {
 
         <div className="border-t border-zinc-300 dark:border-zinc-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm mb-4 md:mb-0">
-              Neo-Wifi © {new Date().getFullYear()} • Todos los derechos
-              reservados
-            </p>
+            <div className="flex gap-2 items-center mb-4 md:mb-0">
+              <Image
+                src="/assets/neo_pixelart-removebg-preview.png"
+                width={24}
+                height={24}
+                alt="The Neo Protagonist"
+              />
+              <p className="text-sm">
+                Neo-Wifi © {new Date().getFullYear()} • Todos los derechos
+                reservados
+              </p>
+            </div>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, url, ariaLabel }) => (
                 <Link

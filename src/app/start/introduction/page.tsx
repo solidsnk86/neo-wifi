@@ -90,7 +90,7 @@ export default function Page() {
         </section>
       </section>
 
-      <Donation />
+      <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
       <Footer />
     </main>
   );

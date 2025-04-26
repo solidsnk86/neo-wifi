@@ -78,7 +78,7 @@ export default function Home() {
         } else {
           clearInterval(interval);
         }
-      }, 50);
+      }, 60);
 
       return () => clearInterval(interval);
     }

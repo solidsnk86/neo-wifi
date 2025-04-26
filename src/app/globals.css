@@ -727,3 +727,32 @@ html {
     }
   }
 }
+
+.shimmer-text {
+  position: relative;
+  display: inline-block;
+  color: var(--foreground);
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #eeeeee 30%,
+    #ffffff 50%,
+    #eeeeee 70%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

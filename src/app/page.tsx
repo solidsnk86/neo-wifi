@@ -62,27 +62,27 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    if (response && response.context && response.context.message.content) {
-      const fullText = response.context.message.content
-        .map((chunk) => chunk.text)
-        .join("")
-        .trim();
+  // useEffect(() => {
+  //   if (response && response.context && response.context.message.content) {
+  //     const fullText = response.context.message.content
+  //       .map((chunk) => chunk.text)
+  //       .join("")
+  //       .trim();
 
-      let currentIndex = 0;
+  //     let currentIndex = 0;
 
-      const interval = setInterval(() => {
-        if (currentIndex < fullText.length) {
-          setReply((prev) => prev + fullText[currentIndex]);
-          currentIndex++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 60);
+  //     const interval = setInterval(() => {
+  //       if (currentIndex < fullText.length) {
+  //         setReply((prev) => prev + fullText[currentIndex]);
+  //         currentIndex++;
+  //       } else {
+  //         clearInterval(interval);
+  //       }
+  //     }, 66);
 
-      return () => clearInterval(interval);
-    }
-  }, [response]);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [response]);
 
   return (
     <>
@@ -254,18 +254,29 @@ export default function Home() {
           </h3>
           <section className="w-full border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
             <div className="max-h-96 overflow-y-auto p-6">
-              <MarkdownRenderer content={reply} />
+              {query && (
+                <span className="w-fit my-3 p-2 flex justify-end border border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50">
+                  {query}
+                </span>
+              )}
+              <MarkdownRenderer
+                content={response?.context.message.content[0].text || ""}
+              />
             </div>
-            {isLoading && <p className="pl-6">Pensando...</p>}
+            {isLoading && (
+              <div className="loader-container pl-6 my-3">
+                Pensando<span className="dot">.</span>
+                <span className="dot">.</span>
+                <span className="dot">.</span>
+              </div>
+            )}
             <form
               onSubmit={handleSubmit}
-              className="p-6 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800"
+              className="p-4 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800"
             >
               <input
                 type="text"
-                name=""
-                id=""
-                className="p-2 border border-zinc-200/70 dark:border-zinc-800 rounded-xl w-full"
+                className="p-2 border border-zinc-200/70 dark:border-zinc-800 rounded-xl w-full text-zinc-200"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Pregunta lo que quieras"

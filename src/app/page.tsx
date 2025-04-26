@@ -17,7 +17,7 @@ import { ArrowUp, MousePointer2, Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import MarkdownRenderer from "./components/MarkDownRender";
 
 interface ContextAIProps {
@@ -35,7 +35,7 @@ export default function Home() {
   const [response, setResponse] = useState<ContextAIProps>();
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [reply, setReply] = useState("");
+  // const [reply, setReply] = useState("");
 
   const sendQuery = async (text: string) => {
     try {
@@ -58,7 +58,7 @@ export default function Home() {
     if (query) {
       await sendQuery(query);
       setQuery("");
-      setReply("");
+      // setReply("");
     }
   };
 
@@ -248,7 +248,7 @@ export default function Home() {
           <AccordionList />
         </HomeBlock>
 
-        <HomeBlock className="flex-col gap-4">
+        <HomeBlock className="flex-col gap-4 px-3">
           <h3 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50 font-['bogue-black']">
             ¿Necesitas ayuda con la documentación?
           </h3>

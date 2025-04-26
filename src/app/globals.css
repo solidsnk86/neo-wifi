@@ -326,6 +326,8 @@ html {
   text-rendering: optimizeLegibility;
 
   & pre {
+    flex-wrap: wrap;
+    overflow-x: auto;
     padding: 6px;
     color: #6a994e;
     border: 1px solid var(--border-color);

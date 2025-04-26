@@ -152,7 +152,7 @@ export default function Home() {
                   width={45}
                   height={45}
                   alt="Avatar Gabriel"
-                  className="rounded-full bg-yellow-300 border-2 border-zinc-200/70"
+                  className="rounded-full border-2 border-[#4E4E4E] outline-[1px] outline-double outline-black"
                 />
                 <div className="flex flex-col font-semibold text-zinc-600">
                   <span>Gabriel Calcagni,</span>

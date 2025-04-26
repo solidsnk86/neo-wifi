@@ -34,11 +34,14 @@ export const Navbar = () => {
     <nav className="flex justify-between items-center md:px-6 px-4 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl bg-[#F5F5F5] dark:bg-zinc-900/50 border-b border-zinc-200/70 dark:border-zinc-800">
       <Link
         href="/"
-        className="flex gap-2 hover:scale-105 transition-transform duration-300 hover:drop-shadow-md"
+        className="flex gap-2 hover:scale-105 transition-transform duration-300 hover:drop-shadow-md relative"
         title="Página principal"
         aria-label="Ir a la página principal"
       >
         <NeoWifiLogo className="cursor-pointer" width={150} height={56} />
+        <span className="absolute -right-8 -bottom-3 -rotate-12 px-2 rounded-full bg-yellow-300 text-white dark:text-black border">
+          beta
+        </span>
       </Link>
 
       <div className="md:flex hidden items-center gap-8">

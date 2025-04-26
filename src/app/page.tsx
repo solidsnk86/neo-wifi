@@ -101,23 +101,53 @@ export default function Home() {
           <WifiLocationsCard />
         </section>
 
-        <HomeBlockTitle className="my-16">Información WiFi</HomeBlockTitle>
+        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/50 z-50 relative py-6 border-y border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-sm">
+          <HomeBlockTitle className="my-16">Información WiFi</HomeBlockTitle>
 
-        <HomeBlock className="px-3">
-          <GeoPositionCard />
-        </HomeBlock>
+          <HomeBlock className="px-3">
+            <GeoPositionCard />
+          </HomeBlock>
 
-        <Donation />
+          <Donation />
 
-        <HomeBlock>
-          <Image
-            src="/assets/neo-wifi-app-card.png"
-            width={400}
-            height={300}
-            alt="Neo-Wifi app image"
-            className="rounded-[16px] img_card relative z-50"
-          />
-        </HomeBlock>
+          <HomeBlock>
+            <Image
+              src="/assets/neo-wifi-app-card.png"
+              width={400}
+              height={300}
+              alt="Neo-Wifi app image"
+              className="rounded-[16px] img_card relative z-50"
+            />
+          </HomeBlock>
+
+          <section className="flex mx-auto px-3 max-w-3xl">
+            <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
+              <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+                <p className="relative flex text-center text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400">
+                  <Quote className="rotate-180 text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
+                  Creo que el acceso a una conexión a Internet estable y segura
+                  es un derecho para todos. Quiero ayudar a potenciar la
+                  conectividad y hacer de esta misión una realidad. ¡Vamos por
+                  ello! 😃
+                  <Quote className=" text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
+                </p>
+                <aside className="flex justify-center items-center gap-3 mt-4">
+                  <Image
+                    src="/avatar-personal.jpg"
+                    width={45}
+                    height={45}
+                    alt="Avatar Gabriel"
+                    className="rounded-full border-2 border-[#4E4E4E] outline-[1px] outline-double outline-black"
+                  />
+                  <div className="flex flex-col font-semibold text-zinc-600">
+                    <span>Gabriel Calcagni,</span>
+                    <span>desarrollador de Neo-WiFi</span>
+                  </div>
+                </aside>
+              </article>
+            </div>
+          </section>
+        </section>
 
         {/* <HomeBlockTitle>Introducción</HomeBlockTitle>
         <HomeBlock>
@@ -135,33 +165,6 @@ export default function Home() {
           className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
           border={0}
         /> */}
-
-        <HomeBlock className="flex-col px-3">
-          <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
-            <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
-              <p className="relative flex text-center text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400">
-                <Quote className="rotate-180 text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
-                Creo que el acceso a una conexión a Internet estable y segura es
-                un derecho para todos. Quiero ayudar a potenciar la conectividad
-                y hacer de esta misión una realidad. ¡Vamos por ello! 😃
-                <Quote className=" text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />
-              </p>
-              <aside className="flex justify-center items-center gap-3 mt-4">
-                <Image
-                  src="/avatar-personal.jpg"
-                  width={45}
-                  height={45}
-                  alt="Avatar Gabriel"
-                  className="rounded-full border-2 border-[#4E4E4E] outline-[1px] outline-double outline-black"
-                />
-                <div className="flex flex-col font-semibold text-zinc-600">
-                  <span>Gabriel Calcagni,</span>
-                  <span>desarrollador de Neo-WiFi</span>
-                </div>
-              </aside>
-            </article>
-          </div>
-        </HomeBlock>
 
         <section className="overflow-hidden my-24">
           <VisitsComponent />

@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
 import { HomeBlock } from "../BlockComp";
-import { ArrowUp, RefreshCw, UserCircle2 } from "lucide-react";
+import { ArrowUp, RefreshCw } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
 
@@ -121,17 +121,7 @@ export const AiAssistant = () => {
                   <MarkdownRenderer content={msg.content} />
                 </div>
               ) : (
-                <div className="relative">
-                  <span className="absolute -top-[56px] bg-blue-100 dark:bg-blue-900/50 -z-10 -right-3 px-2 py-2 rounded-full">
-                    <UserCircle2
-                      className="text-blue-500"
-                      width={24}
-                      height={24}
-                    />
-                  </span>
-
-                  <p>{msg.content}</p>
-                </div>
+                <p>{msg.content}</p>
               )}
             </div>
           ))}

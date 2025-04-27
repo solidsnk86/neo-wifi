@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
 import { HomeBlock } from "../BlockComp";
 import { ArrowUp, RefreshCw } from "lucide-react";
+import styles from "./styles/assistant.module.css";
 
 interface ContextAIProps {
   context: {
@@ -21,9 +22,12 @@ interface Message {
 
 export const AiAssistant = () => {
   const [query, setQuery] = useState("");
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    { role: "assistant", content: "¿En que puedo ayudarte?" },
+  ]);
   const [isLoading, setIsLoading] = useState(false);
   const chatRef = useRef<HTMLDivElement>(null);
+  const refTextarea = useRef<HTMLTextAreaElement>(null);
 
   const sendQuery = async (text: string) => {
     try {
@@ -64,9 +68,23 @@ export const AiAssistant = () => {
     chatRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading]);
 
+  const handleInput = () => {
+    if (refTextarea.current) {
+      refTextarea.current.style.height = "auto";
+      refTextarea.current.style.height = `${refTextarea.current.scrollHeight}px`;
+    }
+  };
+
+  useEffect(() => {
+    if (refTextarea.current) {
+      refTextarea.current.style.height = "auto";
+      refTextarea.current.style.height = `${refTextarea.current.scrollHeight}px`;
+    }
+  }, []);
+
   return (
-    <HomeBlock className="flex-col gap-4 px-3">
-      <div className="flex justify-between items-center">
+    <HomeBlock className="flex-col gap-4">
+      <div className="flex flex-col justify-between items-center px-3">
         <h3 className="text-2xl font-semibold text-center font-['bogue-black']">
           ¿Necesitas ayuda con la documentación?
         </h3>
@@ -83,29 +101,26 @@ export const AiAssistant = () => {
       <section className="w-full border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden">
         <div className="max-h-96 overflow-y-auto p-6 flex flex-col gap-4">
           {messages.map((msg, idx) => (
-            <>
-              <div
-                key={idx}
-                className={`p-3 rounded-xl max-w-[80%] ${
-                  msg.role === "user"
-                    ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
-                    : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
-                }`}
-              >
-                {msg.role === "assistant" ? (
-                  <div className=" overflow-hidden">
-                    <MarkdownRenderer content={msg.content} />
-                  </div>
-                ) : (
-                  <p>{msg.content}</p>
-                )}
-              </div>
-              <div ref={chatRef} />
-            </>
+            <div
+              key={idx}
+              className={`p-3 rounded-xl md:max-w-[80%] ${
+                msg.role === "user"
+                  ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
+                  : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
+              }`}
+            >
+              {msg.role === "assistant" ? (
+                <div className="overflow-hidden">
+                  <MarkdownRenderer content={msg.content} />
+                </div>
+              ) : (
+                <p ref={chatRef}>{msg.content}</p>
+              )}
+            </div>
           ))}
 
           {isLoading && (
-            <div className="loader-container pl-1 my-3 animate-pulse text-zinc-500">
+            <div className="loader-container pl-2 my-3 animate-pulse text-zinc-500">
               Pensando<span className="dot">.</span>
               <span className="dot">.</span>
               <span className="dot">.</span>
@@ -115,18 +130,20 @@ export const AiAssistant = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="p-6 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800"
+          className="p-6 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800 relative"
         >
-          <input
-            type="text"
-            className="w-full p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg outline-none focus:outline-blue-500"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+          <textarea
+            className={`md:w-11/12 w-10/12 p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg outline-none focus:outline-blue-500 ${styles.assistant}`}
+            defaultValue={query}
+            onBlur={(e) => setQuery(e.target.value)}
+            maxLength={300}
+            ref={refTextarea}
+            onInput={handleInput}
             placeholder="Pregunta lo que quieras"
           />
           <button
             type="submit"
-            className="px-2 border border-zinc-200/70 dark:border-zinc-800 rounded-full bg-gradient-to-b btn from-blue-500 to-blue-700 hover:opacity-80"
+            className="absolute md:right-6 right-3 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 dark:border-zinc-500 outline-[1px] outline-black dark:outline-zinc-900 outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 hover:opacity-80"
           >
             <ArrowUp className="text-zinc-100" />
           </button>

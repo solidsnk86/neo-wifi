@@ -1,0 +1,137 @@
+import { FormEvent, useEffect, useRef, useState } from "react";
+import MarkdownRenderer from "../MarkDownRender";
+import { HomeBlock } from "../BlockComp";
+import { ArrowUp, RefreshCw } from "lucide-react";
+
+interface ContextAIProps {
+  context: {
+    id: string;
+    message: {
+      role: string;
+      content: [{ type: string; text: string }];
+    };
+    finishReason: string;
+  };
+}
+
+interface Message {
+  role: "user" | "assistant";
+  content: string;
+}
+
+export const AiAssistant = () => {
+  const [query, setQuery] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const chatRef = useRef<HTMLDivElement>(null);
+
+  const sendQuery = async (text: string) => {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`/api/neo-ai/?query=${encodeURIComponent(text)}`);
+      const data: ContextAIProps = await res.json();
+
+      const assistantMessage: Message = {
+        role: "assistant",
+        content: data.context.message.content[0].text,
+      };
+
+      setMessages((prev) => [...prev, assistantMessage]);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (query.trim() === "") return;
+
+    const userMessage: Message = { role: "user", content: query.trim() };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setQuery("");
+    await sendQuery(query.trim());
+  };
+
+  const handleNewChat = () => {
+    setMessages([]);
+    setQuery("");
+  };
+
+  useEffect(() => {
+    chatRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isLoading]);
+
+  return (
+    <HomeBlock className="flex-col gap-4 px-3">
+      <div className="flex justify-between items-center">
+        <h3 className="text-2xl font-semibold text-center font-['bogue-black']">
+          ¿Necesitas ayuda con la documentación?
+        </h3>
+        <button
+          onClick={handleNewChat}
+          className="text-blue-500 hover:text-blue-700 flex items-center gap-1"
+          title="Nuevo chat"
+        >
+          <RefreshCw size={18} />
+          Nuevo Chat
+        </button>
+      </div>
+
+      <section className="w-full border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden">
+        <div className="max-h-96 overflow-y-auto p-6 flex flex-col gap-4">
+          {messages.map((msg, idx) => (
+            <>
+              <div
+                key={idx}
+                className={`p-3 rounded-xl max-w-[80%] ${
+                  msg.role === "user"
+                    ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
+                    : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
+                }`}
+              >
+                {msg.role === "assistant" ? (
+                  <div className=" overflow-hidden">
+                    <MarkdownRenderer content={msg.content} />
+                  </div>
+                ) : (
+                  <p>{msg.content}</p>
+                )}
+              </div>
+              <div ref={chatRef} />
+            </>
+          ))}
+
+          {isLoading && (
+            <div className="loader-container pl-1 my-3 animate-pulse text-zinc-500">
+              Pensando<span className="dot">.</span>
+              <span className="dot">.</span>
+              <span className="dot">.</span>
+            </div>
+          )}
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="p-4 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800"
+        >
+          <input
+            type="text"
+            className="w-full p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg outline-none focus:outline-blue-500"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Pregunta lo que quieras"
+          />
+          <button
+            type="submit"
+            className="px-2 border border-zinc-200/70 dark:border-zinc-800 rounded-full bg-gradient-to-b btn from-blue-500 to-blue-700 hover:opacity-80"
+          >
+            <ArrowUp className="text-zinc-100" />
+          </button>
+        </form>
+      </section>
+    </HomeBlock>
+  );
+};

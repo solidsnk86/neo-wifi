@@ -30,9 +30,8 @@ const accordionLists = [
   },
   {
     id: 5,
-    question: "¿Dónde funciona la aplicación?",
-    answer: `Actualmente, la cobertura de Neo-Wifi abarca un 75% de la totalidad de las antenas de San Luis.
-            Además, se han incluido los espacios WiFi de Córdoba y Mendoza.`,
+    question: "¿Dónde funciona la aplicación web?",
+    answer: `Actualmente, la cobertura de Neo-Wifi-Web está disponible en Mendoza, San Luis, San Juan, Córdoba, Buenos Aires, Corrientes y otros lugares internacionales dónde podrás obtener tu punto WiFi gratuito más cercano.`,
   },
   {
     id: 6,

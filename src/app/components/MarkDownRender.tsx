@@ -1,11 +1,19 @@
+import "highlight.js/styles/an-old-hope.css";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
 import rehypeRaw from "rehype-raw";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 export default function MarkdownRenderer({ content }: { content: string }) {
   return (
     <ReactMarkdown
-      rehypePlugins={[rehypeRaw, rehypeHighlight]}
+      rehypePlugins={[
+        rehypeRaw,
+        rehypeHighlight,
+        rehypeSlug,
+        rehypeAutolinkHeadings,
+      ]}
       components={{
         h1: ({ children }) => (
           <h1 className="mt-8 mb-4 text-4xl font-bold">{children}</h1>
@@ -20,6 +28,11 @@ export default function MarkdownRenderer({ content }: { content: string }) {
           <div className="my-3 code-block">
             <pre>{children}</pre>
           </div>
+        ),
+        a: ({ children }) => (
+          <a href={children as string} target="_blank">
+            {children}
+          </a>
         ),
       }}
     >

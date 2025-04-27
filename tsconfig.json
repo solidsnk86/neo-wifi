@@ -30,7 +30,8 @@
     "src/app/components/GeoInfo/GeoInfo.jsx",
     "src/app/components/YoutubeVideo.tsx",
     "src/app/api/badge-counter/route.ts",
-    "src/utils/screenshoot.js"
+    "src/utils/screenshoot.js",
+    "src/app/components/Pre/Pre.jsx"
   ],
   "exclude": ["node_modules"]
 }

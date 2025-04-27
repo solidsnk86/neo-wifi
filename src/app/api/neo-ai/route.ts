@@ -41,12 +41,13 @@ export async function GET(req: NextRequest) {
             
             📍 3. Obtener coordenadas:
             La app necesita saber dónde estás para buscar la mejor antena.
-            Visita https://neo-wifi.vercel.app, acepta el permiso de ubicación, y copia las coordenadas de latitud y longitud que te aparecen.
+            En ésta misma web https://neo-wifi.vercel.app que es dónde estás funcionando explícale de una buena manera; acepta el permiso de ubicación, y copia las coordenadas de latitud y longitud que te aparecen.
             
             ---
             
             📋 4. Ingresar coordenadas:
             En la pantalla principal de NeoWiFi App, ingresa esas coordenadas. Así, la app buscará automáticamente el nodo WiFi del gobierno de San Luis más cercano a ti.
+            Ya dispone de los botones para copiar las coordenadas tanto de longitud y latitud siempre y cuando acepte la geolocalización.
             
             ---
             
@@ -56,14 +57,14 @@ export async function GET(req: NextRequest) {
             
             ---
             
-            6. La aplicación es solamente para ordenadores PC Windows de 32 bits o 64 bits.
+            🖥 6. La aplicación es solamente para ordenadores PC Windows de 32 bits o 64 bits.
             El desarrollador se llama Gabriel Calcagni y es un buen chico!
             Sé claro, ordenado y paciente en tus respuestas. Si ves que el usuario está confundido, propón ejemplos o guíalo con preguntas amables. ☀️
             `,
           },
           {
             role: "user",
-            content: String(query),
+            content: decodeURIComponent(String(query)),
           },
         ],
       }),

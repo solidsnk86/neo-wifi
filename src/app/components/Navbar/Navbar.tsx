@@ -39,7 +39,7 @@ export const Navbar = () => {
         aria-label="Ir a la página principal"
       >
         <NeoWifiLogo className="cursor-pointer" width={133} height={56} />
-        <span className="absolute -right-14 top-[50%] -translate-y-[50%] text-sm px-1 md:px-2 rounded-full bg-yellow-300 text-black">
+        <span className="absolute -right-[52px] top-[50%] -translate-y-[50%] text-sm px-1 md:px-2 rounded-full bg-yellow-300 text-black">
           beta
         </span>
       </Link>

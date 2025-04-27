@@ -134,8 +134,8 @@ export const AiAssistant = () => {
         >
           <textarea
             className={`md:w-11/12 w-10/12 p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg outline-none focus:outline-blue-500 ${styles.assistant}`}
-            defaultValue={query}
-            onBlur={(e) => setQuery(e.target.value)}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             maxLength={300}
             ref={refTextarea}
             onInput={handleInput}
@@ -143,7 +143,8 @@ export const AiAssistant = () => {
           />
           <button
             type="submit"
-            className="absolute md:right-6 right-3 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 dark:border-zinc-500 outline-[1px] outline-black dark:outline-zinc-900 outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 hover:opacity-80"
+            disabled={query === ""}
+            className="absolute md:right-6 right-3 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 dark:border-zinc-500 outline-[1px] outline-black dark:outline-zinc-900 outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 hover:opacity-80 disabled:hover:cursor-not-allowed disabled:grayscale-[70%] transition-all duration-500"
           >
             <ArrowUp className="text-zinc-100" />
           </button>

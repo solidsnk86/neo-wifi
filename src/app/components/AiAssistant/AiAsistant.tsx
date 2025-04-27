@@ -87,10 +87,13 @@ export const AiAssistant = () => {
         </h3>
         <button
           onClick={newChat}
-          className="text-blue-500 hover:text-blue-700 flex items-center gap-1"
+          className="text-blue-500 hover:text-blue-700 flex items-center gap-1 group"
           title="Nuevo chat"
         >
-          <RefreshCw size={18} />
+          <RefreshCw
+            size={18}
+            className="group-hover:rotate-180 transition-all duration-300"
+          />
           Nuevo Chat
         </button>
       </div>

@@ -103,7 +103,7 @@ export default function Home() {
           <WifiLocationsCard />
         </section>
 
-        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-sm middle-section before:dark:bg-yellow-200/20 before:bg-yellow-100/60">
+        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-sm">
           <HomeBlockTitle className="mt-16">Información WiFi</HomeBlockTitle>
 
           <HomeBlock className="px-3">

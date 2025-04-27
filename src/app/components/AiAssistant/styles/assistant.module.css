@@ -15,14 +15,12 @@
 }
 
 .scroll::-webkit-scrollbar {
-  position: absolute;
-  right: 0;
-  background: transparent;
+  background: #33333369;
   width: 6px;
 }
 
 .scroll::-webkit-scrollbar-thumb {
-  background: #2f2e2e;
+  background: #3c3b3b;
   border-radius: 6px;
   height: 180px;
 }

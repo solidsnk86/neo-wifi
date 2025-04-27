@@ -3,3 +3,26 @@
   resize: none;
   overflow-y: hidden;
 }
+
+.scroll {
+  overflow-y: hidden;
+  margin-right: 6px;
+}
+
+.scroll:hover {
+  margin-right: 0;
+  overflow-y: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+  position: absolute;
+  right: 0;
+  background: transparent;
+  width: 6px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #2f2e2e;
+  border-radius: 6px;
+  height: 180px;
+}

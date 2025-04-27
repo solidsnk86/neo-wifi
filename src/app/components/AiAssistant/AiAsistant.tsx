@@ -96,7 +96,9 @@ export const AiAssistant = () => {
       </div>
 
       <section className="w-full border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden">
-        <div className="max-h-96 overflow-y-auto p-4 pt-14 flex flex-col gap-4">
+        <div
+          className={`max-h-96 p-4 pt-14 flex flex-col gap-4 overflow-y-hidden ${styles.scroll}`}
+        >
           {messages.map((msg, idx) => (
             <div
               key={idx}

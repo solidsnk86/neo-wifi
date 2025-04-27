@@ -1,8 +1,9 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
 import { HomeBlock } from "../BlockComp";
-import { ArrowUp, RefreshCw } from "lucide-react";
+import { ArrowUp, RefreshCw, UserCircle2 } from "lucide-react";
 import styles from "./styles/assistant.module.css";
+import Image from "next/image";
 
 interface ContextAIProps {
   context: {
@@ -23,7 +24,7 @@ interface Message {
 export const AiAssistant = () => {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "¿En que puedo ayudarte?" },
+    { role: "assistant", content: "Hola soy Neo! en que puedo ayudarte?" },
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const chatRef = useRef<HTMLDivElement>(null);
@@ -48,7 +49,7 @@ export const AiAssistant = () => {
     }
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (query.trim() === "") return;
 
@@ -59,7 +60,7 @@ export const AiAssistant = () => {
     await sendQuery(query.trim());
   };
 
-  const handleNewChat = () => {
+  const newChat = () => {
     setMessages([]);
     setQuery("");
   };
@@ -85,7 +86,7 @@ export const AiAssistant = () => {
           ¿Necesitas ayuda con la documentación?
         </h3>
         <button
-          onClick={handleNewChat}
+          onClick={newChat}
           className="text-blue-500 hover:text-blue-700 flex items-center gap-1"
           title="Nuevo chat"
         >
@@ -95,7 +96,7 @@ export const AiAssistant = () => {
       </div>
 
       <section className="w-full border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden">
-        <div className="max-h-96 overflow-y-auto p-6 flex flex-col gap-4">
+        <div className="max-h-96 overflow-y-auto p-4 pt-14 flex flex-col gap-4">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -106,11 +107,29 @@ export const AiAssistant = () => {
               }`}
             >
               {msg.role === "assistant" ? (
-                <div className="overflow-hidden" ref={chatRef}>
+                <div className="relative" ref={chatRef}>
+                  <span className="absolute -top-[56px] bg-zinc-100 dark:bg-zinc-700/50 -z-10 -left-3 px-2 py-2 rounded-full">
+                    <Image
+                      src="/assets/neo_pixelart-removebg-preview.png"
+                      width={24}
+                      height={24}
+                      alt="The Neo Protagonist"
+                    />
+                  </span>
                   <MarkdownRenderer content={msg.content} />
                 </div>
               ) : (
-                <p>{msg.content}</p>
+                <div className="relative">
+                  <span className="absolute -top-[56px] bg-blue-100 dark:bg-blue-900/50 -z-10 -right-3 px-2 py-2 rounded-full">
+                    <UserCircle2
+                      className="text-blue-500"
+                      width={24}
+                      height={24}
+                    />
+                  </span>
+
+                  <p>{msg.content}</p>
+                </div>
               )}
             </div>
           ))}
@@ -125,7 +144,7 @@ export const AiAssistant = () => {
         </div>
 
         <form
-          onSubmit={handleSubmit}
+          onSubmit={submit}
           className="p-6 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800 relative"
         >
           <textarea
@@ -135,11 +154,18 @@ export const AiAssistant = () => {
             maxLength={300}
             ref={refTextarea}
             onInput={handleInput}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setQuery("");
+                submit(e);
+              }
+            }}
+            rows={1}
             placeholder="Pregunta lo que quieras"
           />
           <button
             type="submit"
-            disabled={query === ""}
+            disabled={query === "" || isLoading}
             className="absolute md:right-6 right-3 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 dark:border-zinc-500 outline-[1px] outline-black dark:outline-zinc-900 outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 hover:opacity-80 disabled:hover:cursor-not-allowed disabled:grayscale-[70%] transition-all duration-500"
           >
             <ArrowUp className="text-zinc-100" />

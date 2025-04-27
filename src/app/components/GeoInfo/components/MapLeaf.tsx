@@ -409,7 +409,7 @@ const LeafMap = ({
     !currentPosition.longitude
   ) {
     return (
-      <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
+      <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-900/90 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
         <h2 className="text-center font-semibold text-xl my-2">
           Mapa Intercativo 🌍
         </h2>
@@ -470,7 +470,7 @@ const LeafMap = ({
 
   return (
     <>
-      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
+      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-900/90 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
         <article className="flex justify-between">
           <p className="px-3 py-2">Seleccionar ciudad:</p>
           <select

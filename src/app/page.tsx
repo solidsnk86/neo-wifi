@@ -24,6 +24,7 @@ export default function Home() {
     <>
       <MouseTrail />
       <div className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
+        <article className=""></article>
         <Navbar />
         <span className="effect-1" />
         <span className="effect-2" />
@@ -102,7 +103,7 @@ export default function Home() {
           <WifiLocationsCard />
         </section>
 
-        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-sm">
+        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-sm middle-section before:dark:bg-yellow-200/20 before:bg-yellow-100/60">
           <HomeBlockTitle className="mt-16">Información WiFi</HomeBlockTitle>
 
           <HomeBlock className="px-3">
@@ -122,7 +123,7 @@ export default function Home() {
           </HomeBlock>
 
           <section className="flex mx-auto px-3 max-w-3xl">
-            <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 z-50 backdrop-blur-xl">
+            <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-900/90 z-50 backdrop-blur-xl">
               <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
                 <p className="relative flex text-center text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400">
                   <Quote className="rotate-180 text-zinc-400/70 dark:text-zinc-800 w-10 h-10 fill-yellow-300" />

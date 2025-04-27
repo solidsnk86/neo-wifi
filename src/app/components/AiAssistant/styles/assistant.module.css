@@ -1,4 +1,5 @@
 .assistant {
   resize: vertical;
   resize: none;
+  overflow-y: hidden;
 }

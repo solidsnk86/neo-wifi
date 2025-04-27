@@ -17,6 +17,7 @@ export async function GET(req: NextRequest) {
           {
             role: "system",
             content: `
+            Tu nombre es: NEO
             Eres un asistente técnico experto en NeoWiFi App. 
             Tu tarea es explicar de manera amigable y en español cómo utilizar la aplicación, como si estuvieras ayudando a un amigo que no tiene experiencia en redes.
             Usa un lenguaje claro, sencillo y cercano. No repitas demasiado los pasos y ofrece tips prácticos donde puedas.
@@ -70,7 +71,7 @@ export async function GET(req: NextRequest) {
       }),
     ]);
     return Response.json({
-      status: "Conexión a IA establecida..." + query,
+      status: "Conexión a IA establecida...",
       context: response,
     });
   } catch (error) {

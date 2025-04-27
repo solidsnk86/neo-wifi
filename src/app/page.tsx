@@ -142,8 +142,8 @@ export default function Home() {
                     className="rounded-full border-2 border-[#4E4E4E] outline-[1px] outline-double outline-black"
                   />
                   <div className="flex flex-col font-semibold text-zinc-600">
-                    <span>Gabriel Calcagni,</span>
-                    <span>desarrollador de Neo-WiFi</span>
+                    <span>Gabriel, desarrollador</span>
+                    <span>de Neo-WiFi</span>
                   </div>
                 </aside>
               </article>

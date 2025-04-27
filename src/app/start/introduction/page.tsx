@@ -7,6 +7,7 @@ import MouseTrail from "@/app/components/MouseTrail";
 import NeoWifiAppCard from "@/app/components/NeoWifiCard";
 import { dialogMap } from "./constants";
 import { StepCard } from "./components/StepCard";
+import { AiAssistant } from "@/app/components/AiAssistant/AiAsistant";
 
 export default function Page() {
   return (
@@ -37,6 +38,8 @@ export default function Page() {
             de la antena (CPE) debe ser ajustada por el mismo usuario.
           </p>
         </HomeBlock>
+
+        <AiAssistant />
 
         <HomeBlockTitle>Primeros Pasos</HomeBlockTitle>
         <HomeBlock className="flex-col z-50 relative space-y-6">

@@ -115,7 +115,7 @@ export const AiAssistant = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="p-4 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800"
+          className="p-6 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800"
         >
           <input
             type="text"

@@ -64,10 +64,6 @@ export const AiAssistant = () => {
     setQuery("");
   };
 
-  useEffect(() => {
-    chatRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isLoading]);
-
   const handleInput = () => {
     if (refTextarea.current) {
       refTextarea.current.style.height = "auto";
@@ -110,11 +106,11 @@ export const AiAssistant = () => {
               }`}
             >
               {msg.role === "assistant" ? (
-                <div className="overflow-hidden">
+                <div className="overflow-hidden" ref={chatRef}>
                   <MarkdownRenderer content={msg.content} />
                 </div>
               ) : (
-                <p ref={chatRef}>{msg.content}</p>
+                <p>{msg.content}</p>
               )}
             </div>
           ))}

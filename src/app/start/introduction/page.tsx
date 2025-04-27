@@ -39,7 +39,9 @@ export default function Page() {
           </p>
         </HomeBlock>
 
-        <AiAssistant />
+        <section className="px-3">
+          <AiAssistant />
+        </section>
 
         <HomeBlockTitle>Primeros Pasos</HomeBlockTitle>
         <HomeBlock className="flex-col z-50 relative space-y-6">

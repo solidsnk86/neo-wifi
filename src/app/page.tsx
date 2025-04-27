@@ -177,7 +177,9 @@ export default function Home() {
           <DownloadCard />
         </HomeBlock>
 
-        <AiAssistant />
+        <section className="px-3">
+          <AiAssistant />
+        </section>
 
         <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
         <Faqs />

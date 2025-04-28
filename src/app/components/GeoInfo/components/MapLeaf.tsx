@@ -445,6 +445,9 @@ const LeafMap = ({
   const montecoman = cleanedPlaces.find((value) => value === "Monte Comán");
   const sosneado = cleanedPlaces.find((value) => value === "El Sosneado");
   const malargue = cleanedPlaces.find((value) => value === "Malargüe");
+  const tierradelfuego = cleanedPlaces.find(
+    (value) => value === "Tierra del Fuego"
+  );
   const francia = cleanedPlaces.find((value) => value === "Francia");
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
@@ -464,7 +467,8 @@ const LeafMap = ({
       val !== montecoman &&
       val !== malargue &&
       val !== francia &&
-      val !== sanjuan
+      val !== sanjuan &&
+      val !== tierradelfuego
     );
   };
 
@@ -526,6 +530,13 @@ const LeafMap = ({
             {corrientes && (
               <optgroup label="🇦🇷 Argentina - Corrientes">
                 <option value={corrientes}>{corrientes}</option>
+              </optgroup>
+            )}
+
+            {/* Argentina - Tierra del Fuego */}
+            {tierradelfuego && (
+              <optgroup label="🇦🇷 Argentina - Tierra del Fuego">
+                <option value={tierradelfuego}>{tierradelfuego}</option>
               </optgroup>
             )}
 

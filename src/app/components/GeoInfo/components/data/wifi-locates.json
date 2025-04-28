@@ -26795,6 +26795,54 @@
     "location": "San Juan"
   },
   {
+    "name": "La Muni te conecta",
+    "name5g": "Plaza Cívica Corazón de la Isla",
+    "lat": -54.51143,
+    "lon": -67.19525,
+    "type": "Municipal",
+    "location": "Tierra del Fuego"
+  },
+  {
+    "name": "Wifi Libre",
+    "name5g": "Plaza Barrio Islas del Sur",
+    "lat": -54.51877,
+    "lon": -67.20198,
+    "type": "Nacional - País Digital (ARSAT)",
+    "location": "Tierra del Fuego"
+  },
+  {
+    "name": "Plaza Almirante Brown",
+    "name5g": "Plaza Almirante Brown",
+    "lat": -53.78611,
+    "lon": -67.69611,
+    "type": "Nacional - País Digital",
+    "location": "Tierra del Fuego"
+  },
+  {
+    "name": "Plaza de los Animales",
+    "name5g": "Plaza Barrio Mutual",
+    "lat": -53.77056,
+    "lon": -67.712,
+    "type": "Municipal",
+    "location": "Tierra del Fuego"
+  },
+  {
+    "name": "Plaza Cívica 12 de Octubre",
+    "name5g": "MUNI-FREE Plaza Cívica 12 de Octubre",
+    "lat": -54.80741,
+    "lon": -68.30377,
+    "type": "Municipal",
+    "location": "Tierra del Fuego"
+  },
+  {
+    "name": "Biblioteca Popular Sarmiento",
+    "name5g": "BPS Ushuaia",
+    "lat": -54.80194,
+    "lon": -68.30306,
+    "type": "Cultural",
+    "location": "Tierra del Fuego"
+  },
+  {
     "name": "Barcelona-Wifi (Pl. de Catalunya - Rda. Sant Pere)",
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "MAC": null,

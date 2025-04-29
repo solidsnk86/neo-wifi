@@ -18,8 +18,46 @@ import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = new Worker(
+      new URL("./components/GeoInfo/timerWorker.ts", import.meta.url)
+    );
+
+    timer.postMessage(0);
+    timer.addEventListener("message", (event) => {
+      const time = event.data;
+      const globeChat = document.querySelector(".neo-ai");
+      if (time === 12) {
+        globeChat?.classList.add("hide-before");
+      }
+    });
+  }, []);
+
+  const handleClickChat = () => {
+    setIsOpen(!isOpen);
+    const chat = document.getElementById("chat");
+    if (chat) {
+      chat.style.animation = "fadeOut 0.6s ease-in-out;";
+
+      chat.addEventListener("animationend", () => {
+        setIsOpen(!isOpen);
+      });
+    }
+  };
+
+  if (isOpen) {
+    return (
+      <div className="sticky top-0 left-0 w-full h-screen">
+        <AiAssistant closeAssistant={handleClickChat} />
+      </div>
+    );
+  }
+
   return (
     <>
       <MouseTrail />
@@ -178,10 +216,6 @@ export default function Home() {
           <DownloadCard />
         </HomeBlock>
 
-        <section className="px-3">
-          <AiAssistant />
-        </section>
-
         <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
         <Faqs />
 
@@ -202,6 +236,26 @@ export default function Home() {
             height={300}
             alt="Imagen de ardilla"
             className="flex justify-center mx-auto z-50 relative"
+          />
+        </div>
+
+        <div
+          className="fixed bottom-4 right-2 px-3 z-50 neo-ai"
+          onClick={handleClickChat}
+          onMouseOver={() => {
+            const globeChat = document.querySelector(".neo-ai");
+            globeChat?.classList.remove("hide-before");
+          }}
+          onMouseLeave={() => {
+            const globeChat = document.querySelector(".neo-ai");
+            globeChat?.classList.add("hide-before");
+          }}
+        >
+          <Image
+            src="/assets/neo_pixelart-removebg-preview.png"
+            width={45}
+            height={45}
+            alt="The Neo Protagonist"
           />
         </div>
 

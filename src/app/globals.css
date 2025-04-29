@@ -336,6 +336,51 @@ html {
   }
 }
 
+#chat {
+  animation: entrance 0.6s ease-in-out;
+}
+
+@keyframes entrance {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.neo-ai::after {
+  content: "";
+  position: fixed;
+  bottom: 68px;
+  right: 42px;
+  width: 10px;
+  height: 10px;
+  rotate: -45deg;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+}
+
+.neo-ai::before {
+  content: "Hola soy Neo tu asistente IA";
+  font-size: smaller;
+  background: #ffffff;
+  color: #111;
+  border-radius: 999px;
+  border: 1px solid #eee;
+  padding-inline: 8px;
+  padding-block: 4px;
+  position: fixed;
+  bottom: 72px;
+  right: 26px;
+}
+
+.neo-ai.hide-before::before,
+.neo-ai.hide-before::after {
+  content: none;
+}
+
 /*
 # Donwload Card
 */

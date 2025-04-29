@@ -5,8 +5,8 @@
 }
 
 .scroll {
-  overflow-y: hidden;
-  margin-right: 6px;
+  height: calc(70%);
+  overflow-y: auto;
 }
 
 .scroll:hover {
@@ -23,11 +23,4 @@
   background: #3c3b3b;
   border-radius: 6px;
   height: 180px;
-}
-
-@media (width < 762px) {
-  .scroll {
-    margin-right: 0;
-    overflow-y: auto;
-  }
 }

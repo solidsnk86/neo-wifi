@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
-import { HomeBlock } from "../BlockComp";
-import { ArrowUp, RefreshCw } from "lucide-react";
+import { ArrowUp, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
 
@@ -21,10 +20,14 @@ interface Message {
   content: string;
 }
 
-export const AiAssistant = () => {
+export const AiAssistant = ({
+  closeAssistant,
+}: {
+  closeAssistant: () => void;
+}) => {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Hola soy Neo! en que puedo ayudarte?" },
+    { role: "assistant", content: "Hola! en que puedo ayudarte?" },
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const chatRef = useRef<HTMLDivElement>(null);
@@ -80,9 +83,22 @@ export const AiAssistant = () => {
   }, []);
 
   return (
-    <HomeBlock className="flex-col gap-4">
-      <div className="flex flex-col justify-between items-center px-3">
-        <h3 className="text-2xl font-semibold text-center font-['bogue-black']">
+    <section
+      className="md:w-11/12 w-full mx-auto h-screen flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden chat"
+      id="chat"
+    >
+      <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">
+        <span
+          className="group absolute right-2 top-2"
+          title="Cerrar asistente"
+          onClick={closeAssistant}
+        >
+          <X
+            size={24}
+            className="group-hover:text-red-400 group-hover:bg-zinc-700/50 rounded-md text-black dark:text-white"
+          />
+        </span>
+        <h3 className="text-xl md:text-2xl font-semibold text-black dark:text-white text-center font-['bogue-black']">
           ¿Necesitas ayuda con la documentación?
         </h3>
         <button
@@ -98,49 +114,52 @@ export const AiAssistant = () => {
         </button>
       </div>
 
-      <section className="w-full border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden">
-        <div
-          className={`max-h-96 pl-4 pb-4 pr-[10px] pt-14 flex flex-col gap-4 overflow-y-hidden ${styles.scroll}`}
-        >
-          {messages.map((msg, idx) => (
-            <div
-              key={idx}
-              className={`p-3 rounded-xl md:max-w-[80%] ${
-                msg.role === "user"
-                  ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
-                  : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
-              }`}
-            >
-              {msg.role === "assistant" ? (
-                <div className="relative" ref={chatRef}>
-                  <span className="absolute -top-[56px] bg-zinc-100 dark:bg-zinc-700/50 -z-10 -left-3 px-2 py-2 rounded-full">
-                    <Image
-                      src="/assets/neo_pixelart-removebg-preview.png"
-                      width={24}
-                      height={24}
-                      alt="The Neo Protagonist"
-                    />
-                  </span>
-                  <MarkdownRenderer content={msg.content} />
-                </div>
-              ) : (
-                <p>{msg.content}</p>
-              )}
-            </div>
-          ))}
+      <div
+        className={`h-[100%] pl-4 pb-4 pr-[10px] md:pt-14 pt-3 flex flex-col gap-4 overflow-y-hidden ${styles.scroll}`}
+      >
+        {messages.map((msg, idx) => (
+          <div
+            key={idx}
+            className={`p-3 rounded-xl md:max-w-[80%] ${
+              msg.role === "user"
+                ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
+                : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
+            }`}
+          >
+            {msg.role === "assistant" ? (
+              <div
+                className="relative text-black dark:text-white"
+                ref={chatRef}
+              >
+                <span className="absolute -top-[56px] bg-zinc-100 dark:bg-zinc-700/50 -z-10 -left-3 px-2 py-2 rounded-full md:flex hidden">
+                  <Image
+                    src="/assets/neo_pixelart-removebg-preview.png"
+                    width={24}
+                    height={24}
+                    alt="The Neo Protagonist"
+                  />
+                </span>
+                <MarkdownRenderer content={msg.content} />
+              </div>
+            ) : (
+              <p>{msg.content}</p>
+            )}
+          </div>
+        ))}
 
-          {isLoading && (
-            <div className="loader-container pl-2 my-3 animate-pulse text-zinc-500">
-              Pensando<span className="dot">.</span>
-              <span className="dot">.</span>
-              <span className="dot">.</span>
-            </div>
-          )}
-        </div>
+        {isLoading && (
+          <div className="loader-container pl-2 my-3 animate-pulse text-zinc-500">
+            Pensando<span className="dot">.</span>
+            <span className="dot">.</span>
+            <span className="dot">.</span>
+          </div>
+        )}
+      </div>
 
+      <section className="w-full absolute bottom-0 left-0 z-50 bg-[#FFFFFF] dark:bg-zinc-900 border-t border-zinc-200/70 dark:border-zinc-800">
         <form
           onSubmit={submit}
-          className="p-6 flex justify-between gap-2 border-t border-zinc-200/70 dark:border-zinc-800 relative"
+          className="p-6 flex justify-between gap-2 relative"
         >
           <textarea
             className={`md:w-11/12 w-10/12 p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg outline-none focus:outline-blue-500 ${styles.assistant}`}
@@ -167,6 +186,6 @@ export const AiAssistant = () => {
           </button>
         </form>
       </section>
-    </HomeBlock>
+    </section>
   );
 };

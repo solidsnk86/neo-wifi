@@ -7,8 +7,23 @@ import MouseTrail from "@/app/components/MouseTrail";
 import NeoWifiAppCard from "@/app/components/NeoWifiCard";
 import { dialogMap } from "./constants";
 import { StepCard } from "./components/StepCard";
+import { useState } from "react";
+import { AiAssistant } from "@/app/components/AiAssistant/AiAsistant";
+import Image from "next/image";
 
 export default function Page() {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClickChat = () => {
+    setIsOpen(!isOpen);
+  };
+  if (isOpen) {
+    return (
+      <div className="sticky top-0 left-0 w-full h-screen">
+        <AiAssistant closeAssistant={handleClickChat} />
+      </div>
+    );
+  }
+
   return (
     <main className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
       <MouseTrail />
@@ -89,6 +104,20 @@ export default function Page() {
           <NeoWifiAppCard />
         </section>
       </section>
+
+      <div className="neo-ai">
+        <span
+          className="fixed bottom-4 right-2 px-3 z-50"
+          onClick={handleClickChat}
+        >
+          <Image
+            src="/assets/neo_pixelart-removebg-preview.png"
+            width={45}
+            height={45}
+            alt="The Neo Protagonist"
+          />
+        </span>
+      </div>
 
       <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
       <Footer />

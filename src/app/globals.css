@@ -360,6 +360,7 @@ html {
   background-color: #ffffff;
   border-bottom: 1px solid #eee;
   border-left: 1px solid #eee;
+  opacity: 0;
 }
 
 .neo-ai::before {
@@ -374,11 +375,12 @@ html {
   position: fixed;
   bottom: 72px;
   right: 26px;
+  opacity: 0;
 }
 
-.neo-ai.hide-before::before,
-.neo-ai.hide-before::after {
-  content: none;
+.neo-ai:hover::before,
+.neo-ai:hover.neo-ai::after {
+  opacity: 1;
 }
 
 /*

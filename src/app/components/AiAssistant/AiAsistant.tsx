@@ -32,6 +32,7 @@ export const AiAssistant = ({
   const [isLoading, setIsLoading] = useState(false);
   const chatRef = useRef<HTMLDivElement>(null);
   const refTextarea = useRef<HTMLTextAreaElement>(null);
+  const thinkRef = useRef<HTMLDivElement>(null);
 
   const sendQuery = async (text: string) => {
     try {
@@ -61,6 +62,27 @@ export const AiAssistant = ({
     setMessages((prev) => [...prev, userMessage]);
     setQuery("");
     await sendQuery(query.trim());
+    const [clientData] = await Promise.all([
+      (await fetch("https://solid-geolocation.vercel.app/location")).json(),
+    ]);
+    const objectData = {
+      prompt: userMessage.content,
+      ip: clientData.ip,
+      city: clientData.city.name,
+      country: clientData.country.name,
+    };
+    await fetch("/api/datasend", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(objectData),
+    })
+      .then((res) => res.json())
+      .catch((err) => console.error(err));
+
+    thinkRef.current?.scrollIntoView({ behavior: "auto" });
+    chatRef?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const newChat = () => {
@@ -127,10 +149,7 @@ export const AiAssistant = ({
             }`}
           >
             {msg.role === "assistant" ? (
-              <div
-                className="relative text-black dark:text-white"
-                ref={chatRef}
-              >
+              <div className="relative text-black dark:text-white">
                 <span className="absolute -top-[56px] bg-zinc-100 dark:bg-zinc-700/50 -z-10 -left-3 px-2 py-2 rounded-full md:flex hidden">
                   <Image
                     src="/assets/neo_pixelart-removebg-preview.png"
@@ -140,9 +159,10 @@ export const AiAssistant = ({
                   />
                 </span>
                 <MarkdownRenderer content={msg.content} />
+                <span ref={chatRef}></span>
               </div>
             ) : (
-              <p>{msg.content}</p>
+              <p ref={thinkRef}>{msg.content}</p>
             )}
           </div>
         ))}

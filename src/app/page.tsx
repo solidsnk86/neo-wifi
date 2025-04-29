@@ -18,25 +18,10 @@ import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const timer = new Worker(
-      new URL("./components/GeoInfo/timerWorker.ts", import.meta.url)
-    );
-
-    timer.postMessage(0);
-    timer.addEventListener("message", (event) => {
-      const time = event.data;
-      const globeChat = document.querySelector(".neo-ai");
-      if (time === 12) {
-        globeChat?.classList.add("hide-before");
-      }
-    });
-  }, []);
 
   const handleClickChat = () => {
     setIsOpen(!isOpen);
@@ -233,6 +218,7 @@ export default function Home() {
 
         <div
           className="fixed bottom-4 right-2 px-3 z-50 neo-ai"
+          id="neo-ai"
           onClick={handleClickChat}
         >
           <Image

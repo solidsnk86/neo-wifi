@@ -9,11 +9,6 @@
   overflow-y: auto;
 }
 
-.scroll:hover {
-  margin-right: 0;
-  overflow-y: scroll;
-}
-
 .scroll::-webkit-scrollbar {
   background: #33333369;
   width: 6px;

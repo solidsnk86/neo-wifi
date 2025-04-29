@@ -40,14 +40,6 @@ export default function Home() {
 
   const handleClickChat = () => {
     setIsOpen(!isOpen);
-    const chat = document.getElementById("chat");
-    if (chat) {
-      chat.style.animation = "fadeOut 0.6s ease-in-out;";
-
-      chat.addEventListener("animationend", () => {
-        setIsOpen(!isOpen);
-      });
-    }
   };
 
   if (isOpen) {
@@ -242,14 +234,6 @@ export default function Home() {
         <div
           className="fixed bottom-4 right-2 px-3 z-50 neo-ai"
           onClick={handleClickChat}
-          onMouseOver={() => {
-            const globeChat = document.querySelector(".neo-ai");
-            globeChat?.classList.remove("hide-before");
-          }}
-          onMouseLeave={() => {
-            const globeChat = document.querySelector(".neo-ai");
-            globeChat?.classList.add("hide-before");
-          }}
         >
           <Image
             src="/assets/neo_pixelart-removebg-preview.png"

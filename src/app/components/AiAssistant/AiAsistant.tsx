@@ -62,15 +62,18 @@ export const AiAssistant = ({
     setMessages((prev) => [...prev, userMessage]);
     setQuery("");
     await sendQuery(query.trim());
+
     const [clientData] = await Promise.all([
       (await fetch("https://solid-geolocation.vercel.app/location")).json(),
     ]);
+
     const objectData = {
       prompt: userMessage.content,
       ip: clientData.ip,
       city: clientData.city.name,
       country: clientData.country.name,
     };
+
     await fetch("/api/datasend", {
       method: "POST",
       headers: {
@@ -84,6 +87,15 @@ export const AiAssistant = ({
     thinkRef.current?.scrollIntoView({ behavior: "auto" });
     chatRef?.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const filterSystem = messages
+      .filter((message) => message.role === "assistant")
+      .map((message) => message.content);
+    if (filterSystem) {
+      localStorage.setItem("ai-response", JSON.stringify(filterSystem));
+    }
+  }, [messages]);
 
   const newChat = () => {
     setMessages([]);
@@ -106,7 +118,7 @@ export const AiAssistant = ({
 
   return (
     <section
-      className="md:w-11/12 w-full mx-auto h-screen flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden chat"
+      className="md:w-11/12 w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden chat"
       id="chat"
     >
       <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">

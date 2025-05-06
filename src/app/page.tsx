@@ -112,7 +112,7 @@ export default function Home() {
         </article>
 
         <section className="overflow-hidden">
-          <p className="flex justify-center mx-auto text-center text-xl mt-6 bg-[#FFFFFF] dark:bg-zinc-800/50 w-fit p-3 rounded-t-xl backdrop-blur-xl relative z-50 cursor-default border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800/50">
+          <p className="flex justify-center mx-auto text-center text-xl mt-6 bg-[#FFFFFF] dark:bg-zinc-950/50 w-fit p-3 rounded-t-xl backdrop-blur-xl relative z-50 cursor-default border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-900/50">
             Redes WiFi disponibles en las siguientes localidades
           </p>
           <WifiLocationsCard />

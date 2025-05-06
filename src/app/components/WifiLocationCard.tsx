@@ -54,14 +54,14 @@ export default function WifiLocationsCard() {
           {locations.map((loc) => (
             <div
               key={loc.name}
-              className="flex items-center gap-4 p-4 w-[260px] transition hover:scale-[1.05] cursor-default"
+              className="flex items-center gap-4 p-4 w-[260px] transition hover:scale-[1.05] cursor-default country"
             >
-              <div className="p-3 rounded-full bg-slate-100 dark:bg-zinc-900/50">
+              <div className="p-3 rounded-full bg-slate-100 dark:bg-yellow-300/10">
                 <MapPinnedIcon className="" />
               </div>
               <div>
                 <h3
-                  className={`text-xl font-semibold text-zinc-700 dark:text-zinc-100 ${lexend.className}`}
+                  className={`text-xl font-semibold text-zinc-900 dark:text-zinc-100 ${lexend.className}`}
                 >
                   {loc.name}
                 </h3>

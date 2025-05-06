@@ -679,6 +679,10 @@ html {
   animation-delay: 1s;
 }
 
+.country:hover {
+  text-shadow: 1px 3px 6px #444;
+}
+
 .leaflet-control-locate-btn,
 .satellite-control-btn,
 .map-control-btn {

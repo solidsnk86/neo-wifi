@@ -6,7 +6,7 @@ const cohere = new CohereClientV2({
 });
 
 export async function POST(request: Request) {
-  const { query } = await request.json();
+  const { query, city, country } = await request.json();
 
   const generate = async () => {
     return await cohere.chat({
@@ -75,6 +75,8 @@ export async function POST(request: Request) {
           El desarrollador se llama Gabriel Calcagni y se ha tomado su tiempo para brindar esta aplición!
           
           Sé claro, ordenado y paciente en tus respuestas. Si ves que el usuario está confundido, propón ejemplos o guíalo con preguntas amables. ☀️
+          Sí el usuario se encuentra en ${city}, ${country} y es San Luis ofrécele que desacargue la app! Si no es San Luis, Argentina. 
+          Puedes ubicarle según los lugares donde hay wifi según su ubicación y tu conocimiento respecto de la diponibilidad de NeoWifi Web de antenas.
           `,
         },
         {

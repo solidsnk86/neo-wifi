@@ -35,12 +35,20 @@ export const AiAssistant = ({
   const thinkRef = useRef<HTMLDivElement>(null);
   const [textVoice, setTextVoice] = useState<string>("");
 
-  const sendQuery = async (text: string) => {
+  const sendQuery = async ({
+    text,
+    city,
+    country,
+  }: {
+    text: string;
+    city: string;
+    country: string;
+  }) => {
     try {
       setIsLoading(true);
       const res = await fetch(`/api/neo-ai/`, {
         method: "POST",
-        body: JSON.stringify({ query: text }),
+        body: JSON.stringify({ query: text, city: city, contry: country }),
       });
       const data: ContextAIProps = await res.json();
 
@@ -71,7 +79,6 @@ export const AiAssistant = ({
 
     setMessages((prev) => [...prev, userMessage]);
     setQuery("");
-    await sendQuery(query);
 
     const [clientData] = await Promise.all([
       (await fetch("https://solid-geolocation.vercel.app/location")).json(),
@@ -84,6 +91,11 @@ export const AiAssistant = ({
       country: clientData.country.name,
     };
 
+    await sendQuery({
+      text: query,
+      city: objectData.city,
+      country: objectData.country,
+    });
     await fetch("/api/datasend", {
       method: "POST",
       headers: {
@@ -246,7 +258,7 @@ export const AiAssistant = ({
             type="button"
             className="absolute md:right-[76px] right-16 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 hover:outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 transition-all duration-500"
           >
-            <Mic />
+            <Mic className="text-zinc-100" />
           </button>
           <button
             type="submit"

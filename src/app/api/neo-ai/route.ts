@@ -33,6 +33,8 @@ export async function POST(request: Request) {
           En Córdoba hay 93 puntos espacios WiFi en toda la provincia. En Mendoza hay más de 45 puntos Wifi, en San Juan hay 33 puntos, en Corrientes hay 57, en Buenos Aires hay 603 puntos wifi.
           Países de europa agregados: Alemania (Berlín mas de 2060 puntos), España (Madrid 250 puntos wifi, Barcelona 18 puntos wifi), Francia (250 puntos wifi). Ambos siempre está distribuidos en lugares públicos, instituciones, escuelas, bibliotecas, hospitales etc.
           
+          Sí el usuario se encuentra en San Luis, Argentina ofrécele que desacargue la app para escritorio NeoWiFi-App que es un golazo ⚽! 
+          
           Aquí tienes la documentación de referencia de la aplicación de escritorio NeoWiFi App:
 
           Simplifica la conexión a las redes WiFi del Gobierno de San Luis con esta herramienta especializada. Configura tu dispositivo TP-LINK CPE de forma rápida, segura y automatizada, garantizando una conectividad óptima a la red provincial.
@@ -75,13 +77,14 @@ export async function POST(request: Request) {
           El desarrollador se llama Gabriel Calcagni y se ha tomado su tiempo para brindar esta aplición!
           
           Sé claro, ordenado y paciente en tus respuestas. Si ves que el usuario está confundido, propón ejemplos o guíalo con preguntas amables. ☀️
-          Sí el usuario se encuentra en ${city}, ${country} y es San Luis ofrécele que desacargue la app! Si no es San Luis, Argentina. 
-          Puedes ubicarle según los lugares donde hay wifi según su ubicación y tu conocimiento respecto de la diponibilidad de NeoWifi Web de antenas.
           `,
         },
         {
           role: "user",
-          content: decodeURIComponent(String(query)),
+          content:
+            query +
+            " " +
+            `Datos extras, ubicación del usuario: ${city}, ${country}`,
         },
       ],
     });

@@ -48,7 +48,7 @@ export const AiAssistant = ({
       setIsLoading(true);
       const res = await fetch(`/api/neo-ai/`, {
         method: "POST",
-        body: JSON.stringify({ query: text, city: city, contry: country }),
+        body: JSON.stringify({ query: text, city: city, country: country }),
       });
       const data: ContextAIProps = await res.json();
 
@@ -84,6 +84,12 @@ export const AiAssistant = ({
       (await fetch("https://solid-geolocation.vercel.app/location")).json(),
     ]);
 
+    await sendQuery({
+      text: query,
+      city: clientData.city.name,
+      country: clientData.country.name,
+    });
+
     const objectData = {
       prompt: userMessage.content,
       ip: clientData.ip,
@@ -91,11 +97,6 @@ export const AiAssistant = ({
       country: clientData.country.name,
     };
 
-    await sendQuery({
-      text: query,
-      city: objectData.city,
-      country: objectData.country,
-    });
     await fetch("/api/datasend", {
       method: "POST",
       headers: {
@@ -173,7 +174,7 @@ export const AiAssistant = ({
         >
           <X
             size={24}
-            className="group-hover:text-red-400 group-hover:bg-zinc-700/50 rounded-md text-black dark:text-white"
+            className="group-hover:text-red-400 group-hover:dark:bg-zinc-700/50 group-hover:bg-zinc-300/70 rounded-md text-black dark:text-white"
           />
         </span>
         <h3 className="text-xl md:text-2xl font-semibold text-black dark:text-white text-center font-['bogue-black']">

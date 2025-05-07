@@ -27,14 +27,6 @@ export default function Home() {
     setIsOpen(!isOpen);
   };
 
-  if (isOpen) {
-    return (
-      <div className="sticky top-0 left-0 w-full h-screen">
-        <AiAssistant closeAssistant={handleClickChat} />
-      </div>
-    );
-  }
-
   return (
     <>
       <MouseTrail />
@@ -230,6 +222,12 @@ export default function Home() {
         </div>
 
         <Footer />
+
+        {isOpen && (
+          <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">
+            <AiAssistant closeAssistant={handleClickChat} />
+          </div>
+        )}
       </div>
     </>
   );

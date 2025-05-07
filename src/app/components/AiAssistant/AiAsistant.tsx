@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
-import { ArrowUp, RefreshCw, X } from "lucide-react";
+import { ArrowUp, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
 
@@ -33,11 +33,15 @@ export const AiAssistant = ({
   const chatRef = useRef<HTMLDivElement>(null);
   const refTextarea = useRef<HTMLTextAreaElement>(null);
   const thinkRef = useRef<HTMLDivElement>(null);
+  const [textVoice, setTextVoice] = useState<string>("");
 
   const sendQuery = async (text: string) => {
     try {
       setIsLoading(true);
-      const res = await fetch(`/api/neo-ai/?query=${encodeURIComponent(text)}`);
+      const res = await fetch(`/api/neo-ai/`, {
+        method: "POST",
+        body: JSON.stringify({ query: text }),
+      });
       const data: ContextAIProps = await res.json();
 
       const assistantMessage: Message = {
@@ -53,6 +57,12 @@ export const AiAssistant = ({
     }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newValue = e.target.value;
+    setQuery(newValue);
+    setTextVoice(newValue);
+  };
+
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (query.trim() === "") return;
@@ -61,7 +71,7 @@ export const AiAssistant = ({
 
     setMessages((prev) => [...prev, userMessage]);
     setQuery("");
-    await sendQuery(query.trim());
+    await sendQuery(query);
 
     const [clientData] = await Promise.all([
       (await fetch("https://solid-geolocation.vercel.app/location")).json(),
@@ -116,9 +126,31 @@ export const AiAssistant = ({
     }
   }, []);
 
+  const handleOnRecord = () => {
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "es-AR";
+
+    recognition.onresult = async (event) => {
+      const trasncript = event.results[0][0].transcript;
+      setTextVoice(trasncript);
+      setQuery(trasncript);
+    };
+
+    recognition.start();
+  };
+
+  useEffect(() => {
+    if (textVoice.trim()) {
+      setQuery(textVoice);
+    }
+  }, [textVoice]);
+
   return (
     <section
-      className="md:w-11/12 w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden chat"
+      className="w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden chat"
       id="chat"
     >
       <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">
@@ -195,9 +227,9 @@ export const AiAssistant = ({
         >
           <textarea
             className={`md:w-11/12 w-10/12 p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg outline-none focus:outline-blue-500 ${styles.assistant}`}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={handleInputChange}
             maxLength={300}
+            value={query}
             ref={refTextarea}
             onInput={handleInput}
             onKeyDown={(e) => {
@@ -209,6 +241,13 @@ export const AiAssistant = ({
             rows={1}
             placeholder="Pregunta lo que quieras"
           />
+          <button
+            onClick={handleOnRecord}
+            type="button"
+            className="absolute md:right-[76px] right-16 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 hover:outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 transition-all duration-500"
+          >
+            <Mic />
+          </button>
           <button
             type="submit"
             disabled={query === "" || isLoading}

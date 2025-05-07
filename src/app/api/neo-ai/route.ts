@@ -1,12 +1,13 @@
 import { CohereClientV2 } from "cohere-ai";
-import { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 const cohere = new CohereClientV2({
   token: process.env.NEXT_PUBLIC_COHERE_TRIAL_APIKEY,
 });
 
-export async function GET(req: NextRequest) {
-  const query = req.nextUrl.searchParams.get("query");
+export async function POST(request: Request) {
+  const { query } = await request.json();
+
   const generate = async () => {
     return await cohere.chat({
       model: "command-a-03-2025",
@@ -86,12 +87,12 @@ export async function GET(req: NextRequest) {
   try {
     const [response] = await Promise.all([generate()]);
 
-    return Response.json({
+    return NextResponse.json({
       status: "Conexión a IA establecida...",
       context: response,
     });
   } catch (error) {
-    return Response.json({
+    return NextResponse.json({
       message: "Error en el servidor" + (error as TypeError).message,
     });
   }

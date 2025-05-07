@@ -11,6 +11,9 @@ dependencies:
   '@supabase/supabase-js':
     specifier: ^2.46.1
     version: 2.49.3
+  '@types/dom-speech-recognition':
+    specifier: ^0.0.6
+    version: 0.0.6
   cohere-ai:
     specifier: ^7.17.1
     version: 7.17.1
@@ -1683,6 +1686,10 @@ packages:
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
     dependencies:
       '@types/ms': 2.1.0
+    dev: false
+
+  /@types/dom-speech-recognition@0.0.6:
+    resolution: {integrity: sha512-o7pAVq9UQPJL5RDjO1f/fcpfFHdgiMnR4PoIU2N/ZQrYOS3C5rzdOJMsrpqeBCbii2EE9mERXgqspQqPDdPahw==}
     dev: false
 
   /@types/estree-jsx@1.0.5:

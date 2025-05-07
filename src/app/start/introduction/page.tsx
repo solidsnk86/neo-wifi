@@ -16,13 +16,6 @@ export default function Page() {
   const handleClickChat = () => {
     setIsOpen(!isOpen);
   };
-  if (isOpen) {
-    return (
-      <div className="sticky top-0 left-0 w-full h-screen">
-        <AiAssistant closeAssistant={handleClickChat} />
-      </div>
-    );
-  }
 
   return (
     <main className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
@@ -121,6 +114,11 @@ export default function Page() {
 
       <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
       <Footer />
+      {isOpen && (
+        <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">
+          <AiAssistant closeAssistant={handleClickChat} />
+        </div>
+      )}
     </main>
   );
 }

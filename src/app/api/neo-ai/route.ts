@@ -7,12 +7,12 @@ const cohere = new CohereClientV2({
 });
 
 export async function POST(request: Request) {
-  const { query, city, country } = await request.json();
+  const { query, city, country, temp } = await request.json();
 
   const generate = async () => {
     return await cohere.chat({
       model: "command-a-03-2025",
-      temperature: 0.3,
+      temperature: parseFloat(temp),
       messages: [
         {
           role: "system",

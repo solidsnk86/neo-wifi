@@ -1,8 +1,8 @@
 "use client";
 
-import { Languages, Mic } from "lucide-react";
+import { Languages, Mic, Volume2 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { Lexend } from "next/font/google";
+import { Lexend, Share_Tech_Mono } from "next/font/google";
 
 import { default as languageCodesData } from "./languages-codes.json";
 import { default as countryCodesData } from "./country-codes.json";
@@ -11,6 +11,10 @@ const languageCodes: Record<string, string> = languageCodesData;
 const countryCodes: Record<string, string> = countryCodesData;
 
 const lexend = Lexend({
+  weight: ["400"],
+  subsets: ["latin"],
+});
+const techMono = Share_Tech_Mono({
   weight: ["400"],
   subsets: ["latin"],
 });
@@ -120,17 +124,17 @@ export const Translator = () => {
   };
 
   return (
-    <section className="flex md:max-w-4xl flex-col justify-center mx-auto p-5 border bg-[#ffffff] dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 rounded-xl z-50 relative">
-      <header className="w-full flex border border-zinc-200 dark:border-zinc-700 rounded-xl bg-zinc-100 dark:bg-zinc-900">
+    <section className="flex flex-col md:max-w-4xl space-y-3 justify-center mx-auto p-4 border bg-white dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 rounded-xl z-50 relative">
+      <header className="w-full border border-zinc-200 dark:border-zinc-700 rounded-xl bg-zinc-100 dark:bg-zinc-900">
         <h1
-          className={`md:text-3xl text-2xl font-bold flex items-center p-5 mx-auto ${lexend.className} text-zinc-800 dark:text-zinc-100`}
+          className={`text-xl sm:text-2xl md:text-3xl font-bold flex items-center p-4 mx-auto ${lexend.className} text-zinc-800 dark:text-zinc-100`}
         >
-          <Languages className="md:w-10 md:h-10 w-7 h-7 mr-2" />
+          <Languages className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10 mr-2" />
           Traductor de Idiomas
         </h1>
       </header>
 
-      <aside className="flex justify-between items-center p-5">
+      <aside className="flex flex-col sm:flex-row gap-4 sm:justify-between items-center p-4 bg-green-700/50 dark:bg-green-950/20 rounded-xl border border-green-400/20 backdrop-blur-xl">
         <label
           htmlFor="language"
           className="flex gap-2 items-center uppercase text-sm font-medium text-zinc-800 dark:text-zinc-200"
@@ -142,23 +146,23 @@ export const Translator = () => {
             onChange={(e) => setLanguage(e.target.value)}
             className="rounded-md p-2 outline-blue-500 border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100"
           >
-            {avlailableLanguages.map(({ lang, label }) => {
-              return (
-                <option key={lang} value={lang}>
-                  {label} ({lang})
-                </option>
-              );
-            })}
+            {avlailableLanguages.map(({ lang, label }) => (
+              <option key={lang} value={lang}>
+                {label} ({lang})
+              </option>
+            ))}
           </select>
         </label>
 
-        <div className="flex items-center gap-2 justify-center">
+        <div
+          className={`flex items-center gap-2 justify-center ${techMono.className}`}
+        >
           <span
-            className={`flex w-[14px] h-[14px] rounded-full ${
+            className={`w-4 h-4 rounded-full ${
               !isActived ? "bg-red-950" : "bg-red-500"
             }`}
           />
-          <span className="w-[84px]">
+          <span className="w-24 text-center">
             {isActived ? (
               <div className="loader-container animate-pulse">
                 Grabando<span className="dot">.</span>
@@ -174,27 +178,36 @@ export const Translator = () => {
         <button
           onClick={handleOnRecord}
           type="button"
-          className={`px-3 py-2 rounded-full transition-all duration-150
-          border border-zinc-300 dark:border-zinc-600 
-          ${
+          className={`px-3 py-2 rounded-full transition-all duration-150 border border-zinc-300 dark:border-zinc-600 ${
             isActived
               ? "bg-gradient-to-b from-red-500 to-red-700"
               : "bg-gradient-to-b from-blue-500 to-blue-700"
-          }
-          hover:ring-2 hover:ring-offset-2 ring-blue-500`}
+          } hover:ring-2 hover:ring-offset-2 ring-blue-500`}
         >
           <Mic className="text-white w-5 h-5" />
         </button>
       </aside>
 
       <footer
-        className={`w-full p-5 rounded-xl bg-zinc-100 dark:bg-zinc-900 ${lexend.className}`}
+        className={`w-full p-4 rounded-xl bg-zinc-100 dark:bg-zinc-900 ${lexend.className}`}
       >
-        <div className="text-sm text-zinc-800 dark:text-zinc-100 mb-2">
+        <div className="text-sm text-zinc-800 p-3 dark:text-zinc-100 flex gap-2 flex-wrap relative items-center mb-2">
           <strong>Texto hablado:</strong> {text}
+          <span
+            onClick={() => speak(text)}
+            className="dark:hover:bg-zinc-800 hover:bg-zinc-200/70 ml-auto p-1 rounded-full"
+          >
+            <Volume2 />
+          </span>
         </div>
-        <div className="text-sm text-zinc-800 dark:text-zinc-100">
+        <div className="text-sm text-zinc-800 p-3 dark:text-zinc-100 flex gap-2 flex-wrap relative items-center">
           <strong>Texto traducido:</strong> {translate}
+          <span
+            onClick={() => speak(translate)}
+            className="dark:hover:bg-zinc-800 hover:bg-zinc-200/70 ml-auto p-1 rounded-full"
+          >
+            <Volume2 />
+          </span>
         </div>
       </footer>
     </section>

@@ -35,21 +35,24 @@ export const AiAssistant = ({
   const thinkRef = useRef<HTMLDivElement>(null);
   const [textVoice, setTextVoice] = useState<string>("");
   const recognitionRef = useRef<SpeechRecognition>(null);
+  const [tempValue, setTempValue] = useState(0.3);
 
   const sendQuery = async ({
     text,
     city,
     country,
+    temp,
   }: {
     text: string;
     city: string;
     country: string;
+    temp: string | number;
   }) => {
     try {
       setIsLoading(true);
       const res: ContextAIProps = await fetch(`/api/neo-ai/`, {
         method: "POST",
-        body: JSON.stringify({ query: text, city, country }),
+        body: JSON.stringify({ query: text, city, country, temp }),
       }).then((res) => res.json());
       console.log(res);
       const assistantMessage: Message = {
@@ -88,6 +91,7 @@ export const AiAssistant = ({
       text: query,
       city: clientData.city.name,
       country: clientData.country.name,
+      temp: tempValue,
     });
 
     const objectData = {
@@ -175,17 +179,33 @@ export const AiAssistant = ({
         <h3 className="text-xl md:text-2xl font-semibold text-black dark:text-white text-center font-['bogue-black']">
           ¿Necesitas ayuda con la documentación?
         </h3>
-        <button
-          onClick={newChat}
-          className="text-blue-500 hover:text-blue-700 flex items-center gap-1 group"
-          title="Nuevo chat"
-        >
-          <RefreshCw
-            size={18}
-            className="group-hover:rotate-180 transition-all duration-300"
-          />
-          Nuevo Chat
-        </button>
+        <aside className="flex gap-4">
+          <button
+            onClick={newChat}
+            className="text-blue-500 hover:text-blue-700 flex items-center gap-1 group"
+            title="Nuevo chat"
+          >
+            <RefreshCw
+              size={18}
+              className="group-hover:rotate-180 transition-all duration-300"
+            />
+            Nuevo Chat
+          </button>
+          <label htmlFor="tempValue" className="flex gap-2">
+            Creatividad
+            <input
+              type="range"
+              name="tempValue"
+              min="0.1"
+              max="1.0"
+              step="0.1"
+              value={tempValue}
+              onChange={(e) => setTempValue(parseFloat(e.target.value))}
+              className="bg-blue-500"
+            />
+            <span className="w-6">{tempValue}</span>
+          </label>
+        </aside>
       </div>
 
       <div
@@ -254,7 +274,7 @@ export const AiAssistant = ({
             type="button"
             className={`absolute md:right-[76px] right-16 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 
               dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 hover:outline-double rounded-full 
-              bg-gradient-to-b from-blue-500 to-blue-700 transition-all duration-500 ${
+              bg-gradient-to-b from-blue-500 to-blue-700 ${
                 isLoading ? "from-red-500 to-red-700" : ""
               }`}
           >
@@ -263,7 +283,10 @@ export const AiAssistant = ({
           <button
             type="submit"
             disabled={query === "" || isLoading}
-            className="absolute md:right-6 right-3 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 dark:border-zinc-500 outline-[1px] outline-black dark:outline-zinc-900 outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 hover:opacity-80 disabled:hover:cursor-not-allowed disabled:grayscale-[70%] transition-all duration-500"
+            className={`absolute md:right-6 right-3 top-[50%] -translate-y-[50%] px-2 py-2 border 
+              border-zinc-200/70 dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 
+              hover:outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 
+               disabled:hover:cursor-not-allowed disabled:grayscale-[70%]`}
           >
             <ArrowUp className="text-zinc-100" />
           </button>

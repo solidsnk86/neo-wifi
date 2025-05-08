@@ -2,8 +2,13 @@
 
 import { Languages, Mic } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { checkLanguage } from "./constants";
 import { Lexend } from "next/font/google";
+
+import { default as languageCodesData } from "./languages-codes.json";
+import { default as countryCodesData } from "./country-codes.json";
+
+const languageCodes: Record<string, string> = languageCodesData;
+const countryCodes: Record<string, string> = countryCodesData;
 
 const lexend = Lexend({
   weight: ["400"],
@@ -29,6 +34,21 @@ export const Translator = () => {
   const [isActived, setIsActived] = useState(false);
   const recognitionRef = useRef<SpeechRecognition>(null);
 
+  const avlailableLanguages = Array.from(
+    new Set(voices?.map(({ lang }) => lang))
+  )
+    .map((lang) => {
+      const split = lang.split("-");
+      const languageCode: string = split[0];
+      const countryCode: string = split[1];
+      return {
+        lang,
+        label: languageCodes[languageCode] || lang,
+        dialect: countryCodes[countryCode],
+      };
+    })
+    .sort((a, b) => a.label.localeCompare(b.label));
+
   useEffect(() => {
     const voices = window.speechSynthesis.getVoices();
 
@@ -51,6 +71,8 @@ export const Translator = () => {
       setIsActived(false);
       return;
     }
+
+    speak(" ");
 
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -81,21 +103,23 @@ export const Translator = () => {
       speak(translatedText);
     };
 
-    const avalaibleVoices = voices?.filter(({ lang }) => lang === language);
-    const activeVoice =
-      avalaibleVoices?.find(({ name }) => name.includes("Google")) ||
-      avalaibleVoices?.find(({ name }) => name.includes("Microsoft"));
-
-    const speak = (text: string) => {
-      if (!activeVoice) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = language;
-      utterance.voice = activeVoice;
-      window.speechSynthesis.speak(utterance);
-    };
-
     recognitionRef?.current.start();
   };
+
+  const avalaibleVoices = voices?.filter(({ lang }) => lang === language);
+  const activeVoice =
+    avalaibleVoices?.find(({ name }) => name.includes("Google")) ||
+    avalaibleVoices?.find(({ name }) => name.includes("Microsoft"));
+
+  const speak = (text: string) => {
+    if (!activeVoice) return;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = language;
+    utterance.voice = activeVoice;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  console.log(voices?.map((voice) => voice.lang));
 
   return (
     <section className="flex md:max-w-4xl flex-col justify-center mx-auto p-5 border bg-[#ffffff] dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 rounded-xl z-50 relative">
@@ -120,11 +144,13 @@ export const Translator = () => {
             onChange={(e) => setLanguage(e.target.value)}
             className="rounded-md p-2 outline-blue-500 border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100"
           >
-            {voices?.map((voice, index) => (
-              <option key={index} value={voice.lang}>
-                {checkLanguage(voice.lang)}
-              </option>
-            ))}
+            {avlailableLanguages.map(({ lang, label }) => {
+              return (
+                <option key={lang} value={lang}>
+                  {label} ({lang})
+                </option>
+              );
+            })}
           </select>
         </label>
 

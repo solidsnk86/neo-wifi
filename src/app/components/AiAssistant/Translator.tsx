@@ -119,8 +119,6 @@ export const Translator = () => {
     window.speechSynthesis.speak(utterance);
   };
 
-  console.log(voices?.map((voice) => voice.lang));
-
   return (
     <section className="flex md:max-w-4xl flex-col justify-center mx-auto p-5 border bg-[#ffffff] dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 rounded-xl z-50 relative">
       <header className="w-full flex border border-zinc-200 dark:border-zinc-700 rounded-xl bg-zinc-100 dark:bg-zinc-900">
@@ -153,6 +151,25 @@ export const Translator = () => {
             })}
           </select>
         </label>
+
+        <div className="flex items-center gap-2 justify-center">
+          <span
+            className={`flex w-[14px] h-[14px] rounded-full ${
+              !isActived ? "bg-red-950" : "bg-red-500"
+            }`}
+          />
+          <span className="w-[84px]">
+            {isActived ? (
+              <div className="loader-container animate-pulse">
+                Grabando<span className="dot">.</span>
+                <span className="dot">.</span>
+                <span className="dot">.</span>
+              </div>
+            ) : (
+              "Detenido"
+            )}
+          </span>
+        </div>
 
         <button
           onClick={handleOnRecord}

@@ -1,4 +1,4 @@
-import { Navbar } from "../components";
+import { Footer, Navbar } from "../components";
 import { Translator } from "../components/AiAssistant/Translator";
 
 export default function TrasnlatorPage() {
@@ -10,6 +10,7 @@ export default function TrasnlatorPage() {
           <Translator />
         </section>
       </main>
+      <Footer />
     </>
   );
 }

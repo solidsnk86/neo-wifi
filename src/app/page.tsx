@@ -31,7 +31,6 @@ export default function Home() {
     <>
       <MouseTrail />
       <div className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
-        <article className=""></article>
         <Navbar />
         <span className="effect-1" />
         <span className="effect-2" />

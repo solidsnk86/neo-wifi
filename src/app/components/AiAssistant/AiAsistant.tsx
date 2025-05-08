@@ -34,6 +34,7 @@ export const AiAssistant = ({
   const refTextarea = useRef<HTMLTextAreaElement>(null);
   const thinkRef = useRef<HTMLDivElement>(null);
   const [textVoice, setTextVoice] = useState<string>("");
+  const recognitionRef = useRef<SpeechRecognition>(null);
 
   const sendQuery = async ({
     text,
@@ -46,15 +47,14 @@ export const AiAssistant = ({
   }) => {
     try {
       setIsLoading(true);
-      const res = await fetch(`/api/neo-ai/`, {
+      const res: ContextAIProps = await fetch(`/api/neo-ai/`, {
         method: "POST",
-        body: JSON.stringify({ query: text, city: city, country: country }),
-      });
-      const data: ContextAIProps = await res.json();
-
+        body: JSON.stringify({ query: text, city, country }),
+      }).then((res) => res.json());
+      console.log(res);
       const assistantMessage: Message = {
         role: "assistant",
-        content: data.context.message.content[0].text,
+        content: res.context.message.content[0].text,
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
@@ -103,22 +103,11 @@ export const AiAssistant = ({
         "Content-type": "application/json",
       },
       body: JSON.stringify(objectData),
-    })
-      .then((res) => res.json())
-      .catch((err) => console.error(err));
+    }).catch((err) => console.error(err));
 
     thinkRef.current?.scrollIntoView({ behavior: "auto" });
     chatRef?.current?.scrollIntoView({ behavior: "smooth" });
   };
-
-  useEffect(() => {
-    const filterSystem = messages
-      .filter((message) => message.role === "assistant")
-      .map((message) => message.content);
-    if (filterSystem) {
-      localStorage.setItem("ai-response", JSON.stringify(filterSystem));
-    }
-  }, [messages]);
 
   const newChat = () => {
     setMessages([]);
@@ -142,17 +131,23 @@ export const AiAssistant = ({
   const handleOnRecord = () => {
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
+    recognitionRef.current = new SpeechRecognition();
 
-    recognition.lang = "es-AR";
+    recognitionRef.current.onstart = function () {
+      setIsLoading(true);
+    };
+    recognitionRef.current.onend = function () {
+      setIsLoading(false);
+    };
+    recognitionRef.current.lang = "es-AR";
 
-    recognition.onresult = async (event) => {
+    recognitionRef.current.onresult = async (event) => {
       const trasncript = event.results[0][0].transcript;
       setTextVoice(trasncript);
       setQuery(trasncript);
     };
 
-    recognition.start();
+    recognitionRef.current.start();
   };
 
   useEffect(() => {
@@ -257,7 +252,11 @@ export const AiAssistant = ({
           <button
             onClick={handleOnRecord}
             type="button"
-            className="absolute md:right-[76px] right-16 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 hover:outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 transition-all duration-500"
+            className={`absolute md:right-[76px] right-16 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 
+              dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 hover:outline-double rounded-full 
+              bg-gradient-to-b from-blue-500 to-blue-700 transition-all duration-500 ${
+                isLoading ? "from-red-500 to-red-700" : ""
+              }`}
           >
             <Mic className="text-zinc-100" />
           </button>

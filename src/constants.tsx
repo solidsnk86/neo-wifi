@@ -23,7 +23,7 @@ export const categories = [
     url: "https://github.com/solidsnk86/neo-wifi/issues/new",
   },
   { name: "Redes WiFi", url: "https://wifi.sanluis.gov.ar/#" },
-  { name: "Tutoriales", url: "https://neotecs.vercel.app" },
+  { name: "Traductor", url: "/translator" },
 ];
 
 export const quickLinks = [

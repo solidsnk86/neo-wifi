@@ -7,7 +7,7 @@ const cohere = new CohereClientV2({
 });
 
 export async function POST(request: Request) {
-  const { query, city, country, temp } = await request.json();
+  const { query, city, country, temp, lang } = await request.json();
 
   const generate = async () => {
     return await cohere.chat({
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       messages: [
         {
           role: "system",
-          content: SYSTEM_NEOWIFI_CONTENT,
+          content: SYSTEM_NEOWIFI_CONTENT(lang),
         },
         {
           role: "user",

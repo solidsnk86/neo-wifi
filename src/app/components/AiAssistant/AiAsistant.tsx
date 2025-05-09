@@ -3,6 +3,7 @@ import MarkdownRenderer from "../MarkDownRender";
 import { ArrowUp, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
+import { navLanguages } from "./constants";
 
 interface ContextAIProps {
   context: {
@@ -35,26 +36,30 @@ export const AiAssistant = ({
   const thinkRef = useRef<HTMLDivElement>(null);
   const [textVoice, setTextVoice] = useState<string>("");
   const recognitionRef = useRef<SpeechRecognition>(null);
+  const [isMicActive, setIsMicActive] = useState<boolean>(false);
   const [tempValue, setTempValue] = useState(0.3);
+  const [language, setLanguage] = useState<string>("es-AR");
 
   const sendQuery = async ({
     text,
     city,
     country,
     temp,
+    lang,
   }: {
     text: string;
     city: string;
     country: string;
     temp: string | number;
+    lang: string;
   }) => {
     try {
       setIsLoading(true);
       const res: ContextAIProps = await fetch(`/api/neo-ai/`, {
         method: "POST",
-        body: JSON.stringify({ query: text, city, country, temp }),
+        body: JSON.stringify({ query: text, city, country, temp, lang }),
       }).then((res) => res.json());
-      console.log(res);
+
       const assistantMessage: Message = {
         role: "assistant",
         content: res.context.message.content[0].text,
@@ -92,6 +97,7 @@ export const AiAssistant = ({
       city: clientData.city.name,
       country: clientData.country.name,
       temp: tempValue,
+      lang: language,
     });
 
     const objectData = {
@@ -138,12 +144,13 @@ export const AiAssistant = ({
     recognitionRef.current = new SpeechRecognition();
 
     recognitionRef.current.onstart = function () {
-      setIsLoading(true);
+      setIsMicActive(true);
     };
     recognitionRef.current.onend = function () {
-      setIsLoading(false);
+      setIsMicActive(false);
     };
-    recognitionRef.current.lang = "es-AR";
+
+    recognitionRef.current.lang = language;
 
     recognitionRef.current.onresult = async (event) => {
       const trasncript = event.results[0][0].transcript;
@@ -204,6 +211,22 @@ export const AiAssistant = ({
               className="bg-blue-500"
             />
             <span className="w-6">{tempValue}</span>
+          </label>
+          <label htmlFor="language" className="flex gap-2 items-center">
+            Idioma <Mic size={16} />
+            <select
+              name="language"
+              onChange={(e) => setLanguage(e.target.value)}
+              value={language}
+            >
+              {navLanguages.map((lang) => {
+                return (
+                  <option key={lang.code} value={lang.code}>
+                    {lang.name}
+                  </option>
+                );
+              })}
+            </select>
           </label>
         </aside>
       </div>
@@ -275,7 +298,7 @@ export const AiAssistant = ({
             className={`absolute md:right-[76px] right-16 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 
               dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 hover:outline-double rounded-full 
               bg-gradient-to-b from-blue-500 to-blue-700 ${
-                isLoading ? "from-red-500 to-red-700" : ""
+                isMicActive ? "from-red-500 to-red-700" : ""
               }`}
           >
             <Mic className="text-zinc-100" />

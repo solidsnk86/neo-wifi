@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getCountryFlag } from "@/utils/convert-to-flag";
 import { MapPinnedIcon } from "lucide-react";
-import { Children, cloneElement, ReactNode, useCallback } from "react";
+import { Children, cloneElement, ReactNode } from "react";
 import { Lexend } from "next/font/google";
 
 const locations = [
@@ -24,16 +24,6 @@ const lexend = Lexend({
 });
 
 export default function WifiLocationsCard() {
-  const pauseOnHover = useCallback(() => {
-    const marquee = document.getElementById("marquee")!;
-    return (marquee.style.animationPlayState = "paused");
-  }, []);
-
-  const playMarquee = useCallback(() => {
-    const marquee = document.getElementById("marquee")!;
-    return (marquee.style.animationPlayState = "running");
-  }, []);
-
   const CloneElements = ({ children }: { children: ReactNode }) => {
     return (
       <>
@@ -44,12 +34,7 @@ export default function WifiLocationsCard() {
   };
   return (
     <div className="w-[100%] flex p-10 border-y-2 border-zinc-200/70 dark:border-zinc-900/50 relative bg-[#FFFFFF] dark:bg-zinc-950/50 backdrop-blur-lg transition-all z-50">
-      <aside
-        className="flex gap-6"
-        id="marquee"
-        onMouseOver={pauseOnHover}
-        onMouseLeave={playMarquee}
-      >
+      <aside className="flex gap-6 relative" id="marquee">
         <CloneElements>
           {locations.map((loc) => (
             <div

@@ -13,18 +13,30 @@ import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import { MousePointer2, Quote } from "lucide-react";
+import { MousePointer2, Pause, Play, Quote } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
 import { useState } from "react";
+import { pauseMarquee, playMarquee } from "./components/constants";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
   const handleClickChat = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleClikStateBtn = () => {
+    if (!isPaused) {
+      pauseMarquee();
+      setIsPaused(true);
+    } else {
+      playMarquee();
+      setIsPaused(false);
+    }
   };
 
   return (
@@ -102,10 +114,16 @@ export default function Home() {
           </p>
         </article>
 
-        <section className="overflow-hidden">
+        <section className="overflow-hidden relative">
           <p className="flex justify-center mx-auto text-center text-xl mt-6 bg-[#FFFFFF] dark:bg-zinc-950/50 w-fit p-3 rounded-t-xl backdrop-blur-xl relative z-50 cursor-default border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-900/50">
             Redes WiFi disponibles en las siguientes localidades
           </p>
+          <button
+            className="absolute right-2 top-8 bg-[#FFFFFF] dark:bg-zinc-950/50 p-2 rounded-full hover:brightness-125 backdrop-blur-lg z-50 border-2 border-zinc-200/70 dark:border-zinc-900/50"
+            onClick={handleClikStateBtn}
+          >
+            {isPaused ? <Play /> : <Pause />}
+          </button>
           <WifiLocationsCard />
         </section>
 

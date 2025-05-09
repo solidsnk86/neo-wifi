@@ -1,3 +1,10 @@
+import { Share_Tech_Mono } from "next/font/google";
+
+export const shareTechMono = Share_Tech_Mono({
+  weight: ["400"],
+  subsets: ["latin"],
+});
+
 export const navLanguages = [
   {
     code: "es-MX",

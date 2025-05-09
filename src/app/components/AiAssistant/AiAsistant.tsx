@@ -3,7 +3,7 @@ import MarkdownRenderer from "../MarkDownRender";
 import { ArrowUp, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
-import { navLanguages } from "./constants";
+import { navLanguages, shareTechMono } from "./constants";
 
 interface ContextAIProps {
   context: {
@@ -136,7 +136,7 @@ export const AiAssistant = ({
       refTextarea.current.style.height = "auto";
       refTextarea.current.style.height = `${refTextarea.current.scrollHeight}px`;
     }
-  }, []);
+  }, [query]);
 
   const handleOnRecord = () => {
     const SpeechRecognition =
@@ -184,9 +184,9 @@ export const AiAssistant = ({
           />
         </span>
         <h3 className="text-xl md:text-2xl font-semibold text-black dark:text-white text-center font-['bogue-black']">
-          ¿Necesitas ayuda con la documentación?
+          Neo - Asistente IA
         </h3>
-        <aside className="flex gap-4">
+        <aside className="md:flex justify-between gap-4">
           <button
             onClick={newChat}
             className="text-blue-500 hover:text-blue-700 flex items-center gap-1 group"
@@ -198,8 +198,24 @@ export const AiAssistant = ({
             />
             Nuevo Chat
           </button>
-          <label htmlFor="tempValue" className="flex gap-2">
-            Creatividad
+          <label htmlFor="tempValue" className="flex gap-2 items-center">
+            Aleatoriedad{" "}
+            <small
+              className={`group px-1 rounded-[3px] border border-zinc-200/70
+                 dark:border-zinc-700 ${shareTechMono.className} hover:bg-zinc-200/70 relative`}
+            >
+              i
+              <div className="group-hover:flex absolute top-2 left-2 hidden w-48 bg-zinc-300 dark:bg-zinc-700 z-50 p-3 rounded-lg">
+                <small>
+                  Controla el aspecto de aleatoriedad en la selección de tokens
+                  que el modelo elige para la salida. Un valor de 0.8 es un buen
+                  punto de partida para experimentar. Los valores más bajos se
+                  usan en tareas con una respuesta correcta (por ejemplo,
+                  preguntas y respuestas o resúmenes). Los valores más altos
+                  aumentan la creatividad o variabilidad en la salida.
+                </small>
+              </div>
+            </small>
             <input
               type="range"
               name="tempValue"
@@ -208,7 +224,14 @@ export const AiAssistant = ({
               step="0.1"
               value={tempValue}
               onChange={(e) => setTempValue(parseFloat(e.target.value))}
-              className="bg-blue-500"
+              className="w-full appearance-none h-2 bg-zinc-300 rounded-full
+             [&::-webkit-slider-thumb]:appearance-none
+             [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4
+             [&::-webkit-slider-thumb]:rounded-full
+             [&::-webkit-slider-thumb]:bg-blue-500
+             [&::-webkit-slider-thumb]:cursor-pointer
+             [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4
+             [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:rounded-full"
             />
             <span className="w-6">{tempValue}</span>
           </label>
@@ -285,8 +308,8 @@ export const AiAssistant = ({
             onInput={handleInput}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                setQuery("");
                 submit(e);
+                setQuery("");
               }
             }}
             rows={1}

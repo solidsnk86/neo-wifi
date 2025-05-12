@@ -4,7 +4,6 @@ import { Footer, Navbar } from "@/app/components";
 import { HomeBlock, HomeBlockTitle } from "@/app/components/BlockComp";
 import { Donation } from "@/app/components/DonationCard/Donation";
 import MouseTrail from "@/app/components/MouseTrail";
-import NeoWifiAppCard from "@/app/components/NeoWifiCard";
 import { dialogMap } from "./constants";
 import { StepCard } from "./components/StepCard";
 import { useState } from "react";
@@ -92,10 +91,6 @@ export default function Page() {
             aplicación y su correcto funcionamiento.
           </p>
         </HomeBlock>
-
-        <section className="px-3">
-          <NeoWifiAppCard />
-        </section>
       </section>
 
       <div className="neo-ai">

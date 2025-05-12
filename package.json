@@ -13,6 +13,7 @@
     "@supabase/supabase-js": "^2.46.1",
     "@types/dom-speech-recognition": "^0.0.6",
     "cohere-ai": "^7.17.1",
+    "gsap": "^3.13.0",
     "highlight.js": "^11.11.1",
     "html2canvas": "^1.4.1",
     "install": "^0.13.0",

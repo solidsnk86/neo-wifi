@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Navbar,
-  Hero,
-  GeoPositionCard,
-  Footer,
-  Faqs,
-} from "./components/index";
+import { Navbar, Hero, GeoPositionCard, Footer } from "./components/index";
 import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";

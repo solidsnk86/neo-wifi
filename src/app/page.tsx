@@ -18,7 +18,7 @@ import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { pauseMarquee, playMarquee } from "./components/constants";
 
 export default function Home() {
@@ -38,6 +38,14 @@ export default function Home() {
       setIsPaused(false);
     }
   };
+
+  useEffect(() => {
+    if (!isOpen) {
+      document.body.style.overflow = "auto";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -203,7 +211,9 @@ export default function Home() {
         </HomeBlock>
 
         <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
-        <Faqs />
+        {/* <section className="overflow-x-hidden w-full">
+          <Faqs />
+        </section> */}
 
         <HomeBlock className="px-3">
           <AccordionList />

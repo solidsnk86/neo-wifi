@@ -9,6 +9,12 @@ import { StepCard } from "./components/StepCard";
 import { useState } from "react";
 import { AiAssistant } from "@/app/components/AiAssistant/AiAsistant";
 import Image from "next/image";
+import { Handlee } from "next/font/google";
+
+const handlee = Handlee({
+  weight: ["400"],
+  subsets: ["latin"],
+});
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,40 +64,38 @@ export default function Page() {
         </HomeBlock>
 
         <HomeBlockTitle>Configuración Router</HomeBlockTitle>
+
         <HomeBlock className="flex-col z-50 space-y-3">
-          <p>
-            El siguiente paso es hacer clic en
-            <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 ml-1 rounded-md font-mono text-sm">
-              Configurar Router
-            </span>
-            . Una vez completada la configuración de los puertos a estáticos, lo
-            cual toma menos de 5 segundos, debemos seleccionar la frecuencia de
-            nuestra antena. Si el modelo es:
-            <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 mx-1 rounded-md font-mono text-sm">
-              CPE710, CPE610, CPE510
-            </span>
-            significa que opera en 5 GHz. Si el modelo es:
-            <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 mx-1 rounded-md font-mono text-sm">
-              CPE220, CPE210, CPE205
-            </span>
-            entonces funciona en 2.4 GHz.
-          </p>
-          <p>
-            Dependiendo del modelo, seleccionamos la frecuencia correspondiente
-            y hacemos clic en
-            <span className="border border-zinc-300/70 dark:border-zinc-800 px-2 ml-[2px] rounded-md font-mono text-sm">
-              Configurar
-            </span>
-            . A partir de aquí, la aplicación se encargará de configurar
-            automáticamente la antena CPE. Durante el proceso, se abrirá una
-            ventana en el navegador donde la aplicación realizará su trabajo.
-          </p>
-          <p>
-            Para más detalles, pueden ver el video introductorio sobre la
-            aplicación y su correcto funcionamiento.
-          </p>
+          <div className="">
+            <p>
+              El siguiente paso es hacer clic en Configurar Router . Una vez
+              completada la configuración de los puertos a estáticos, lo cual
+              toma menos de 5 segundos, debemos seleccionar la frecuencia de
+              nuestra antena. Si el modelo es: CPE710, CPE610, CPE510 significa
+              que opera en 5 GHz. Si el modelo es: CPE220, CPE210, CPE205
+              entonces funciona en 2.4 GHz.
+            </p>
+            <p>
+              Dependiendo del modelo, seleccionamos la frecuencia
+              correspondiente y hacemos clic en Configurar . A partir de aquí,
+              la aplicación se encargará de configurar automáticamente la antena
+              CPE en segundo plano.
+            </p>
+          </div>
         </HomeBlock>
       </section>
+
+      <HomeBlock>
+        <div className="notebook text-blue-950">
+          <p className={`${handlee.className}`}>
+            Si necesitas ayuda con la instalación o tienes alguna duda sobre los
+            pasos a seguir, no dudes en consultar con nuestro asistente de IA,
+            Neo está disponible para guiarte a través del proceso y responder
+            cualquier pregunta que puedas tener. Ya sea que estés comenzando o
+            tengas alguna dificultad, está aquí para ayudarte. 🚀
+          </p>
+        </div>
+      </HomeBlock>
 
       <div className="neo-ai">
         <span
@@ -107,7 +111,9 @@ export default function Page() {
         </span>
       </div>
 
-      <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
+      <section className="py-16">
+        <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
+      </section>
       <Footer />
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">

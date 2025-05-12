@@ -808,3 +808,36 @@ html {
     background-position: 200% 0;
   }
 }
+
+.notebook {
+  background: #fff;
+  margin: 0 auto -100px;
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0 0 6px 3px #0000001a;
+  background-image: linear-gradient(
+      90deg,
+      #b6d7e8,
+      2px,
+      transparent,
+      2px,
+      transparent
+    ),
+    linear-gradient(0, #d9eaf3, 1px, transparent, 2px, transparent);
+  background-position: 4rem 0, 0 5px;
+  background-size: 100% 3rem;
+  padding-left: 6rem;
+  z-index: 4;
+  position: relative;
+  transform: rotate(-2deg);
+}
+
+.notebook p {
+  font-size: 0.8lh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  line-height: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

@@ -129,9 +129,10 @@ export const AiAssistant = ({
   };
 
   const newChat = () => {
+    const storageName = "neo-wifi-chat";
     setMessages([]);
     setQuery("");
-    localStorage.clear();
+    localStorage.removeItem(storageName);
   };
 
   const handleInput = () => {

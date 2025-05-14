@@ -22,14 +22,14 @@ interface Message {
 }
 
 export const AiAssistant = ({
+  history,
   closeAssistant,
 }: {
+  history?: Message[];
   closeAssistant: () => void;
 }) => {
   const [query, setQuery] = useState("");
-  const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Hola! en que puedo ayudarte?" },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([...(history ?? [])]);
   const [isLoading, setIsLoading] = useState(false);
   const chatRef = useRef<HTMLDivElement>(null);
   const refTextarea = useRef<HTMLTextAreaElement>(null);
@@ -64,8 +64,17 @@ export const AiAssistant = ({
         role: "assistant",
         content: res.context.message.content[0].text,
       };
+      const userMessage: Message = {
+        role: "user",
+        content: query,
+      };
 
       setMessages((prev) => [...prev, assistantMessage]);
+
+      localStorage.setItem(
+        "neo-wifi-chat",
+        JSON.stringify([userMessage, assistantMessage])
+      );
     } catch (err) {
       console.error(err);
     } finally {
@@ -206,7 +215,7 @@ export const AiAssistant = ({
             >
               i
               <div className="group-hover:flex absolute top-2 left-2 hidden w-48 bg-zinc-300 dark:bg-zinc-700 z-50 p-3 rounded-lg">
-                <small>
+                <small className="text-[12px]">
                   Controla el aspecto de aleatoriedad en la selección de tokens
                   que el modelo elige para la salida. Un valor de 0.8 es un buen
                   punto de partida para experimentar. Los valores más bajos se

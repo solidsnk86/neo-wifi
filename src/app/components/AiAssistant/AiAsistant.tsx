@@ -131,6 +131,7 @@ export const AiAssistant = ({
   const newChat = () => {
     setMessages([]);
     setQuery("");
+    localStorage.clear();
   };
 
   const handleInput = () => {

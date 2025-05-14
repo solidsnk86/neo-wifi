@@ -32,7 +32,7 @@ export default function Home() {
 
   useEffect(() => {
     const localHistoryChat = localStorage.getItem("neo-wifi-chat");
-    const parsed = JSON.parse(localHistoryChat || "");
+    const parsed = JSON.parse(localHistoryChat as string);
     setHistoryChat(parsed);
   }, []);
 

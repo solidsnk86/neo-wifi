@@ -60,7 +60,9 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                 <Copy className="absolute right-2 top-1 w-4 hover:text-blue-400" />
               </span>
             )}
-            <pre ref={preRef}>{children}</pre>
+            <pre className="p-2 bg-[#1C1D21] rounded-lg" ref={preRef}>
+              {children}
+            </pre>
           </div>
         ),
         a: ({ children }) => (

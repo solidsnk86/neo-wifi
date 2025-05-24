@@ -10,41 +10,16 @@ import { useEffect, useRef } from "react";
 gsap.registerPlugin(SplitText);
 
 export const Hero = () => {
-  const quoteRef = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
-    const splitText = SplitText.create(quoteRef.current, { type: "words" });
-    const tl = gsap.timeline();
-
-    gsap.set(quoteRef.current, { perspective: 400 });
-    splitText.split({ type: "chars,words" });
-
-    splitText.chars.forEach((char) => {
-      char.classList.add(
-        "inline-block",
-        "md:text-lg",
-        "text-base",
-        "text-center",
-        "text-zinc-600",
-        "dark:text-zinc-400",
-        "antialiased"
-      );
+    const splitText = new SplitText(textRef.current, { type: "lines, words" });
+    gsap.from(splitText.words, {
+      duration: 0.3,
+      y: 50,
+      opacity: 0,
+      stagger: 0.1,
     });
-
-    tl.from(splitText.chars, {
-      duration: 1,
-      scale: 6,
-      autoAlpha: 0,
-      rotationX: -180,
-      transformOrigin: "100% 50%",
-      ease: "back",
-      stagger: 0.02,
-    });
-
-    return () => {
-      tl.kill();
-      splitText.revert();
-    };
   }, []);
 
   return (
@@ -73,8 +48,11 @@ export const Hero = () => {
             </svg>
           </span>
         </h1>
-        <div ref={quoteRef}>
-          <p className="py-20 text-pretty text-base md:text-lg text-center text-zinc-600 dark:text-zinc-400 antialiased">
+        <div>
+          <p
+            ref={textRef}
+            className="py-20 text-pretty text-base md:text-lg text-center text-zinc-600 dark:text-zinc-400 antialiased"
+          >
             Simplifica la conexión a las redes WiFi del Gobierno de San Luis con
             esta herramienta especializada. Configura tu dispositivo TP-LINK CPE
             de forma rápida, segura y automatizada, garantizando una

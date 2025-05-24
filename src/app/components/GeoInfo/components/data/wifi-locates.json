@@ -551,7 +551,9 @@
   },
   {
     "name": "WiFi4.0-CO-06",
+    "MAC": "CC 88 C7 69 C0 C0",
     "name5g": "WiFi4.0-CO-06",
+    "MAC5g": "CC 88 C7 69 C0 D1",
     "lat": -32.554064,
     "lon": -65.249017,
     "type": "2Ghz.",

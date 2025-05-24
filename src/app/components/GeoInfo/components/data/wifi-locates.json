@@ -488,8 +488,6 @@
   {
     "name": "GobSL-CO-01",
     "MAC": "00 18 25 00 35 A0",
-    "name5g": "GobSL-CO-01",
-    "MAC5g": null,
     "lat": -32.558604,
     "lon": -65.244079,
     "type": "2Ghz.",
@@ -497,30 +495,19 @@
     "location": "Concarán"
   },
   {
-    "name": "GobSL-CO-11",
-    "MAC": "00 18 25 14 0F 60",
-    "name5g": "GobSL-CO-11",
-    "MAC5g": null,
-    "lat": -32.556435,
-    "lon": -65.241403,
-    "type": "2Ghz.",
-    "users": 12,
-    "location": "Concarán"
-  },
-  {
     "name": "GobSL-CO-03",
-    "name5g": "GobSL-CO-03",
+    "MAC": "C8 B5 AD B0 7D E1",
+    "name5g": "WiFi3.0-CO-03",
+    "MAC5g": "C8 B5 AD B0 7D F0",
     "lat": -32.560369,
     "lon": -65.244835,
-    "type": "2Ghz.",
+    "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": 40,
     "location": "Concarán"
   },
   {
     "name": "GobSL-CO-02",
     "MAC": "00 18 25 04 FF 80",
-    "name5g": "GobSL-CO-02",
-    "MAC5g": null,
     "lat": -32.558981,
     "lon": -65.236492,
     "type": "2Ghz.",
@@ -530,8 +517,8 @@
   {
     "name": "GobSL-CO-04",
     "MAC": "CC 88 C7 69 B4 40",
-    "name5g": "GobSL-CO-04",
-    "MAC5g": null,
+    "name5g": "WiFi4.0-CO-04",
+    "MAC5g": "CC 88 C7 69 B4 51",
     "lat": -32.562171,
     "lon": -65.245785,
     "type": "2Ghz.",
@@ -541,8 +528,6 @@
   {
     "name": "GobSL-CO-05",
     "MAC": "00 18 25 14 10 40",
-    "name5g": "GobSL-CO-05",
-    "MAC5g": null,
     "lat": -32.555023,
     "lon": -65.24392,
     "type": "2Ghz.",
@@ -563,19 +548,19 @@
   {
     "name": "GobSL-CO-07",
     "MAC": "CC 88 C7 69 BF 20",
-    "name5g": "GobSL-CO-07",
-    "MAC5g": null,
+    "name5g": "WiFi4.0-CO-07",
+    "MAC5g": "CC 88 C7 69 BF 31",
     "lat": -32.56337,
     "lon": -65.227507,
-    "type": "2Ghz.",
+    "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": 63,
     "location": "Concarán"
   },
   {
     "name": "GobSL-CO-09",
     "MAC": "7C 57 3C 6D A9 A0",
-    "name5g": "GobSL-CO-09",
-    "MAC5g": null,
+    "name5g": "WiFi3.0-CO-09",
+    "MAC5g": "7C 57 3C 6D A9 B1",
     "lat": -32.55629,
     "lon": -65.24829,
     "type": "2Ghz.",
@@ -584,11 +569,24 @@
   },
   {
     "name": "GobSL-CO-10",
-    "name5g": "GobSL-CO-10",
+    "MAC": "7C 57 3C 6C F4 81",
+    "name5g": "WiFi3.0-CO-10",
+    "MAC5g": "7C 57 3C 6C F4 90",
     "lat": -32.55293,
     "lon": -65.25184,
     "type": "2Ghz.",
     "users": 86,
+    "location": "Concarán"
+  },
+  {
+    "name": "GobSL-CO-11",
+    "MAC": "00 18 25 14 0F 60",
+    "name5g": "GobSL-CO-11",
+    "MAC5g": null,
+    "lat": -32.556435,
+    "lon": -65.241403,
+    "type": "2Ghz.",
+    "users": 12,
     "location": "Concarán"
   },
   {

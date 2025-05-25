@@ -2,7 +2,7 @@
 
 import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import { Footer, Navbar } from "../components";
 import styles from "./styles/button.module.css";
 import {
@@ -13,27 +13,35 @@ import {
   FileDown,
   FilePenIcon,
   FileText,
+  Loader,
 } from "lucide-react";
-import { DownloadsProps } from "@/types/definitions";
 import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
 import Link from "next/link";
 import { CurveArrowIcon } from "./Icons/ArrowIcon";
 import { YouTubeLiteVideo } from "../components/YoutubeVideo";
 import MouseTrail from "../components/MouseTrail";
 import { WindowsLogo } from "../components/DownloadButton/Icon/WindowsLogo";
-import { fetchCpeInfo } from "@/store/cpeInfoSlice";
-import type { AppDispatch, RootState } from "@/store";
-import { useDispatch, useSelector } from "react-redux";
+import { formatDate } from "@/utils/format-date";
+import MarkdownRenderer from "../components/MarkDownRender";
+
+interface ReleaseAPI {
+  release: {
+    htmlURL: string;
+    appName: string;
+    appVersion: string;
+    fileName: string;
+    fileSize: string;
+    createdAt: string;
+    updatedAt: string;
+    downloadURL: string;
+    downloadCount: number;
+    appInfo: string;
+  };
+}
 
 export default function Page() {
-  const [downloads, setDownloads] = useState<DownloadsProps>();
   const [downloadComplete, setDownloadComplete] = useState(false);
-  const dispatch = useDispatch<AppDispatch>();
-  const { data } = useSelector((state: RootState) => state.cpeInfo);
-
-  useEffect(() => {
-    dispatch(fetchCpeInfo());
-  }, [dispatch]);
+  const [appData, setAppData] = useState<ReleaseAPI>();
 
   const sendDataToSupabase = useCallback(async () => {
     const [ipInfo] = await Promise.all([getIP()]);
@@ -46,24 +54,20 @@ export default function Page() {
     await SupabaseDB.sendDownloads({ data: objDownload });
   }, []);
 
-  const getDownloadsCount = async () => {
-    const [download] = await Promise.all([SupabaseDB.getDownloads()]);
-    setDownloads({
-      data: {
-        download_count: download?.download_count,
-        city: download?.city,
-        ip: download?.ip,
-        so: download?.so,
-      },
-    });
+  const getAppData = async () => {
+    const response = await fetch("/api/releases");
+    const data = await response.json();
+    if (!response.ok) throw new Error(response.statusText);
+    setAppData(data);
   };
 
   const createLink = async () => {
     setDownloadComplete(false);
     const link = document.createElement("a");
     link.href =
-      "https://github.com/solidsnk86/neo-wifi/releases/download/v1.2.4/Neo-Wifi.Setup.1.2.4.rar";
-    link.download = `Neo-Wifi Setup ${data.version}.rar`;
+      appData?.release.downloadURL ||
+      "https://github.com/solidsnk86/neo-wifi/releases/download/1.2.5/Neo-Wifi.Setup.1.2.5.rar";
+    link.download = appData?.release.fileName || "Neo-Wifi.Setup.1.2.5.rar";
     await sendDataToSupabase().catch((err) =>
       console.error("Error al enviar datos:", err)
     );
@@ -76,16 +80,13 @@ export default function Page() {
   };
 
   useEffect(() => {
-    getDownloadsCount();
+    getAppData();
   }, []);
 
   if (downloadComplete) {
     window.scrollTo({
       top: 0,
     });
-    setTimeout(() => {
-      window.open("https://github.com/solidsnk86/neo-wifi/releases/tag/v1.2.4");
-    }, 6000);
     return (
       <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
         <MouseTrail />
@@ -130,7 +131,10 @@ export default function Page() {
       <Navbar />
       <section className="py-16">
         <HomeBlock className="flex-col justify-center text-center">
-          <HomeBlockTitle>Introducción</HomeBlockTitle>
+          <HomeBlockTitle>Descarga</HomeBlockTitle>
+          <Suspense fallback={<Loader className=" animate-spin" />}>
+            <MarkdownRenderer content={appData?.release.appInfo || ""} />
+          </Suspense>
           <YouTubeLiteVideo
             videoId="7ZqQ-NsTzYA"
             width={360}
@@ -160,26 +164,27 @@ export default function Page() {
           <div className="flex flex-col p-2 gap-2">
             <p className="flex items-center text-sm">
               <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup{" "}
-              {data.version || "v1.2.4"}
+              {appData?.release.appVersion || "v1.2.4"}
             </p>
             <p className="flex items-center text-sm">
-              <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:
-              80.82Mb.
+              <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:{" "}
+              {appData?.release.fileSize}
             </p>
             <p className="flex items-center text-sm">
-              <FileBox className="mx-2 w-6 h-6" /> Extensión: (.exe)
+              <FileBox className="mx-2 w-6 h-6" /> Archivo:{" "}
+              {appData?.release.fileName || ""}
             </p>
             <time className="flex items-center text-sm">
-              <FilePenIcon className="mx-2 w-6 h-6" /> Creación: 04/03/2025,
-              12:38:29p.m.
+              <FilePenIcon className="mx-2 w-6 h-6" /> Creación:{" "}
+              {formatDate(appData?.release.createdAt || "")}
             </time>
             <time className="flex items-center text-sm">
-              <Activity className="mx-2 w-6 h-6" /> Última actualización:
-              24/03/2025, 17:18:33p.m.
+              <Activity className="mx-2 w-6 h-6" /> Última actualización:{" "}
+              {formatDate(appData?.release.updatedAt || "")}
             </time>
             <p className="flex items-center text-sm">
               <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
-              {downloads?.data.download_count || 0}
+              {appData?.release.downloadCount || 0}
             </p>
             <p className="flex items-center text-sm">
               <WindowsLogo width={24} height={24} className="mx-2" /> Compatible
@@ -188,12 +193,12 @@ export default function Page() {
           </div>
           <aside className="flex justify-end p-4">
             <button
-              title="Descargar Neo-Wifi Setup 1.1.3"
+              title={`Descargar ${appData?.release.appName}`}
               className="py-2 px-4 bg-green-500 w-fit mt-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 hover:shadow-lg"
               onClick={createLink}
             >
               <span className={`text-white ${styles.button}`}>
-                Descargar (81.77MB)
+                Descargar ({appData?.release.fileSize})
               </span>
             </button>
           </aside>

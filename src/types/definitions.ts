@@ -21,18 +21,9 @@ interface OptionalProps {
   };
 }
 
-interface DownloadsProps {
-  data: {
-    download_count?: number;
-    ip: string;
-    city: string;
-    so: string;
-  };
-}
-
 export interface CpeInfoProps {
   version: string;
 }
 
-export type { OptionalProps, DownloadsProps };
+export type { OptionalProps };
 export type PartialOptionsProps = Partial<OptionalProps>;

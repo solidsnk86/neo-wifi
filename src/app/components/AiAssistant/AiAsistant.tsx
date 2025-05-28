@@ -252,7 +252,7 @@ export const AiAssistant = ({
               name="language"
               onChange={(e) => setLanguage(e.target.value)}
               value={language}
-              className="rounded"
+              className="rounded bg-zinc-100 text-zinc-800"
             >
               {navLanguages.map((lang) => {
                 return (

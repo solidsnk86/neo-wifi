@@ -164,9 +164,9 @@ export const AiAssistant = ({
     recognitionRef.current.lang = language;
 
     recognitionRef.current.onresult = async (event) => {
-      const trasncript = event.results[0][0].transcript;
-      setTextVoice(trasncript);
-      setQuery(trasncript);
+      const transcript = event.results[0][0].transcript;
+      setTextVoice(transcript);
+      setQuery(transcript);
     };
 
     recognitionRef.current.start();

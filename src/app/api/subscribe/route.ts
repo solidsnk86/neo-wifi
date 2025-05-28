@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { email } = await req.json();
+    const { version, email } = await req.json();
 
     if (!email) {
       return Response.json(
@@ -183,19 +183,19 @@ export async function POST(req: Request) {
         <div class="logo">
         <div class="logo-icon">📡</div>
         </div>
-        <div class="header">Neo-Wifi App 1.2.4</div>
+        <div class="header">Neo-Wifi App v${version}</div>
         <div class="subheader">Conectividad inteligente para San Luis</div>
 
         <div class="divider"></div>
 
         <div class="content">
-        Neo-Wifi es una aplicación innovadora que proporciona acceso completo a
+        Neo-Wifi web es una aplicación innovadora que proporciona acceso completo a
         la información sobre las antenas Wi-Fi públicas en la provincia de San
-        Luis.
+        Luis y determinar a que distancia te encuentras de las tres antenas más cercanas.
         </div>
 
         <div class="highlight">
-        Ahora en la 1.2.4 con nuevas funcionalidades y mayor
+        Ahora en la version ${version} con nuevas funcionalidades y mayor
         rendimiento.
         </div>
 
@@ -268,7 +268,7 @@ export async function POST(req: Request) {
     );
   } catch (error) {
     return Response.json(
-      { error: "Error al enviar email: " + error },
+      { error: "No se envió el email [" + error + "]" },
       { status: 500 }
     );
   }

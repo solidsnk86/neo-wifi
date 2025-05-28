@@ -1,13 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PlaneIcon } from "./Icons/PlaneIcon";
 import { showDialog } from "@/utils/dialog";
 import { Info, MailCheck } from "lucide-react";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
+  const [appData, setAppData] = useState<{
+    release: { appVersion: string; appInfo: string };
+  }>();
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const getAppData = async () => {
+      return await fetch("/api/releases")
+        .then((res) => res.json())
+        .then((appData) => setAppData(appData));
+    };
+    getAppData();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,10 +27,17 @@ export default function NewsletterForm() {
     const res = await fetch("/api/subscribe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({
+        version: appData?.release.appVersion,
+        email,
+      }),
     });
 
-    const data = await res.json();
+    const data = (await res.json()) as {
+      success: boolean;
+      message: string;
+      error: string;
+    };
     setIsLoading(false);
 
     if (data.success) {
@@ -44,6 +63,7 @@ export default function NewsletterForm() {
               Error en la subscripción
             </h2>
             <p className="text-black dark:text-zinc-50">Intente nuevamente.</p>
+            <small className="text-red-400">{data.error}</small>
           </div>
         ),
       });

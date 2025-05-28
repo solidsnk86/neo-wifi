@@ -2,7 +2,7 @@
 
 import { SupabaseDB } from "@/services/Supabase";
 import { getIP } from "@/utils/get-ip";
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Footer, Navbar } from "../components";
 import styles from "./styles/button.module.css";
 import {
@@ -13,7 +13,6 @@ import {
   FileDown,
   FilePenIcon,
   FileText,
-  Loader,
 } from "lucide-react";
 import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
 import Link from "next/link";

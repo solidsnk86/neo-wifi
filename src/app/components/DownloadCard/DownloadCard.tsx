@@ -1,27 +1,27 @@
 "Use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { DownloadButton } from "../DownloadButton/DownloadButton";
 import styles from "./styles/card.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch, RootState } from "@/store";
-import { fetchCpeInfo } from "@/store/cpeInfoSlice";
 
 export const DownloadCard = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { data } = useSelector((state: RootState) => state.cpeInfo);
+  const [version, setVersion] = useState<string>();
 
   useEffect(() => {
-    dispatch(fetchCpeInfo());
-  }, [dispatch]);
-
+    const getVersionData = async () => {
+      return await fetch("/api/releases")
+        .then((res) => res.json())
+        .then((data) => setVersion(data.release.appVersion));
+    };
+    getVersionData();
+  }, []);
   return (
     <article
       className={`${styles.article} border border-zinc-200/70 dark:border-zinc-700/80 z-50`}
     >
       <div className={styles.text_container}>
         <h2>
-          Neo-WiFi App <small>{data.version || "v1.2.4"}</small>
+          Neo-WiFi App <small>v{version}</small>
         </h2>
         <p>
           Esta aplicación es una herramienta diseñada para automatizar y

@@ -132,9 +132,11 @@ export default function Page() {
       <section className="py-16">
         <HomeBlock className="flex-col justify-center text-center">
           <HomeBlockTitle>Descarga</HomeBlockTitle>
-          <Suspense fallback={<Loader className=" animate-spin" />}>
+
+          <article className="p-4 mt-6 border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
             <MarkdownRenderer content={appData?.release.appInfo || ""} />
-          </Suspense>
+          </article>
+
           <YouTubeLiteVideo
             videoId="7ZqQ-NsTzYA"
             width={360}

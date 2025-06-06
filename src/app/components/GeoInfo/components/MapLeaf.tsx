@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet.fullscreen";
-import { Loader, MapPin, ScreenShare } from "lucide-react";
+import { Loader, LocateFixed, MapPin, ScreenShare } from "lucide-react";
 import { customIcon, TOKEN, wifiSvg } from "./constants";
 import wifiMap from "./data/wifi-locates.json";
 
@@ -571,7 +571,13 @@ const LeafMap = ({
       />
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-x-2 border-b-2 backdrop-blur-xl overflow-hidden rounded-b-xl">
         <article className="flex justify-between items-center gap-2">
-          <p className="p-4">Compartir el mapa!</p>
+          <button
+            onClick={getLocation}
+            className="flex gap-1 items-center p-4 rounded-es-[10px] transition-colors"
+          >
+            <LocateFixed className="w-5 h-5 font-semibold" />
+            Mostrar tu ubicación
+          </button>
           <button onClick={imgSharer} disabled={imgLoading}>
             {imgLoading ? (
               <div className="flex gap-1 items-center p-4 bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50">

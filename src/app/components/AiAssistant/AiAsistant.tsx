@@ -216,7 +216,7 @@ export const AiAssistant = ({
                  dark:border-zinc-700 ${shareTechMono.className} hover:bg-zinc-200/70 relative`}
             >
               i
-              <div className="group-hover:flex absolute top-2 left-2 hidden w-48 bg-zinc-300 dark:bg-zinc-700 z-50 p-3 rounded-lg">
+              <div className="group-hover:flex absolute top-2 left-2 hidden w-52 bg-zinc-300 dark:bg-zinc-700 z-50 p-3 rounded-lg">
                 <small className="text-[12px]">
                   Controla el aspecto de aleatoriedad en la selección de tokens
                   que el modelo elige para la salida. Un valor de 0.8 es un buen

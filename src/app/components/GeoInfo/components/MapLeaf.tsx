@@ -8,60 +8,8 @@ import "leaflet.fullscreen";
 import { Loader, LocateFixed, MapPin, ScreenShare } from "lucide-react";
 import { customIcon, TOKEN, wifiSvg } from "./constants";
 import wifiMap from "./data/wifi-locates.json";
-
-type Coords = {
-  latitude: number;
-  longitude: number;
-};
-
-type AntennaCoords = {
-  lat: number;
-  lon: number;
-};
-
-interface MapCoordsInterface {
-  currentPosition: Coords;
-  locationCity: string;
-  antennaPosition: {
-    coords: AntennaCoords;
-    name: { ssid2g: string; ssid5g: string };
-    distance: number | string;
-    type: string;
-    users: number;
-    location: string;
-  };
-  secondAntennaPosition: {
-    coords: AntennaCoords;
-    name: { ssid2g: string; ssid5g: string };
-    distance: number | string;
-    type: string;
-    users: number;
-    location: string;
-  };
-  thirdAntennaPosition: {
-    coords: AntennaCoords;
-    name: { ssid2g: string; ssid5g: string };
-    distance: number | string;
-    type: string;
-    users: number;
-    location: string;
-  };
-  getLocation: () => Promise<void>;
-  imgSharer: () => Promise<void>;
-  imgLoading: boolean;
-}
-
-interface WifiDataProps {
-  name: string;
-  name5g: string;
-  type: string;
-  MAC: string;
-  MAC5g: string;
-  lat: number | string;
-  lon: number | string;
-  location: string;
-  users: number;
-}
+import { MapLeaflet } from "@/services/MapLeaf";
+import { MapCoordsInterface, WifiDataProps } from "./types/definitions";
 
 const LeafMap = ({
   currentPosition,
@@ -99,6 +47,7 @@ const LeafMap = ({
       [currentPosition.latitude, currentPosition.longitude],
       17
     );
+    
     (map as any).addControl(
       (L.control as any).fullscreen({
         position: "topleft",
@@ -137,7 +86,7 @@ const LeafMap = ({
       return div;
     };
     // View Controller MAP - SATELLITE
-    let currentTileLayer: L.TileLayer | null = null;
+    const currentTileLayer: L.TileLayer | null = null;
     const mapViewControl = (L.control as any)({
       position: "bottomleft",
       forceSeparateButton: true,
@@ -146,42 +95,7 @@ const LeafMap = ({
     const satelliteViewControl = (L.control as any)({
       position: "bottomleft",
     });
-
-    function switchToSatellite(map: L.Map) {
-      if (currentTileLayer) {
-        map.removeLayer(currentTileLayer);
-      }
-
-      const tile = L.tileLayer(
-        `https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=${TOKEN}`,
-        {
-          attribution: "© Mapbox © OpenStreetMap",
-          tileSize: 512,
-          zoomOffset: -1,
-          accessToken: TOKEN,
-          crossOrigin: true,
-        }
-      ).addTo(map);
-
-      currentTileLayer = tile;
-    }
-
-    function switchToMap(map: L.Map) {
-      if (currentTileLayer) {
-        map.removeLayer(currentTileLayer);
-      }
-
-      const tile = L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        {
-          attribution: "© OpenStreetMap",
-          crossOrigin: true,
-        }
-      ).addTo(map);
-
-      currentTileLayer = tile;
-    }
-
+    
     mapViewControl.onAdd = function (map: L.Map) {
       const div = L.DomUtil.create("div", "map-control");
 
@@ -196,7 +110,7 @@ const LeafMap = ({
       `;
       div
         .querySelector(".map-control-btn")!
-        .addEventListener("click", () => switchToMap(map));
+        .addEventListener("click", () => MapLeaflet.switchToMap(map));
 
       return div;
     };
@@ -215,7 +129,7 @@ const LeafMap = ({
       `;
       div
         .querySelector(".satellite-control-btn")!
-        .addEventListener("click", () => switchToSatellite(map));
+        .addEventListener("click", () => MapLeaflet.switchToSatellite(map, TOKEN!));
 
       return div;
     };
@@ -224,105 +138,36 @@ const LeafMap = ({
     locateControl.addTo(map);
     mapInstance.current = map;
 
-    switchToMap(map);
-
-    L.marker([currentPosition.latitude, currentPosition.longitude], {
-      icon: customIcon,
-      zIndexOffset: 999,
-    })
-      .addTo(map)
-      .bindPopup("Tu ubicación");
-
-    const addAntennaMarker = (
-      position: AntennaCoords,
-      name: { ssid2g: string; ssid5g: string },
-      distance: number | string,
-      type: string,
-      users: number
-    ) => {
-      L.marker([position.lat, position.lon], { icon: wifiSvg })
-        .addTo(map)
-        .bindPopup(
-          `<div style="font-size:14px; font-weight:bold;">
-            🔹 <strong>Antena 2.4Ghz:</strong> ${name.ssid2g}<br>
-            🔹 <strong>Antena 5Ghz:</strong> ${name.ssid5g}<br>
-            📏 <strong>Distancia:</strong> <span style="color:#0078D7;">${distance}</span><br>
-            ⚡ <strong>Tipo:</strong> ${type}<br>
-            🙇‍♂️ <strong>Usuarios Conectados:</strong> ${users}
-          </div>`
-        )
-        .openPopup();
-      L.polyline(
-        [
-          [currentPosition.latitude, currentPosition.longitude],
-          [position.lat, position.lon],
-        ],
-        { color: "blue", weight: 2, opacity: 0.7, dashArray: "5, 5" }
-      ).addTo(map);
-    };
-
-    L.polyline(
-      [
-        [currentPosition.latitude, currentPosition.longitude],
-        [antennaPosition.coords.lat, antennaPosition.coords.lon],
-      ],
-      { color: "blue", weight: 2, opacity: 0.7, dashArray: "5, 5" }
-    )
-      .addTo(map)
-      .bindPopup(`Distancia: ${antennaPosition.distance}`)
-      .bindTooltip(`La más cercana: ${antennaPosition.distance}`, {
-        permanent: true,
-        direction: "auto",
-      });
-
-    L.polyline(
-      [
-        [currentPosition.latitude, currentPosition.longitude],
-        [secondAntennaPosition.coords.lat, secondAntennaPosition.coords.lon],
-      ],
-      { color: "blue", weight: 2, opacity: 0.7, dashArray: "5, 5" }
-    )
-      .addTo(map)
-      .bindPopup(`Distancia: ${secondAntennaPosition.distance}`)
-      .bindTooltip(`Segunda más cercana: ${secondAntennaPosition.distance}`, {
-        permanent: true,
-        direction: "auto",
-      });
-
-    L.polyline(
-      [
-        [currentPosition.latitude, currentPosition.longitude],
-        [thirdAntennaPosition.coords.lat, thirdAntennaPosition.coords.lon],
-      ],
-      { color: "blue", weight: 1, opacity: 0.7, dashArray: "5, 5" }
-    )
-      .addTo(map)
-      .bindPopup(`Distancia: ${thirdAntennaPosition.distance}`)
-      .bindTooltip(`Tercera más cercana: ${thirdAntennaPosition.distance}`, {
-        permanent: true,
-        direction: "auto",
-      });
-
-    addAntennaMarker(
+    MapLeaflet.marker({ currentPosition, map, icon: customIcon });
+    MapLeaflet.createFirstLine({ currentPosition, antennaPosition, map });
+    MapLeaflet.createSecondLine({ currentPosition, secondAntennaPosition, map });
+    MapLeaflet.createThirdLine({ currentPosition, thirdAntennaPosition, map });
+    MapLeaflet.addAntennaMarker(
       thirdAntennaPosition.coords,
       thirdAntennaPosition.name,
       thirdAntennaPosition.distance,
       thirdAntennaPosition.type,
-      thirdAntennaPosition.users
+      thirdAntennaPosition.users,
+      map,
+      wifiSvg, currentPosition
     );
-    addAntennaMarker(
+    MapLeaflet.addAntennaMarker(
       secondAntennaPosition.coords,
       secondAntennaPosition.name,
       secondAntennaPosition.distance,
       secondAntennaPosition.type,
-      secondAntennaPosition.users
+      secondAntennaPosition.users,
+      map,
+      wifiSvg, currentPosition
     );
-    addAntennaMarker(
+    MapLeaflet.addAntennaMarker(
       antennaPosition.coords,
       antennaPosition.name,
       antennaPosition.distance,
       antennaPosition.type,
-      antennaPosition.users
+      antennaPosition.users,
+      map,
+      wifiSvg, currentPosition
     );
 
     optimizedAntennas

@@ -12,7 +12,8 @@ Tu nombre es: NEO
           que provee dicho gobierno de cada ciudad o país, en ellos están: Mendoza, San Juan, San Luis, Córdoba, Buenos Aires, Corrientes. Están disponibles todos los
           puntos wifi con su ubicación en el mapa que se provee en esta web. ¿Que se ve en el mapa? El mapa muestra las tres antenas más cercanas y a que distancia en metros estás de cada una, con su información del nombre,
           datos técnicos y SSID, MAC si es que tiene (SAN LUIS SI IDEAL APRA CONECTAR CON LA APP DE ESCRITORIO), también se ven el resto del as antenas que hay en tu ubicación pero sin la distancia solamente los nombrs y otros datos.
-          En San Luis hay 1083 puntos o nodos wifi de alta velocidad dual band de 2.4Ghz y de 5Ghz disponibles, aproximadamente estos nodos brindan conexiones de hasta 80Mb/s de 5Ghz para generar una conexión mediante CPE como los de TP-Link que la App de escritorio automatiza esa configuración.
+          En San Luis hay 1083 puntos o nodos wifi de alta velocidad distribuidos en toda la provincia, en la cual en la capital hay mas de 300 nodos, dual band de 2.4Ghz y de 5Ghz disponibles, 
+          aproximadamente estos nodos brindan conexiones de hasta 80Mb/s de 5Ghz para generar una conexión mediante CPE como los de TP-Link que la App de escritorio automatiza esa configuración.
           En Córdoba hay 93 puntos espacios WiFi en toda la provincia. En Mendoza hay más de 45 puntos Wifi, en San Juan hay 33 puntos, en Corrientes hay 57, en Buenos Aires hay 603 puntos wifi.
           Países de europa agregados: Alemania (Berlín mas de 2060 puntos), España (Madrid 250 puntos wifi, Barcelona 18 puntos wifi), Francia (250 puntos wifi). Ambos siempre está distribuidos en lugares públicos, instituciones, escuelas, bibliotecas, hospitales etc.
           

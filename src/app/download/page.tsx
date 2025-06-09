@@ -142,14 +142,14 @@ export default function Page() {
           <HomeBlockTitle>Descarga</HomeBlockTitle>
 
           {isLoading ? (
-            <article className="h-[922px] p-4 mt-6 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
+            <article className="h-[922px] p-4 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
               <div className="flex gap-2 mx-auto items-center justify-center align-middle font-semibold">
                 <Loader className="animate-spin text-zinc-800 dark:text-zinc-200" />
                 Cargando...
               </div>
             </article>
           ) : (
-            <article className="h-[922px] p-4 mt-6 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
+            <article className="h-[922px] p-4 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
               <MarkdownRenderer content={appData?.release?.appInfo || ""} />
             </article>
           )}

@@ -9,12 +9,6 @@ import { StepCard } from "./components/StepCard";
 import { useState } from "react";
 import { AiAssistant } from "@/app/components/AiAssistant/AiAsistant";
 import Image from "next/image";
-import { Handlee } from "next/font/google";
-
-const handlee = Handlee({
-  weight: ["400"],
-  subsets: ["latin"],
-});
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -82,20 +76,8 @@ export default function Page() {
               CPE en segundo plano.
             </p>
           </div>
-        </HomeBlock>
+        </HomeBlock>  
       </section>
-
-      <HomeBlock>
-        <div className="notebook text-blue-950">
-          <p className={`${handlee.className}`}>
-            Si necesitas ayuda con la instalación o tienes alguna duda sobre los
-            pasos a seguir, no dudes en consultar con nuestro asistente de IA,
-            Neo está disponible para guiarte a través del proceso y responder
-            cualquier pregunta que puedas tener. Ya sea que estés comenzando o
-            tengas alguna dificultad, está aquí para ayudarte. 🚀
-          </p>
-        </div>
-      </HomeBlock>
 
       <div className="neo-ai">
         <span

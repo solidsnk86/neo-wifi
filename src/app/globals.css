@@ -352,7 +352,7 @@ html {
 .neo-ai::after {
   content: "";
   position: fixed;
-  bottom: 68px;
+  bottom: 72px;
   right: 42px;
   width: 10px;
   height: 10px;
@@ -373,7 +373,7 @@ html {
   padding-inline: 8px;
   padding-block: 4px;
   position: fixed;
-  bottom: 72px;
+  bottom: 76px;
   right: 26px;
   opacity: 0;
 }
@@ -383,6 +383,9 @@ html {
   opacity: 1;
 }
 
+#neo-ai:hover img {
+  filter: drop-shadow(0 0 10px #fdf147db);
+}
 /*
 # Donwload Card
 */

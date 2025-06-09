@@ -26,7 +26,7 @@ export const AiAssistant = ({
   closeAssistant,
 }: {
   history?: Message[];
-  closeAssistant: () => void;
+  closeAssistant?: () => void;
 }) => {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([...(history ?? [])]);

@@ -41,10 +41,10 @@ export default function MarkdownRenderer({ content }: { content: string }) {
       ]}
       components={{
         h1: ({ children }) => (
-          <h1 className="mt-8 mb-4 text-3xl font-bold">{children}</h1>
+          <h1 className="mt-8 mb-4 text-3xl font-bold pb-2 border-b border-zinc-200/70 dark:border-zinc-800">{children}</h1>
         ),
         h2: ({ children }) => (
-          <h2 className="mt-6 mb-3 text-2xl font-semibold">{children}</h2>
+          <h2 className="mt-6 mb-3 text-2xl font-semibold pb-2 border-b border-zinc-200/70 dark:border-zinc-800">{children}</h2>
         ),
         h3: ({ children }) => (
           <h3 className="mt-4 mb-2 text-xl font-semibold">{children}</h3>
@@ -70,6 +70,9 @@ export default function MarkdownRenderer({ content }: { content: string }) {
             {children}
           </a>
         ),
+        hr: () => (
+          <hr className="my-4 border-2 border-zinc-200/70 dark:border-zinc-800" />
+        )
       }}
     >
       {content}

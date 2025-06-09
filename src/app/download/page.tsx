@@ -13,6 +13,7 @@ import {
   FileDown,
   FilePenIcon,
   FileText,
+  Loader,
 } from "lucide-react";
 import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
 import Link from "next/link";
@@ -41,6 +42,7 @@ interface ReleaseAPI {
 export default function Page() {
   const [downloadComplete, setDownloadComplete] = useState(false);
   const [appData, setAppData] = useState<ReleaseAPI>();
+  const [isLoading, setIsLoading] = useState(true);
 
   const sendDataToSupabase = useCallback(async () => {
     const [ipInfo] = await Promise.all([getIP()]);
@@ -54,10 +56,17 @@ export default function Page() {
   }, []);
 
   const getAppData = async () => {
-    const response = await fetch("/api/releases");
-    const data = await response.json();
-    if (!response.ok) throw new Error(response.statusText);
-    setAppData(data);
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/releases");
+      const data = await response.json();
+      if (!response.ok) throw new Error(response.statusText);
+      setAppData(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log("Cannot get data:", (error as TypeError).message);
+      setIsLoading(false);
+    }
   };
 
   const createLink = async () => {
@@ -132,9 +141,18 @@ export default function Page() {
         <HomeBlock className="flex-col justify-center text-center">
           <HomeBlockTitle>Descarga</HomeBlockTitle>
 
-          <article className="p-4 mt-6 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
-            <MarkdownRenderer content={appData?.release.appInfo || ""} />
-          </article>
+          {isLoading ? (
+            <article className="h-[922px] p-4 mt-6 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
+              <div className="flex gap-2 mx-auto items-center justify-center align-middle font-semibold">
+                <Loader className="animate-spin text-zinc-800 dark:text-zinc-200" />
+                Cargando...
+              </div>
+            </article>
+          ) : (
+            <article className="h-[922px] p-4 mt-6 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
+              <MarkdownRenderer content={appData?.release?.appInfo || ""} />
+            </article>
+          )}
 
           <YouTubeLiteVideo
             videoId="7ZqQ-NsTzYA"
@@ -165,27 +183,27 @@ export default function Page() {
           <div className="flex flex-col p-2 gap-2">
             <p className="flex items-center text-sm">
               <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup{" "}
-              {appData?.release.appVersion || "v1.2.4"}
+              {appData?.release?.appVersion || "v1.2.4"}
             </p>
             <p className="flex items-center text-sm">
               <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:{" "}
-              {appData?.release.fileSize}
+              {appData?.release?.fileSize}
             </p>
             <p className="flex items-center text-sm">
               <FileBox className="mx-2 w-6 h-6" /> Archivo:{" "}
-              {appData?.release.fileName || ""}
+              {appData?.release?.fileName || ""}
             </p>
             <time className="flex items-center text-sm">
               <FilePenIcon className="mx-2 w-6 h-6" /> Creación:{" "}
-              {formatDate(appData?.release.createdAt || "")}
+              {formatDate(appData?.release?.createdAt || "")}
             </time>
             <time className="flex items-center text-sm">
               <Activity className="mx-2 w-6 h-6" /> Última actualización:{" "}
-              {formatDate(appData?.release.updatedAt || "")}
+              {formatDate(appData?.release?.updatedAt || "")}
             </time>
             <p className="flex items-center text-sm">
               <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
-              {appData?.release.downloadCount || 0}
+              {appData?.release?.downloadCount || 0}
             </p>
             <p className="flex items-center text-sm">
               <WindowsLogo width={24} height={24} className="mx-2" /> Compatible
@@ -194,12 +212,12 @@ export default function Page() {
           </div>
           <aside className="flex justify-end p-4">
             <button
-              title={`Descargar ${appData?.release.appName}`}
+              title={`Descargar ${appData?.release?.appName}`}
               className="py-2 px-4 bg-green-500 w-fit mt-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 hover:shadow-lg"
               onClick={createLink}
             >
               <span className={`text-white ${styles.button}`}>
-                Descargar ({appData?.release.fileSize})
+                Descargar ({appData?.release?.fileSize})
               </span>
             </button>
           </aside>

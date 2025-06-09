@@ -132,7 +132,7 @@ export default function Page() {
         <HomeBlock className="flex-col justify-center text-center">
           <HomeBlockTitle>Descarga</HomeBlockTitle>
 
-          <article className="p-4 mt-6 border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
+          <article className="p-4 mt-6 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
             <MarkdownRenderer content={appData?.release.appInfo || ""} />
           </article>
 

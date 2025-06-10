@@ -253,7 +253,7 @@ export const GeoPositionCard = () => {
   }, []);
 
   const imgMapSharer = () => mapSharer(setImgLoading);
-  console.log(location.third_closest_wifi.distance)
+ 
   return (
     <div className="justify-center mx-auto w-[672px] z-50">
       <GeoPosition location={location} coords={coords} loading={isLoading} />

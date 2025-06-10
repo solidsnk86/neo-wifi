@@ -330,7 +330,7 @@ export const AiAssistant = ({
             rows={1}
             placeholder="Pregunta lo que quieras"
           />
-          <small className="absolute bottom-1 right-36 text-xs">
+          <small className="absolute bottom-1 right-24 md:right-28 xl:right-36 text-xs">
             {charCount}/{MAX_CHAR}
           </small>
           <button

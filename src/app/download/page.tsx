@@ -155,7 +155,7 @@ export default function Page() {
           )}
 
           <YouTubeLiteVideo
-            videoId="7ZqQ-NsTzYA"
+            videoId="9t6QI3QCFUw"
             width={360}
             height={300}
             className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"

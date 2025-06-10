@@ -6,6 +6,7 @@
   left: 0;
   animation: slideFrom 180ms forwards linear;
   backdrop-filter: blur(24px);
+  overflow-y: auto;
 }
 
 .xEffect {

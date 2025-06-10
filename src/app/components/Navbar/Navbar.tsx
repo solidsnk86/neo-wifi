@@ -6,7 +6,6 @@ import { MoonStar, Sun, X, AlignRight, Palette } from "lucide-react";
 import { useEffect, useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
-import NeoWifiCode from "../Footer/icon/NeoWifiCode";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "@/store/themeSlice";
 import { RootState } from "@/store";
@@ -117,7 +116,7 @@ export const Navbar = () => {
             />
 
             <div className="flex flex-col w-full h-full pt-20">
-              <article className="space-y-5">
+              <article className="space-y-5 h-full">
                 {navLinks.map(({ name, ariaLabel, icon: Icon, url, fx }) => (
                   <ul
                     key={name}
@@ -197,7 +196,6 @@ export const Navbar = () => {
                     </Link>
                   ))}
                 </aside>
-                <NeoWifiCode className="flex justify-center mx-auto mt-8" />
               </footer>
             </div>
           </div>

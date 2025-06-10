@@ -139,7 +139,7 @@ export default function Page() {
       <Navbar />
       <section className="py-16">
         <HomeBlock className="flex-col justify-center text-center">
-          <HomeBlockTitle>Descarga</HomeBlockTitle>
+          <HomeBlockTitle>Información</HomeBlockTitle>
 
           {isLoading ? (
             <article className="h-[922px] p-4 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
@@ -149,7 +149,7 @@ export default function Page() {
               </div>
             </article>
           ) : (
-            <article className="h-[922px] p-4 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
+            <article className="xl:h-[922px] p-4 mx-3 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
               <MarkdownRenderer content={appData?.release?.appInfo || ""} />
             </article>
           )}

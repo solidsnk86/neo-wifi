@@ -66,27 +66,6 @@ export default function Page() {
             className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
             border={0}
           />
-
-        <HomeBlockTitle>Configuración Router</HomeBlockTitle>
-
-        <HomeBlock className="flex-col z-50 space-y-3">
-          <div className="">
-            <p>
-              El siguiente paso es hacer clic en Configurar Router . Una vez
-              completada la configuración de los puertos a estáticos, lo cual
-              toma menos de 5 segundos, debemos seleccionar la frecuencia de
-              nuestra antena. Si el modelo es: CPE710, CPE610, CPE510 significa
-              que opera en 5 GHz. Si el modelo es: CPE220, CPE210, CPE205
-              entonces funciona en 2.4 GHz.
-            </p>
-            <p>
-              Dependiendo del modelo, seleccionamos la frecuencia
-              correspondiente y hacemos clic en Configurar . A partir de aquí,
-              la aplicación se encargará de configurar automáticamente la antena
-              CPE en segundo plano.
-            </p>
-          </div>
-        </HomeBlock>  
       </section>
 
       <div className="neo-ai">

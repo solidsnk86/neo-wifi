@@ -8,6 +8,7 @@ import {
   BookOpenText,
   Info,
   Bug,
+  DownloadIcon,
 } from "lucide-react";
 import { XIcon } from "./app/components/Icons/XIcon";
 import { showDialog } from "./utils/dialog";
@@ -60,6 +61,12 @@ export const navLinks = [
     url: "https://github.com/solidsnk86/neo-wifi/issues/new",
     icon: Bug,
     ariaLabel: "Bugs",
+  },
+  {
+    name: "Descarga",
+    url: "/download",
+    icon: DownloadIcon,
+    ariaLabel: "Descarga"
   },
   {
     name: "Compartir",

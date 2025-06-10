@@ -9,6 +9,7 @@ import { StepCard } from "./components/StepCard";
 import { useState } from "react";
 import { AiAssistant } from "@/app/components/AiAssistant/AiAsistant";
 import Image from "next/image";
+import { YouTubeLiteVideo } from "@/app/components/YoutubeVideo";
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +57,15 @@ export default function Page() {
             />
           ))}
         </HomeBlock>
+
+        <HomeBlockTitle>Un video breve</HomeBlockTitle>
+        <YouTubeLiteVideo
+            videoId="9t6QI3QCFUw"
+            width={360}
+            height={300}
+            className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
+            border={0}
+          />
 
         <HomeBlockTitle>Configuración Router</HomeBlockTitle>
 

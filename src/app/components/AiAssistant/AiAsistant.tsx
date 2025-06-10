@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
 import { ArrowUp, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";

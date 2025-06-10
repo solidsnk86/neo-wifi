@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
 import { ArrowUp, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
@@ -39,6 +39,8 @@ export const AiAssistant = ({
   const [isMicActive, setIsMicActive] = useState<boolean>(false);
   const [tempValue, setTempValue] = useState(0.3);
   const [language, setLanguage] = useState<string>("es-AR");
+  const MAX_CHAR = 300;
+  const [charCount, setCharCount] = useState<number>(0);
 
   const sendQuery = async ({
     text,
@@ -86,6 +88,7 @@ export const AiAssistant = ({
     const newValue = e.target.value;
     setQuery(newValue);
     setTextVoice(newValue);
+    setCharCount(newValue.length);
   };
 
   const submit = async (e: FormEvent) => {
@@ -314,7 +317,7 @@ export const AiAssistant = ({
           <textarea
             className={`md:w-11/12 w-10/12 p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg outline-none focus:outline-blue-500 ${styles.assistant}`}
             onChange={handleInputChange}
-            maxLength={300}
+            maxLength={MAX_CHAR}
             value={query}
             ref={refTextarea}
             onInput={handleInput}
@@ -327,6 +330,9 @@ export const AiAssistant = ({
             rows={1}
             placeholder="Pregunta lo que quieras"
           />
+          <small className="absolute bottom-1 right-36 text-xs">
+            {charCount}/{MAX_CHAR}
+          </small>
           <button
             onClick={handleOnRecord}
             type="button"

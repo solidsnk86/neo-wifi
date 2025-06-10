@@ -271,8 +271,8 @@ export default function Home() {
         >
           <Image
             src="/assets/neo_pixelart-removebg-preview.png"
-            width={45}
-            height={45}
+            width={55}
+            height={55}
             alt="The Neo Protagonist"
           />
         </div>

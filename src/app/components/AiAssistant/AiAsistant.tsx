@@ -99,6 +99,7 @@ export const AiAssistant = ({
 
     setMessages((prev) => [...prev, userMessage]);
     setQuery("");
+    setCharCount(0)
 
     const [clientData] = await Promise.all([
       (await fetch("https://solid-geolocation.vercel.app/location")).json(),
@@ -133,7 +134,7 @@ export const AiAssistant = ({
 
   const newChat = () => {
     const storageName = "neo-wifi-chat";
-    setMessages([]);
+    setMessages([{ role: "assistant", content: "Dime en que otra cosa te puedo ayudar?" }]);
     setQuery("");
     localStorage.removeItem(storageName);
   };
@@ -146,10 +147,7 @@ export const AiAssistant = ({
   };
 
   useEffect(() => {
-    if (refTextarea.current) {
-      refTextarea.current.style.height = "auto";
-      refTextarea.current.style.height = `${refTextarea.current.scrollHeight}px`;
-    }
+    handleInput()
   }, [query]);
 
   const handleOnRecord = () => {
@@ -157,10 +155,10 @@ export const AiAssistant = ({
       window.SpeechRecognition || window.webkitSpeechRecognition;
     recognitionRef.current = new SpeechRecognition();
 
-    recognitionRef.current.onstart = function () {
+    recognitionRef.current.onstart = () => {
       setIsMicActive(true);
     };
-    recognitionRef.current.onend = function () {
+    recognitionRef.current.onend = () => {
       setIsMicActive(false);
     };
 

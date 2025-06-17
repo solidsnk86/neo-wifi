@@ -51,9 +51,10 @@ export default function Page() {
       city: ipInfo.cityName,
       so: ipInfo.sysInfo.system,
       browser: ipInfo.sysInfo.webBrowser.browser,
+      app_version: appData?.release.appVersion
     };
     await SupabaseDB.sendDownloads({ data: objDownload });
-  }, []);
+  }, [appData?.release.appVersion]);
 
   const getAppData = async () => {
     setIsLoading(true);

@@ -63,12 +63,6 @@ export const navLinks = [
     ariaLabel: "Bugs",
   },
   {
-    name: "Descarga",
-    url: "/download",
-    icon: DownloadIcon,
-    ariaLabel: "Descarga"
-  },
-  {
     name: "Compartir",
     url: "",
     fx: () => {
@@ -100,6 +94,12 @@ export const navLinks = [
     },
     icon: Share,
     ariaLabel: "Compartir",
+  },
+  {
+    name: "Descarga",
+    url: "/download",
+    icon: DownloadIcon,
+    ariaLabel: "Descarga"
   },
   {
     name: "Documentación",

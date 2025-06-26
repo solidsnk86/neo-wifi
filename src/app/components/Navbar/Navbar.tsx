@@ -43,7 +43,7 @@ export const Navbar = () => {
         </span>
       </Link>
 
-      <div className="md:flex hidden items-center gap-8">
+      <div className="md:flex hidden items-center xl:gap-8 md:gap-4">
         {navLinks
           .filter((route) => route.url !== path)
           .map(({ url, name, ariaLabel, fx }) => (

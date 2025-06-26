@@ -290,6 +290,7 @@ const LeafMap = ({
   const montecoman = cleanedPlaces.find((value) => value === "Monte Comán");
   const sosneado = cleanedPlaces.find((value) => value === "El Sosneado");
   const malargue = cleanedPlaces.find((value) => value === "Malargüe");
+  const tucuman = cleanedPlaces.find((value) => value === "San Miguel de Tucumán")
   const tierradelfuego = cleanedPlaces.find(
     (value) => value === "Tierra del Fuego"
   );
@@ -313,10 +314,11 @@ const LeafMap = ({
       val !== malargue &&
       val !== francia &&
       val !== sanjuan &&
-      val !== tierradelfuego
+      val !== tierradelfuego &&
+      val !== tucuman
     );
   };
-
+  
   return (
     <>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
@@ -375,6 +377,13 @@ const LeafMap = ({
             {corrientes && (
               <optgroup label="🇦🇷 Argentina - Corrientes">
                 <option value={corrientes}>{corrientes}</option>
+              </optgroup>
+            )}
+
+            {/* Argentina - Tucumán */}
+            {tucuman && (
+              <optgroup label="🇦🇷 Argentina - Tucumán">
+                <option value={tucuman}>{tucuman}</option>
               </optgroup>
             )}
 

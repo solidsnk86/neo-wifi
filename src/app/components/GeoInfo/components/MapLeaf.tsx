@@ -29,6 +29,7 @@ const LeafMap = ({
   useEffect(() => {
     setAntennas(wifiMap);
   }, []);
+
   const optimizedAntennas = useMemo(() => {
     return antennas
       .filter((antenna) => antenna.location === locationCity)
@@ -85,8 +86,8 @@ const LeafMap = ({
 
       return div;
     };
-    // View Controller MAP - SATELLITE
-    const currentTileLayer: L.TileLayer | null = null;
+    // View Controller MAP - SATELLITE    
+    MapLeaflet.switchToMap(map)
     const mapViewControl = (L.control as any)({
       position: "bottomleft",
       forceSeparateButton: true,
@@ -98,10 +99,6 @@ const LeafMap = ({
     
     mapViewControl.onAdd = function (map: L.Map) {
       const div = L.DomUtil.create("div", "map-control");
-
-      if (currentTileLayer) {
-        map.removeLayer(currentTileLayer);
-      }
 
       div.innerHTML = `
         <button class="map-control-btn" title="Vista de Mapa">
@@ -117,10 +114,6 @@ const LeafMap = ({
 
     satelliteViewControl.onAdd = function (map: L.Map) {
       const div = L.DomUtil.create("div", "satellite-control");
-
-      if (currentTileLayer) {
-        map.removeLayer(currentTileLayer);
-      }
 
       div.innerHTML = `
         <button class="satellite-control-btn" title="Vista de Satélite">

@@ -259,7 +259,7 @@ const LeafMap = ({
           Mapa Intercativo 🌍
         </h2>
         <p className="my-4 text-pretty text-center">
-          Necesitas permitir la geolocalcización para poder visualizar el mapa.
+          Necesitas permitir la geolocalización para poder visualizar el mapa.
         </p>
         <button className="flex group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
           <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">

@@ -4,7 +4,8 @@ Tu tarea es traducir con precisión y naturalidad cualquier texto que se te prop
 
 Tareas:
 1. Identifica el idioma de entrada automáticamente si no se especifica.
-2. Traduce ésto al ${language}.
+2. En caso de que llegaras a recibir un template HTML, lo traduces y devuelves el HTML completo traducido.
+3. Traduce ésto al ${language}.
 
-No devuelvas nada que no sea la sentencia traducida.
+No devuelvas nada que no sea la sentencia traducida o el template HTML si es que recibes el template.
 `;

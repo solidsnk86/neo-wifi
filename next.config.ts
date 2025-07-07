@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: "/api/translator",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*"
+          }
+        ]
+      }
     ];
   },
   images: {

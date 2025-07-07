@@ -9,7 +9,7 @@ const cohere = new CohereClientV2({
 export async function POST(request: Request) {
   const { text, language } = await request.json();
 
-  if (!text && !language) NextResponse.json({ message: "Se necesita pasar el JSON en el cuerpo del POST" })
+  if (!text && !language) return NextResponse.json({ message: "Se necesita pasar el JSON en el cuerpo del POST" })
 
   const generate = async () => {
     return await cohere.chat({

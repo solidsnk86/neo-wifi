@@ -423,7 +423,7 @@ const LeafMap = ({
             className="flex gap-1 items-center p-4 rounded-es-[10px] transition-colors"
           >
             <LocateFixed className="w-5 h-5 font-semibold" />
-            Mostrar tu ubicación
+            Re-localizar
           </button>
           <button onClick={imgSharer} disabled={imgLoading}>
             {imgLoading ? (

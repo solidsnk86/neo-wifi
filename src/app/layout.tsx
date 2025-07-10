@@ -41,6 +41,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="sunset"></div>
         <ClientProvider>
           <ThemeInitializer>{children}</ThemeInitializer>
         </ClientProvider>

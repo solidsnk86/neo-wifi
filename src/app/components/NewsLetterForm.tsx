@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { PlaneIcon } from "./Icons/PlaneIcon";
+import { PlaneIcon } from "./Icons";
 import { showDialog } from "@/utils/dialog";
 import { Info, MailCheck } from "lucide-react";
 

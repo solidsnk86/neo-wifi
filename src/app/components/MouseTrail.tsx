@@ -30,13 +30,13 @@ const MouseTrail = () => {
 
   return (
     <>
-      {trails.map((trail) => (
+      {trails.map(({ x, y ,id }) => (
         <div
-          key={trail.id}
+          key={id}
           className="mouse-trail"
           style={{
-            left: trail.x,
-            top: trail.y,
+            left: x,
+            top: y,
             transform: "translate(-50%, -50%) scale(1.5)",
             animation: "fadeOut 0.5s ease-out forwards",
           }}

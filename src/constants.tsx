@@ -10,12 +10,10 @@ import {
   Bug,
   DownloadIcon,
 } from "lucide-react";
-import { XIcon } from "./app/components/Icons/XIcon";
 import { showDialog } from "./utils/dialog";
 import { share } from "./utils/share";
-import { WhatsAppIcon } from "./app/components/Icons/WhatsAppIcon";
 import styles from "@/app/components/Navbar/styles/navbar.module.css";
-import { PlaneIcon } from "./app/components/Icons/PlaneIcon";
+import { XIcon, PlaneIcon, WhatsAppIcon } from "./app/components/Icons";
 
 export const categories = [
   { name: "Windows", url: "/download" },

@@ -38,7 +38,7 @@ export const Navbar = () => {
         aria-label="Ir a la página principal"
       >
         <NeoWifiLogo className="cursor-pointer" width={133} height={56} />
-        <span className="absolute -right-[52px] top-[50%] -translate-y-[50%] text-sm px-1 md:px-2 rounded-full bg-yellow-300 text-black">
+        <span className="absolute -right-[52px] top-[50%] -translate-y-[50%] text-sm px-1 md:px-2 rounded-full bg-[--green] text-black">
           beta
         </span>
       </Link>
@@ -50,7 +50,7 @@ export const Navbar = () => {
             <Link
               href={url}
               key={name}
-              className={`flex items-center gap-2 hover:opacity-80 hover:text-yellow-300 transition-colors duration-300 ${styles.link}`}
+              className={`flex items-center gap-2 hover:opacity-80 hover:text-green-400 transition-colors duration-300 ${styles.link}`}
               aria-label={ariaLabel}
               onClick={fx}
             >
@@ -61,7 +61,7 @@ export const Navbar = () => {
           className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
             ${darkMode ? "bg-zinc-800" : "bg-[#EFF0F3]"}
             border border-zinc-300/30 dark:border-zinc-700/50
-            shadow-sm hover:border-yellow-300 dark:hover:border-yellow-400/70`}
+            shadow-sm hover:border-[--green] dark:hover:border-[--green]`}
           onClick={() => dispatch(toggleTheme())}
           role="switch"
           aria-checked={darkMode}

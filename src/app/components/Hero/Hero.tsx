@@ -37,7 +37,7 @@ export const Hero = () => {
               viewBox="0 0 294 8"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute -bottom-[6px] left-[4px] text-yellow-300 w-48 md:w-[294px]"
+              className="absolute -bottom-[6px] left-[4px] text-[--green] w-48 md:w-[294px]"
             >
               <path
                 d={`M2 6C21.2566 4.1224 68.616 0.784449 294 2.45343`}
@@ -69,7 +69,7 @@ export const Hero = () => {
         </Link>
         <Link
           href="/download"
-          className={`py-3 px-4 backdrop-blur-xl cursor-pointer flex items-center gap-2 group border border-zinc-300/70 dark:border-zinc-800 rounded-full hover:border-yellow-300 dark:hover:border-yellow-300 relative`}
+          className={`py-3 px-4 backdrop-blur-xl cursor-pointer flex items-center gap-2 group border border-zinc-300/70 dark:border-zinc-800 rounded-full hover:border-[--green] dark:hover:border-[--green] relative`}
         >
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />

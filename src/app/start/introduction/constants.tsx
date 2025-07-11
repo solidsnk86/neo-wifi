@@ -75,7 +75,7 @@ export const stepsMap = [
         los dispositivos
         <strong className="mx-1">CPE de TP-LINK</strong>, solamente los modelos
         mencionados:
-        <code className="text-sm mx-1 bg-zinc-800 px-2 py-1 rounded text-[--green]">
+        <code className="text-sm mx-1 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded text-[--green]">
           CPE210 - CPE220 - CPE510 - CPE610 - CPE710
         </code>
       </p>

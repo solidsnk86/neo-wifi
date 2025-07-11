@@ -36,7 +36,7 @@ export default function Page() {
       <MouseTrail />
       <Navbar />
       <section className="px-4">
-        <HighlightTitle beforeHighlight="Cómo" highlight="funciona" afterHighlight="guía paso a paso" className="mt-28 text-3xl md:text-5xl" />
+        <HighlightTitle beforeHighlight="Cómo" highlight="funciona" afterHighlight="guía paso a paso" className="pt-28 text-3xl md:text-5xl" />
         <DocsIntroduction />
         <HighlightTitle beforeHighlight="Primeros" highlight="pasos" afterHighlight="reseteo" className="my-8 text-2xl md:text-4xl" />
         <FisrtStep />

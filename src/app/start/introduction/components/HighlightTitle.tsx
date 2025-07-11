@@ -12,9 +12,9 @@ export const HighlightTitle = ({
   className
 }: HighlightTitleProps) => {
   return (
-    <h1 className={`z-50 font-bold text-center ${className}`}>
+    <h1 className={`z-50 font-bold text-center ${className} relative`}>
       {beforeHighlight}
-      <span className="bg-gradient-to-b from-green-400 mx-2 to-green-600 text-transparent bg-clip-text z-50 relative">
+      <span className="bg-gradient-to-b from-green-400 mx-2 to-green-600 text-transparent bg-clip-text">
         {highlight}
       </span>
       {afterHighlight}

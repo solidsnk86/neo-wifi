@@ -63,6 +63,12 @@ export default function Page() {
         />
       </section>
 
+      <section className="py-16">
+        <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
+      </section>
+
+      <Footer />
+      <BackToTop />
       <div className="neo-ai">
         <span
           className="fixed bottom-4 right-2 px-3 z-50"
@@ -76,12 +82,6 @@ export default function Page() {
           />
         </span>
       </div>
-
-      <section className="py-16">
-        <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
-      </section>
-      <Footer />
-      <BackToTop />
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">
           <AiAssistant closeAssistant={handleClickChat} />

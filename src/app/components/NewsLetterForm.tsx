@@ -94,7 +94,7 @@ export default function NewsletterForm() {
             refInput.current!.style.borderColor = "";
           }}
           ref={refInput}
-          className="p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg w-full max-w-md md:w-80 outline-none focus:outline-green-500 outline-offset-0"
+          className="p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg w-full max-w-md md:w-80 outline-none focus:outline-blue-500 outline-offset-0"
         />
         <button
           type="submit"

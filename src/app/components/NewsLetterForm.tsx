@@ -94,11 +94,11 @@ export default function NewsletterForm() {
             refInput.current!.style.borderColor = "";
           }}
           ref={refInput}
-          className="p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg w-full max-w-md md:w-80 outline-none focus:outline-blue-500 outline-offset-0"
+          className="p-2 border bg-transparent dark:border-zinc-800 border-zinc-300/70 rounded-lg w-full max-w-md md:w-80 outline-none focus:outline-green-500 outline-offset-0"
         />
         <button
           type="submit"
-          className="w-full md:w-fit flex gap-2 items-center justify-center mx-auto p-2 bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50"
+          className="w-full md:w-fit flex gap-2 items-center justify-center mx-auto p-2 bg-gradient-to-b btn from-green-500 to-green-700 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50"
         >
           <PlaneIcon />
           {isLoading ? (

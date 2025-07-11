@@ -17,6 +17,7 @@ import { pauseMarquee, playMarquee } from "./components/constants";
 import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import Quote from "./components/Quote";
+import { BackToTop } from "./components/BackToTop";
 
 gsap.registerPlugin(DrawSVGPlugin);
 
@@ -231,9 +232,8 @@ export default function Home() {
             alt="The Neo Protagonist"
           />
         </div>
-        
         <Footer />
-
+        <BackToTop />
         {isOpen && (
           <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">
             <AiAssistant

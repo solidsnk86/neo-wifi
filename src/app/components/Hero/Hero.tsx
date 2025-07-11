@@ -23,7 +23,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-8">
+    <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-4">
       <div>
         <h1
           className={`text-center text-pretty ${styles.h1} dark:text-zinc-100`}

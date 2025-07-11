@@ -80,7 +80,7 @@ export default function Home() {
         <div className="fixed top-14 left-0 h-[100dvh] inset-0 pointer-events-none z-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full opacity-[0.06]"
+            className="w-full h-[100dvh] opacity-[0.06]"
             preserveAspectRatio="none"
           >
             <filter id="noiseFilter">

@@ -17,6 +17,7 @@ import { FourthStep } from "./components/FourthStep";
 import { FifthStep } from "./components/FiifhStep";
 import { SixthStep } from "./components/SixthStep";
 import { SeventhStep } from "./components/SeventhStep";
+import { BackToTop } from "@/app/components/BackToTop";
 
 const poppins = Poppins({
   weight: ["400", "600", "800", "900"],
@@ -80,6 +81,7 @@ export default function Page() {
         <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
       </section>
       <Footer />
+      <BackToTop />
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">
           <AiAssistant closeAssistant={handleClickChat} />

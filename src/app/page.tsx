@@ -75,9 +75,7 @@ export default function Home() {
       <MouseTrail />
       <div className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
         <Navbar />
-        <span className="effect-1" />
-        <span className="effect-2" />
-        <div className="fixed top-14 left-0 h-[100dvh] inset-0 pointer-events-none z-10">
+        <div className="fixed top-0 left-0 w-full h-[100dvh] inset-0 pointer-events-none z-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-full h-[100dvh] opacity-[0.06]"

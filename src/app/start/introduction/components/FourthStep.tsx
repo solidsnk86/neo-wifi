@@ -20,7 +20,7 @@ export const FourthStep = () => {
             </header>
               <p className="p-1">
                 Por el momento solamente se permiten configurar dos tipos de
-                moedelos de routers TP-LINK:{" "}
+                modelos de routers TP-LINK:{" "}
                 <code className="text-sm mx-1 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded text-[--green]">
                   TL-WR841ND - TL-WR841HP
                 </code>

@@ -3,7 +3,7 @@
 import { Footer, Navbar } from "@/app/components";
 import { Donation } from "@/app/components/DonationCard/Donation";
 import MouseTrail from "@/app/components/MouseTrail";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { AiAssistant } from "@/app/components/AiAssistant/AiAsistant";
 import Image from "next/image";
 import { YouTubeLiteVideo } from "@/app/components/YoutubeVideo";
@@ -18,6 +18,7 @@ import { FifthStep } from "./components/FiifhStep";
 import { SixthStep } from "./components/SixthStep";
 import { SeventhStep } from "./components/SeventhStep";
 import { BackToTop } from "@/app/components/BackToTop";
+import gsap from "gsap";
 
 const poppins = Poppins({
   weight: ["400", "600", "800", "900"],
@@ -26,9 +27,23 @@ const poppins = Poppins({
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
   const handleClickChat = () => {
     setIsOpen(!isOpen);
   };
+
+  useLayoutEffect(() => {
+    gsap.set(titleRef.current, { visibility: "visible" });
+
+    gsap.from(titleRef.current, {
+      y: -80,
+      scale: 0.8,
+      opacity: 0,
+      duration: 1,
+      ease: "back.out(1.7)",
+    });
+  }, []);
 
   return (
     <main
@@ -37,23 +52,69 @@ export default function Page() {
       <MouseTrail />
       <Navbar />
       <section className="px-4">
-        <HighlightTitle beforeHighlight="Cómo" highlight="funciona" afterHighlight="guía paso a paso" className="pt-28 text-3xl md:text-5xl" />
+        <HighlightTitle
+          ref={titleRef}
+          beforeHighlight="Cómo"
+          highlight="funciona"
+          afterHighlight="guía paso a paso"
+          className="pt-28 text-3xl md:text-5xl"
+        />
         <DocsIntroduction />
-        <HighlightTitle beforeHighlight="Primeros" highlight="pasos" afterHighlight="reseteo" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle
+          beforeHighlight="Primeros"
+          highlight="pasos"
+          afterHighlight="reseteo"
+          className="my-8 text-2xl md:text-4xl"
+        />
         <FisrtStep />
-        <HighlightTitle beforeHighlight="Indicadores" highlight="led" afterHighlight="router" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle
+          beforeHighlight="Indicadores"
+          highlight="led"
+          afterHighlight="router"
+          className="my-8 text-2xl md:text-4xl"
+        />
         <SecondStep />
-        <HighlightTitle beforeHighlight="Descarga" highlight="Neo-WiFi" afterHighlight="e instalación" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle
+          beforeHighlight="Descarga"
+          highlight="Neo-WiFi"
+          afterHighlight="e instalación"
+          className="my-8 text-2xl md:text-4xl"
+        />
         <ThirdStep />
-        <HighlightTitle beforeHighlight="Primera" highlight="ejecución" afterHighlight="Neo-WiFi" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle
+          beforeHighlight="Primera"
+          highlight="ejecución"
+          afterHighlight="Neo-WiFi"
+          className="my-8 text-2xl md:text-4xl"
+        />
         <FourthStep />
-        <HighlightTitle beforeHighlight="Uso de las" highlight="Coordenadas" afterHighlight="" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle
+          beforeHighlight="Uso de las"
+          highlight="Coordenadas"
+          afterHighlight=""
+          className="my-8 text-2xl md:text-4xl"
+        />
         <FifthStep />
-        <HighlightTitle beforeHighlight="Permitir" highlight="Geolocalización" afterHighlight="" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle
+          beforeHighlight="Permitir"
+          highlight="Geolocalización"
+          afterHighlight=""
+          className="my-8 text-2xl md:text-4xl"
+        />
         <SixthStep />
-        <HighlightTitle beforeHighlight="Uso" highlight="Coordenadas" afterHighlight="en la app" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle
+          beforeHighlight="Uso"
+          highlight="Coordenadas"
+          afterHighlight="en la app"
+          className="my-8 text-2xl md:text-4xl"
+        />
         <SeventhStep />
-        <HighlightTitle beforeHighlight="Les dejo un" highlight="breve" afterHighlight="Vídeo" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle
+          beforeHighlight="Les dejo un"
+          highlight="breve"
+          afterHighlight="Vídeo"
+          className="my-8 text-2xl md:text-4xl"
+        />
         <YouTubeLiteVideo
           videoId="9t6QI3QCFUw"
           width={360}

@@ -725,7 +725,7 @@ html {
 #marquee {
   display: flex;
   font-size: 0.8rem;
-  animation: xScrolling 53s linear infinite;
+  animation: xScrolling 60s linear infinite;
   color: #777;
 }
 

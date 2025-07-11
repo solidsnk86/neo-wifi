@@ -1,15 +1,27 @@
 "use client";
 
 import { Footer, Navbar } from "@/app/components";
-import { HomeBlock, HomeBlockTitle } from "@/app/components/BlockComp";
 import { Donation } from "@/app/components/DonationCard/Donation";
 import MouseTrail from "@/app/components/MouseTrail";
-import { dialogMap } from "./constants";
-import { StepCard } from "./components/StepCard";
 import { useState } from "react";
 import { AiAssistant } from "@/app/components/AiAssistant/AiAsistant";
 import Image from "next/image";
 import { YouTubeLiteVideo } from "@/app/components/YoutubeVideo";
+import { DocsIntroduction } from "./components/DocsIntroduction";
+import { Poppins } from "next/font/google";
+import { HighlightTitle } from "./components/HighlightTitle";
+import { FisrtStep } from "./components/FisrtStep";
+import { SecondStep } from "./components/SecondStep";
+import { ThirdStep } from "./components/ThirdStep";
+import { FourthStep } from "./components/FourthStep";
+import { FifthStep } from "./components/FiifhStep";
+import { SixthStep } from "./components/SixthStep";
+import { SeventhStep } from "./components/SeventhStep";
+
+const poppins = Poppins({
+  weight: ["400", "600", "800", "900"],
+  subsets: ["latin"],
+});
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,54 +30,36 @@ export default function Page() {
   };
 
   return (
-    <main className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
+    <main
+      className={`font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200 ${poppins.className}`}
+    >
       <MouseTrail />
       <Navbar />
-      <section className="px-8">
-        <HomeBlockTitle className="pt-24 z-50">Introducción</HomeBlockTitle>
-        <HomeBlock className="flex-col text-pretty space-y-3 text-center z-50 relative">
-          <p>
-            Bienvenido a esta aplicación de configuración automatizada para
-            dispositivos TP-Link.
-          </p>
-          <p>
-            Esta herramienta de escritorio ha sido diseñada para simplificar y
-            agilizar la configuración de CPE inalámbricos y routers de la marca
-            TP-Link, permitiendo a los usuarios optimizar sus dispositivos de
-            red con solo unos clics.
-          </p>
-          <p>
-            Con una interfaz intuitiva y funcionalidades avanzadas, la
-            aplicación elimina la necesidad de configuraciones manuales
-            complejas, reduciendo errores y mejorando la eficiencia en la
-            instalación. Ya sea para despliegues individuales o configuraciones
-            masivas, esta solución ofrece una manera rápida, segura y eficaz de
-            ajustar los parámetros esenciales de los dispositivos, garantizando
-            una conectividad estable y optimizada. Cabe destacar que la posición
-            de la antena (CPE) debe ser ajustada por el mismo usuario.
-          </p>
-        </HomeBlock>
-
-        <HomeBlockTitle>Primeros Pasos</HomeBlockTitle>
-        <HomeBlock className="flex-col z-50 relative space-y-6">
-          {dialogMap.map((item, index) => (
-            <StepCard
-              key={index}
-              paragraph={item.paragraph}
-              url={item.url}
-              info={item.info}
-            />
-          ))}
-        </HomeBlock>
-
-        <HomeBlockTitle>Un video breve</HomeBlockTitle>
+      <section className="px-4">
+        <HighlightTitle beforeHighlight="Cómo" highlight="funciona" afterHighlight="guía paso a paso" className="mt-28 text-3xl md:text-5xl" />
+        <DocsIntroduction />
+        <HighlightTitle beforeHighlight="Primeros" highlight="pasos" afterHighlight="reseteo" className="my-8 text-2xl md:text-4xl" />
+        <FisrtStep />
+        <HighlightTitle beforeHighlight="Indicadores" highlight="led" afterHighlight="router" className="my-8 text-2xl md:text-4xl" />
+        <SecondStep />
+        <HighlightTitle beforeHighlight="Descarga" highlight="Neo-WiFi" afterHighlight="e instalación" className="my-8 text-2xl md:text-4xl" />
+        <ThirdStep />
+        <HighlightTitle beforeHighlight="Primera" highlight="ejecución" afterHighlight="Neo-WiFi" className="my-8 text-2xl md:text-4xl" />
+        <FourthStep />
+        <HighlightTitle beforeHighlight="Uso de las" highlight="Coordenadas" afterHighlight="" className="my-8 text-2xl md:text-4xl" />
+        <FifthStep />
+        <HighlightTitle beforeHighlight="Permitir" highlight="Geolocalización" afterHighlight="navegador" className="my-8 text-2xl md:text-4xl" />
+        <SixthStep />
+        <HighlightTitle beforeHighlight="Uso" highlight="Coordenadas" afterHighlight="en la app" className="my-8 text-2xl md:text-4xl" />
+        <SeventhStep />
+        <HighlightTitle beforeHighlight="Les dejo un" highlight="breve" afterHighlight="Vídeo" className="my-8 text-2xl md:text-4xl" />
         <YouTubeLiteVideo
-            videoId="9t6QI3QCFUw"
-            width={360}
-            height={300}
-            className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
-            border={0}
-          />
+          videoId="9t6QI3QCFUw"
+          width={360}
+          height={300}
+          className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
+          border={0}
+        />
       </section>
 
       <div className="neo-ai">

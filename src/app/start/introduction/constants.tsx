@@ -1,4 +1,3 @@
-import { HomeBlockTitle } from "@/app/components/BlockComp";
 import { GeoPosition } from "@/app/components/GeoInfo/components/GeoPosition";
 import Link from "next/link";
 
@@ -14,8 +13,9 @@ export const coords = {
   longitude: "-65.013554958",
 };
 
-export const dialogMap = [
+export const stepsMap = [
   {
+    id: 1,
     paragraph: (
       <p>
         Para utilizar esta aplicación, es necesario restablecer la antena, ya
@@ -31,6 +31,7 @@ export const dialogMap = [
     url: "/assets/tp-link-Outdoor-CPE-Passive-PoE-Adapter-300x218-removebg.png",
   },
   {
+    id: 2,
     paragraph: (
       <p>
         En uno de los laterales del dispositivo hay un pequeño orificio. Si
@@ -46,6 +47,7 @@ export const dialogMap = [
     url: "/assets/product_overview.png",
   },
   {
+    id: 3,
     paragraph: (
       <>
         <p>
@@ -57,7 +59,7 @@ export const dialogMap = [
         </p>
         <p>
           Si ya hemos completado la descarga se procede con la instalación de la
-          misma.
+          misma. Le damos a siguiente, y luego instalar.
         </p>
       </>
     ),
@@ -65,38 +67,45 @@ export const dialogMap = [
     url: "/assets/0qrxocgUxk.png",
   },
   {
+    id: 4,
     paragraph: (
       <p>
-        Le damos a siguiente, y luego instalar. Una vez que finaliza la
-        instalación podemos ejecutarla y veremos la pantalla principal de la
-        aplicación:
+        Una vez que finaliza la instalación podemos ejecutarla y veremos la
+        pantalla principal de la aplicación, la misma ya detecta automáticamente
+        los dispositivos
+        <strong className="mx-1">CPE de TP-LINK</strong>, solamente los modelos
+        mencionados:
+        <code className="text-sm mx-1 bg-zinc-800 px-2 py-1 rounded text-[--green]">
+          CPE210 - CPE220 - CPE510 - CPE610 - CPE710
+        </code>
       </p>
     ),
     info: "Pantalla principal de la aplicación",
     url: "/assets/neo.wifi-app-v1-2-4.png",
   },
   {
+    id: 5,
     paragraph: (
-      <>
-        <HomeBlockTitle className="my-16">Coordenadas</HomeBlockTitle>
-        <p>
-          En esta misma web en la sección principal se proveen las coordenadas
-          de latitud y longitud para ser empleadas en la app. Para ello debemos
-          aceptar y/o permitir la ubicación del dispositivo apenas carga la web.
-        </p>
-      </>
+      <p>
+        En esta misma web en la sección principal se proveen las coordenadas de
+        latitud y longitud para ser empleadas en la app. Para ello debemos
+        aceptar y/o permitir la ubicación del dispositivo apenas carga la web.
+      </p>
     ),
     info: "Ventana emergente para activación de la ubicación",
     url: "/assets/neo-wifi-coordenadas.png",
   },
   {
+    id: 6,
     paragraph: (
       <>
         <p>
           Una vez que hemos permitido a la aplicación web obtener tu ubicación
           podemos emplear las coordenadas obtenidas de tu posición geográfica
-          como se muestra a continuación en el siguiente ejemplo. (Posición a
-          modo de ejemplo, no es real.)
+          como se muestra a continuación en el siguiente ejemplo, ahora puedes
+          copiar el valor para <strong className="mx-1">latitud</strong> y para{" "}
+          <strong className="mx-1">longitud</strong>. (Posición a modo de
+          ejemplo, no es real.)
         </p>
         <div className="my-10">
           <GeoPosition
@@ -111,11 +120,15 @@ export const dialogMap = [
     url: "/assets/DL317doHxn.png",
   },
   {
+    id: 7,
     paragraph: (
       <p>
         Colocamos las coordenadas de latitud y de longitud, entonces la
         aplicación ya podrá saber dónde te encuentras y cuál es tu antena más
-        cercana, y qué distancia te encuentras del nodo WiFi más cercano.
+        cercana, y a qué distancia te encuentras del nodo WiFi más cercano.
+        Dicho esto, hay que posicionar la antena a dicho{" "}
+        <strong>Nodo del Gobierno</strong>. Tratar de evitar obstáculos. Si todo
+        va bien, entonces elegimos el método de configuración
       </p>
     ),
     info: "Imagen aplicación con ingreso de coordenadas",

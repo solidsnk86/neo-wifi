@@ -24,8 +24,9 @@ export const BackToTop = () => {
     <>
       {show && (
         <button
+          id="back-to-top"
           onClick={goToTop}
-          className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-2 fixed bottom-5 left-6 opacity-90 shadow-md z-50 rounded-xl"
+          className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-2 fixed bottom-5 left-6 opacity-90 shadow-lg z-50 rounded-xl hover:scale-110 transition-transform"
         >
           <ArrowUp />
         </button>

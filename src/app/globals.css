@@ -768,22 +768,6 @@ html {
   }
 }
 
-@media (width < 762px) {
-  body {
-    overflow-x: hidden;
-  }
-  html {
-    & dialog {
-      width: 100%;
-    }
-  }
-  html.dark {
-    & dialog {
-      width: 100%;
-    }
-  }
-}
-
 .shimmer-text {
   position: relative;
   display: inline-block;
@@ -846,3 +830,38 @@ html {
   margin-bottom: 3rem;
 }
 
+#back-to-top {
+  animation: slideLeft 0.3s ease-in;
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (width < 762px) {
+  body {
+    overflow-x: hidden;
+  }
+  html {
+    & dialog {
+      width: 100%;
+    }
+  }
+  html.dark {
+    & dialog {
+      width: 100%;
+    }
+  }
+}

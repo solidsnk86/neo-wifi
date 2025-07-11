@@ -37,8 +37,8 @@ export const SearchAntenna = ({
             </span>
             Buscar antena
           </h2>
-          <p className="mb-3 text-pretty text-center">
-            Podés buscar un antena acá para saber a que distancia estás.
+          <p className="mb-3 text-pretty text-left">
+            Podés buscar un antena acá para saber a que distancia estás, simepre y cuando hayas obtenido tu ubicación.
           </p>
           <div className="md:flex grid justify-center mx-auto md:gap-4 gap-2">
             <input

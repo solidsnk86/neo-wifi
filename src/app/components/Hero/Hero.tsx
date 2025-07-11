@@ -28,7 +28,7 @@ export const Hero = () => {
         <h1
           className={`text-center text-pretty ${styles.h1} dark:text-zinc-100`}
         >
-          Configura tu CPE WiFi en
+          Configura tu <span className="text-[--green] mx-1">CPE WiFi</span> en
           <span className={`${styles.h1} relative ml-2 dark:text-zinc-100`}>
             segundos
             <svg

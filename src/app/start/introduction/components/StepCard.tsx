@@ -23,7 +23,7 @@ export function StepCard({
           height={300}
           className="rounded-lg"
         />
-        <span className="text-sm text-zinc-500 text-center">{info}</span>
+        <span className="text-sm text-zinc-500 text-center mt-2">{info}</span>
       </picture>
       {note}
     </div>

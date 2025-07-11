@@ -223,7 +223,7 @@ export const GeoPositionCard = () => {
             <article className="shadow-md">
               <div className="border-b-[6px] border-zinc-300 dark:border-zinc-950 rounded-xl p-3">
                 <h2 className="text-2xl font-semibold flex justify-center mx-auto items-center gap-3">
-                  <BadgeInfo className="text-[--green]" />
+                  <BadgeInfo className="text-blue-500" />
                   Información
                 </h2>
                 <p className="my-3 text-pretty font-thin">
@@ -234,7 +234,7 @@ export const GeoPositionCard = () => {
                   más próxima. ¡Actívala para más precisión!
                 </p>
                 <button
-                  className="flex mx-auto w-fit gap-1 items-center justify-center p-2 bg-gradient-to-b from-green-500 to-green-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl hover:scale-95 transition-transform"
+                  className="flex mx-auto w-fit gap-1 items-center justify-center p-2 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl hover:scale-95 transition-transform"
                   onClick={handleGetLocation}
                 >
                   <LocateFixed className="text-red-500" />

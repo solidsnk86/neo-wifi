@@ -53,7 +53,7 @@ export const stepsMap = [
         <p>
           Una vez reseteada la antena (CPE) de TP-LINK, procederemos a descargar
           la aplicación
-          <Link href="/download" className="mx-1 underline text-sky-500">
+          <Link href="/download" className="mx-1 underline text-blue-500">
             Neo-WiFi App.
           </Link>
         </p>
@@ -75,7 +75,7 @@ export const stepsMap = [
         los dispositivos
         <strong className="mx-1">CPE de TP-LINK</strong>, solamente los modelos
         mencionados:
-        <code className="text-sm mx-1 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded text-[--green]">
+        <code className="text-sm mx-1 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded text-[--color-yellow-primary]">
           CPE210 - CPE220 - CPE510 - CPE610 - CPE710
         </code>
       </p>

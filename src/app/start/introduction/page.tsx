@@ -48,7 +48,7 @@ export default function Page() {
         <FourthStep />
         <HighlightTitle beforeHighlight="Uso de las" highlight="Coordenadas" afterHighlight="" className="my-8 text-2xl md:text-4xl" />
         <FifthStep />
-        <HighlightTitle beforeHighlight="Permitir" highlight="Geolocalización" afterHighlight="navegador" className="my-8 text-2xl md:text-4xl" />
+        <HighlightTitle beforeHighlight="Permitir" highlight="Geolocalización" afterHighlight="" className="my-8 text-2xl md:text-4xl" />
         <SixthStep />
         <HighlightTitle beforeHighlight="Uso" highlight="Coordenadas" afterHighlight="en la app" className="my-8 text-2xl md:text-4xl" />
         <SeventhStep />

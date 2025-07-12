@@ -729,6 +729,27 @@ html {
   color: #777;
 }
 
+.felix {
+  filter: drop-shadow(0 0 9px #000);
+}
+
+@keyframes sliderIn {
+  from {
+    transform: translateX(50%) scale(0.5);
+  }
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes sliderOut {
+  from {
+    transform: translateX(0) scale(1);
+  }
+  to {
+    transform: translateX(50%) scale(0.5);
+  }
+}
+
 @keyframes xScrolling {
   from {
     transform: translateX(-100%);

@@ -34,15 +34,19 @@ export default function Page() {
   };
 
   useLayoutEffect(() => {
-    gsap.set(titleRef.current, { visibility: "visible" });
+    const ctx = gsap.context(() => {
+      gsap.set(titleRef.current, { visibility: "visible" });
 
-    gsap.from(titleRef.current, {
-      y: -80,
-      scale: 0.8,
-      opacity: 0,
-      duration: 1,
-      ease: "back.out(1.7)",
+      gsap.from(titleRef.current, {
+        y: -80,
+        scale: 0.8,
+        opacity: 0,
+        duration: 1,
+        ease: "back.out(1.7)",
+      });
     });
+
+    return () => ctx.revert();
   }, []);
 
   return (

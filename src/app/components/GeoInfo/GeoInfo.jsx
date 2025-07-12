@@ -12,6 +12,7 @@ import { getIP } from "@/utils/get-ip";
 import { writeMAC } from "@/utils/mac-writer";
 import dynamic from "next/dynamic.js";
 import { mapSharer } from "../MapSharer.tsx";
+import Image from "next/image.js";
 
 const Map = dynamic(() => import("./components/MapLeaf.tsx"), { ssr: false });
 
@@ -233,13 +234,29 @@ export const GeoPositionCard = () => {
                   adicionales y descubrir a qué distancia te encuentras de la
                   más próxima. ¡Actívala para más precisión!
                 </p>
-                <button
-                  className="flex mx-auto w-fit gap-1 items-center justify-center p-2 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl hover:scale-95 transition-transform"
-                  onClick={handleGetLocation}
+                <div
+                  className="relative w-fit justify-center mx-auto group"
+                  onMouseLeave={() => {
+                    const felix = document.getElementById("felix");
+                    felix.style.animation = "sliderOut 0.6s ease-out";
+                  }}
                 >
-                  <LocateFixed className="text-red-500" />
-                  Obtener Ubicación
-                </button>
+                  <Image
+                    id="felix"
+                    src={"/assets/felix.png"}
+                    className="absolute -top-1 -left-[42px] hidden group-hover:flex felix"
+                    width={55}
+                    height={55}
+                    alt="FelixTheCat86"
+                  />
+                  <button
+                    className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl transition-transform"
+                    onClick={handleGetLocation}
+                  >
+                    <LocateFixed className="text-red-500" />
+                    Obtener Ubicación
+                  </button>
+                </div>
               </div>
             </article>
           ),
@@ -253,7 +270,7 @@ export const GeoPositionCard = () => {
   }, []);
 
   const imgMapSharer = () => mapSharer(setImgLoading);
- 
+
   return (
     <div className="justify-center mx-auto w-[672px] z-50">
       <GeoPosition location={location} coords={coords} loading={isLoading} />

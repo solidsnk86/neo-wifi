@@ -7,10 +7,7 @@ import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import { Pause, Play } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
-import NewsletterForm from "./components/NewsLetterForm";
-import WifiLocationsCard from "./components/WifiLocationCard";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
 import { useEffect, useRef, useState } from "react";
 import { pauseMarquee, playMarquee } from "./components/constants";
@@ -19,6 +16,9 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import Quote from "./components/Quote";
 import { BackToTop } from "./components/BackToTop";
 import { Features } from "./components/Features";
+import { NewsletterSection } from "./components/NewsletterSection";
+import { Neo } from "./components/Neo";
+import { MarqueeWifiLocations } from "./components/MarqueeWifiLocations";
 
 gsap.registerPlugin(DrawSVGPlugin);
 
@@ -116,18 +116,7 @@ export default function Home() {
           </p>
         </article>
 
-        <section className="overflow-hidden relative">
-          <p className="flex justify-center mx-auto text-center text-xl mt-6 bg-[#FFFFFF] dark:bg-zinc-950/50 w-fit p-3 md:rounded-t-xl backdrop-blur-xl relative z-50 cursor-default border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-900/50">
-            Redes WiFi disponibles en las siguientes localidades
-          </p>
-          <button
-            className="absolute right-2 md:top-8 top-1 bg-[#FFFFFF] dark:bg-zinc-950/50 p-2 rounded-full hover:brightness-125 backdrop-blur-lg z-50 border-2 border-zinc-200/70 dark:border-zinc-900/50"
-            onClick={handleClikStateBtn}
-          >
-            {isPaused ? <Play /> : <Pause />}
-          </button>
-          <WifiLocationsCard />
-        </section>
+        <MarqueeWifiLocations handleSate={handleClikStateBtn} paused={isPaused} />
 
         <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-sm">
           <HomeBlockTitle className="mt-16">Información WiFi</HomeBlockTitle>
@@ -167,34 +156,9 @@ export default function Home() {
           <AccordionList />
         </HomeBlock>
 
-        <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50 font-['bogue-black']">
-          Recibe las últimas novedades sobre Neo WiFi App 🚀
-        </h2>
+        <NewsletterSection />
 
-        <div className="px-3">
-          <NewsletterForm />
-          <Donation content="Y contribuye con el desarrollador." />
-          <Image
-            src="/squirrel.svg"
-            width={300}
-            height={300}
-            alt="Imagen de ardilla"
-            className="flex justify-center mx-auto z-50 relative"
-          />
-        </div>
-
-        <div
-          className="fixed bottom-4 right-2 px-3 z-50 neo-ai"
-          id="neo-ai"
-          onClick={handleClickChat}
-        >
-          <Image
-            src="/assets/neo_pixelart-removebg-preview.png"
-            width={55}
-            height={55}
-            alt="The Neo Protagonist"
-          />
-        </div>
+        <Neo handlerEvent={handleClickChat} />
         <Footer />
         <BackToTop />
         {isOpen && (

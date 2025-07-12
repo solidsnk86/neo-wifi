@@ -9,7 +9,6 @@ export const MapIcon = (props: ComponentProps<"svg">) => {
       className="w-14 fill-primary"
       {...attrs}
     >
-      <title>Free Icons</title>
       <g id="Layer_45" data-name="Layer 45">
         <polygon
           className="cls-1"

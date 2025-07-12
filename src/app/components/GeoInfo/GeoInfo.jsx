@@ -234,17 +234,7 @@ export const GeoPositionCard = () => {
                   adicionales y descubrir a qué distancia te encuentras de la
                   más próxima. ¡Actívala para más precisión!
                 </p>
-                <div
-                  className="relative w-fit justify-center mx-auto group"
-                  onMouseEnter={() => {
-                    const felix = document.getElementById("felix");
-                    felix.style.animation = "sliderIn 0.6s ease-out";
-                  }}
-                  onMouseLeave={() => {
-                    const felix = document.getElementById("felix");
-                    felix.style.animation = "sliderOut 0.6s ease-out";
-                  }}
-                >
+                <div className="relative w-fit justify-center mx-auto group">
                   <Image
                     id="felix"
                     src={"/assets/felix.png"}
@@ -256,6 +246,14 @@ export const GeoPositionCard = () => {
                   <button
                     className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl transition-transform"
                     onClick={handleGetLocation}
+                    onMouseEnter={() => {
+                      const felix = document.getElementById("felix");
+                      felix.style.animation = "sliderIn 0.6s ease-out";
+                    }}
+                    onMouseLeave={() => {
+                      const felix = document.getElementById("felix");
+                      felix.style.animation = "sliderOut 0.6s ease-out";
+                    }}
                   >
                     <LocateFixed className="text-red-500" />
                     Obtener Ubicación

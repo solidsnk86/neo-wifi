@@ -16,7 +16,7 @@ export const mapSharer = (setIsLoading: (value: boolean) => boolean) => {
               Información
             </h2>
             <p className="my-3 text-pretty font-thin">
-              Tenés que permitir la geolocaclización para poder capturar la
+              Tenés que permitir la geolocalización para poder capturar la
               imagen del mapa y compartir! 😉
             </p>
           </div>

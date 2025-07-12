@@ -7,7 +7,7 @@ import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import { MousePointer2, Pause, Play } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 import MouseTrail from "./components/MouseTrail";
 import NewsletterForm from "./components/NewsLetterForm";
 import WifiLocationsCard from "./components/WifiLocationCard";
@@ -18,6 +18,7 @@ import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import Quote from "./components/Quote";
 import { BackToTop } from "./components/BackToTop";
+import { Features } from "./components/Features";
 
 gsap.registerPlugin(DrawSVGPlugin);
 
@@ -75,23 +76,6 @@ export default function Home() {
       <MouseTrail />
       <div className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
         <Navbar />
-        <div className="fixed top-0 left-0 w-full h-[100dvh] inset-0 pointer-events-none z-10">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-[100dvh] opacity-[0.06]"
-            preserveAspectRatio="none"
-          >
-            <filter id="noiseFilter">
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="9.9"
-                numOctaves="5"
-                stitchTiles="stitch"
-              />
-            </filter>
-            <rect width="100%" height="100%" filter="url(#noiseFilter)" />
-          </svg>
-        </div>
 
         <HomeBlock>
           <Hero />
@@ -120,26 +104,7 @@ export default function Home() {
 
         <HomeBlockTitle>Características</HomeBlockTitle>
         <HomeBlock className="overflow-hidden px-3">
-          <div className="flex p-6 rounded-[33px] border-y-2 border-l-2 border-zinc-200/70 dark:border-zinc-800 relative bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-lg">
-            <span className="absolute -top-9 left-[50%] text-center w-56 -translate-x-[50%] p-3 bg-zinc-800 dark:bg-zinc-100 text-white dark:text-black font-semibold rounded-3xl text-xl">
-              Puntos WiFi cerca
-            </span>
-            <Image
-              src="/neo-wifi-satellite.png"
-              width={420}
-              height={360}
-              alt="Neo-Wifi map"
-              quality={100}
-              className="rounded-3xl -z-10"
-            />
-            <span className="absolute -bottom-12 -right-6 p-4 rounded-full border-2 border-zinc-200/70 dark:border-zinc-800 dark:bg-zinc-800/90 backdrop-blur-sm z-50">
-              <MousePointer2
-                width={65}
-                height={65}
-                className="rotate-90 text-[--color-yellow-primary]"
-              />
-            </span>
-          </div>
+          <Features />
         </HomeBlock>
 
         <article className="flex flex-col justify-center mx-auto mb-24 text-center px-3">

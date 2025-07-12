@@ -58,8 +58,8 @@ export default function Page() {
       <section className="px-4">
         <HighlightTitle
           ref={titleRef}
-          beforeHighlight="Cómo"
-          highlight="funciona"
+          beforeHighlight="¿Cómo"
+          highlight="funciona?"
           afterHighlight="guía paso a paso"
           className="pt-28 text-3xl md:text-5xl"
         />
@@ -136,7 +136,7 @@ export default function Page() {
       <BackToTop />
       <div className="neo-ai">
         <span
-          className="fixed bottom-4 right-2 px-3 z-50"
+          className="fixed bottom-4 right-2 px-3 z-50 neo-ai"
           onClick={handleClickChat}
         >
           <Image

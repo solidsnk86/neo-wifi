@@ -21,9 +21,9 @@ Neo WiFi web es una aplicación innovadora diseñada para poder localizar cuále
 2. **Mapeo Inteligente de Antenas**
 
    - Cobertura total en localidades de San Luis:
-   - También se provee información de espacios WiFi gratuitos de Córdoba y Mendoza:
+   - También se provee información de espacios WiFi gratuitos de Buenos Aires, Córdoba, Mendoza, San Juan, Corrientes, Tucumán entre otras provincias:
      - Como Universidades, Hospitales, Espacios Públicos, entre otros puntos
-     - Podrás saber la distancia de cuál es tu punto WiFi más cercano y a que distancia te encuentras de algún punto WiFi
+     - Podrás saber la distancia de cuáles son tus 3 puntos WiFis más cercanos y a que distancia te encuentras de ellos
 
 3. **Aplicación de escritorio (Windows)**
    - NeoWiFi App es una aplicación para instalar en la pc (Windows) para automatizar la conectividad WiFi en sistemas TP-LINK en las redes del Gobierno de la Provincia de San Luis.

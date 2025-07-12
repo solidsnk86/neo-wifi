@@ -287,6 +287,7 @@ const LeafMap = ({
   const tierradelfuego = cleanedPlaces.find(
     (value) => value === "Tierra del Fuego"
   );
+  const cipolleti = cleanedPlaces.find((value) => value === "Cipolleti")
   const francia = cleanedPlaces.find((value) => value === "Francia");
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
@@ -308,7 +309,8 @@ const LeafMap = ({
       val !== francia &&
       val !== sanjuan &&
       val !== tierradelfuego &&
-      val !== tucuman
+      val !== tucuman && 
+      val !== cipolleti
     );
   };
   
@@ -385,6 +387,13 @@ const LeafMap = ({
               <optgroup label="🇦🇷 Argentina - Tierra del Fuego">
                 <option value={tierradelfuego}>{tierradelfuego}</option>
               </optgroup>
+            )}
+
+            {/* Argentina - Río Negro */}
+            {cipolleti && (
+               <optgroup label="🇦🇷 Argentina - Río Negro">
+               <option value={cipolleti}>{cipolleti}</option>
+             </optgroup>
             )}
 
             {/* Alemania */}

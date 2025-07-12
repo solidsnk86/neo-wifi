@@ -236,6 +236,10 @@ export const GeoPositionCard = () => {
                 </p>
                 <div
                   className="relative w-fit justify-center mx-auto group"
+                  onMouseEnter={() => {
+                    const felix = document.getElementById("felix");
+                    felix.style.animation = "sliderIn 0.6s ease-out";
+                  }}
                   onMouseLeave={() => {
                     const felix = document.getElementById("felix");
                     felix.style.animation = "sliderOut 0.6s ease-out";

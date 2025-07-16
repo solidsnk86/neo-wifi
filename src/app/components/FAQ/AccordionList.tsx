@@ -31,7 +31,7 @@ const accordionLists = [
   {
     id: 5,
     question: "¿Dónde funciona la aplicación web?",
-    answer: `Actualmente, la cobertura de Neo-Wifi-Web está disponible en Mendoza, San Luis, San Juan, Córdoba, Buenos Aires, Corrientes y otros lugares internacionales dónde podrás obtener tu punto WiFi gratuito más cercano.`,
+    answer: `Actualmente, la cobertura de Neo-Wifi-Web está disponible en San Luis, Mendoza, San Juan, Córdoba, Buenos Aires, Tucumán, Corrientes, Río Negro, Tierra de Fuego y otros lugares internacionales dónde podrás obtener tu punto WiFi gratuito más cercano.`,
   },
   {
     id: 6,
@@ -41,7 +41,7 @@ const accordionLists = [
   },
 ];
 
-export const AccordionList = () => {
+export const FaqsAccordionList = () => {
   const [activeItems, setActiveItems] = useState<number[]>([]);
 
   const toggle = (id: number) => {
@@ -87,4 +87,4 @@ export const AccordionList = () => {
   );
 };
 
-export default AccordionList;
+export default FaqsAccordionList;

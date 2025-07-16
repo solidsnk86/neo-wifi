@@ -1,6 +1,6 @@
 import styles from "./styles/marquee.module.css";
 
-export const Faqs = () => {
+export const FaqsStyleComponent = () => {
   const currentYear = new Date().getFullYear();
   return (
     <>

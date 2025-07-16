@@ -1,7 +1,6 @@
 "use client";
 
 import { Navbar, Hero, GeoPositionCard, Footer } from "./components/index";
-import AccordionList from "./components/FAQ/AccordionList";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";
 import Image from "next/image";
@@ -19,6 +18,7 @@ import { Features } from "./components/Features";
 import { NewsletterSection } from "./components/NewsletterSection";
 import { Neo } from "./components/Neo";
 import { MarqueeWifiLocations } from "./components/MarqueeWifiLocations";
+import FaqsAccordionList from "./components/FAQ/AccordionList";
 
 gsap.registerPlugin(DrawSVGPlugin);
 
@@ -153,7 +153,7 @@ export default function Home() {
         <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
 
         <HomeBlock className="px-3">
-          <AccordionList />
+          <FaqsAccordionList/>
         </HomeBlock>
 
         <NewsletterSection />

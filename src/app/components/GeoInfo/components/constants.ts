@@ -1,6 +1,6 @@
 import L from "leaflet";
 
-export const TOKEN = process.env.NEXT_PUBLIC_MAPBOX_APIKEY;
+export const TOKEN = process.env.MAPBOX_APIKEY;
 
 export const customIcon = L.divIcon({
   html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206 300">

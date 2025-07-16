@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { TRANSLATE_NEO_SYSTEM } from "./constants";
 
 const cohere = new CohereClientV2({
-  token: process.env.NEXT_PUBLIC_COHERE_TRIAL_APIKEY,
+  token: process.env.COHERE_TRIAL_APIKEY,
 });
 
 export async function POST(request: Request) {

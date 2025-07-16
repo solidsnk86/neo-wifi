@@ -12,7 +12,7 @@ const locations = [
   { name: "San Juan" + " " + getCountryFlag("AR"), antennas: 32 },
   { name: "Corrientes" + " " + getCountryFlag("AR"), antennas: 57 },
   { name: "Tucumán" + " " + getCountryFlag("AR"), antennas: 8 },
-  { name: "Tierra del Fuego" + " " + getCountryFlag("AR"), antennas: 4 },
+  { name: "Tierra del F." + " " + getCountryFlag("AR"), antennas: 4 },
   { name: "Río Negro" + " " + getCountryFlag("AR"), antennas: 99 },
   { name: "Barcelona" + " " + getCountryFlag("ES"), antennas: 18 },
   { name: "Berlín" + " " + getCountryFlag("DE"), antennas: 2060 },

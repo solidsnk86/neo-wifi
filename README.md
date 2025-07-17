@@ -1,12 +1,6 @@
-<div align="center">
-  <br>
-    <br>
-        <img src="public/Neo-Wifi.svg" alt="Neo Wifi Logo" />
-    <br>
-  <br>
-</div>
+# Neo-WiFi App Web
 
-# Localización Inteligente de Antenas WiFi en varias ciudades de Argentina 🇦🇷 y otros pasíses
+## Localización Inteligente de Antenas WiFi en varias ciudades de Argentina 🇦🇷 y otros pasíses
 
 Neo WiFi web es una aplicación innovadora diseñada para poder localizar cuáles son tus puntos wifi de acceso gratuito más cercanos. Su objetivo principal es simplificar la configuración de conexiones WiFi mediante una localización precisa de antenas cercanas.
 

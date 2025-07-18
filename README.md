@@ -32,7 +32,7 @@ Su objetivo principal es simplificar la configuración de conexiones mediante un
 
 - Fórmula de Haversine para cálculos de geolocalización.
 - API REST personalizada.
-- Mapeo JSON de provincias argentinas.
+- Mapeo JSON de provincias argentinas e internacionales.
 - Mapeo JSON de antenas.
 - [Next.js](https://nextjs.org/)
 - [Electron.js](https://www.electronjs.org/)

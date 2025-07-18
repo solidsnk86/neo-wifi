@@ -26,6 +26,8 @@ Su objetivo principal es simplificar la configuración de conexiones mediante un
 
 ---
 
+### 🌍 Vista en vivo: [https://neo-wifi.vercel.app/](https://neo-wifi.vercel.app/)
+
 ## 🛠️ Tecnologías Utilizadas
 
 - Fórmula de Haversine para cálculos de geolocalización.

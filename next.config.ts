@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/api/cpe-info",
+        source: "/api/releases",
         headers: [
           {
             key: "Access-Control-Allow-Origin",

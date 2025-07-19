@@ -15,7 +15,7 @@ Su objetivo principal es simplificar la configuración de conexiones mediante un
 - Requiere permiso de geolocalización del navegador para un funcionamiento óptimo.
 
 ### 2️⃣ Mapeo inteligente de antenas
-- Cobertura total en localidades de San Luis.
+- Cobertura total en localidades de San Luis y otras ciudades de Argentina, entre otros países.
 - También provee información de espacios WiFi gratuitos en Buenos Aires, Córdoba, Mendoza, San Juan, Corrientes, Tucumán, entre otras provincias.
 - Incluye datos de Universidades, Hospitales, Espacios Públicos y otros puntos de interés.
 - Muestra los 3 puntos WiFi más cercanos a tu ubicación y la distancia exacta a cada uno.
@@ -26,7 +26,7 @@ Su objetivo principal es simplificar la configuración de conexiones mediante un
 
 ---
 
-### 🌍 Vista en vivo: [https://neo-wifi.vercel.app/](https://neo-wifi.vercel.app/)
+🌍 Vista en vivo: [https://neo-wifi.vercel.app/](https://neo-wifi.vercel.app/)
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -34,9 +34,8 @@ Su objetivo principal es simplificar la configuración de conexiones mediante un
 - API REST personalizada.
 - Mapeo JSON de provincias argentinas e internacionales.
 - Mapeo JSON de antenas.
-- [Next.js](https://nextjs.org/)
-- [Electron.js](https://www.electronjs.org/)
-
+- Next.js
+- Electron.js
 ---
 
 <div align="center">

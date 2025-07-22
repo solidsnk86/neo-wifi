@@ -30,6 +30,11 @@ Su objetivo principal es simplificar la configuración de conexiones mediante un
 - **NeoWiFi App** es una aplicación para instalar en PC con Windows.
 - Automatiza la conectividad WiFi en sistemas TP-LINK en las redes del Gobierno de la Provincia de San Luis.
 
+
+### 4️⃣ Asistente IA integrado
+- La aplicación cuenta con un asistente de inteligencia artificial para guiar y explicar su funcionamiento de forma más sencilla.
+- Disponible en varios idiomas y compatible con entrada de voz mediante micrófono.
+
 ---
 
 🌍 Vista en vivo: [https://neo-wifi.vercel.app/](https://neo-wifi.vercel.app/)
@@ -42,6 +47,7 @@ Su objetivo principal es simplificar la configuración de conexiones mediante un
 - Mapeo JSON de antenas.
 - Next.js
 - Electron.js
+- Cohere IA
 ---
 
 <div align="center">

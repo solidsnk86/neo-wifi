@@ -1,9 +1,3 @@
-<div align="center">
-  <br />
-  <img src="https://raw.githubusercontent.com/solidsnk86/neo-wifi/refs/heads/master/public/Neo-Wifi.svg" width="400" height="300px" />
-  <br />
-</div>
-
 # Neo-WiFi App Web
 
 ## Localización Inteligente de Antenas WiFi en varias ciudades de Argentina 🇦🇷 y otros países

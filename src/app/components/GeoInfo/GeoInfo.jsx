@@ -158,7 +158,7 @@ export const GeoPositionCard = () => {
 
   const sendBasicInfo = useCallback(async () => {
     try {
-      const { ip, cityName, countryName, latitude, longitude, sysInfo } = await getIP();
+      const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag } = await getIP();
       const { ip: lastIP } = await SupabaseDB.getLastIP();
 
       if (lastIP !== ip) {
@@ -170,7 +170,8 @@ export const GeoPositionCard = () => {
             latitude,
             longitude,
             so: sysInfo.system,
-            browser: sysInfo.webBrowser
+            browser: sysInfo.webBrowser,
+            emoji_flag: emojiFlag
           },
         });
       }

@@ -117,7 +117,7 @@ export const GeoPositionCard = () => {
     setIsLoading(false);
   };
 
-  const send = useCallback(async () => {
+  const sendCompleteInfo = useCallback(async () => {
     const { ip, sysInfo, emojiFlag, cityName, countryName } = await getIP();
     try {
       const objectVisit = {
@@ -149,16 +149,42 @@ export const GeoPositionCard = () => {
       if (lastIP !== ip) {
         setTimeout(async () => {
           await SupabaseDB.sendVisits({ data: objectVisit });
-        }, 30000);
+        }, 10000);
       }
     } catch (error) {
       console.error("Cannot send data: " + error);
     }
   }, [location]);
 
+  const sendBasicInfo = useCallback(async () => {
+    try {
+      const { ip, cityName, countryName, latitude, longitude, sysInfo } = await getIP();
+      const { ip: lastIP } = await SupabaseDB.getLastIP();
+
+      if (lastIP !== ip) {
+        await SupabaseDB.sendVisits({
+          data: {
+            ip,
+            city: cityName,
+            country: countryName,
+            latitude,
+            longitude,
+            so: sysInfo.system
+          },
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   useEffect(() => {
-    if (location.current_position.latitude !== 0) send();
-  }, [location, send]);
+    if (location.current_position.latitude !== 0) {
+      sendCompleteInfo();
+    } else {
+      sendBasicInfo();
+    }
+  }, [location, sendBasicInfo, sendCompleteInfo]);
 
   const sendQuery = async (searchQuery) => {
     try {

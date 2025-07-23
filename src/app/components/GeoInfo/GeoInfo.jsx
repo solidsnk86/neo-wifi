@@ -169,7 +169,8 @@ export const GeoPositionCard = () => {
             country: countryName,
             latitude,
             longitude,
-            so: sysInfo.system
+            so: sysInfo.system,
+            browser: sysInfo.webBrowser
           },
         });
       }

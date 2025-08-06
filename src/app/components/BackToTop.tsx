@@ -26,7 +26,7 @@ export const BackToTop = () => {
         <button
           id="back-to-top"
           onClick={goToTop}
-          className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-2 fixed bottom-5 left-5 opacity-90 shadow-lg z-50 rounded-xl hover:scale-110 transition-transform"
+          className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-2 fixed bottom-5 left-5 opacity-90 shadow-lg z-50 rounded-xl hover:scale-110 transition-transform -translate-x-10"
         >
           <ArrowUp className="text-[--color-yellow-primary]" />
         </button>

@@ -122,6 +122,7 @@ export const Translator = () => {
     utterance.voice = activeVoice;
     window.speechSynthesis.speak(utterance);
   };
+  console.log(activeVoice)
 
   return (
     <section className="flex flex-col md:max-w-4xl space-y-3 justify-center mx-auto p-4 border bg-white dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 rounded-xl z-50 relative">

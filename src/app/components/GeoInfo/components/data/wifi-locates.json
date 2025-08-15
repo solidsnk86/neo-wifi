@@ -27996,6 +27996,39 @@
     "location": "Cipolleti"
   },
   {
+    "name": "Parque Juan de Garay - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -31.63554,
+    "lon": -60.72035,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Santa Fe"
+  },
+  {
+    "name": "Parque Federal - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -31.62213,
+    "lon": -60.69547,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Santa Fe"
+  },
+  {
+    "name": "La Redonda - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -31.63978,
+    "lon": -60.66661,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Santa Fe"
+  },
+  {
     "name": "Barcelona-Wifi (Pl. de Catalunya - Rda. Sant Pere)",
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "MAC": null,

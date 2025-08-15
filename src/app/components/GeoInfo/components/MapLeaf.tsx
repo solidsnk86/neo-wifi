@@ -48,7 +48,7 @@ const LeafMap = ({
       [currentPosition.latitude, currentPosition.longitude],
       17
     );
-    
+
     (map as any).addControl(
       (L.control as any).fullscreen({
         position: "topleft",
@@ -86,8 +86,8 @@ const LeafMap = ({
 
       return div;
     };
-    // View Controller MAP - SATELLITE    
-    MapLeaflet.switchToMap(map)
+    // View Controller MAP - SATELLITE
+    MapLeaflet.switchToMap(map);
     const mapViewControl = (L.control as any)({
       position: "bottomleft",
       forceSeparateButton: true,
@@ -96,7 +96,7 @@ const LeafMap = ({
     const satelliteViewControl = (L.control as any)({
       position: "bottomleft",
     });
-    
+
     mapViewControl.onAdd = function (map: L.Map) {
       const div = L.DomUtil.create("div", "map-control");
 
@@ -122,7 +122,9 @@ const LeafMap = ({
       `;
       div
         .querySelector(".satellite-control-btn")!
-        .addEventListener("click", () => MapLeaflet.switchToSatellite(map, TOKEN!));
+        .addEventListener("click", () =>
+          MapLeaflet.switchToSatellite(map, TOKEN!)
+        );
 
       return div;
     };
@@ -133,7 +135,11 @@ const LeafMap = ({
 
     MapLeaflet.marker({ currentPosition, map, icon: customIcon });
     MapLeaflet.createFirstLine({ currentPosition, antennaPosition, map });
-    MapLeaflet.createSecondLine({ currentPosition, secondAntennaPosition, map });
+    MapLeaflet.createSecondLine({
+      currentPosition,
+      secondAntennaPosition,
+      map,
+    });
     MapLeaflet.createThirdLine({ currentPosition, thirdAntennaPosition, map });
     MapLeaflet.addAntennaMarker(
       thirdAntennaPosition.coords,
@@ -142,7 +148,8 @@ const LeafMap = ({
       thirdAntennaPosition.type,
       thirdAntennaPosition.users,
       map,
-      wifiSvg, currentPosition
+      wifiSvg,
+      currentPosition
     );
     MapLeaflet.addAntennaMarker(
       secondAntennaPosition.coords,
@@ -151,7 +158,8 @@ const LeafMap = ({
       secondAntennaPosition.type,
       secondAntennaPosition.users,
       map,
-      wifiSvg, currentPosition
+      wifiSvg,
+      currentPosition
     );
     MapLeaflet.addAntennaMarker(
       antennaPosition.coords,
@@ -160,7 +168,8 @@ const LeafMap = ({
       antennaPosition.type,
       antennaPosition.users,
       map,
-      wifiSvg, currentPosition
+      wifiSvg,
+      currentPosition
     );
 
     optimizedAntennas
@@ -283,11 +292,14 @@ const LeafMap = ({
   const montecoman = cleanedPlaces.find((value) => value === "Monte Comán");
   const sosneado = cleanedPlaces.find((value) => value === "El Sosneado");
   const malargue = cleanedPlaces.find((value) => value === "Malargüe");
-  const tucuman = cleanedPlaces.find((value) => value === "San Miguel de Tucumán")
+  const tucuman = cleanedPlaces.find(
+    (value) => value === "San Miguel de Tucumán"
+  );
   const tierradelfuego = cleanedPlaces.find(
     (value) => value === "Tierra del Fuego"
   );
-  const cipolleti = cleanedPlaces.find((value) => value === "Cipolleti")
+  const cipolleti = cleanedPlaces.find((value) => value === "Cipolleti");
+  const santafe = cleanedPlaces.find((value) => value === "Santa Fe");
   const francia = cleanedPlaces.find((value) => value === "Francia");
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
@@ -309,11 +321,11 @@ const LeafMap = ({
       val !== francia &&
       val !== sanjuan &&
       val !== tierradelfuego &&
-      val !== tucuman && 
+      val !== tucuman &&
       val !== cipolleti
     );
   };
-  
+
   return (
     <>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
@@ -391,9 +403,16 @@ const LeafMap = ({
 
             {/* Argentina - Río Negro */}
             {cipolleti && (
-               <optgroup label="🇦🇷 Argentina - Río Negro">
-               <option value={cipolleti}>{cipolleti}</option>
-             </optgroup>
+              <optgroup label="🇦🇷 Argentina - Río Negro">
+                <option value={cipolleti}>{cipolleti}</option>
+              </optgroup>
+            )}
+
+            {/* Argentina - Santa Fé */}
+            {santafe && (
+              <optgroup label="🇦🇷 Argentina - Santa Fe">
+                <option value={santafe}>{santafe}</option>
+              </optgroup>
             )}
 
             {/* Alemania */}

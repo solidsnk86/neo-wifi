@@ -415,12 +415,6 @@ const LeafMap = ({
             {santafe && (
               <optgroup label="🇦🇷 Argentina - Santa Fe">
                 <option value={santafe}>{santafe}</option>
-              </optgroup>
-            )}
-
-            {/* Argentina - Rosario, Santa Fe */}
-            {santafe && (
-              <optgroup label="🇦🇷 Argentina - Rosario (S.F)">
                 <option value={rosario}>{rosario}</option>
               </optgroup>
             )}

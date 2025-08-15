@@ -137,7 +137,7 @@ export const GeoPositionCard = () => {
 
       const values = Object.values(objectVisit);
       if (
-        values.includes("No disponible") ||
+        values.includes("No disponible") || values.includes("Sin localización") ||
         values.includes(undefined) ||
         values.includes(null)
       ) {

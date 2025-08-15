@@ -28062,6 +28062,50 @@
     "location": "Rosario"
   },
   {
+    "name": "Parque Yrigoyen - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.97189147687963, 
+    "lon": -60.63663943351986,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "Parque Oeste - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.952309378249694, 
+    "lon": -60.70328179010039,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "Parque Alem - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.909872585236194, 
+    "lon": -60.676518413771284,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "Parque Nacional de la Bandera - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.94741556453105, 
+    "lon": -60.62830792858951,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
     "name": "Barcelona-Wifi (Pl. de Catalunya - Rda. Sant Pere)",
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "MAC": null,

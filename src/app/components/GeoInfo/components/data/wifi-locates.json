@@ -28106,6 +28106,61 @@
     "location": "Rosario"
   },
   {
+    "name": "Plaza General T. Luzuriaga - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.97718717201881,  
+    "lon": -60.64418059303161,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "Plaza Che Guevara - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.969234447613715,  
+    "lon": -60.63826066168971,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "Plaza República de la Sexta - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.965014534482506,  
+    "lon": -60.62537000302175,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "La Siberia - Centro Universitario Rosario - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.968468694936746,  
+    "lon": -60.62251615099183,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "Balneario La Florida - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.88079388118822, 
+    "lon": -60.6871565930495, 
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
     "name": "Barcelona-Wifi (Pl. de Catalunya - Rda. Sant Pere)",
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "MAC": null,

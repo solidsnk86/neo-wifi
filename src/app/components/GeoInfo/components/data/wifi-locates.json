@@ -28029,6 +28029,39 @@
     "location": "Santa Fe"
   },
   {
+    "name": "Parque Urquiza - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.95911001063638,
+    "lon": -60.623760910740124,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "Parque Rodriguez - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.931515262809675,
+    "lon": -60.651308518838604,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
+    "name": "Parque de la Independencia - GSF WiFi",
+    "name5g": null,
+    "MAC": null,
+    "MAC5g": null,
+    "lat": -32.95515357588782,
+    "lon": -60.656840393712386,
+    "type": "Dual Band 2.4Ghz | 5Ghz",
+    "users": null,
+    "location": "Rosario"
+  },
+  {
     "name": "Barcelona-Wifi (Pl. de Catalunya - Rda. Sant Pere)",
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "MAC": null,

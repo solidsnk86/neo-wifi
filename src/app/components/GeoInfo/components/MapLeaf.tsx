@@ -300,6 +300,7 @@ const LeafMap = ({
   );
   const cipolleti = cleanedPlaces.find((value) => value === "Cipolleti");
   const santafe = cleanedPlaces.find((value) => value === "Santa Fe");
+  const rosario = cleanedPlaces.find((value) => value === "Rosario");
   const francia = cleanedPlaces.find((value) => value === "Francia");
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
@@ -322,7 +323,9 @@ const LeafMap = ({
       val !== sanjuan &&
       val !== tierradelfuego &&
       val !== tucuman &&
-      val !== cipolleti
+      val !== cipolleti &&
+      val !== santafe &&
+      val !== rosario
     );
   };
 
@@ -408,10 +411,17 @@ const LeafMap = ({
               </optgroup>
             )}
 
-            {/* Argentina - Santa Fé */}
+            {/* Argentina - Santa Fé */}  
             {santafe && (
               <optgroup label="🇦🇷 Argentina - Santa Fe">
                 <option value={santafe}>{santafe}</option>
+              </optgroup>
+            )}
+
+            {/* Argentina - Rosario, Santa Fe */}
+            {santafe && (
+              <optgroup label="🇦🇷 Argentina - Rosario (S.F)">
+                <option value={rosario}>{rosario}</option>
               </optgroup>
             )}
 

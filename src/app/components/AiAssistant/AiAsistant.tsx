@@ -300,7 +300,7 @@ export const AiAssistant = ({
 
         {isLoading && (
           <div className="loader-container pl-2 my-3 animate-pulse text-zinc-500">
-            Pensando<span className="dot">.</span>
+            Procesando...<span className="dot">.</span>
             <span className="dot">.</span>
             <span className="dot">.</span>
           </div>

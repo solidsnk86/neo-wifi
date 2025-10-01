@@ -45,7 +45,7 @@ export class SupabaseDB {
   public static async sendVisits({ data }: OptionalProps) {
     try {
       const response = await fetch(
-        `https://supabase-rest-api.vercel.app/supabase/?from=neo_wifi_visitors`,
+        `/api/visitors/send-visit`,
         {
           method: "POST",
           mode: "cors",

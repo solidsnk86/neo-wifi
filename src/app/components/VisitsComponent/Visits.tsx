@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { SupabaseDB } from "@/services/Supabase";
 import { useEffect, useState, cloneElement, Children, ReactNode } from "react";
 import styles from "./styles/visits.module.css";
 import { PartialOptionsProps } from "@/types/definitions";
@@ -40,19 +39,17 @@ export const VisitsComponent = () => {
 
   useEffect(() => {
     const getData = async () => {
-      await SupabaseDB.getOptionalData({
-        from: "neo_wifi_visitors",
-        select: "id,city,state,country,emoji_flag,so,created_at",
-        limit: 1,
-        order: "created_at",
+      await fetch("/api/visitors", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
       })
-        .then((data) => {
-          setVisitData(data);
-        })
+        .then((res) => res.json())
+        .then((data) => setVisitData(data[0]))
         .catch((error) => console.log(error));
     };
     getData();
   }, []);
+
   return (
     <CloneVisits>
       <Marquee data={visitData} />

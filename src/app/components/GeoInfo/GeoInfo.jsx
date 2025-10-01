@@ -79,8 +79,8 @@ export const GeoPositionCard = () => {
   const getCityLocation = async () => {
     try {
       const { lat, lon } = await getCoords();
-      setCoords({ latitude: lat, longitude: lon });
       if (!lat || !lon) return null;
+      setCoords({ latitude: lat, longitude: lon });
       const response = await fetch(
         `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${lat}&lon=${lon}`
       );
@@ -95,7 +95,7 @@ export const GeoPositionCard = () => {
     }
   };
 
-  const closeDialogWithAnimation = () => {
+  const setDialogAnimation = () => {
     const dialog = document.querySelector("dialog");
     if (dialog) {
       dialog.style.animation = "slideOutEffect 300ms ease-in-out";
@@ -109,7 +109,7 @@ export const GeoPositionCard = () => {
 
   const handleGetLocation = async () => {
     setIsLoading(true);
-    closeDialogWithAnimation();
+    setDialogAnimation();
     const dataLocation = await getCityLocation();
     if (dataLocation) {
       setLocation(dataLocation);
@@ -118,18 +118,18 @@ export const GeoPositionCard = () => {
   };
 
   const sendCompleteInfo = useCallback(async () => {
-    const { ip, sysInfo, emojiFlag, cityName, countryName } = await getIP();
+    const { ip, sysInfo, emojiFlag, cityName, countryName, timeZoneCity } = await getIP();
     try {
       const objectVisit = {
         city: location.city ?? cityName,
-        state: location.state ?? "Sin localización",
+        state: location.state ?? timeZoneCity,
         departament: location.departament ?? "Sin localización",
         country: countryName,
         longitude: parseFloat(location.current_position.longitude) || 0,
         latitude: parseFloat(location.current_position.latitude) || 0,
         nearest_wifi: location.closest_wifi.antenna ?? "Sin localización",
         distance: parseFloat(location.closest_wifi.distance) || 0,
-        ip: ip,
+        ip,
         so: sysInfo.system,
         emoji_flag: emojiFlag,
         browser: `${sysInfo.webBrowser.browser} v${sysInfo.webBrowser.version}`,
@@ -158,25 +158,25 @@ export const GeoPositionCard = () => {
 
   const sendBasicInfo = useCallback(async () => {
     try {
-      const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag } = await getIP();
+      const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag, timeZoneCity } = await getIP();
       const { ip: lastIP } = await SupabaseDB.getLastIP();
+      const data = {
+        ip,
+        city: cityName,
+        country: countryName,
+        state: timeZoneCity,
+        latitude,
+        longitude,
+        so: sysInfo.system,
+        browser: sysInfo.webBrowser,
+        emoji_flag: emojiFlag
+      }
 
       if (lastIP !== ip) {
-        await SupabaseDB.sendVisits({
-          data: {
-            ip,
-            city: cityName,
-            country: countryName,
-            latitude,
-            longitude,
-            so: sysInfo.system,
-            browser: sysInfo.webBrowser,
-            emoji_flag: emojiFlag
-          },
-        });
+        await SupabaseDB.sendVisits({ data })
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []);
 

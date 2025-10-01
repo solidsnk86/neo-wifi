@@ -52,3 +52,7 @@ export interface WifiDataProps {
   location: string;
   users: number;
 }
+
+export interface AskForLocationProps {
+  handler: () => Promise<void>
+}

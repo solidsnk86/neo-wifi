@@ -4,6 +4,7 @@ import { ArrowUp, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
 import { navLanguages, shareTechMono } from "./constants";
+import { getIP } from "@/utils/get-ip";
 
 interface ContextAIProps {
   context: {
@@ -101,23 +102,21 @@ export const AiAssistant = ({
     setQuery("");
     setCharCount(0)
 
-    const [clientData] = await Promise.all([
-      (await fetch("https://solid-geolocation.vercel.app/location")).json(),
-    ]);
+   const { ip, cityName, countryName, timeZoneCity  } = await getIP()
 
     await sendQuery({
       text: query,
-      city: clientData.city.name,
-      country: clientData.country.name,
+      city: cityName + ", " + timeZoneCity,
+      country: countryName,
       temp: tempValue,
       lang: language,
     });
 
     const objectData = {
       prompt: userMessage.content,
-      ip: clientData.ip,
-      city: clientData.city.name,
-      country: clientData.country.name,
+      ip,
+      city: cityName,
+      country: countryName,
     };
 
     await fetch("/api/datasend", {

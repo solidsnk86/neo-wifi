@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/api/neo-ai",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+        ],
+      },
+      {
         source: "/api/releases",
         headers: [
           {

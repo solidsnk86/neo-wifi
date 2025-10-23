@@ -818,6 +818,24 @@ html {
   }
 }
 
+.btn-animation:hover .svg-animation {
+  stroke-dasharray: 1300;
+  stroke-dashoffset: 1300;
+  animation: dash 2.5s ease-in forwards;
+}
+
+
+@keyframes dash {
+  70% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 100%;
+    stroke-dashoffset: 0;
+    stroke-width: 1;
+  }
+}
+
 .notebook {
   background: #fff;
   margin: 0 auto -100px;

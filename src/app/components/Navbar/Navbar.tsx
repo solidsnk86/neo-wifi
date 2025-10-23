@@ -72,7 +72,7 @@ export const Navbar = () => {
         >
           <div
             className={`absolute w-6 h-6 rounded-full transition-transform duration-300 ease-in-out
-            flex items-center justify-center
+            flex items-center justify-center btn-animation
             shadow-md 
             ${
               darkMode
@@ -82,12 +82,12 @@ export const Navbar = () => {
           >
             {darkMode ? (
               <MoonStar
-                className="w-4 h-4 text-yellow-300"
+                className="w-4 h-4 text-yellow-300 svg-animation"
                 aria-hidden="true"
               />
             ) : (
               <Sun
-                className="w-4 h-4 text-yellow-400 fill-yellow-400"
+                className="w-4 h-4 text-yellow-400 svg-animation"
                 aria-hidden="true"
               />
             )}

@@ -96,6 +96,7 @@ export default function Page() {
     window.scrollTo({
       top: 0,
     });
+
     return (
       <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
         <MouseTrail />
@@ -150,7 +151,7 @@ export default function Page() {
               </div>
             </article>
           ) : (
-            <article className="xl:h-[1000px] p-4 mx-3 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
+            <article className="h-[100%] p-4 mx-3 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
               <MarkdownRenderer content={appData?.release?.appInfo || ""} />
             </article>
           )}

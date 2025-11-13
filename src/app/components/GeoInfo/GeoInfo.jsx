@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
-import { LocateFixed, TriangleAlert, BadgeInfo, Loader } from "lucide-react";
+import { TriangleAlert, Loader } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
@@ -12,7 +12,6 @@ import { getIP } from "@/utils/get-ip";
 import { writeMAC } from "@/utils/mac-writer";
 import dynamic from "next/dynamic.js";
 import { mapSharer } from "../MapSharer.tsx";
-import Image from "next/image.js";
 import { AskForLocation } from "./components/AskForLocation.tsx";
 
 const Map = dynamic(() => import("./components/MapLeaf.tsx"), { ssr: false });
@@ -118,45 +117,6 @@ export const GeoPositionCard = () => {
     setIsLoading(false);
   };
 
-  const sendCompleteInfo = useCallback(async () => {
-    const { ip, sysInfo, emojiFlag, cityName, countryName, timeZoneCity } = await getIP();
-    try {
-      const objectVisit = {
-        city: location.city ?? cityName,
-        state: location.state ?? timeZoneCity,
-        departament: location.departament ?? "Sin localización",
-        country: countryName,
-        longitude: parseFloat(location.current_position.longitude) || 0,
-        latitude: parseFloat(location.current_position.latitude) || 0,
-        nearest_wifi: location.closest_wifi.antenna ?? "Sin localización",
-        distance: parseFloat(location.closest_wifi.distance) || 0,
-        ip,
-        so: sysInfo.system,
-        emoji_flag: emojiFlag,
-        browser: `${sysInfo.webBrowser.browser} v${sysInfo.webBrowser.version}`,
-      };
-
-      const values = Object.values(objectVisit);
-      if (
-        values.includes("No disponible") || values.includes("Sin localización") ||
-        values.includes(undefined) ||
-        values.includes(null)
-      ) {
-        return;
-      }
-
-      const { ip: lastIP } = await SupabaseDB.getLastIP();
-
-      if (lastIP !== ip) {
-        setTimeout(async () => {
-          await SupabaseDB.sendVisits({ data: objectVisit });
-        }, 10000);
-      }
-    } catch (error) {
-      console.error("Cannot send data: " + error);
-    }
-  }, [location]);
-
   const sendBasicInfo = useCallback(async () => {
     try {
       const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag, timeZoneCity } = await getIP();
@@ -182,12 +142,8 @@ export const GeoPositionCard = () => {
   }, []);
 
   useEffect(() => {
-    if (location.current_position.latitude !== 0) {
-      sendCompleteInfo();
-    } else {
-      sendBasicInfo();
-    }
-  }, [location, sendBasicInfo, sendCompleteInfo]);
+    sendBasicInfo()
+  }, [sendBasicInfo]);
 
   const sendQuery = async (searchQuery) => {
     try {

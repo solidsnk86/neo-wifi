@@ -20,7 +20,7 @@ const Marquee = ({ data }: Pick<PartialOptionsProps, "data">) => {
         second: "2-digit",
       })}{" "}
       • Total de visitas: {data?.id || 0} • Dispositivo:{" "}
-      {data?.so || "No disponible"} {data?.so === "Windows" ? "💻" : "📲"}
+      {data?.so || "No disponible"}
     </small>
   );
 };
@@ -45,7 +45,7 @@ export const VisitsComponent = () => {
       })
         .then((res) => res.json())
         .then((data) => setVisitData(data[0]))
-        .catch((error) => console.log(error));
+        .catch((error) => console.error(error));
     };
     getData();
   }, []);

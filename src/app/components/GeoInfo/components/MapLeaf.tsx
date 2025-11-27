@@ -305,6 +305,7 @@ const LeafMap = ({
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
   const madrid = cleanedPlaces.find((value) => value === "Madrid");
+  const santiago = cleanedPlaces.find((value) => value === "Chile")
 
   const filterValues = (val: string) => {
     return (
@@ -325,7 +326,8 @@ const LeafMap = ({
       val !== tucuman &&
       val !== cipolleti &&
       val !== santafe &&
-      val !== rosario
+      val !== rosario && 
+      val !== santiago
     );
   };
 
@@ -416,6 +418,13 @@ const LeafMap = ({
               <optgroup label="🇦🇷 Argentina - Santa Fe">
                 <option value={santafe}>{santafe}</option>
                 <option value={rosario}>{rosario}</option>
+              </optgroup>
+            )}
+
+            {/* Chile - Santiago */}  
+            {santiago && (
+              <optgroup label="🇨🇱 Chile - Santiago">
+                <option value={santiago}>{santiago}</option>
               </optgroup>
             )}
 

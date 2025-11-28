@@ -423,7 +423,7 @@ const LeafMap = ({
 
             {/* Chile - Santiago */}  
             {santiago && (
-              <optgroup label="🇨🇱 Chile - Santiago">
+              <optgroup label="🇨🇱 Chile">
                 <option value={santiago}>{`Santiago, ${santiago}`}</option>
               </optgroup>
             )}

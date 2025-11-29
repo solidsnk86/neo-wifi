@@ -34,9 +34,11 @@ export const getIP = async () => {
     const emojiFlag = country.emojiFlag;
     const cityName = city.name;
     const countryName = country.name;
+    const timezone = country.timezone;
+    const timeZoneCity = timezone.replace(/^[^/]+\/[^/]+\//, "")
     const { latitude, longitude } = coords
   
-    return { ip, sysInfo, emojiFlag, cityName, countryName, latitude, longitude,  };
+    return { ip, sysInfo, emojiFlag, cityName, countryName, latitude, longitude, timeZoneCity };
   } catch (err) {
     throw new Error("Cannot get data: ", err as TypeError);
   }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
-import { TriangleAlert, Loader } from "lucide-react";
+import { TriangleAlert, Loader, AwardIcon } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
@@ -119,23 +119,25 @@ export const GeoPositionCard = () => {
 
   const sendBasicInfo = useCallback(async () => {
     try {
-      const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag, timeZoneCity } = await getIP();
-      const { ip: lastIP } = await SupabaseDB.getLastIP();
+      const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag } = await getIP();
+      const { lastIP } = await SupabaseDB.getLastIP()
+      
       const data = {
         ip,
         city: cityName,
         country: countryName,
-        state: timeZoneCity,
         latitude,
         longitude,
         so: sysInfo.system,
-        browser: sysInfo.webBrowser,
+        browser: sysInfo.webBrowser.browser,
+        version: sysInfo.webBrowser.version,
         emoji_flag: emojiFlag
       }
 
       if (lastIP !== ip) {
         await SupabaseDB.sendVisits({ data })
       }
+
     } catch (error) {
       console.error(error);
     }

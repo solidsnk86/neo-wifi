@@ -44,16 +44,15 @@ export class SupabaseDB {
 
   public static async sendVisits({ data }: OptionalProps) {
     try {
-      const response = await fetch(
-        `/api/visitors/send-visit`,
+      await fetch(
+        `/api/send-visit`,
         {
           method: "POST",
-          mode: "cors",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         }
       );
-      if (!response.ok) throw new Error(response.statusText);
+      
     } catch (error) {
       console.error(error);
     }
@@ -61,13 +60,11 @@ export class SupabaseDB {
 
   public static async getLastIP() {
     try {
-      const response = await fetch(
-        "https://supabase-rest-api.vercel.app/supabase/optional?from=neo_wifi_visitors&select=ip&limit=1&order=created_at"
-      );
-      if (!response.ok)
-        throw new Error("Cannot get ip: " + response.statusText);
+      const response = await fetch("/api/visitors");
       const data = await response.json();
-      return data[0];
+      if (!response.ok) throw new Error(response.statusText);
+      const lastIP  = data[0]?.ip
+      return { lastIP };
     } catch (error) {
       console.error(error);
     }

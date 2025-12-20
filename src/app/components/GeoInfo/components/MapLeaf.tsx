@@ -305,7 +305,7 @@ const LeafMap = ({
   const berlin = cleanedPlaces.find((value) => value === "Berlín");
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
   const madrid = cleanedPlaces.find((value) => value === "Madrid");
-  const santiago = cleanedPlaces.find((value) => value === "Chile")
+  const santiago = cleanedPlaces.find((value) => value === "Chile");
 
   const filterValues = (val: string) => {
     return (

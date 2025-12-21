@@ -8,6 +8,8 @@ const locations = [
   { name: "San Luis" + " " + getCountryFlag("AR"), antennas: 1083 },
   { name: "Buenos Aires" + " " + getCountryFlag("AR"), antennas: 602 },
   { name: "Córdoba" + " " + getCountryFlag("AR"), antennas: 93 },
+  { name: "Santa Fé" + " " + getCountryFlag("AR"), antennas: 14 },
+  { name: "Rosario" + " " + getCountryFlag("AR"), antennas: 16 },
   { name: "Mendoza" + " " + getCountryFlag("AR"), antennas: 49 },
   { name: "San Juan" + " " + getCountryFlag("AR"), antennas: 32 },
   { name: "Corrientes" + " " + getCountryFlag("AR"), antennas: 57 },

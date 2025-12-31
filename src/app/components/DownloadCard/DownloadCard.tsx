@@ -21,7 +21,7 @@ export const DownloadCard = () => {
     >
       <div className={styles.text_container}>
         <h2>
-          Neo-WiFi App <small>v{version}</small>
+          Neo-WiFi App <small>v{version ? version : "v1.3.6-beta"}</small>
         </h2>
         <p>
           Esta aplicación es una herramienta diseñada para automatizar y

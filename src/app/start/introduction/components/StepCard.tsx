@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ReactNode } from "react";
+import styles from "./components.module.css"
 
 export function StepCard({
   paragraph,
@@ -13,7 +14,7 @@ export function StepCard({
   note?: ReactNode;
 }) {
   return (
-    <div className="flex justify-center mx-auto flex-col my-6 p-6 max-w-3xl">
+    <div className={`flex justify-center mx-auto flex-col my-6 p-6 max-w-3xl ${styles.scroll__animation}`}>
       <div className="text-left w-full relative">{paragraph}</div>
       <picture className="flex justify-center mx-auto my-6 flex-col">
         <Image

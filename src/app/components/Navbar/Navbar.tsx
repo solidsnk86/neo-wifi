@@ -30,7 +30,7 @@ export const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="flex justify-between items-center md:px-6 px-4 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl bg-[#F5F5F5] dark:bg-zinc-900/50 border-b border-zinc-200/70 dark:border-zinc-800">
+    <nav className={`flex justify-between items-center md:px-6 px-4 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl bg-[#F5F5F5] dark:bg-zinc-900/50 border-b border-zinc-200/70 dark:border-zinc-800 ${styles.nav}`}>
       <Link
         href="/"
         className="flex gap-2 hover:scale-105 transition-transform duration-300 hover:drop-shadow-md relative"

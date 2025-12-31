@@ -1,0 +1,23 @@
+.scroll__animation {
+  view-timeline-name: --card;
+  view-timeline-axis: block;
+
+  animation-timeline: --card;
+  animation-name: vanish;
+
+  animation-range: entry 50% cover 50%;
+  animation-fill-mode: both;
+}
+
+@keyframes vanish {
+    0% {
+      opacity: 0.1;
+      transform: translateY(60%) scale(1);
+      filter: contrast(115%);
+    }
+    1% {
+      opacity: 0;
+      transform: translateY(0%) scale(0.5);
+      filter: contrast(125%);
+    }
+  }

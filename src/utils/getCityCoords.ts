@@ -1,19 +1,10 @@
 import { getCoords } from "./get-coords";
 
-interface Coords {
-    latitude: number;
-    longitude: number;
-}
-
-export const getCityLocation = async ({
-  setCoords,
-}: {
-  setCoords: ({ latitude, longitude }: Coords) => void;
-}) => {
+export const getCityLocation = async () => {
   try {
     const { lat, lon } = await getCoords();
     if (!lat || !lon) return null;
-    setCoords({ latitude: lat, longitude: lon });
+
     const response = await fetch(
       `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${lat}&lon=${lon}`
     );

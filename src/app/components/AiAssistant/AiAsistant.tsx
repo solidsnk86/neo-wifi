@@ -7,7 +7,6 @@ import { navLanguages, shareTechMono } from "./constants";
 import { getIP } from "@/utils/get-ip";
 import { closeDialog, showDialog } from "@/utils/dialog";
 import { getCityLocation } from "@/utils/getCityCoords";
-import { MapCoordsInterface } from "../GeoInfo/components/types/definitions";
 
 interface ContextAIProps {
   context: {
@@ -45,10 +44,7 @@ export const AiAssistant = ({
   const [language, setLanguage] = useState<string>("es-AR");
   const MAX_CHAR = 300;
   const [charCount, setCharCount] = useState<number>(0);
-  const [coords, setCoords] = useState<{
-    latitude: number;
-    longitude: number;
-  }>();
+  
 
   const sendQuery = async ({
     text,
@@ -100,7 +96,7 @@ export const AiAssistant = ({
   };
 
   const handler = async () => {
-    const dataLocation = await getCityLocation({ setCoords });
+    const dataLocation = await getCityLocation();
     closeDialog();
 
     if (dataLocation) {
@@ -115,7 +111,7 @@ export const AiAssistant = ({
           temp: tempValue,
           lang: language,
         });
-      }, 800);
+      }, 600);
     }
   };
 

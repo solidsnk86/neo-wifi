@@ -89,10 +89,16 @@ export const GeoPositionCard = () => {
     }
   };
 
+  const getCoordinates = async () => {
+    const { lat, lon } = await getCoords();
+    setCoords({ latitude: lat, longitude: lon });
+  }
+
   const handleGetLocation = async () => {
     setIsLoading(true);
     setDialogAnimation();
-    const dataLocation = await getCityLocation({ setCoords });
+    await getCoordinates();
+    const dataLocation = await getCityLocation();
     if (dataLocation) {
       setLocation(dataLocation);
     }
@@ -126,7 +132,7 @@ export const GeoPositionCard = () => {
   }, []);
 
   useEffect(() => {
-    sendBasicInfo()
+    sendBasicInfo();
   }, [sendBasicInfo]);
 
   const sendQuery = async (searchQuery) => {

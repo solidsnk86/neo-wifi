@@ -9,7 +9,7 @@ const Marquee = ({ data }: Pick<PartialOptionsProps, "data">) => {
   return (
     <small className={styles.visits}>
       Última visita desde {data?.city || "No disponible"},{" "}
-      {data?.state || "No disponible"} - {data?.country || "No disponible"}{" "}
+      - {data?.country || "No disponible"}{" "}
       {data?.emoji_flag || "No disponible"} el día{" "}
       {new Date(data?.created_at as string).toLocaleDateString("es-AR", {
         year: "numeric",

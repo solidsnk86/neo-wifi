@@ -7,13 +7,13 @@ export interface ThemeState {
 const initialState: ThemeState = {
   darkMode: false,
 };
+
 interface LocalStorageProps {
   key: string;
   value: string;
 }
 
-
-const saveInLocalStorage = ({key, value}: LocalStorageProps) => localStorage.setItem(key, value);
+const saveInLocalStorage = ({ key, value }: LocalStorageProps) => localStorage.setItem(key, value);
 
 export const themeSlice = createSlice({
   name: "theme",

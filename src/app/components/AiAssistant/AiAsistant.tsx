@@ -159,9 +159,10 @@ export const AiAssistant = ({
         content: (
           <section className="p-5">
             <div className="p-3">
-              Necesito saber tu ubicación. Por favor, permite el acceso a tu
-              geolocalización para mostrarte las antenas más cercanas y darte
-              información detallada con respecto a tu ubicación.
+              Para poder mostrarte las antenas más cercanas y brindarte
+              información personalizada según tu ubicación, necesitamos acceder
+              a tu geolocalización. Tu ubicación solo se utilizará para este
+              propósito y no será almacenada.
             </div>
             <div className="relative w-fit justify-center mx-auto group">
               <button
@@ -169,7 +170,7 @@ export const AiAssistant = ({
                 onClick={handler}
               >
                 <LocateFixed className="text-red-500" />
-                Obtener Ubicación
+                Permitir acceso a mi ubicación
               </button>
             </div>
           </section>
@@ -274,45 +275,44 @@ export const AiAssistant = ({
           Neo - Asistente IA
         </h3>
         <aside className="grid md:grid-cols-3 grid-cols-2 gap-2">
-            <button
-              onClick={newChat}
-              className="text-blue-500 hover:text-blue-700 flex items-center gap-1 group"
-              title="Nuevo chat"
-            >
-              <RefreshCw
-                size={18}
-                className="group-hover:rotate-180 transition-all duration-300"
-              />
-              Nuevo Chat
-            </button>
-            <label htmlFor="tempValue" className="flex gap-2 items-center">
-              <span className="hidden md:block">Aleatoriedad</span>{" "}
-              <small
-                className={`group px-1 rounded-[3px] border border-zinc-200/70
+          <button
+            onClick={newChat}
+            className="text-blue-500 hover:text-blue-700 flex items-center gap-1 group"
+            title="Nuevo chat"
+          >
+            <RefreshCw
+              size={18}
+              className="group-hover:rotate-180 transition-all duration-300"
+            />
+            Nuevo Chat
+          </button>
+          <label htmlFor="tempValue" className="flex gap-2 items-center">
+            <span className="hidden md:block">Aleatoriedad</span>{" "}
+            <small
+              className={`group px-1 rounded-[3px] border border-zinc-200/70
                  dark:border-zinc-700 ${shareTechMono.className} hover:bg-zinc-200/70 relative`}
-              >
-                i
-                <div className="group-hover:flex absolute top-2 left-2 hidden w-52 bg-zinc-300 dark:bg-zinc-700 z-50 p-3 rounded-lg">
-                  <small className="text-[12px]">
-                    Controla el aspecto de aleatoriedad en la selección de
-                    tokens que el modelo elige para la salida. Un valor de 0.8
-                    es un buen punto de partida para experimentar. Los valores
-                    más bajos se usan en tareas con una respuesta correcta (por
-                    ejemplo, preguntas y respuestas o resúmenes). Los valores
-                    más altos aumentan la creatividad o variabilidad en la
-                    salida.
-                  </small>
-                </div>
-              </small>
-              <input
-                type="range"
-                name="tempValue"
-                min="0.1"
-                max="1.0"
-                step="0.1"
-                value={tempValue}
-                onChange={(e) => setTempValue(parseFloat(e.target.value))}
-                className="w-full appearance-none h-2 bg-zinc-300 rounded-full
+            >
+              i
+              <div className="group-hover:flex absolute top-2 left-2 hidden w-52 bg-zinc-300 dark:bg-zinc-700 z-50 p-3 rounded-lg">
+                <small className="text-[12px]">
+                  Controla el aspecto de aleatoriedad en la selección de tokens
+                  que el modelo elige para la salida. Un valor de 0.8 es un buen
+                  punto de partida para experimentar. Los valores más bajos se
+                  usan en tareas con una respuesta correcta (por ejemplo,
+                  preguntas y respuestas o resúmenes). Los valores más altos
+                  aumentan la creatividad o variabilidad en la salida.
+                </small>
+              </div>
+            </small>
+            <input
+              type="range"
+              name="tempValue"
+              min="0.1"
+              max="1.0"
+              step="0.1"
+              value={tempValue}
+              onChange={(e) => setTempValue(parseFloat(e.target.value))}
+              className="w-full appearance-none h-2 bg-zinc-300 rounded-full
              [&::-webkit-slider-thumb]:appearance-none
              [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4
              [&::-webkit-slider-thumb]:rounded-full
@@ -320,27 +320,27 @@ export const AiAssistant = ({
              [&::-webkit-slider-thumb]:cursor-pointer
              [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4
              [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:rounded-full"
-              />
-              <span className="w-6">{tempValue}</span>
-            </label>
+            />
+            <span className="w-6">{tempValue}</span>
+          </label>
 
-            <label htmlFor="language" className="flex gap-2 items-center">
-              Idioma <Mic size={16} />
-              <select
-                name="language"
-                onChange={(e) => setLanguage(e.target.value)}
-                value={language}
-                className="rounded bg-zinc-100 text-zinc-800"
-              >
-                {navLanguages.map((lang) => {
-                  return (
-                    <option key={lang.code} value={lang.code}>
-                      {lang.name}
-                    </option>
-                  );
-                })}
-              </select>
-            </label>
+          <label htmlFor="language" className="flex gap-2 items-center">
+            Idioma <Mic size={16} />
+            <select
+              name="language"
+              onChange={(e) => setLanguage(e.target.value)}
+              value={language}
+              className="rounded bg-zinc-100 text-zinc-800"
+            >
+              {navLanguages.map((lang) => {
+                return (
+                  <option key={lang.code} value={lang.code}>
+                    {lang.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
         </aside>
       </div>
 

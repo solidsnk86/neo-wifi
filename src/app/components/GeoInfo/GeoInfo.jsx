@@ -13,6 +13,7 @@ import { writeMAC } from "@/utils/mac-writer";
 import dynamic from "next/dynamic.js";
 import { mapSharer } from "../MapSharer.tsx";
 import { AskForLocation } from "./components/AskForLocation.tsx";
+import { getCityLocation } from "@/utils/getCityCoords.ts";
 
 const Map = dynamic(() => import("./components/MapLeaf.tsx"), { ssr: false });
 
@@ -76,25 +77,6 @@ export const GeoPositionCard = () => {
   const [imgLoading, setImgLoading] = useState(false);
   const [coords, setCoords] = useState({ latitude: 0, longitude: 0 });
 
-  const getCityLocation = async () => {
-    try {
-      const { lat, lon } = await getCoords();
-      if (!lat || !lon) return null;
-      setCoords({ latitude: lat, longitude: lon });
-      const response = await fetch(
-        `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${lat}&lon=${lon}`
-      );
-      if (!response.ok) {
-        throw new Error(`Response error: ${response.statusText}`);
-      }
-      const jsonData = await response.json();
-      return jsonData;
-    } catch (error) {
-      console.error("Error fetching location:", error);
-      return null;
-    }
-  };
-
   const setDialogAnimation = () => {
     const dialog = document.querySelector("dialog");
     if (dialog) {
@@ -110,7 +92,7 @@ export const GeoPositionCard = () => {
   const handleGetLocation = async () => {
     setIsLoading(true);
     setDialogAnimation();
-    const dataLocation = await getCityLocation();
+    const dataLocation = await getCityLocation({ setCoords });
     if (dataLocation) {
       setLocation(dataLocation);
     }

@@ -32,7 +32,6 @@ export async function POST(request: Request) {
     const [response] = await Promise.all([generate()]);
 
     return NextResponse.json({
-      status: "Conexión a IA establecida...",
       context: response,
     });
   } catch (error) {

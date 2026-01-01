@@ -1,4 +1,4 @@
-export const getCoords = () => {
+export const getCoords = (): Promise<{ lat: number; lon: number }> => {
   return new Promise((resolve, reject) => {
     if (!navigator.geolocation)
       reject(new Error("Geolocation does not supported"));
@@ -13,7 +13,7 @@ export const getCoords = () => {
       (error) => {
         reject(new Error(`Error: ${error}`));
       },
-      { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
+      { maximumAge: 0, timeout: 5000 }
     );
   });
 };

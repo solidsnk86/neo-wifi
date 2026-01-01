@@ -1,10 +1,13 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
-import { ArrowUp, Mic, RefreshCw, X } from "lucide-react";
+import { ArrowUp, LocateFixed, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
 import { navLanguages, shareTechMono } from "./constants";
 import { getIP } from "@/utils/get-ip";
+import { closeDialog, showDialog } from "@/utils/dialog";
+import { getCityLocation } from "@/utils/getCityCoords";
+import { MapCoordsInterface } from "../GeoInfo/components/types/definitions";
 
 interface ContextAIProps {
   context: {
@@ -42,6 +45,11 @@ export const AiAssistant = ({
   const [language, setLanguage] = useState<string>("es-AR");
   const MAX_CHAR = 300;
   const [charCount, setCharCount] = useState<number>(0);
+  const [location, setLocation] = useState<MapCoordsInterface>();
+  const [coords, setCoords] = useState<{
+    latitude: number;
+    longitude: number;
+  }>();
 
   const sendQuery = async ({
     text,
@@ -92,6 +100,19 @@ export const AiAssistant = ({
     setCharCount(newValue.length);
   };
 
+  const handler = async () => {
+    const dataLocation = await getCityLocation({ setCoords });
+    setLocation(dataLocation);
+    closeDialog();
+    await sendQuery({
+        text: query + "Sus coordenadas: {"+ coords +"} # Estas son sus antenas más próximas: " + location || "",
+        city: "",
+        country: "",
+        temp: tempValue,
+        lang: language,
+      });
+  };
+
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (query.trim() === "") return;
@@ -100,9 +121,77 @@ export const AiAssistant = ({
 
     setMessages((prev) => [...prev, userMessage]);
     setQuery("");
-    setCharCount(0)
+    setCharCount(0);
 
-   const { ip, cityName, countryName, timeZoneCity  } = await getIP()
+    const { ip, cityName, countryName, timeZoneCity } = await getIP();
+
+    const matchQuerys = [
+      "antena",
+      "antenas",
+      "más cerca",
+      "cerca",
+      "ubicación",
+      "localización",
+      "dónde están las antenas",
+      "antenas disponibles",
+      "antenas próximas",
+      "antenas cercanas",
+      "antenas en mi zona",
+      "antenas por aquí",
+      "antenas alrededor",
+      "antenas próximas",
+      "antenas en mi ubicación",
+      "antenas en mi localización",
+      "antenas cerca de mí",
+      "antenas más próximas",
+      "antenas más cercanas",
+      "antenas que tengo cerca",
+      "antenas disponibles cerca",
+      "antenas disponibles por aquí",
+      "antenas disponibles en mi zona",
+      "antenas disponibles en mi ubicación",
+      "antenas disponibles en mi localización",
+    ];
+
+    if (matchQuerys.some((word) => query.toLowerCase().includes(word))) {
+      showDialog({
+        content: (
+          <section className="p-5">
+            <div className="p-3">
+              Necesito saber tu ubicación. Por favor, permite el acceso a tu
+              geolocalización para mostrarte las antenas más cercanas y darte
+              información detallada con respecto a tu ubicación.
+            </div>
+            <div className="relative w-fit justify-center mx-auto group">
+              <Image
+                id="felix"
+                src={"/assets/felix.png"}
+                className="absolute -top-1 -left-[42px] hidden group-hover:flex felix"
+                width={55}
+                height={55}
+                alt="FelixTheCat86"
+              />
+              <button
+                className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl transition-transform"
+                onClick={handler}
+                onMouseEnter={() => {
+                  const felix = document.getElementById("felix");
+                  if (felix) felix.style.animation = "sliderIn 0.6s ease-out";
+                }}
+                onMouseLeave={() => {
+                  const felix = document.getElementById("felix");
+                  if (felix) felix.style.animation = "sliderOut 0.6s ease-out";
+                }}
+              >
+                <LocateFixed className="text-red-500" />
+                Obtener Ubicación
+              </button>
+            </div>
+          </section>
+        ),
+      });
+      return;
+    }
 
     await sendQuery({
       text: query,
@@ -133,7 +222,9 @@ export const AiAssistant = ({
 
   const newChat = () => {
     const storageName = "neo-wifi-chat";
-    setMessages([{ role: "assistant", content: "Dime en que otra cosa te puedo ayudar?" }]);
+    setMessages([
+      { role: "assistant", content: "Dime en que otra cosa te puedo ayudar?" },
+    ]);
     setQuery("");
     localStorage.removeItem(storageName);
   };
@@ -146,7 +237,7 @@ export const AiAssistant = ({
   };
 
   useEffect(() => {
-    handleInput()
+    handleInput();
   }, [query]);
 
   const handleOnRecord = () => {

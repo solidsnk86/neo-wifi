@@ -272,7 +272,7 @@ export const AiAssistant = ({
           />
         </span>
         <h3 className="text-lg md:text-2xl font-semibold text-black dark:text-white text-center font-['bogue-black']">
-          Neo - Asistente IA
+          Neo - Asistente
         </h3>
         <aside className="grid md:grid-cols-3 grid-cols-2 gap-2">
           <button

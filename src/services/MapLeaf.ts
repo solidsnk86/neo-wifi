@@ -147,13 +147,12 @@ export class MapLeaflet {
     this.currentTileLayer = tile;
   }
 
-  public static switchToMap(map: L.Map, darkMode: boolean) {
+  public static switchToMap(map: L.Map) {
     if (this.currentTileLayer) {
       map.removeLayer(this.currentTileLayer);
     }
 
-    const tile = L.tileLayer(darkMode ?
-      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" : `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
+    const tile = L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
       {
         attribution: "© CARTO | Open Street Map",
         crossOrigin: true,

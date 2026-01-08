@@ -10,8 +10,6 @@ import { customIcon, wifiSvg } from "./constants";
 import wifiMap from "./data/wifi-locates.json";
 import { MapLeaflet } from "@/services/MapLeaf";
 import { MapCoordsInterface, WifiDataProps } from "./types/definitions";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store";
 
 const LeafMap = ({
   currentPosition,
@@ -27,7 +25,6 @@ const LeafMap = ({
   const mapInstance = useRef<L.Map | null>(null);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
   const [selectValue, setSelectValue] = useState<string>();
-  const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
   useEffect(() => {
     setAntennas(wifiMap);
@@ -90,7 +87,7 @@ const LeafMap = ({
       return div;
     };
     // View Controller MAP - SATELLITE
-    MapLeaflet.switchToMap(map, darkMode);
+    MapLeaflet.switchToMap(map);
     const mapViewControl = (L.control as any)({
       position: "bottomleft",
       forceSeparateButton: true,
@@ -110,7 +107,7 @@ const LeafMap = ({
       `;
       div
         .querySelector(".map-control-btn")!
-        .addEventListener("click", () => MapLeaflet.switchToMap(map, darkMode));
+        .addEventListener("click", () => MapLeaflet.switchToMap(map));
 
       return div;
     };

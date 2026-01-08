@@ -1,6 +1,7 @@
 import { AntennaCoords } from "@/app/components/GeoInfo/components/types/definitions";
 import L, { DivIcon } from "leaflet";
 
+
 interface MapLeafletProps {
   currentPosition: {
     latitude: number;
@@ -128,18 +129,17 @@ export class MapLeaflet {
       });
   }
 
-  public static switchToSatellite(map: L.Map, TOKEN: string) {
+  public static switchToSatellite(map: L.Map) {
     if (this.currentTileLayer) {
       map.removeLayer(this.currentTileLayer);
     }
 
     const tile = L.tileLayer(
-      `https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=${TOKEN}`,
+      "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
       {
-        attribution: "© Mapbox © OpenStreetMap",
+        attribution: "© Google Hybrid",
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: TOKEN,
         crossOrigin: true,
       }
     ).addTo(map);
@@ -147,15 +147,15 @@ export class MapLeaflet {
     this.currentTileLayer = tile;
   }
 
-  public static switchToMap(map: L.Map) {
+  public static switchToMap(map: L.Map, darkMode: boolean) {
     if (this.currentTileLayer) {
       map.removeLayer(this.currentTileLayer);
     }
 
-    const tile = L.tileLayer(
-      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    const tile = L.tileLayer(darkMode ?
+      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" : `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
       {
-        attribution: "© OpenStreetMap",
+        attribution: "© CARTO | Open Street Map",
         crossOrigin: true,
       }
     ).addTo(map);

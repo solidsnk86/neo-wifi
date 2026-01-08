@@ -6,10 +6,12 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet.fullscreen";
 import { Loader, LocateFixed, MapPin, ScreenShare } from "lucide-react";
-import { customIcon, TOKEN, wifiSvg } from "./constants";
+import { customIcon, wifiSvg } from "./constants";
 import wifiMap from "./data/wifi-locates.json";
 import { MapLeaflet } from "@/services/MapLeaf";
 import { MapCoordsInterface, WifiDataProps } from "./types/definitions";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 const LeafMap = ({
   currentPosition,
@@ -25,6 +27,7 @@ const LeafMap = ({
   const mapInstance = useRef<L.Map | null>(null);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
   const [selectValue, setSelectValue] = useState<string>();
+  const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
   useEffect(() => {
     setAntennas(wifiMap);
@@ -87,7 +90,7 @@ const LeafMap = ({
       return div;
     };
     // View Controller MAP - SATELLITE
-    MapLeaflet.switchToMap(map);
+    MapLeaflet.switchToMap(map, darkMode);
     const mapViewControl = (L.control as any)({
       position: "bottomleft",
       forceSeparateButton: true,
@@ -107,7 +110,7 @@ const LeafMap = ({
       `;
       div
         .querySelector(".map-control-btn")!
-        .addEventListener("click", () => MapLeaflet.switchToMap(map));
+        .addEventListener("click", () => MapLeaflet.switchToMap(map, darkMode));
 
       return div;
     };
@@ -123,7 +126,7 @@ const LeafMap = ({
       div
         .querySelector(".satellite-control-btn")!
         .addEventListener("click", () =>
-          MapLeaflet.switchToSatellite(map, TOKEN!)
+          MapLeaflet.switchToSatellite(map)
         );
 
       return div;

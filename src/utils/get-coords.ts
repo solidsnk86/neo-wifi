@@ -13,7 +13,6 @@ export const getCoords = (): Promise<{ lat: number; lon: number }> => {
       (error) => {
         reject(new Error(`Error: ${error}`));
       },
-      { maximumAge: 0, timeout: 5000 }
     );
   });
 };

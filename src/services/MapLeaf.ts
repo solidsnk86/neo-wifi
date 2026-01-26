@@ -25,6 +25,7 @@ interface MapLeafletProps {
 
 export class MapLeaflet {
   private static currentTileLayer: L.TileLayer | null = null;
+  private static TOKEN = process.env.NEXT_PUBLIC_MAPBOX_APIKEY
 
   public static marker({ currentPosition, map, icon }: MapLeafletProps) {
     L.marker([currentPosition.latitude, currentPosition.longitude], {
@@ -135,9 +136,9 @@ export class MapLeaflet {
     }
 
     const tile = L.tileLayer(
-      "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
+      `https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=${this.TOKEN}`,
       {
-        attribution: "© Google Hybrid",
+        attribution: "© MapBox",
         tileSize: 512,
         zoomOffset: -1,
         crossOrigin: true,

@@ -24,7 +24,7 @@ const MouseTrail = () => {
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [x, y]);
+  }, [setTrails, x, y]);
 
   if (!darkMode) return null;
 

@@ -306,6 +306,7 @@ const LeafMap = ({
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
   const madrid = cleanedPlaces.find((value) => value === "Madrid");
   const santiago = cleanedPlaces.find((value) => value === "Chile");
+  const  losAngeles = cleanedPlaces.find((value) => value === "Los Angeles");
 
   const filterValues = (val: string) => {
     return (
@@ -327,7 +328,8 @@ const LeafMap = ({
       val !== cipolleti &&
       val !== santafe &&
       val !== rosario && 
-      val !== santiago
+      val !== santiago && 
+      val !== losAngeles
     );
   };
 
@@ -447,6 +449,13 @@ const LeafMap = ({
             {francia && (
               <optgroup label="🇫🇷 Francia">
                 {francia && <option value={francia}>{francia}</option>}
+              </optgroup>
+            )}
+
+            {/* Estados Unidos */}
+            {losAngeles && (
+              <optgroup label="🇺🇸 Los Angeles">
+                {losAngeles && <option value={losAngeles}>{losAngeles}</option>}
               </optgroup>
             )}
           </select>

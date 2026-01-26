@@ -20797,7 +20797,7 @@
     "name": "Costanera Oeste - Puente Colgante/Faro",
     "name5g": "GSF WiFi - Costanera Oeste",
     "lat": -31.6377,
-    "lon": -60.6970,
+    "lon": -60.697,
     "type": "Espacio Público",
     "location": "Santa Fe"
   },
@@ -20820,32 +20820,32 @@
   {
     "name": "La Rotonda",
     "name5g": "GSF WiFi - La Rotonda Costanera",
-    "lat": -31.6050,
-    "lon": -60.6830,
+    "lat": -31.605,
+    "lon": -60.683,
     "type": "Espacio Público",
     "location": "Santa Fe"
   },
   {
     "name": "Parque Garay",
     "name5g": "GSF WiFi - Parque Garay",
-    "lat": -31.6480,
-    "lon": -60.7250,
+    "lat": -31.648,
+    "lon": -60.725,
     "type": "Espacio Público",
     "location": "Santa Fe"
   },
   {
     "name": "Parque Sur - Anfiteatro/Skate",
     "name5g": "GSF WiFi - Parque Sur",
-    "lat": -31.6620,
-    "lon": -60.7180,
+    "lat": -31.662,
+    "lon": -60.718,
     "type": "Espacio Público",
     "location": "Santa Fe"
   },
   {
     "name": "Parque Federal",
     "name5g": "GSF WiFi - Parque Federal",
-    "lat": -31.6230,
-    "lon": -60.7060,
+    "lat": -31.623,
+    "lon": -60.706,
     "type": "Espacio Público",
     "location": "Santa Fe"
   },
@@ -20860,15 +20860,15 @@
   {
     "name": "El Molino Fábrica Cultural",
     "name5g": "GSF WiFi - El Molino",
-    "lat": -31.6360,
-    "lon": -60.7030,
+    "lat": -31.636,
+    "lon": -60.703,
     "type": "Edificio Público/Cultural",
     "location": "Santa Fe"
   },
   {
     "name": "La Esquina Encendida",
     "name5g": "GSF WiFi - La Esquina Encendida",
-    "lat": -31.5990,
+    "lat": -31.599,
     "lon": -60.6995,
     "type": "Edificio Público/Cultural",
     "location": "Santa Fe"
@@ -20884,8 +20884,8 @@
   {
     "name": "Plaza Colón",
     "name5g": "GSF WiFi - Plaza Colón",
-    "lat": -31.6440,
-    "lon": -60.7020,
+    "lat": -31.644,
+    "lon": -60.702,
     "type": "Espacio Público",
     "location": "Santa Fe"
   },
@@ -20893,39 +20893,39 @@
     "name": "Plaza de las Banderas",
     "name5g": "GSF WiFi - Plaza de las Banderas",
     "lat": -31.6335,
-    "lon": -60.6860,
+    "lon": -60.686,
     "type": "Espacio Público",
     "location": "Santa Fe"
   },
   {
     "name": "Parque de las Colectividades",
     "name5g": "GSF WiFi - Parque de las Colectividades",
-    "lat": -32.9320,
-    "lon": -60.6480,
+    "lat": -32.932,
+    "lon": -60.648,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Parque de España",
     "name5g": "GSF WiFi - Parque de España",
-    "lat": -32.9390,
-    "lon": -60.6380,
+    "lat": -32.939,
+    "lon": -60.638,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Centro de la Juventud/CEC",
     "name5g": "GSF WiFi - CEC y Galpones",
-    "lat": -32.9430,
-    "lon": -60.6340,
+    "lat": -32.943,
+    "lon": -60.634,
     "type": "Espacio Público/Cultural",
     "location": "Rosario"
   },
   {
     "name": "Parque Urquiza",
     "name5g": "GSF WiFi - Parque Urquiza",
-    "lat": -32.9550,
-    "lon": -60.6300,
+    "lat": -32.955,
+    "lon": -60.63,
     "type": "Espacio Público",
     "location": "Rosario"
   },
@@ -20933,47 +20933,47 @@
     "name": "Parque Rodríguez",
     "name5g": "GSF WiFi - Parque Rodríguez",
     "lat": -32.9455,
-    "lon": -60.6650,
+    "lon": -60.665,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Parque de la Independencia",
     "name5g": "GSF WiFi - Parque Independencia",
-    "lat": -32.9550,
-    "lon": -60.6550,
+    "lat": -32.955,
+    "lon": -60.655,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Parque Yrigoyen",
     "name5g": "GSF WiFi - Parque Yrigoyen",
-    "lat": -32.9800,
-    "lon": -60.6350,
+    "lat": -32.98,
+    "lon": -60.635,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Parque Oeste",
     "name5g": "GSF WiFi - Parque Oeste",
-    "lat": -32.9520,
-    "lon": -60.6900,
+    "lat": -32.952,
+    "lon": -60.69,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Parque Ottone",
     "name5g": "GSF WiFi - Parque Ottone",
-    "lat": -32.9250,
-    "lon": -60.6950,
+    "lat": -32.925,
+    "lon": -60.695,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Parque Alem",
     "name5g": "GSF WiFi - Parque Alem",
-    "lat": -32.9100,
-    "lon": -60.6750,
+    "lat": -32.91,
+    "lon": -60.675,
     "type": "Espacio Público",
     "location": "Rosario"
   },
@@ -20981,47 +20981,47 @@
     "name": "Parque Nacional a la Bandera",
     "name5g": "GSF WiFi - Monumento a la Bandera",
     "lat": -32.9475,
-    "lon": -60.6330,
+    "lon": -60.633,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Plaza Luzuriaga",
     "name5g": "GSF WiFi - Plaza Luzuriaga",
-    "lat": -32.9200,
-    "lon": -60.6800,
+    "lat": -32.92,
+    "lon": -60.68,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Plaza Che Guevara",
     "name5g": "GSF WiFi - Plaza Che Guevara",
-    "lat": -32.9650,
-    "lon": -60.6450,
+    "lat": -32.965,
+    "lon": -60.645,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Plaza República de la Sexta",
     "name5g": "GSF WiFi - Plaza República de la Sexta",
-    "lat": -32.9620,
-    "lon": -60.6320,
+    "lat": -32.962,
+    "lon": -60.632,
     "type": "Espacio Público",
     "location": "Rosario"
   },
   {
     "name": "Ciudad Universitaria (La Siberia)",
     "name5g": "GSF WiFi - La Siberia UNR",
-    "lat": -32.9680,
-    "lon": -60.6250,
+    "lat": -32.968,
+    "lon": -60.625,
     "type": "Educativo/Público",
     "location": "Rosario"
   },
   {
     "name": "Balneario La Florida",
     "name5g": "GSF WiFi - La Florida",
-    "lat": -32.8950,
-    "lon": -60.6850,
+    "lat": -32.895,
+    "lon": -60.685,
     "type": "Espacio Público/Playa",
     "location": "Rosario"
   },
@@ -48517,7 +48517,7 @@
     "MAC": null,
     "name5g": null,
     "MAC55": null,
-    "lat": -33.44269068223023, 
+    "lat": -33.44269068223023,
     "lon": -70.67982075837284,
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
@@ -48528,7 +48528,7 @@
     "MAC": null,
     "name5g": null,
     "MAC55": null,
-    "lat": -33.437014548049625, 
+    "lat": -33.437014548049625,
     "lon": -70.67356833970874,
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
@@ -48539,7 +48539,7 @@
     "MAC": null,
     "name5g": null,
     "MAC55": null,
-    "lat": -33.44015596995431, 
+    "lat": -33.44015596995431,
     "lon": -70.66534215589294,
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
@@ -48550,7 +48550,7 @@
     "MAC": null,
     "name5g": null,
     "MAC55": null,
-    "lat": -33.44015596995431, 
+    "lat": -33.44015596995431,
     "lon": -70.66534215589294,
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
@@ -48561,7 +48561,7 @@
     "MAC": null,
     "name5g": null,
     "MAC55": null,
-    "lat": -33.43861681495932, 
+    "lat": -33.43861681495932,
     "lon": -70.65828166842343,
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
@@ -48687,5 +48687,149 @@
     "type": "Dual Band 2.4Ghz | 5Ghz",
     "users": null,
     "location": "Chile"
+  },
+  {
+    "name": "Los Angeles Public Library - Central Library",
+    "name5g": "Central Library Wi-Fi",
+    "lat": 34.050536,
+    "lon": -118.255075,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Angeles Mesa Branch",
+    "name5g": "Angeles Mesa Branch Wi-Fi",
+    "lat": 34.000162,
+    "lon": -118.300892,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Arroyo Seco Regional Branch",
+    "name5g": "Arroyo Seco Branch Wi-Fi",
+    "lat": 34.114742,
+    "lon": -118.207803,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Ascot Branch",
+    "name5g": "Ascot Branch Wi-Fi",
+    "lat": 33.976871,
+    "lon": -118.2702,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Atwater Village Branch",
+    "name5g": "Atwater Village Branch Wi-Fi",
+    "lat": 34.098604,
+    "lon": -118.264152,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Cahuenga Branch",
+    "name5g": "Cahuenga Branch Wi-Fi",
+    "lat": 34.091407,
+    "lon": -118.314184,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Canoga Park Branch",
+    "name5g": "Canoga Park Branch Wi-Fi",
+    "lat": 34.196533,
+    "lon": -118.600576,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Chatsworth Branch",
+    "name5g": "Chatsworth Branch Wi-Fi",
+    "lat": 34.267613,
+    "lon": -118.572098,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Chinatown Branch",
+    "name5g": "Chinatown Branch Wi-Fi",
+    "lat": 34.063337,
+    "lon": -118.238745,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Cypress Park Branch",
+    "name5g": "Cypress Park Branch Wi-Fi",
+    "lat": 34.10116,
+    "lon": -118.210288,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Baldwin Hills Branch",
+    "name5g": "Baldwin Hills Branch Wi-Fi",
+    "lat": 34.031099,
+    "lon": -118.364238,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - San Pedro Regional Branch",
+    "name5g": "San Pedro Branch Wi-Fi",
+    "lat": 33.736069,
+    "lon": -118.295611,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Studio City Branch",
+    "name5g": "Studio City Branch Wi-Fi",
+    "lat": 34.137875,
+    "lon": -118.387761,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Sun Valley Branch",
+    "name5g": "Sun Valley Branch Wi-Fi",
+    "lat": 34.236028,
+    "lon": -118.383005,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Vernon - Leon H. Washington Jr. Branch",
+    "name5g": "Vernon Branch Wi-Fi",
+    "lat": 34.00008,
+    "lon": -118.262778,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Washington Irving Branch",
+    "name5g": "Washington Irving Branch Wi-Fi",
+    "lat": 34.016301,
+    "lon": -118.31182,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - Westwood Branch",
+    "name5g": "Westwood Branch Wi-Fi",
+    "lat": 34.059915,
+    "lon": -118.442227,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
+  },
+  {
+    "name": "Los Angeles Public Library - West Valley Regional Branch",
+    "name5g": "West Valley Branch Wi-Fi",
+    "lat": 34.192376,
+    "lon": -118.586512,
+    "type": "Library Wi-Fi",
+    "location": "Los Angeles"
   }
 ]

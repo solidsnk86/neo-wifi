@@ -21,7 +21,8 @@ const locations = [
   { name: "Madrid" + " " + getCountryFlag("ES"), antennas: 240 },
   { name: "Francia" + " " + getCountryFlag("FR"), antennas: 250 },
   { name: "Santiago" + " " + getCountryFlag("CL"), antennas: 15 },
-  { name: "Los Angeles" + " " + getCountryFlag("EU"), antennas: 18 },
+  { name: "Los Angeles" + " " + getCountryFlag("US"), antennas: 15 },
+  { name: "New York" + " " + getCountryFlag("US"), antennas: 15 },
 ];
 
 const lexend = Lexend({

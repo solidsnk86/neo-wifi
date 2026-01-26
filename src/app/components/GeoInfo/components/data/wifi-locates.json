@@ -48831,5 +48831,125 @@
     "lon": -118.586512,
     "type": "Library Wi-Fi",
     "location": "Los Angeles"
+  },
+  {
+    "name": "NYPL Main Branch",
+    "name5g": "5TH AVE & W 42ND ST - MIDTOWN",
+    "lat": 40.753182,
+    "lon": -73.982253,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "NYPL Harlem Branch",
+    "name5g": "W 124TH ST - HARLEM",
+    "lat": 40.807722,
+    "lon": -73.945396,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "NYPL Washington Heights Branch",
+    "name5g": "W 179TH ST - WASHINGTON HEIGHTS",
+    "lat": 40.847495,
+    "lon": -73.939247,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "Brooklyn Public Library Central",
+    "name5g": "GRAND ARMY PLAZA - BROOKLYN",
+    "lat": 40.672501,
+    "lon": -73.968056,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "Brooklyn Public Library Williamsburg",
+    "name5g": "DIVISION AVE - WILLIAMSBURG",
+    "lat": 40.708247,
+    "lon": -73.957145,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "Brooklyn Public Library Sunset Park",
+    "name5g": "4TH AVE - SUNSET PARK",
+    "lat": 40.645263,
+    "lon": -74.012141,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "Queens Library Flushing",
+    "name5g": "MAIN ST - FLUSHING",
+    "lat": 40.759529,
+    "lon": -73.830475,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "Queens Library Astoria",
+    "name5g": "ASTORIA BLVD - ASTORIA",
+    "lat": 40.771178,
+    "lon": -73.930410,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "LinkNYC Times Square",
+    "name5g": "BROADWAY & W 42ND ST",
+    "lat": 40.758896,
+    "lon": -73.985130,
+    "type": "LinkNYC Public Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "LinkNYC Union Square",
+    "name5g": "E 14TH ST & UNION SQ",
+    "lat": 40.735863,
+    "lon": -73.991084,
+    "type": "LinkNYC Public Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "LinkNYC Wall Street",
+    "name5g": "WALL ST - FINANCIAL DISTRICT",
+    "lat": 40.706001,
+    "lon": -74.008801,
+    "type": "LinkNYC Public Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "LinkNYC Downtown Brooklyn",
+    "name5g": "FLATBUSH AVE EXT",
+    "lat": 40.692600,
+    "lon": -73.988430,
+    "type": "LinkNYC Public Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "LinkNYC Bronx Hub",
+    "name5g": "GRAND CONCOURSE - BRONX",
+    "lat": 40.827004,
+    "lon": -73.922363,
+    "type": "LinkNYC Public Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "NYPL Staten Island St. George",
+    "name5g": "CENTRAL AVE - ST GEORGE",
+    "lat": 40.643748,
+    "lon": -74.073643,
+    "type": "Public Library Wi-Fi",
+    "location": "New York"
+  },
+  {
+    "name": "LinkNYC Coney Island",
+    "name5g": "SURF AVE - CONEY ISLAND",
+    "lat": 40.575545,
+    "lon": -73.970701,
+    "type": "LinkNYC Public Wi-Fi",
+    "location": "New York"
   }
 ]

@@ -46,7 +46,7 @@ const LeafMap = ({
 
     const map = L.map(mapRef.current).setView(
       [currentPosition.latitude, currentPosition.longitude],
-      17
+      17,
     );
 
     (map as any).addControl(
@@ -61,7 +61,7 @@ const LeafMap = ({
         <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
         <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
         </svg>`,
-      })
+      }),
     );
     const locateControl = (L.control as any)({
       position: "topleft",
@@ -122,9 +122,7 @@ const LeafMap = ({
       `;
       div
         .querySelector(".satellite-control-btn")!
-        .addEventListener("click", () =>
-          MapLeaflet.switchToSatellite(map)
-        );
+        .addEventListener("click", () => MapLeaflet.switchToSatellite(map));
 
       return div;
     };
@@ -149,7 +147,7 @@ const LeafMap = ({
       thirdAntennaPosition.users,
       map,
       wifiSvg,
-      currentPosition
+      currentPosition,
     );
     MapLeaflet.addAntennaMarker(
       secondAntennaPosition.coords,
@@ -159,7 +157,7 @@ const LeafMap = ({
       secondAntennaPosition.users,
       map,
       wifiSvg,
-      currentPosition
+      currentPosition,
     );
     MapLeaflet.addAntennaMarker(
       antennaPosition.coords,
@@ -169,14 +167,14 @@ const LeafMap = ({
       antennaPosition.users,
       map,
       wifiSvg,
-      currentPosition
+      currentPosition,
     );
 
     optimizedAntennas
       .filter(
         (antenna) =>
           antenna.name !== antennaPosition.name.ssid2g &&
-          antenna.name !== secondAntennaPosition.name.ssid2g
+          antenna.name !== secondAntennaPosition.name.ssid2g,
       )
       .forEach((antenna) => {
         if (antenna.lat && antenna.lon) {
@@ -194,7 +192,7 @@ const LeafMap = ({
             }<br>
             ⚡ <strong>Tipo:</strong> ${antenna.type}<br>
             🙇‍♂️ <strong>Usuarios Conectados:</strong> ${antenna.users}
-          </div>`
+          </div>`,
             );
         }
       });
@@ -230,7 +228,7 @@ const LeafMap = ({
         🙇‍♂️ <strong>Usuarios Conectados:</strong> ${
           antenna.users || "No disponible"
         }
-      </div>`
+      </div>`,
             );
         }
       });
@@ -293,10 +291,10 @@ const LeafMap = ({
   const sosneado = cleanedPlaces.find((value) => value === "El Sosneado");
   const malargue = cleanedPlaces.find((value) => value === "Malargüe");
   const tucuman = cleanedPlaces.find(
-    (value) => value === "San Miguel de Tucumán"
+    (value) => value === "San Miguel de Tucumán",
   );
   const tierradelfuego = cleanedPlaces.find(
-    (value) => value === "Tierra del Fuego"
+    (value) => value === "Tierra del Fuego",
   );
   const cipolleti = cleanedPlaces.find((value) => value === "Cipolleti");
   const santafe = cleanedPlaces.find((value) => value === "Santa Fe");
@@ -306,7 +304,8 @@ const LeafMap = ({
   const barcelona = cleanedPlaces.find((value) => value === "Barcelona");
   const madrid = cleanedPlaces.find((value) => value === "Madrid");
   const santiago = cleanedPlaces.find((value) => value === "Chile");
-  const  losAngeles = cleanedPlaces.find((value) => value === "Los Angeles");
+  const losAngeles = cleanedPlaces.find((value) => value === "Los Angeles");
+  const newYork = cleanedPlaces.find((value) => value === "New York");
 
   const filterValues = (val: string) => {
     return (
@@ -327,9 +326,10 @@ const LeafMap = ({
       val !== tucuman &&
       val !== cipolleti &&
       val !== santafe &&
-      val !== rosario && 
-      val !== santiago && 
-      val !== losAngeles
+      val !== rosario &&
+      val !== santiago &&
+      val !== losAngeles &&
+      val !== newYork
     );
   };
 
@@ -415,7 +415,7 @@ const LeafMap = ({
               </optgroup>
             )}
 
-            {/* Argentina - Santa Fé */}  
+            {/* Argentina - Santa Fé */}
             {santafe && (
               <optgroup label="🇦🇷 Argentina - Santa Fe">
                 <option value={santafe}>{santafe}</option>
@@ -423,7 +423,7 @@ const LeafMap = ({
               </optgroup>
             )}
 
-            {/* Chile - Santiago */}  
+            {/* Chile - Santiago */}
             {santiago && (
               <optgroup label="🇨🇱 Chile">
                 <option value={santiago}>{`Santiago, ${santiago}`}</option>
@@ -454,8 +454,9 @@ const LeafMap = ({
 
             {/* Estados Unidos */}
             {losAngeles && (
-              <optgroup label="🇺🇸 Los Angeles">
+              <optgroup label="🇺🇸 Estados Unidos">
                 {losAngeles && <option value={losAngeles}>{losAngeles}</option>}
+                {newYork && <option value={newYork}>{newYork}</option>}
               </optgroup>
             )}
           </select>

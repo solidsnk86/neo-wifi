@@ -15,19 +15,54 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Neo-Wifi",
+  metadataBase: new URL("https://neo-wifi.vercel.app"),
+  title: {
+    default: "Neo - Configuración Automatizada TP-Link",
+    template: "%s | Neo Wifi",
+  },
   description:
-    "Detecta la red WiFi 📡 más cercana y conoce tu distancia a ella. Configura automáticamente cualquier dispositivo TP-LINK CPE con nuestra app de escritorio.",
+    "Detecta la red WiFi 📡 más cercana y conoce tu distancia a ella. Configura automáticamente cualquier dispositivo TP-LINK CPE y Routers con nuestra app de escritorio.",
+  verification: {
+    google: "d63HZekGRdCdNJHUFilLobhIc-eQrbGisGKLfHO-sjo",
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
+    locale: "es_ES",
     url: "https://neo-wifi.vercel.app/",
-    title: "Neo-WiFi",
+    siteName: "Neo Wifi",
+    title: "Neo - Configuración Automatizada TP-Link",
+    description:
+      "Optimiza y configura tus dispositivos CPE y Routers TP-Link de forma rápida y sencilla.",
     images: [
       {
-        url: "https://raw.githubusercontent.com/solidsnk86/neo-wifi/refs/heads/master/public/assets/neo-wifi-app-card.png",
+        url: "/neo-wifi-satelite.webp",
+        width: 1200,
+        height: 630,
+        alt: "Neo Wifi Satellite",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Neo - Configuración Automatizada TP-Link",
+    description:
+      "Optimiza y configura tus dispositivos CPE y Routers TP-Link de forma rápida y sencilla.",
+    images: ["/neo-wifi-satelite.webp"],
+  },
+  authors: [{ name: "Neo Wifi Team" }],
+  keywords: [
+    "TP-Link",
+    "Configuración WiFi",
+    "CPE",
+    "Router",
+    "Automatización",
+    "Redes",
+    "Internet",
+    "Neo Wifi",
+  ],
 };
 
 export default function RootLayout({

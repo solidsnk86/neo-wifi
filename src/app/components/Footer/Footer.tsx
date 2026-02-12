@@ -5,7 +5,7 @@ import { categories, quickLinks, socialLinks } from "@/constants";
 
 export const Footer = () => {
   return (
-    <footer className="text-zinc-900 dark:text-zinc-200 border-t dark:border-zinc-800/50 border-zinc-300/70 pt-12 pb-8 relative z-50 backdrop-blur-2xl">
+    <footer className="text-zinc-900 dark:text-zinc-200 border-t dark:border-zinc-800/50 border-zinc-300/70 rounded-2xl pt-12 pb-8 relative z-20 backdrop-blur-2xl">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <div>

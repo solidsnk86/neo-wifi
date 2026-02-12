@@ -159,7 +159,9 @@ export default function Home() {
         <NewsletterSection />
 
         <Neo handlerEvent={handleClickChat} />
-        <Footer />
+        <div className="p-6">
+          <Footer />
+        </div>
         <BackToTop />
         {isOpen && (
           <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">

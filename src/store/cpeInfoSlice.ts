@@ -18,9 +18,13 @@ const initialState: CpeInfoState = {
 
 // Thunk para hacer el fetch
 export const fetchCpeInfo = createAsyncThunk("cpeInfo/fetch", async () => {
-  const res = await fetch("/api/cpe-info");
-  if (!res.ok) throw new Error("Error al obtener la info del CPE");
-  return await res.json();
+  try {
+    const res = await fetch("/api/cpe-info");
+    if (!res.ok) throw new Error("Error al obtener la info del CPE");
+    return await res.json();
+  } catch (error) {
+    throw error;
+  }
 });
 
 export const cpeInfoSlice = createSlice({

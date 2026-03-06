@@ -153,15 +153,13 @@ export default function Home() {
         <HomeBlockTitle>Preguntas Frecuentes</HomeBlockTitle>
 
         <HomeBlock className="px-3">
-          <FaqsAccordionList/>
+          <FaqsAccordionList />
         </HomeBlock>
 
         <NewsletterSection />
 
         <Neo handlerEvent={handleClickChat} />
-        <div className="p-6">
-          <Footer />
-        </div>
+        <Footer />
         <BackToTop />
         {isOpen && (
           <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">

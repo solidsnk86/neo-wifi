@@ -15,6 +15,7 @@ export const DownloadCard = () => {
     };
     getVersionData();
   }, []);
+  
   return (
     <article
       className={`${styles.article} border border-zinc-200/70 dark:border-zinc-700/80 z-50`}

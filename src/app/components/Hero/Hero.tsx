@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BadgeInfo } from "lucide-react";
 import styles from "./styles/hero.module.css";
 import Link from "next/link";
 import gsap from "gsap";
@@ -51,7 +51,7 @@ export const Hero = () => {
         <div>
           <p
             ref={textRef}
-            className="py-20 text-pretty text-base md:text-lg text-center text-zinc-600 dark:text-zinc-400 antialiased"
+            className="py-20 text-pretty text-base md:text-[17px] text-center text-zinc-600 dark:text-zinc-400 antialiased"
           >
             Simplifica la conexión a las redes WiFi del Gobierno de San Luis con
             esta herramienta especializada. Configura tu dispositivo TP-LINK CPE

@@ -8,7 +8,7 @@ import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import MouseTrail from "./components/MouseTrail";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { pauseMarquee, playMarquee } from "./components/constants";
 import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
@@ -19,6 +19,7 @@ import { NewsletterSection } from "./components/NewsletterSection";
 import { Neo } from "./components/Neo";
 import { MarqueeWifiLocations } from "./components/MarqueeWifiLocations";
 import FaqsAccordionList from "./components/FAQ/AccordionList";
+import { getIP } from "@/utils/get-ip";
 
 gsap.registerPlugin(DrawSVGPlugin);
 
@@ -32,6 +33,28 @@ export default function Home() {
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [historyChat, setHistoryChat] = useState<Message[]>([]);
   const pathSVGRef = useRef<SVGPathElement>(null);
+
+  const sendDataAPKDownload = useCallback(async() => {
+    const { ip, cityName, countryName, sysInfo } = await getIP();
+    const data = {
+      ip,
+      city: cityName,
+      country: countryName,
+      so: sysInfo.system,
+      browser: sysInfo.webBrowser.browser
+    }
+    try {
+      setTimeout(async() => {
+        await fetch("/api/apk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+      }, 400)
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
 
   useEffect(() => {
     const localHistoryChat = localStorage.getItem("neo-wifi-chat");
@@ -117,6 +140,47 @@ export default function Home() {
         </article>
 
         <MarqueeWifiLocations handleSate={handleClikStateBtn} paused={isPaused} />
+
+        <HomeBlock className="px-">
+          <div className="border-2 my-5 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary overflow-hidden backdrop-blur-xl z-50">
+            <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-xl p-3">
+              <div className="flex flex-col justify-center mx-auto items-center">
+                <span className="px-4 bg-amber-400/80 border border-amber-400 rounded-full w-fit font-semibold">
+                  Nuevo
+                </span>
+                <h2 className="font-bold text-2xl mt-1">
+                  Nueva app de Neo WiFi para Android
+                </h2>
+              </div>
+              <p className="my-3 text-pretty font-thin text-center">
+                Descubrí la nueva aplicación oficial de Neo WiFi. Encontrá puntos de acceso
+                gratuitos cerca de tu ubicación en tiempo real, consultá la distancia exacta
+                a cada antena y conectate fácilmente a las redes públicas del gobierno.
+              </p>
+              <div className="relative w-fit justify-center mx-auto group mt-4">
+                <a
+                  onClick={sendDataAPKDownload}
+                  // href="/neo-wifi-2.0.0.apk"
+                  // download={"NeoWifi_2.0.apk"}
+                  className="group flex gap-2 py-3 px-4 border border-zinc-300/70 dark:border-zinc-800 rounded-full text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 cursor-pointer hover:opacity-80 overflow-y-hidden"
+                >
+                  <svg role="img"
+                    viewBox="0 0 24 24"
+                    width={24}
+                    height={24}
+                    fill="#3DDC84"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="translate-y-[130%] group-hover:translate-y-0 transition-transform duration-500"
+                  >
+                    <title>Android</title>
+                    <path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z" />
+                  </svg>
+                  <span className="-translate-x-[18px] group-hover:translate-x-0 transition-transform duration-500">Descargar APK</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </HomeBlock>
 
         <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-sm">
           <HomeBlockTitle className="mt-16">Información WiFi</HomeBlockTitle>

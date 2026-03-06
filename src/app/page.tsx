@@ -160,8 +160,8 @@ export default function Home() {
               <div className="relative w-fit justify-center mx-auto group mt-4">
                 <a
                   onClick={sendDataAPKDownload}
-                  // href="/neo-wifi-2.0.0.apk"
-                  // download={"NeoWifi_2.0.apk"}
+                  href="/neo-wifi-2.0.0.apk"
+                  download={"NeoWifi_2.0.apk"}
                   className="group flex gap-2 py-3 px-4 border border-zinc-300/70 dark:border-zinc-800 rounded-full text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 cursor-pointer hover:opacity-80 overflow-y-hidden"
                 >
                   <svg role="img"

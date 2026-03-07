@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, BadgeInfo } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import styles from "./styles/hero.module.css";
 import Link from "next/link";
 import gsap from "gsap";

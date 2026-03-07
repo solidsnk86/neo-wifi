@@ -11,7 +11,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#fde047',
     icons: [
       {
-        src: '/assets/neo-wifi-favicon.svg',
+        src: 'favicon.ico',
         sizes: 'any',
         type: 'image/svg+xml',
       },

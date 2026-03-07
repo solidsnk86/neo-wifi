@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     default: "Neo - Configuración Automatizada TP-Link",
     template: "%s | Neo Wifi",
   },
+  icons: {
+    icon: "favicon.ico"
+  },
   description:
     "Detecta la red WiFi 📡 más cercana y conoce tu distancia a ella. Configura automáticamente cualquier dispositivo TP-LINK CPE y Routers con nuestra app de escritorio.",
   verification: {
@@ -53,8 +56,10 @@ export const metadata: Metadata = {
       "Optimiza y configura tus dispositivos CPE y Routers TP-Link de forma rápida y sencilla.",
     images: ["/neo-wifi-satelite.webp"],
   },
-  authors: [{ name: "Neo Wifi Team" }],
+  authors: [{ name: "Gabriel Calcagni" }],
   keywords: [
+    "Wifi Gratis Cerca",
+    "Tu antena más próxima",
     "TP-Link",
     "Configuración WiFi",
     "CPE",
@@ -62,7 +67,7 @@ export const metadata: Metadata = {
     "Automatización",
     "Redes",
     "Internet",
-    "Neo Wifi",
+    "Neo Wifi"
   ],
 };
 

@@ -21,10 +21,10 @@ export const getCoords = (): Promise<{ lat: number; lon: number }> => {
             });
           },
           (err) => reject(err),
-          { enableHighAccuracy: false, timeout: 10000 }
+          { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
         );
       },
-      { enableHighAccuracy: true, timeout: 15000 }
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 }
     );
   });
 };

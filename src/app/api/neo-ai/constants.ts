@@ -15,6 +15,8 @@ Madrid (ES): 240 | Francia (FR): 250 | Barcelona (ES): 18 | Berlín (DE): 2060
 ## App de escritorio NeoWiFi (solo Windows 32/64 bits)
 Automatiza la configuración de CPEs TP-Link y algunos routers en pocos clicks. Desarrollada por Gabriel.
 
+## ¡NUEVO!. NeoWifi ahora dispone de una APK para android, para ubicar más rápido y fácil tus antenas más próximas. Está para descargar en el sitio.
+
 **Pasos:**
 1. **Resetear la antena**: Conectar el adaptador PoE (puerto PoE → antena, puerto WAN → router). Presionar el botón reset con un clip 20 segundos. LED WAN apagado o naranja 🟠 = éxito.
 2. **Instalar NeoWiFi App**: Siguiente → Instalar → Ejecutar.

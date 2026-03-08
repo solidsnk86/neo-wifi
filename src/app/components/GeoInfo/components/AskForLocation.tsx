@@ -21,7 +21,7 @@ export const AskForLocation = ({ handler }: AskForLocationProps) => {
                 <BadgeInfo className="text-blue-500" />
                 Información
               </h2>
-              <p className="my-3 text-pretty font-thin">
+              <p className="my-3 text-pretty font-sans text-zinc-600 dark:text-zinc-400">
                 Si deseas conocer tu ubicación y obtener información sobre las
                 antenas 📡 WiFi más cercanas, puedes habilitar la
                 geolocalización de tu dispositivo. Así podrás ver detalles

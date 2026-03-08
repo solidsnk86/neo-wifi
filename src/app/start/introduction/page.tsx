@@ -18,6 +18,7 @@ import { FifthStep } from "./components/FiifhStep";
 import { SixthStep } from "./components/SixthStep";
 import { SeventhStep } from "./components/SeventhStep";
 import { BackToTop } from "@/app/components/BackToTop";
+import { DocsSidebar } from "./components/DocsSidebar";
 import gsap from "gsap";
 
 const poppins = Poppins({
@@ -50,87 +51,136 @@ export default function Page() {
   }, []);
 
   return (
-    <main
-      className={`font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200 ${poppins.className}`}
+    <div
+      className={`font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200 ${poppins.className} min-h-screen`}
     >
       <MouseTrail />
       <Navbar />
-      <section className="px-4">
-        <HighlightTitle
-          ref={titleRef}
-          beforeHighlight="¿Cómo"
-          highlight="funciona?"
-          afterHighlight="guía paso a paso"
-          className="pt-28 text-3xl md:text-5xl"
-        />
-        <DocsIntroduction />
-        <HighlightTitle
-          beforeHighlight="Primeros"
-          highlight="pasos"
-          afterHighlight="reseteo"
-          className="my-8 text-2xl md:text-4xl"
-        />
-        <FisrtStep />
-        <HighlightTitle
-          beforeHighlight="Indicadores"
-          highlight="led"
-          afterHighlight="router"
-          className="my-8 text-2xl md:text-4xl"
-        />
-        <SecondStep />
-        <HighlightTitle
-          beforeHighlight="Descarga"
-          highlight="Neo-WiFi"
-          afterHighlight="e instalación"
-          className="my-8 text-2xl md:text-4xl"
-        />
-        <ThirdStep />
-        <HighlightTitle
-          beforeHighlight="Primera"
-          highlight="ejecución"
-          afterHighlight="Neo-WiFi"
-          className="my-8 text-2xl md:text-4xl"
-        />
-        <FourthStep />
-        <HighlightTitle
-          beforeHighlight="Uso de las"
-          highlight="Coordenadas"
-          afterHighlight=""
-          className="my-8 text-2xl md:text-4xl"
-        />
-        <FifthStep />
-        <HighlightTitle
-          beforeHighlight="Permitir"
-          highlight="Geolocalización"
-          afterHighlight=""
-          className="my-8 text-2xl md:text-4xl"
-        />
-        <SixthStep />
-        <HighlightTitle
-          beforeHighlight="Uso"
-          highlight="Coordenadas"
-          afterHighlight="en la app"
-          className="my-8 text-2xl md:text-4xl"
-        />
-        <SeventhStep />
-        <HighlightTitle
-          beforeHighlight="Les dejo un"
-          highlight="breve"
-          afterHighlight="Vídeo"
-          className="my-8 text-2xl md:text-4xl"
-        />
-        <YouTubeLiteVideo
-          videoId="9t6QI3QCFUw"
-          width={360}
-          height={300}
-          className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
-          border={0}
-        />
-      </section>
 
-      <section className="py-16">
-        <Donation content="Si te ha sido de utilidad ésta herrmanienta!" />
-      </section>
+      {/* Docs layout */}
+      <div className="flex">
+        <DocsSidebar />
+
+        <main className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 py-10 max-w-4xl mx-auto w-full">
+
+          {/* Hero title */}
+          <div className="px-4 pt-28 pb-6 text-center">
+            <HighlightTitle
+              ref={titleRef}
+              beforeHighlight="¿Cómo"
+              highlight="funciona?"
+              afterHighlight="guía paso a paso"
+              className="text-3xl md:text-5xl"
+            />
+            <p className="mt-4 text-zinc-500 dark:text-zinc-400 text-sm md:text-base max-w-xl mx-auto">
+              Guía completa para configurar tu dispositivo TP-Link con Neo-WiFi.
+            </p>
+          </div>
+
+          {/* Introducción */}
+          <section id="introduccion" className="scroll-mt-24">
+            <DocsIntroduction />
+          </section>
+
+          {/* Primeros pasos */}
+          <section id="primeros-pasos" className="scroll-mt-24">
+            <HighlightTitle
+              beforeHighlight="Primeros"
+              highlight="pasos"
+              afterHighlight="reseteo"
+              className="my-8 text-2xl md:text-4xl"
+            />
+            <FisrtStep />
+          </section>
+
+          {/* Indicadores LED */}
+          <section id="indicadores-led" className="scroll-mt-24">
+            <HighlightTitle
+              beforeHighlight="Indicadores"
+              highlight="led"
+              afterHighlight="router"
+              className="my-8 text-2xl md:text-4xl"
+            />
+            <SecondStep />
+          </section>
+
+          {/* Descarga e instalación */}
+          <section id="descarga-instalacion" className="scroll-mt-24">
+            <HighlightTitle
+              beforeHighlight="Descarga"
+              highlight="Neo-WiFi"
+              afterHighlight="e instalación"
+              className="my-8 text-2xl md:text-4xl"
+            />
+            <ThirdStep />
+          </section>
+
+          {/* Primera ejecución */}
+          <section id="primera-ejecucion" className="scroll-mt-24">
+            <HighlightTitle
+              beforeHighlight="Primera"
+              highlight="ejecución"
+              afterHighlight="Neo-WiFi"
+              className="my-8 text-2xl md:text-4xl"
+            />
+            <FourthStep />
+          </section>
+
+          {/* Uso de coordenadas */}
+          <section id="uso-coordenadas" className="scroll-mt-24">
+            <HighlightTitle
+              beforeHighlight="Uso de las"
+              highlight="Coordenadas"
+              afterHighlight=""
+              className="my-8 text-2xl md:text-4xl"
+            />
+            <FifthStep />
+          </section>
+
+          {/* Geolocalización */}
+          <section id="geolocalizacion" className="scroll-mt-24">
+            <HighlightTitle
+              beforeHighlight="Permitir"
+              highlight="Geolocalización"
+              afterHighlight=""
+              className="my-8 text-2xl md:text-4xl"
+            />
+            <SixthStep />
+          </section>
+
+          {/* Coordenadas en la app */}
+          <section id="coordenadas-app" className="scroll-mt-24">
+            <HighlightTitle
+              beforeHighlight="Uso"
+              highlight="Coordenadas"
+              afterHighlight="en la app"
+              className="my-8 text-2xl md:text-4xl"
+            />
+            <SeventhStep />
+          </section>
+
+          {/* Video */}
+          <section id="video" className="scroll-mt-24">
+            <HighlightTitle
+              beforeHighlight="Les dejo un"
+              highlight="breve"
+              afterHighlight="Vídeo"
+              className="my-8 text-2xl md:text-4xl"
+            />
+            <YouTubeLiteVideo
+              videoId="9t6QI3QCFUw"
+              width={360}
+              height={300}
+              className="rounded-xl flex justify-center mx-auto my-12 z-50 relative"
+              border={0}
+            />
+          </section>
+
+          <div className="py-10">
+            <Donation content="Si te ha sido de utilidad ésta herramienta!" />
+          </div>
+        </main>
+      </div>
 
       <Footer />
       <BackToTop />
@@ -152,6 +202,6 @@ export default function Page() {
           <AiAssistant closeAssistant={handleClickChat} />
         </div>
       )}
-    </main>
+    </div>
   );
 }

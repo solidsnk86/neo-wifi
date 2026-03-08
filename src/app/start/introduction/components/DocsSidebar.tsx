@@ -95,7 +95,7 @@ export function DocsSidebar() {
       {/* Botón mobile */}
       <button
         onClick={() => setIsOpen(true)}
-        className="lg:hidden fixed top-20 left-4 z-50 flex items-center gap-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 shadow-md text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:border-yellow-400/60 transition-colors"
+        className="lg:hidden fixed top-20 left-4 z-[999] flex items-center gap-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 shadow-md text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:border-yellow-400/60 transition-colors"
         aria-label="Abrir menú de documentación"
       >
         <Menu size={16} />
@@ -103,7 +103,7 @@ export function DocsSidebar() {
       </button>
 
       {/* Sidebar desktop */}
-      <aside className="hidden lg:flex flex-col w-64 shrink-0 sticky top-14 h-screen border-r border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-[#111]/80 backdrop-blur-xl">
+      <aside className="hidden lg:flex flex-col w-64 shrink-0 sticky top-14 h-screen border-r border-zinc-200 dark:border-zinc-800 backdrop-blur-xl bg-[#F5F5F5] dark:bg-zinc-900/50">
         <SidebarContent activeId={activeId} />
       </aside>
 

@@ -61,7 +61,7 @@ export default function Page() {
       <div className="flex">
         <DocsSidebar />
 
-        <main className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 py-10 max-w-4xl mx-auto w-full">
+        <main className="flex-1 min-w-0 px-1 md:px-5 lg:px-10 py-10 max-w-4xl mx-auto w-full">
 
           {/* Hero title */}
           <div className="px-4 pt-28 pb-6 text-center">

@@ -148,7 +148,7 @@ export default function Home() {
                 <span className="px-4 bg-amber-400/80 border border-amber-400 rounded-full w-fit font-semibold">
                   Nuevo
                 </span>
-                <h2 className="font-bold text-2xl mt-1">
+                <h2 className="font-bold text-2xl text-center mt-1">
                   Nueva app de Neo WiFi para Android
                 </h2>
               </div>

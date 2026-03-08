@@ -7,7 +7,7 @@ interface NeoProps {
 export function Neo({ handlerEvent }: NeoProps) {
   return (
     <div
-      className="fixed bottom-4 right-2 px-3 z-50 neo-ai"
+      className="fixed bottom-4 right-0 px-3 z-50 neo-ai"
       id="neo-ai"
       onClick={handlerEvent}
     >

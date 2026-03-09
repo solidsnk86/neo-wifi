@@ -3,7 +3,7 @@ import MarkdownRenderer from "../MarkDownRender";
 import { ArrowUp, LocateFixed, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
-import { navLanguages, shareTechMono } from "./constants";
+import { matchQuerys, navLanguages, shareTechMono } from "./constants";
 import { getIP } from "@/utils/get-ip";
 import { closeDialog, showDialog } from "@/utils/dialog";
 import { getCityLocation } from "@/utils/getCityCoords";
@@ -40,7 +40,7 @@ export const AiAssistant = ({
   const [textVoice, setTextVoice] = useState<string>("");
   const recognitionRef = useRef<SpeechRecognition>(null);
   const [isMicActive, setIsMicActive] = useState<boolean>(false);
-  const [tempValue, setTempValue] = useState(0.3);
+  const [tempValue, setTempValue] = useState<number>(0.3);
   const [language, setLanguage] = useState<string>("es-AR");
   const MAX_CHAR = 300;
   const [charCount, setCharCount] = useState<number>(0);
@@ -59,7 +59,6 @@ export const AiAssistant = ({
     lang: string;
   }) => {
     try {
-      setIsLoading(true);
       const res: ContextAIProps = await fetch(`/api/neo-ai/`, {
         method: "POST",
         body: JSON.stringify({ query: text, city, country, temp, lang }),
@@ -82,8 +81,6 @@ export const AiAssistant = ({
       );
     } catch (err) {
       console.error(err);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -95,27 +92,33 @@ export const AiAssistant = ({
   };
 
   const handler = async () => {
-    const dataLocation = await getCityLocation();
-    closeDialog();
+    try {
+      setIsLoading(true);
+      closeDialog();
+      const dataLocation = await getCityLocation();
 
-    if (dataLocation) {
-      setTimeout(async () => {
-        await sendQuery({
-          text:
-            query +
+      if (dataLocation) {
+        setTimeout(async () => {
+          await sendQuery({
+            text:
+              query +
               "# Estas son sus antenas más próximas: " +
               JSON.stringify(dataLocation, null, 2) || "",
-          city: "",
-          country: "",
-          temp: tempValue,
-          lang: language,
-        });
-      }, 600);
+            city: "",
+            country: "",
+            temp: tempValue,
+            lang: language,
+          });
+        }, 450);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     if (query.trim() === "") return;
 
     const userMessage: Message = { role: "user", content: query.trim() };
@@ -124,86 +127,64 @@ export const AiAssistant = ({
     setQuery("");
     setCharCount(0);
 
-    const { ip, cityName, countryName, timeZoneCity } = await getIP();
+    try {
+      const { ip, cityName, countryName, timeZoneCity } = await getIP();
 
-    const matchQuerys = [
-      "antena",
-      "antenas",
-      "más cerca",
-      "cerca",
-      "ubicación",
-      "localización",
-      "dónde están las antenas",
-      "antenas disponibles",
-      "antenas próximas",
-      "antenas cercanas",
-      "antenas en mi zona",
-      "antenas por aquí",
-      "antenas alrededor",
-      "antenas próximas",
-      "antenas en mi ubicación",
-      "antenas en mi localización",
-      "antenas cerca de mí",
-      "antenas más próximas",
-      "antenas más cercanas",
-      "antenas que tengo cerca",
-      "antenas disponibles cerca",
-      "antenas disponibles por aquí",
-      "antenas disponibles en mi zona",
-      "antenas disponibles en mi ubicación",
-      "antenas disponibles en mi localización",
-    ];
+      if (matchQuerys.some((word) => query.toLowerCase().includes(word))) {
+        showDialog({
+          content: (
+            <section className="p-5">
+              <div className="p-3">
+                Para poder mostrarte las antenas más cercanas y brindarte
+                información personalizada según tu ubicación, necesitamos acceder
+                a tu geolocalización. Tu ubicación solo se utilizará para este
+                propósito y no será almacenada.
+              </div>
+              <div className="relative w-fit justify-center mx-auto group">
+                <button
+                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl transition-transform"
+                  onClick={handler}
+                >
+                  <LocateFixed className="text-red-500" />
+                  Permitir acceso a mi ubicación
+                </button>
+              </div>
+            </section>
+          ),
+        });
+        return;
+      }
 
-    if (matchQuerys.some((word) => query.toLowerCase().includes(word))) {
-      showDialog({
-        content: (
-          <section className="p-5">
-            <div className="p-3">
-              Para poder mostrarte las antenas más cercanas y brindarte
-              información personalizada según tu ubicación, necesitamos acceder
-              a tu geolocalización. Tu ubicación solo se utilizará para este
-              propósito y no será almacenada.
-            </div>
-            <div className="relative w-fit justify-center mx-auto group">
-              <button
-                className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl transition-transform"
-                onClick={handler}
-              >
-                <LocateFixed className="text-red-500" />
-                Permitir acceso a mi ubicación
-              </button>
-            </div>
-          </section>
-        ),
+      await sendQuery({
+        text: query,
+        city: cityName + ", " + timeZoneCity,
+        country: countryName,
+        temp: tempValue,
+        lang: language,
       });
-      return;
+
+      const objectData = {
+        prompt: userMessage.content,
+        ip,
+        city: cityName,
+        country: countryName,
+      };
+
+      await fetch("/api/datasend", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(objectData),
+      }).catch((err) => console.error(err));
+
+      thinkRef.current?.scrollIntoView({ behavior: "auto" });
+      chatRef?.current?.scrollIntoView({ behavior: "smooth" });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
     }
-
-    await sendQuery({
-      text: query,
-      city: cityName + ", " + timeZoneCity,
-      country: countryName,
-      temp: tempValue,
-      lang: language,
-    });
-
-    const objectData = {
-      prompt: userMessage.content,
-      ip,
-      city: cityName,
-      country: countryName,
-    };
-
-    await fetch("/api/datasend", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(objectData),
-    }).catch((err) => console.error(err));
-
-    thinkRef.current?.scrollIntoView({ behavior: "auto" });
-    chatRef?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const newChat = () => {
@@ -350,11 +331,10 @@ export const AiAssistant = ({
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            className={`p-3 rounded-xl md:max-w-[80%] ${
-              msg.role === "user"
-                ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
-                : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
-            }`}
+            className={`p-3 rounded-xl md:max-w-[80%] ${msg.role === "user"
+              ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
+              : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
+              }`}
           >
             {msg.role === "assistant" ? (
               <div className="relative text-black dark:text-white">
@@ -413,8 +393,7 @@ export const AiAssistant = ({
             type="button"
             className={`absolute md:right-[76px] right-16 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 
               dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 hover:outline-double rounded-full 
-              bg-gradient-to-b from-blue-500 to-blue-700 ${
-                isMicActive ? "from-red-500 to-red-700" : ""
+              bg-gradient-to-b from-blue-500 to-blue-700 ${isMicActive ? "from-red-500 to-red-700" : ""
               }`}
           >
             <Mic className="text-zinc-100" />

@@ -824,6 +824,14 @@ html {
   animation: dash 2.5s ease-in forwards;
 }
 
+.moto-frame {
+  background-image: url("/assets/moto_g60s.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 422px;
+  height: 680px;
+}
 
 @keyframes dash {
   70% {

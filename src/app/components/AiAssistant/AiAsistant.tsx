@@ -155,14 +155,6 @@ export const AiAssistant = ({
         return;
       }
 
-      await sendQuery({
-        text: query,
-        city: cityName + ", " + timeZoneCity,
-        country: countryName,
-        temp: tempValue,
-        lang: language,
-      });
-
       const objectData = {
         prompt: userMessage.content,
         ip,
@@ -170,13 +162,23 @@ export const AiAssistant = ({
         country: countryName,
       };
 
-      await fetch("/api/datasend", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(objectData),
-      }).catch((err) => console.error(err));
+      await Promise.all([
+        sendQuery({
+          text: query,
+          city: cityName + ", " + timeZoneCity,
+          country: countryName,
+          temp: tempValue,
+          lang: language,
+        }),
+        fetch("/api/datasend", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(objectData)
+        })
+      ])
+
 
       thinkRef.current?.scrollIntoView({ behavior: "auto" });
       chatRef?.current?.scrollIntoView({ behavior: "smooth" });

@@ -8,7 +8,7 @@ import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import MouseTrail from "./components/MouseTrail";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { pauseMarquee, playMarquee } from "./components/constants";
 import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
@@ -19,7 +19,6 @@ import { NewsletterSection } from "./components/NewsletterSection";
 import { Neo } from "./components/Neo";
 import { MarqueeWifiLocations } from "./components/MarqueeWifiLocations";
 import FaqsAccordionList from "./components/FAQ/AccordionList";
-import { getIP } from "@/utils/get-ip";
 import { ApkCard } from "@/components/ui/ApkCard";
 
 gsap.registerPlugin(DrawSVGPlugin);

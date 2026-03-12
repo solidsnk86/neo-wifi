@@ -1,7 +1,6 @@
 "use client";
 
 import { getIP } from "@/utils/get-ip";
-import Image from "next/image";
 import { useCallback } from "react";
 
 

@@ -46,7 +46,7 @@ export const ApkCard = () => {
                 </p>
                 {/* Marco Motorola */}
                 {/* Marco externo */}
-                <div className="relative flex md:justify-center md:mx-auto border-2 border-black w-fit rounded-3xl">
+                <div className="relative flex justify-center mx-auto border-2 border-black w-fit rounded-3xl">
                     {/* Botones laterales */}
                     <div className="absolute -right-[6px] top-40 w-[6px] h-12 bg-gradient-to-r from-[#4a4948] via-[#6B6867] to-[#8A8786] border-2 border-black/90 rounded-tr-md rounded-br-md z-30"></div>
                     <div className="absolute -right-[6px] top-[216px] w-[6px] h-24 bg-gradient-to-r from-[#4a4948] via-[#6B6867] to-[#8A8786] border-2 border-black/90 rounded-tr-md rounded-br-md z-30"></div>

@@ -44,13 +44,18 @@ export const ApkCard = () => {
                     gratuitos cerca de tu ubicación en tiempo real, consultá la distancia exacta
                     a cada antena y conectate fácilmente a las redes públicas del gobierno.
                 </p>
-                <div className="relative flex justify-center mx-auto border-2 border-black w-fit rounded-3xl">
+                {/* Marco Motorola */}
+                {/* Marco externo */}
+                <div className="relative flex md:justify-center md:mx-auto border-2 border-black w-fit rounded-3xl">
+                    {/* Botones laterales */}
                     <div className="absolute -right-[6px] top-40 w-[6px] h-12 bg-gradient-to-r from-[#4a4948] via-[#6B6867] to-[#8A8786] border-2 border-black/90 rounded-tr-md rounded-br-md z-30"></div>
                     <div className="absolute -right-[6px] top-[216px] w-[6px] h-24 bg-gradient-to-r from-[#4a4948] via-[#6B6867] to-[#8A8786] border-2 border-black/90 rounded-tr-md rounded-br-md z-30"></div>
                     <div className="absolute -right-[6px] top-80 w-[6px] h-12 bg-gradient-to-r from-[#4a4948] via-[#6B6867] to-[#8A8786] border-2 border-black/90 rounded-tr-md rounded-br-md z-30"></div>
+                    {/* Marcos del interior */}
                     <div className="relative border-[3px] border-[#6B6867] rounded-3xl">
-                        <div className="relative w-[400px] h-[800px] border-2 border-black rounded-[22px]">
+                        <div className="relative md:w-[400px] w-[310px] md:h-[800px] h-[660px] border-2 border-black rounded-[22px]">
                             <div className="absolute top-3 left-[50%] -translate-x-[50%] w-5 h-5 rounded-full bg-black">
+                                {/* Lente cámara y brillo */}
                                 <div className="w-3 h-3 rounded-full absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-blue-950/50">
                                     <div className="w-3 h-3 rounded-full absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-red-950/20">
                                         <div className="absolute top-[1.5px] left-[2px] w-[1px] h-[4px] opacity-5 border-l-2 border-t-2 border-b-1 border-r-2 border-r-transparent border-b-transparent rounded-full rotate-[25deg]"></div>

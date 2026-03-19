@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "Optimiza y configura tus dispositivos CPE y Routers TP-Link de forma rápida y sencilla.",
     images: [
       {
-        url: "/neo-wifi-satelite.webp",
+        url: "https://neo-wifi.vercel.app/neo-wifi-satellite.png",
         width: 1200,
         height: 630,
         alt: "Neo Wifi Satellite",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Neo - Configuración Automatizada TP-Link",
     description:
       "Optimiza y configura tus dispositivos CPE y Routers TP-Link de forma rápida y sencilla.",
-    images: ["/neo-wifi-satelite.webp"],
+    images: ["https://neo-wifi.vercel.app/neo-wifi-satellite.png"],
   },
   authors: [{ name: "Gabriel Calcagni" }],
   keywords: [

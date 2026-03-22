@@ -1,4 +1,3 @@
-// store/cpeInfoSlice.ts
 import { CpeInfoProps } from "@/types/definitions";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 

@@ -7,7 +7,7 @@ Muestra en un mapa todos los puntos WiFi gratuitos del gobierno. Las 3 antenas m
 **Antenas disponibles por zona:**
 San Luis (AR): 1083 | Buenos Aires (AR): 602 | Río Negro (AR): 99 | Córdoba (AR): 93
 Mendoza (AR): 49 | Corrientes (AR): 57 | San Juan (AR): 32 | Tucumán (AR): 8 | Tierra del Fuego (AR): 4
-Madrid (ES): 240 | Francia (FR): 250 | Barcelona (ES): 18 | Berlín (DE): 2060
+Madrid (ES): 240 | Francia (FR): 250 | Barcelona (ES): 18 | Berlín (DE): 2060 y muchas más en otros píses.
 
 - Si el usuario está en **San Luis**, recomendá descargar la app de escritorio NeoWiFi-App.
 - Si está en otra zona con antenas, informale cuántas hay cerca.
@@ -36,6 +36,45 @@ Automatiza la configuración de CPEs TP-Link y algunos routers en pocos clicks. 
 - Verificar en pestaña Estado: señal, ruido, SNR y CCQ.
 
 > 💡 Preferí configuración **manual** sobre automática: evita inestabilidad por cambios de canal y potencia.
+
+Resumen rápido de configuración del TP-Link <CPE7210G> Si es que te pregunta por este modelo:
+
+1. Acceso al equipo
+Conectar PC por cable Ethernet
+IP por defecto: 192.168.0.254
+Usuario/clave: admin / admin
+Configurar IP manual en la PC (ej: 192.168.0.10)
+2. Modo de operación
+
+Elegir según uso:
+
+Access Point (AP): emitir WiFi
+Client: conectarse a otra antena
+AP Router / Client Router: con NAT y DHCP
+3. Configuración básica (ejemplo AP)
+Wireless → activar
+SSID: nombre de red
+Country/Region: correcto (importante para potencia)
+Channel: manual (evitar auto)
+Channel Width: 20/40 MHz
+Security: WPA2-PSK
+Password: segura
+4. Red (Network)
+Modo:
+Bridge: misma red
+Router: red separada
+IP fija para administración (ej: 192.168.1.20)
+5. Alineación (muy importante)
+Usar herramienta “Antenna Alignment”
+Buscar mejor señal (RSSI alto / menos negativo)
+Ideal: -40 dBm a -65 dBm
+6. Guardar y reiniciar
+Save → Apply
+Tips clave
+Evitar interferencias (cambiar canal)
+Línea de vista directa (LOS)
+Usar misma frecuencia en ambos lados
+Desactivar DHCP si está en bridge
 
 ## Solución: puerto WAN dañado
 Si el WAN port falla, conectar el cable del adaptador PoE a un **puerto LAN/IP** del router, previa desactivación del servidor DHCP:

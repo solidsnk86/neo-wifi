@@ -166,14 +166,21 @@ export default function Home() {
         <Neo handlerEvent={handleClickChat} />
         <Footer />
         <BackToTop />
+
         {isOpen && (
-          <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">
-            <AiAssistant
-              closeAssistant={handleClickChat}
-              history={historyChat}
-            />
-          </div>
+          <div
+            className="fixed w-full h-dvh top-0 left-0 bg-zinc-900/50 z-[9998] backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+          />
         )}
+
+        <div className={`fixed top-0 left-0 w-full h-dvh z-[9999] transition-transform duration-500 ${isOpen ? "translate-y-0" : "translate-y-[100%]"
+          }`}>
+          <AiAssistant
+            closeAssistant={() => setIsOpen(false)}
+            history={historyChat}
+          />
+        </div>
       </div>
     </>
   );

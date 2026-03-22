@@ -81,6 +81,8 @@ export const AiAssistant = ({
       );
     } catch (err) {
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -112,7 +114,7 @@ export const AiAssistant = ({
         }, 450);
       }
     } catch (error) {
-      console.error(error);
+      throw error
     }
   };
 
@@ -240,7 +242,7 @@ export const AiAssistant = ({
 
   return (
     <section
-      className="w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl overflow-hidden chat"
+      className="w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl chat"
       id="chat"
     >
       <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">
@@ -385,7 +387,7 @@ export const AiAssistant = ({
               }
             }}
             rows={1}
-            placeholder="Pregunta lo que quieras"
+            placeholder="Pregunta lo que quieras.."
           />
           <small className="absolute bottom-1 right-24 md:right-28 xl:right-36 text-xs">
             {charCount}/{MAX_CHAR}

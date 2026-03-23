@@ -37,13 +37,14 @@ Automatiza la configuración de CPEs TP-Link y algunos routers en pocos clicks. 
 
 > 💡 Preferí configuración **manual** sobre automática: evita inestabilidad por cambios de canal y potencia.
 
-Resumen rápido de configuración del TP-Link <CPE7210G> Si es que te pregunta por este modelo:
+Si es que te pregunta por este modelo: TP-Link 7210G
 
+Resumen rápido de configuración:
 1. Acceso al equipo
 Conectar PC por cable Ethernet
 IP por defecto: 192.168.0.254
 Usuario/clave: admin / admin
-Configurar IP manual en la PC (ej: 192.168.0.10)
+Configurar IP manual en la PC (ej: 192.168.0.100)
 2. Modo de operación
 
 Elegir según uso:
@@ -63,7 +64,7 @@ Password: segura
 Modo:
 Bridge: misma red
 Router: red separada
-IP fija para administración (ej: 192.168.1.20)
+IP fija para administración (ej: 192.168.0.254)
 5. Alineación (muy importante)
 Usar herramienta “Antenna Alignment”
 Buscar mejor señal (RSSI alto / menos negativo)
@@ -75,6 +76,9 @@ Evitar interferencias (cambiar canal)
 Línea de vista directa (LOS)
 Usar misma frecuencia en ambos lados
 Desactivar DHCP si está en bridge
+
+Si es el modelo más viejo: 5210g de 54Mb -> La ip de fábrica de ese es 192.168.1.254 -> Indicar configuración WAN bien
+para éste modelo: Configurar IP manual en la PC (ej: 192.168.1.100) > IP fija para administración (ej: 192.168.1.254) 
 
 ## Solución: puerto WAN dañado
 Si el WAN port falla, conectar el cable del adaptador PoE a un **puerto LAN/IP** del router, previa desactivación del servidor DHCP:

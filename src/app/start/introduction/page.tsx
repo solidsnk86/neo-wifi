@@ -30,10 +30,6 @@ export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  const handleClickChat = () => {
-    setIsOpen(!isOpen);
-  };
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.set(titleRef.current, { visibility: "visible" });
@@ -50,6 +46,17 @@ export default function Page() {
     return () => ctx.revert();
   }, []);
 
+  const handleCloseChat = () => {
+    if (!isOpen) {
+      document.body.style.overflow = "hidden";
+      setIsOpen(true);
+    } else {
+      document.body.style.overflow = "auto";
+      setIsOpen(false);
+    }
+
+  };
+
   return (
     <div
       className={`font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200 ${poppins.className} min-h-screen`}
@@ -62,7 +69,6 @@ export default function Page() {
         <DocsSidebar />
 
         <main className="flex-1 min-w-0 px-1 md:px-5 lg:px-10 py-10 max-w-4xl mx-auto w-full">
-
           {/* Hero title */}
           <div className="px-4 pt-28 pb-6 text-center">
             <HighlightTitle
@@ -187,7 +193,7 @@ export default function Page() {
       <div className="neo-ai">
         <span
           className="fixed bottom-4 right-2 px-3 z-50 neo-ai"
-          onClick={handleClickChat}
+          onClick={handleCloseChat}
         >
           <Image
             src="/assets/neo_pixelart-removebg-preview.png"
@@ -198,10 +204,18 @@ export default function Page() {
         </span>
       </div>
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-[100dvh] z-[9999]">
-          <AiAssistant closeAssistant={handleClickChat} />
-        </div>
+        <div
+          className="fixed w-full h-dvh top-0 left-0 bg-zinc-900/50 z-[9998] backdrop-blur-sm"
+          onClick={handleCloseChat}
+        />
       )}
+      <div
+        className={`fixed top-0 left-0 w-full h-dvh z-[9999] transition-transform duration-500 ${
+          isOpen ? "translate-y-0" : "translate-y-[100%]"
+        }`}
+      >
+        <AiAssistant closeAssistant={handleCloseChat} />
+      </div>
     </div>
   );
 }

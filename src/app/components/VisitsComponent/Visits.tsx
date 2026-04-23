@@ -1,16 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEffect, useState, cloneElement, Children, ReactNode } from "react";
+import {
+  useEffect,
+  useState,
+  cloneElement,
+  Children,
+  ReactNode,
+  useCallback,
+} from "react";
 import styles from "./styles/visits.module.css";
 import { PartialOptionsProps } from "@/types/definitions";
+import { timeAgo } from "@/utils/timeAgo";
 
 const Marquee = ({ data }: Pick<PartialOptionsProps, "data">) => {
   return (
     <small className={styles.visits}>
-      Última visita desde {data?.city || "No disponible"},{" "}
-      - {data?.country || "No disponible"}{" "}
-      {data?.emoji_flag || "No disponible"} el día{" "}
+      Última visita desde {data?.city || "No disponible"}, -{" "}
+      {data?.country || "No disponible"} {data?.emoji_flag || "No disponible"}{" "}
+      el día{" "}
       {new Date(data?.created_at as string).toLocaleDateString("es-AR", {
         year: "numeric",
         day: "2-digit",
@@ -20,7 +28,7 @@ const Marquee = ({ data }: Pick<PartialOptionsProps, "data">) => {
         second: "2-digit",
       })}{" "}
       • Total de visitas: {data?.id || 0} • Dispositivo:{" "}
-      {data?.so || "No disponible"}
+      {data?.so || "No disponible"}{" "}•{" "}{timeAgo(new Date(data?.created_at as string))}
     </small>
   );
 };
@@ -37,16 +45,17 @@ const CloneVisits = ({ children }: { children: ReactNode }) => {
 export const VisitsComponent = () => {
   const [visitData, setVisitData] = useState();
 
+  const getData = useCallback(async () => {
+    await fetch("/api/visitors", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => setVisitData(data[0]))
+      .catch((error) => console.error(error));
+  }, []);
+
   useEffect(() => {
-    const getData = async () => {
-      await fetch("/api/visitors", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((res) => res.json())
-        .then((data) => setVisitData(data[0]))
-        .catch((error) => console.error(error));
-    };
     getData();
   }, []);
 

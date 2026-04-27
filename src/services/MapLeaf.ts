@@ -27,6 +27,17 @@ export class MapLeaflet {
   private static currentLayers: L.Layer[] = [];
   private static TOKEN = process.env.NEXT_PUBLIC_MAPBOX_APIKEY
 
+  private static set3DMode(map: L.Map, enabled: boolean) {
+    const container = map.getContainer();
+
+    if (enabled) {
+      container.classList.add("map-tilt-3d");
+      return;
+    }
+
+    container.classList.remove("map-tilt-3d");
+  }
+
   private static clearCurrentLayers(map: L.Map) {
     this.currentLayers.forEach((layer) => {
       if (map.hasLayer(layer)) {
@@ -151,6 +162,8 @@ export class MapLeaflet {
   }
 
   public static switchToSatellite(map: L.Map) {
+    this.set3DMode(map, false);
+
     const tile = L.tileLayer(
       `https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=${this.TOKEN}`,
       {
@@ -165,6 +178,8 @@ export class MapLeaflet {
   }
 
   public static switchToMap(map: L.Map) {
+    this.set3DMode(map, false);
+
     const tile = L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
       {
         attribution: "© CARTO | Open Street Map",
@@ -175,7 +190,23 @@ export class MapLeaflet {
     this.setCurrentLayers(map, [tile]);
   }
 
+  public static switchToOpenStreetMap(map: L.Map) {
+    this.set3DMode(map, false);
+
+    const tile = L.tileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        attribution: "© OpenStreetMap contributors",
+        crossOrigin: true,
+      }
+    );
+
+    this.setCurrentLayers(map, [tile]);
+  }
+
   public static switchToCarto3D(map: L.Map) {
+    this.set3DMode(map, true);
+
     const cartoBase = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
       {

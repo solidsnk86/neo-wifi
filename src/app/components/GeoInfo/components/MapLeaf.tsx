@@ -2,14 +2,118 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import "leaflet.fullscreen";
-import { Loader, LocateFixed, MapPin, ScreenShare } from "lucide-react";
-import { customIcon, wifiSvg } from "./constants";
+import {
+  Loader,
+  LocateFixed,
+  MapPin,
+  Satellite,
+  ScreenShare,
+  SquareChartGantt,
+} from "lucide-react";
+import {
+  Map,
+  type MapRef,
+  MapMarker,
+  MarkerContent,
+  MarkerPopup,
+  MapRoute,
+} from "@/components/ui/map";
+import type { StyleSpecification } from "maplibre-gl";
 import wifiMap from "./data/wifi-locates.json";
-import { MapLeaflet } from "@/services/MapLeaf";
 import { MapCoordsInterface, WifiDataProps } from "./types/definitions";
+
+const SATELLITE_STYLE: StyleSpecification = {
+  version: 8,
+  sources: {
+    satellite: {
+      type: "raster",
+      tiles: [
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      ],
+      tileSize: 256,
+      attribution: "Tiles © Esri",
+    },
+  },
+  layers: [
+    {
+      id: "satellite-layer",
+      type: "raster",
+      source: "satellite",
+    },
+  ],
+};
+const OPEN_STREET_MAP_STYLE = "https://tiles.openfreemap.org/styles/bright";
+const OPEN_STREET_MAP_3D_STYLE = "https://tiles.openfreemap.org/styles/liberty";
+
+type MapStyleKey = "map" | "satellite" | "3d";
+const POPUP_CONTENT_CLASS =
+  "text-sm font-semibold text-zinc-900 dark:text-zinc-100 bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-700 rounded-md p-2";
+
+function UserLocationMarkerIcon() {
+  return (
+    <svg width="28" height="40" viewBox="0 0 206 300" aria-hidden="true">
+      <g transform="translate(2, 2)">
+        <path
+          d="M100 0 C45 0 0 45 0 100 C0 200 95 250 100 295 C105 250 200 200 200 100 C200 45 155 0 100 0 Z"
+          fill="#EA4335"
+          stroke="#B31412"
+          strokeWidth="3"
+        />
+      </g>
+      <circle cx="100" cy="100" r="50" fill="#B31412" />
+    </svg>
+  );
+}
+
+function WifiMarkerIcon() {
+  return (
+    <svg width="34" height="46" viewBox="0 0 206 300" aria-hidden="true">
+      <g transform="translate(2, 2)">
+        <path
+          d="M100 0 C45 0 0 45 0 100 C0 200 95 250 100 295 C105 250 200 200 200 100 C200 45 155 0 100 0 Z"
+          fill="#3b82f6"
+          stroke="#000"
+          strokeWidth="3"
+        />
+      </g>
+      <circle
+        cx="100"
+        cy="90"
+        r="65"
+        fill="white"
+        stroke="#EEEEEE"
+        strokeWidth="1"
+      />
+      <g transform="translate(46, 35) scale(4.5)">
+        <path
+          d="M5 12.55a11 11 0 0 1 14.08 0"
+          fill="none"
+          stroke="#0078D7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M8.5 16.35a5 5 0 0 1 7 0"
+          fill="none"
+          stroke="#0078D7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M2 8.82a15 15 0 0 1 20 0"
+          fill="none"
+          stroke="#0078D7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="12" cy="20" r="1" fill="#0078D7" stroke="#0078D7" strokeWidth="2" />
+      </g>
+    </svg>
+  );
+}
 
 const LeafMap = ({
   currentPosition,
@@ -21,14 +125,18 @@ const LeafMap = ({
   imgSharer,
   imgLoading,
 }: MapCoordsInterface) => {
-  const mapRef = useRef<HTMLDivElement | null>(null);
-  const mapInstance = useRef<L.Map | null>(null);
+  const mapRef = useRef<MapRef | null>(null);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
   const [selectValue, setSelectValue] = useState<string>();
+  const [mapStyle, setMapStyle] = useState<MapStyleKey>("map");
 
   useEffect(() => {
     setAntennas(wifiMap);
   }, []);
+
+  const setMapInstance = (instance: MapRef | null) => {
+    mapRef.current = instance;
+  };
 
   const optimizedAntennas = useMemo(() => {
     return antennas
@@ -40,233 +148,56 @@ const LeafMap = ({
       }));
   }, [antennas, locationCity]);
 
-  useEffect(() => {
-    if (!mapRef.current || mapInstance.current) return;
-    if (!currentPosition.latitude || !currentPosition.longitude) return;
-
-    const map = L.map(mapRef.current).setView(
-      [currentPosition.latitude, currentPosition.longitude],
-      17,
+  const visibleAntennas = useMemo(() => {
+    return optimizedAntennas.filter(
+      (antenna) =>
+        antenna.name !== antennaPosition.name.ssid2g &&
+        antenna.name !== secondAntennaPosition.name.ssid2g,
     );
+  }, [optimizedAntennas, antennaPosition.name.ssid2g, secondAntennaPosition.name.ssid2g]);
 
-    (map as any).addControl(
-      (L.control as any).fullscreen({
-        position: "topleft",
-        title: "Pantalla completa",
-        titleCancel: "Salir",
-        forceSeparateButton: true,
-        content: `<svg xmlns="http://www www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
-        <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
-        <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
-        <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
-        </svg>`,
-      }),
-    );
-    const locateControl = (L.control as any)({
-      position: "topleft",
-    });
-
-    locateControl.onAdd = function (map: L.Map) {
-      const div = L.DomUtil.create("div", "leaflet-control-locate");
-
-      div.innerHTML = `
-        <button class="leaflet-control-locate-btn" title="Centrar en mi ubicación">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle fill="#fff" cx="12" cy="10" r="3"/></svg>
-        </button>
-      `;
-
-      div.querySelector("button")!.addEventListener("click", () => {
-        map.flyTo([currentPosition.latitude, currentPosition.longitude], 16, {
-          animate: true,
-          duration: 2,
-        });
-        setSelectValue("");
-      });
-
-      return div;
-    };
-    // View Controller MAP - SATELLITE
-    MapLeaflet.switchToMap(map);
-    const mapViewControl = (L.control as any)({
-      position: "bottomleft",
-      forceSeparateButton: true,
-    });
-
-    const satelliteViewControl = (L.control as any)({
-      position: "bottomleft",
-    });
-
-    const carto3dViewControl = (L.control as any)({
-      position: "bottomleft",
-    });
-
-    mapViewControl.onAdd = function (map: L.Map) {
-      const div = L.DomUtil.create("div", "map-control");
-
-      div.innerHTML = `
-        <button class="map-control-btn" title="Vista de Mapa">
-         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-icon lucide-map"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
-        </button>
-      `;
-      div
-        .querySelector(".map-control-btn")!
-        .addEventListener("click", () => MapLeaflet.switchToMap(map));
-
-      return div;
-    };
-
-    satelliteViewControl.onAdd = function (map: L.Map) {
-      const div = L.DomUtil.create("div", "satellite-control");
-
-      div.innerHTML = `
-        <button class="satellite-control-btn" title="Vista de Satélite">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-satellite-icon lucide-satellite"><path d="M13 7 9 3 5 7l4 4"/><path d="m17 11 4 4-4 4-4-4"/><path d="m8 12 4 4 6-6-4-4Z"/><path d="m16 8 3-3"/><path d="M9 21a6 6 0 0 0-6-6"/></svg>
-        </button>
-      `;
-      div
-        .querySelector(".satellite-control-btn")!
-        .addEventListener("click", () => MapLeaflet.switchToSatellite(map));
-
-      return div;
-    };
-
-    carto3dViewControl.onAdd = function (map: L.Map) {
-      const div = L.DomUtil.create("div", "carto3d-control");
-
-      div.innerHTML = `
-        <button class="carto3d-control-btn" title="Vista CARTO 3D">
-          <span>3D</span>
-        </button>
-      `;
-      div
-        .querySelector(".carto3d-control-btn")!
-        .addEventListener("click", () => MapLeaflet.switchToCarto3D(map));
-
-      return div;
-    };
-    mapViewControl.addTo(map);
-    satelliteViewControl.addTo(map);
-    carto3dViewControl.addTo(map);
-    locateControl.addTo(map);
-    mapInstance.current = map;
-
-    MapLeaflet.marker({ currentPosition, map, icon: customIcon });
-    MapLeaflet.createFirstLine({ currentPosition, antennaPosition, map });
-    MapLeaflet.createSecondLine({
-      currentPosition,
-      secondAntennaPosition,
-      map,
-    });
-    MapLeaflet.createThirdLine({ currentPosition, thirdAntennaPosition, map });
-    MapLeaflet.addAntennaMarker(
-      thirdAntennaPosition.coords,
-      thirdAntennaPosition.name,
-      thirdAntennaPosition.distance,
-      thirdAntennaPosition.type,
-      thirdAntennaPosition.users,
-      map,
-      wifiSvg,
-      currentPosition,
-    );
-    MapLeaflet.addAntennaMarker(
-      secondAntennaPosition.coords,
-      secondAntennaPosition.name,
-      secondAntennaPosition.distance,
-      secondAntennaPosition.type,
-      secondAntennaPosition.users,
-      map,
-      wifiSvg,
-      currentPosition,
-    );
-    MapLeaflet.addAntennaMarker(
-      antennaPosition.coords,
-      antennaPosition.name,
-      antennaPosition.distance,
-      antennaPosition.type,
-      antennaPosition.users,
-      map,
-      wifiSvg,
-      currentPosition,
-    );
-
-    optimizedAntennas
-      .filter(
-        (antenna) =>
-          antenna.name !== antennaPosition.name.ssid2g &&
-          antenna.name !== secondAntennaPosition.name.ssid2g,
-      )
-      .forEach((antenna) => {
-        if (antenna.lat && antenna.lon) {
-          L.marker([antenna.lat as number, antenna.lon as number], {
-            icon: wifiSvg,
-          })
-            .addTo(map)
-            .bindPopup(
-              `<div style="font-size:14px; font-weight:bold;">
-            🔹 <strong>Antena 2.4Ghz:</strong> ${
-              antenna.name || "No disponible"
-            }<br>
-            🔹 <strong>Antena 5Ghz:</strong> ${
-              antenna.name5g || "No disponible"
-            }<br>
-            ⚡ <strong>Tipo:</strong> ${antenna.type}<br>
-            🙇‍♂️ <strong>Usuarios Conectados:</strong> ${antenna.users}
-          </div>`,
-            );
-        }
-      });
-
-    if (selectValue) {
-      const locationSelect = antennas
-        .filter((antenna) => antenna.location === selectValue)
-        .map((antenna) => ({
-          ...antenna,
-          lat: Number(antenna.lat) || 0,
-          lon: Number(antenna.lon) || 0,
-        }));
-
-      locationSelect.forEach((antenna) => {
-        if (antenna.lat && antenna.lon) {
-          map.flyTo([antenna.lat as number, antenna.lon as number], 14, {
-            animate: true,
-            duration: 2,
-          });
-          L.marker([antenna.lat as number, antenna.lon as number], {
-            icon: wifiSvg,
-          })
-            .addTo(map)
-            .bindPopup(
-              `<div style="font-size:14px; font-weight:bold;">
-        🔹 <strong>Antena 2.4Ghz:</strong> ${
-          antenna.name || "No disponible"
-        }<br>
-        🔹 <strong>Antena 5Ghz:</strong> ${
-          antenna.name5g || "No disponible"
-        }<br>
-        ⚡ <strong>Tipo:</strong> ${antenna.type}<br>
-        🙇‍♂️ <strong>Usuarios Conectados:</strong> ${
-          antenna.users || "No disponible"
-        }
-      </div>`,
-            );
-        }
-      });
+  const selectedStyle = useMemo(() => {
+    if (mapStyle === "satellite") {
+      return { light: SATELLITE_STYLE, dark: SATELLITE_STYLE };
     }
 
-    return () => {
-      mapInstance.current?.remove();
-      mapInstance.current = null;
-    };
-  }, [
-    currentPosition,
-    antennaPosition,
-    secondAntennaPosition,
-    thirdAntennaPosition,
-    optimizedAntennas,
-    selectValue,
-    antennas,
-  ]);
+    if (mapStyle === "3d") {
+      return { light: OPEN_STREET_MAP_3D_STYLE, dark: OPEN_STREET_MAP_3D_STYLE };
+    }
+
+    return { light: OPEN_STREET_MAP_STYLE, dark: OPEN_STREET_MAP_STYLE };
+  }, [mapStyle]);
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    mapRef.current.easeTo({
+      pitch: mapStyle === "3d" ? 60 : 0,
+      bearing: mapStyle === "3d" ? -20 : 0,
+      duration: 700,
+    });
+  }, [mapStyle]);
+
+  useEffect(() => {
+    if (!mapRef.current || !selectValue) return;
+
+    const locationSelect = antennas
+      .filter((antenna) => antenna.location === selectValue)
+      .map((antenna) => ({
+        ...antenna,
+        lat: Number(antenna.lat) || 0,
+        lon: Number(antenna.lon) || 0,
+      }))
+      .filter((antenna) => antenna.lat && antenna.lon);
+
+    if (locationSelect.length === 0) return;
+
+    mapRef.current.flyTo({
+      center: [locationSelect[0].lon as number, locationSelect[0].lat as number],
+      zoom: 14,
+      duration: 2000,
+    });
+  }, [selectValue, antennas]);
 
   if (
     !currentPosition ||
@@ -483,10 +414,177 @@ const LeafMap = ({
         </article>
       </div>
       <div
-        ref={mapRef}
-        className="w-full h-96 border-x-2 border-zinc-200/70 dark:border-zinc-800"
+        className="w-full h-96 border-x-2 border-zinc-200/70 dark:border-zinc-800 relative overflow-hidden"
         id="map"
-      />
+      >
+        <Map
+          ref={setMapInstance}
+          className="h-full w-full"
+          center={[currentPosition.longitude, currentPosition.latitude]}
+          zoom={15}
+          styles={selectedStyle}
+        >
+          <MapRoute
+            id="closest-route"
+            coordinates={[
+              [currentPosition.longitude, currentPosition.latitude],
+              [antennaPosition.coords.lon, antennaPosition.coords.lat],
+            ]}
+            color="#2563eb"
+            width={2}
+            opacity={0.7}
+            dashArray={[2, 2]}
+          />
+          <MapRoute
+            id="second-route"
+            coordinates={[
+              [currentPosition.longitude, currentPosition.latitude],
+              [secondAntennaPosition.coords.lon, secondAntennaPosition.coords.lat],
+            ]}
+            color="#2563eb"
+            width={2}
+            opacity={0.7}
+            dashArray={[2, 2]}
+          />
+          <MapRoute
+            id="third-route"
+            coordinates={[
+              [currentPosition.longitude, currentPosition.latitude],
+              [thirdAntennaPosition.coords.lon, thirdAntennaPosition.coords.lat],
+            ]}
+            color="#2563eb"
+            width={1}
+            opacity={0.7}
+            dashArray={[2, 2]}
+          />
+
+          <MapMarker
+            longitude={currentPosition.longitude}
+            latitude={currentPosition.latitude}
+          >
+            <MarkerContent>
+              <UserLocationMarkerIcon />
+            </MarkerContent>
+            <MarkerPopup className={POPUP_CONTENT_CLASS}>Tu ubicacion</MarkerPopup>
+          </MapMarker>
+
+          <MapMarker
+            longitude={antennaPosition.coords.lon}
+            latitude={antennaPosition.coords.lat}
+          >
+            <MarkerContent>
+              <WifiMarkerIcon />
+            </MarkerContent>
+            <MarkerPopup className={POPUP_CONTENT_CLASS}>
+              <div>
+                <p>🔹 Antena 2.4Ghz: {antennaPosition.name.ssid2g}</p>
+                <p>🔹 Antena 5Ghz: {antennaPosition.name.ssid5g}</p>
+                <p>📏 Distancia: {antennaPosition.distance}</p>
+                <p>⚡ Tipo: {antennaPosition.type}</p>
+                <p>🙇‍♂️ Usuarios Conectados: {antennaPosition.users}</p>
+              </div>
+            </MarkerPopup>
+          </MapMarker>
+
+          <MapMarker
+            longitude={secondAntennaPosition.coords.lon}
+            latitude={secondAntennaPosition.coords.lat}
+          >
+            <MarkerContent>
+              <WifiMarkerIcon />
+            </MarkerContent>
+            <MarkerPopup className={POPUP_CONTENT_CLASS}>
+              <div>
+                <p>🔹 Antena 2.4Ghz: {secondAntennaPosition.name.ssid2g}</p>
+                <p>🔹 Antena 5Ghz: {secondAntennaPosition.name.ssid5g}</p>
+                <p>📏 Distancia: {secondAntennaPosition.distance}</p>
+                <p>⚡ Tipo: {secondAntennaPosition.type}</p>
+                <p>🙇‍♂️ Usuarios Conectados: {secondAntennaPosition.users}</p>
+              </div>
+            </MarkerPopup>
+          </MapMarker>
+
+          <MapMarker
+            longitude={thirdAntennaPosition.coords.lon}
+            latitude={thirdAntennaPosition.coords.lat}
+          >
+            <MarkerContent>
+              <WifiMarkerIcon />
+            </MarkerContent>
+            <MarkerPopup className={POPUP_CONTENT_CLASS}>
+              <div>
+                <p>🔹 Antena 2.4Ghz: {thirdAntennaPosition.name.ssid2g}</p>
+                <p>🔹 Antena 5Ghz: {thirdAntennaPosition.name.ssid5g}</p>
+                <p>📏 Distancia: {thirdAntennaPosition.distance}</p>
+                <p>⚡ Tipo: {thirdAntennaPosition.type}</p>
+                <p>🙇‍♂️ Usuarios Conectados: {thirdAntennaPosition.users}</p>
+              </div>
+            </MarkerPopup>
+          </MapMarker>
+
+          {visibleAntennas.map((antenna) => (
+            <MapMarker
+              key={`${antenna.name}-${antenna.lon}-${antenna.lat}`}
+              longitude={antenna.lon as number}
+              latitude={antenna.lat as number}
+            >
+              <MarkerContent>
+                <WifiMarkerIcon />
+              </MarkerContent>
+              <MarkerPopup className={POPUP_CONTENT_CLASS}>
+                <div>
+                  <p>🔹 Antena 2.4Ghz: {antenna.name || "No disponible"}</p>
+                  <p>🔹 Antena 5Ghz: {antenna.name5g || "No disponible"}</p>
+                  <p>⚡ Tipo: {antenna.type}</p>
+                  <p>🙇‍♂️ Usuarios Conectados: {antenna.users || "No disponible"}</p>
+                </div>
+              </MarkerPopup>
+            </MapMarker>
+          ))}
+        </Map>
+
+        <div className="absolute top-2 left-2 z-20">
+          <button
+            className="leaflet-control-locate-btn"
+            title="Centrar en mi ubicación"
+            onClick={() => {
+              if (!mapRef.current) return;
+              mapRef.current.flyTo({
+                center: [currentPosition.longitude, currentPosition.latitude],
+                zoom: 16,
+                duration: 1800,
+              });
+              setSelectValue("");
+            }}
+          >
+            <MapPin className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="absolute bottom-2 left-2 z-20 flex flex-col gap-1">
+          <button
+            className="map-control-btn"
+            title="Vista de Mapa"
+            onClick={() => setMapStyle("map")}
+          >
+            <SquareChartGantt className="w-5 h-5" />
+          </button>
+          <button
+            className="satellite-control-btn"
+            title="Vista de Satélite"
+            onClick={() => setMapStyle("satellite")}
+          >
+            <Satellite className="w-5 h-5" />
+          </button>
+          <button
+            className="carto3d-control-btn"
+            title="Vista 3D"
+            onClick={() => setMapStyle("3d")}
+          >
+            <span>3D</span>
+          </button>
+        </div>
+      </div>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-x-2 border-b-2 backdrop-blur-xl overflow-hidden rounded-b-xl">
         <article className="flex justify-between items-center gap-2">
           <button

@@ -24,8 +24,28 @@ interface MapLeafletProps {
 }
 
 export class MapLeaflet {
-  private static currentTileLayer: L.TileLayer | null = null;
+  private static currentLayers: L.Layer[] = [];
   private static TOKEN = process.env.NEXT_PUBLIC_MAPBOX_APIKEY
+
+  private static clearCurrentLayers(map: L.Map) {
+    this.currentLayers.forEach((layer) => {
+      if (map.hasLayer(layer)) {
+        map.removeLayer(layer);
+      }
+    });
+
+    this.currentLayers = [];
+  }
+
+  private static setCurrentLayers(map: L.Map, layers: L.Layer[]) {
+    this.clearCurrentLayers(map);
+
+    layers.forEach((layer) => {
+      layer.addTo(map);
+    });
+
+    this.currentLayers = layers;
+  }
 
   public static marker({ currentPosition, map, icon }: MapLeafletProps) {
     L.marker([currentPosition.latitude, currentPosition.longitude], {
@@ -131,10 +151,6 @@ export class MapLeaflet {
   }
 
   public static switchToSatellite(map: L.Map) {
-    if (this.currentTileLayer) {
-      map.removeLayer(this.currentTileLayer);
-    }
-
     const tile = L.tileLayer(
       `https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=${this.TOKEN}`,
       {
@@ -143,23 +159,46 @@ export class MapLeaflet {
         zoomOffset: -1,
         crossOrigin: true,
       }
-    ).addTo(map);
+    );
 
-    this.currentTileLayer = tile;
+    this.setCurrentLayers(map, [tile]);
   }
 
   public static switchToMap(map: L.Map) {
-    if (this.currentTileLayer) {
-      map.removeLayer(this.currentTileLayer);
-    }
-
     const tile = L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
       {
         attribution: "© CARTO | Open Street Map",
         crossOrigin: true,
       }
-    ).addTo(map);
+    );
 
-    this.currentTileLayer = tile;
+    this.setCurrentLayers(map, [tile]);
+  }
+
+  public static switchToCarto3D(map: L.Map) {
+    const cartoBase = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
+      {
+        attribution: "© CARTO | OpenStreetMap | Esri",
+        crossOrigin: true,
+      }
+    );
+
+    const hillshade = L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}",
+      {
+        opacity: 0.35,
+        crossOrigin: true,
+      }
+    );
+
+    const labels = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
+      {
+        crossOrigin: true,
+      }
+    );
+
+    this.setCurrentLayers(map, [cartoBase, hillshade, labels]);
   }
 }

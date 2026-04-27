@@ -97,6 +97,10 @@ const LeafMap = ({
       position: "bottomleft",
     });
 
+    const carto3dViewControl = (L.control as any)({
+      position: "bottomleft",
+    });
+
     mapViewControl.onAdd = function (map: L.Map) {
       const div = L.DomUtil.create("div", "map-control");
 
@@ -126,8 +130,24 @@ const LeafMap = ({
 
       return div;
     };
+
+    carto3dViewControl.onAdd = function (map: L.Map) {
+      const div = L.DomUtil.create("div", "carto3d-control");
+
+      div.innerHTML = `
+        <button class="carto3d-control-btn" title="Vista CARTO 3D">
+          <span>3D</span>
+        </button>
+      `;
+      div
+        .querySelector(".carto3d-control-btn")!
+        .addEventListener("click", () => MapLeaflet.switchToCarto3D(map));
+
+      return div;
+    };
     mapViewControl.addTo(map);
     satelliteViewControl.addTo(map);
+    carto3dViewControl.addTo(map);
     locateControl.addTo(map);
     mapInstance.current = map;
 

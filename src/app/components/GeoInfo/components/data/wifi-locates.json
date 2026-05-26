@@ -48892,7 +48892,7 @@
     "name": "Queens Library Astoria",
     "name5g": "ASTORIA BLVD - ASTORIA",
     "lat": 40.771178,
-    "lon": -73.930410,
+    "lon": -73.93041,
     "type": "Public Library Wi-Fi",
     "location": "New York"
   },
@@ -48900,7 +48900,7 @@
     "name": "LinkNYC Times Square",
     "name5g": "BROADWAY & W 42ND ST",
     "lat": 40.758896,
-    "lon": -73.985130,
+    "lon": -73.98513,
     "type": "LinkNYC Public Wi-Fi",
     "location": "New York"
   },
@@ -48923,8 +48923,8 @@
   {
     "name": "LinkNYC Downtown Brooklyn",
     "name5g": "FLATBUSH AVE EXT",
-    "lat": 40.692600,
-    "lon": -73.988430,
+    "lat": 40.6926,
+    "lon": -73.98843,
     "type": "LinkNYC Public Wi-Fi",
     "location": "New York"
   },
@@ -48951,5 +48951,413 @@
     "lon": -73.970701,
     "type": "LinkNYC Public Wi-Fi",
     "location": "New York"
+  },
+  {
+    "name": "Zocalo CDMX",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.432608,
+    "lon": -99.133209,
+    "type": "Public Square Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Alameda Central",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.435219,
+    "lon": -99.141197,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Monumento a la Revolucion",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.436303,
+    "lon": -99.153262,
+    "type": "Public Plaza Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Palacio de Bellas Artes",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.435156,
+    "lon": -99.141996,
+    "type": "Cultural Center Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Chapultepec Primera Seccion",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.420517,
+    "lon": -99.181694,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Auditorio Nacional",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.425119,
+    "lon": -99.194786,
+    "type": "Public Venue Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Paseo de la Reforma Angel",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.427024,
+    "lon": -99.167665,
+    "type": "Public Avenue Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Glorieta de Insurgentes",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.423589,
+    "lon": -99.162373,
+    "type": "Metro Area Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Parque Mexico",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.411417,
+    "lon": -99.171211,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Parque Espana",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.412861,
+    "lon": -99.173973,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Coyoacan Jardin Hidalgo",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.350214,
+    "lon": -99.162146,
+    "type": "Public Square Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "UNAM Biblioteca Central",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.33255,
+    "lon": -99.188889,
+    "type": "University Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "CU Las Islas",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.332198,
+    "lon": -99.186052,
+    "type": "University Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Xochimilco Embarcadero Nuevo Nativitas",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.28505,
+    "lon": -99.103653,
+    "type": "Tourist Area Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Basilica de Guadalupe",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.48494,
+    "lon": -99.117704,
+    "type": "Religious Site Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Parque Bicentenario",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.459458,
+    "lon": -99.186918,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Tlatelolco Plaza de las Tres Culturas",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.452709,
+    "lon": -99.137271,
+    "type": "Historic Plaza Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Forum Buenavista",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.446915,
+    "lon": -99.152276,
+    "type": "Transit Hub Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Metrobus Insurgentes",
+    "name5g": "Free MB Sitwifi-Station",
+    "lat": 19.423451,
+    "lon": -99.162102,
+    "type": "Metrobus Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Metrobus Reforma",
+    "name5g": "Free MB Sitwifi-Station",
+    "lat": 19.436958,
+    "lon": -99.147846,
+    "type": "Metrobus Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Metrobus Buenavista",
+    "name5g": "Free MB Sitwifi-Station",
+    "lat": 19.445183,
+    "lon": -99.152959,
+    "type": "Metrobus Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Cablebus Indios Verdes",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.495335,
+    "lon": -99.119451,
+    "type": "Cablebus Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Cablebus Cuautepec",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.529522,
+    "lon": -99.111203,
+    "type": "Cablebus Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Cablebus Santa Marta",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.36091,
+    "lon": -98.994183,
+    "type": "Cablebus Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Cablebus Constitucion 1917",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.34677,
+    "lon": -99.063896,
+    "type": "Cablebus Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Aeropuerto Terminal 1",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.436303,
+    "lon": -99.072097,
+    "type": "Airport Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Aeropuerto Terminal 2",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.433611,
+    "lon": -99.088889,
+    "type": "Airport Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Pilares Tepito",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.44395,
+    "lon": -99.12354,
+    "type": "Community Center Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Pilares Iztapalapa",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.357847,
+    "lon": -99.072578,
+    "type": "Community Center Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Parque Tezozomoc",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.504849,
+    "lon": -99.201694,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Bosque de Aragon",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.451602,
+    "lon": -99.060157,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Santa Fe Parque La Mexicana",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.359783,
+    "lon": -99.272759,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Ciudad Deportiva Magdalena Mixhuca",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.404406,
+    "lon": -99.092684,
+    "type": "Sports Complex Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Autodromo Hermanos Rodriguez",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.404919,
+    "lon": -99.09001,
+    "type": "Sports Venue Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Parque Hundido",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.372321,
+    "lon": -99.181539,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Parque de los Venados",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.370662,
+    "lon": -99.162469,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Centro Nacional de las Artes",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.357996,
+    "lon": -99.142867,
+    "type": "Cultural Center Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Museo Soumaya",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.440536,
+    "lon": -99.204944,
+    "type": "Museum Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Plaza Garibaldi",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.442563,
+    "lon": -99.137431,
+    "type": "Public Plaza Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Mercado de San Juan",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.428825,
+    "lon": -99.142214,
+    "type": "Market Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "La Ciudadela",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.429319,
+    "lon": -99.150484,
+    "type": "Public Plaza Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Arena Ciudad de Mexico",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.496247,
+    "lon": -99.201591,
+    "type": "Arena Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Hospital General de Mexico",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.413652,
+    "lon": -99.152497,
+    "type": "Hospital Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Hospital Juarez de Mexico",
+    "name5g": "WiFi CFE Internet para Todos",
+    "lat": 19.487772,
+    "lon": -99.144699,
+    "type": "Hospital Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Metro Hidalgo",
+    "name5g": "METRO WIFI CDMX",
+    "lat": 19.437315,
+    "lon": -99.147163,
+    "type": "Metro Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Metro Pino Suarez",
+    "name5g": "METRO WIFI CDMX",
+    "lat": 19.425905,
+    "lon": -99.132882,
+    "type": "Metro Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Metro Universidad",
+    "name5g": "METRO WIFI CDMX",
+    "lat": 19.324896,
+    "lon": -99.174671,
+    "type": "Metro Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Metro Indios Verdes",
+    "name5g": "METRO WIFI CDMX",
+    "lat": 19.495373,
+    "lon": -99.119914,
+    "type": "Metro Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Metro Tasquena",
+    "name5g": "METRO WIFI CDMX",
+    "lat": 19.343136,
+    "lon": -99.139896,
+    "type": "Metro Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Parque Lindavista",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.489032,
+    "lon": -99.127951,
+    "type": "Public Park Wi-Fi",
+    "location": "Mexico"
+  },
+  {
+    "name": "Explanada Iztapalapa",
+    "name5g": "CDMX-Internet para Todos",
+    "lat": 19.357655,
+    "lon": -99.092453,
+    "type": "Government Plaza Wi-Fi",
+    "location": "Mexico"
   }
 ]

@@ -21,6 +21,7 @@ import {
 import type { StyleSpecification } from "maplibre-gl";
 import wifiMap from "./data/wifi-locates.json";
 import { MapCoordsInterface, WifiDataProps } from "./types/definitions";
+import { getCountryFlag } from "@/utils/convert-to-flag";
 
 const SATELLITE_STYLE: StyleSpecification = {
   version: 8,
@@ -257,6 +258,7 @@ const LeafMap = ({
   const santiago = cleanedPlaces.find((value) => value === "Chile");
   const losAngeles = cleanedPlaces.find((value) => value === "Los Angeles");
   const newYork = cleanedPlaces.find((value) => value === "New York");
+  const mexico = cleanedPlaces.find((value) => value === "Mexico")
 
   const filterValues = (val: string) => {
     return (
@@ -280,7 +282,8 @@ const LeafMap = ({
       val !== rosario &&
       val !== santiago &&
       val !== losAngeles &&
-      val !== newYork
+      val !== newYork &&
+      val !== mexico
     );
   };
 
@@ -378,6 +381,13 @@ const LeafMap = ({
             {santiago && (
               <optgroup label="🇨🇱 Chile">
                 <option value={santiago}>{`Santiago, ${santiago}`}</option>
+              </optgroup>
+            )}
+
+            {/* México */}
+            {mexico && (
+              <optgroup label={`${getCountryFlag("mx")} México`}>
+                <option value={mexico}>{`México, ${mexico}`}</option>
               </optgroup>
             )}
 

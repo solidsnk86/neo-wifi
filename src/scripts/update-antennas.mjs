@@ -88,14 +88,6 @@ import oldDataWifi from "../app/components/GeoInfo/components/data/old-data-wifi
 
     const allDataUpdated = Array.from(currentDataMap.values());
 
-    const slAntennas = allDataUpdated.filter(
-      (data) =>
-        (String(cleanSpaces(data.name)).startsWith("GobSL") ||
-          String(cleanSpaces(data.name)).startsWith("WiFi3.0") ||
-          String(cleanSpaces(data.name)).startsWith("WiFi4.0")) &&
-        Boolean(data.users),
-    );
-
     await fs.writeFile(
       path.join(process.cwd(), "src", "app", "components", "GeoInfo", "components", "data", "wifi-locates.json"),
       JSON.stringify(allDataUpdated, null, 2),

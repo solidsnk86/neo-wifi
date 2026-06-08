@@ -4,9 +4,9 @@ import { ArrowUp, LocateFixed, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
 import { matchQuerys, navLanguages, shareTechMono } from "./constants";
-import { getIP } from "@/utils/get-ip";
 import { closeDialog, showDialog } from "@/utils/dialog";
 import { getCityLocation } from "@/utils/getCityCoords";
+import { useLocation } from "@/app/contexts/use-location";
 
 interface ContextAIProps {
   context: {
@@ -44,6 +44,7 @@ export const AiAssistant = ({
   const [language, setLanguage] = useState<string>("es-AR");
   const MAX_CHAR = 300;
   const [charCount, setCharCount] = useState<number>(0);
+  const { location, isLoading: loading, error } = useLocation();
 
   const sendQuery = async ({
     text,
@@ -130,7 +131,6 @@ export const AiAssistant = ({
     setCharCount(0);
 
     try {
-      const { ip, cityName, countryName, timeZoneCity } = await getIP();
 
       if (matchQuerys.some((word) => query.toLowerCase().includes(word))) {
         showDialog({
@@ -159,16 +159,16 @@ export const AiAssistant = ({
 
       const objectData = {
         prompt: userMessage.content,
-        ip,
-        city: cityName,
-        country: countryName,
+        ip: location && location.ip,
+        city: location && location.city.name,
+        country: location && location.country.name,
       };
 
       await Promise.all([
         sendQuery({
           text: query,
-          city: cityName + ", " + timeZoneCity,
-          country: countryName,
+          city: location && `${location.city.name}, ${location.country.timezone}` || "",
+          country: location && location.country.name || "",
           temp: tempValue,
           lang: language,
         }),

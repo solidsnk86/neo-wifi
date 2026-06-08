@@ -2,18 +2,18 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { getCoords } from "@/utils/get-coords";
-import { TriangleAlert, Loader, AwardIcon } from "lucide-react";
+import { TriangleAlert, Loader } from "lucide-react";
 import { GeoPosition } from "./components/GeoPosition.tsx";
 import { InfoWifi } from "./components/InfoWifi";
 import { SearchAntenna } from "./components/SearchAntenna";
 import { showDialog } from "@/utils/dialog";
 import { SupabaseDB } from "@/services/Supabase";
-import { getIP } from "@/utils/get-ip";
 import { writeMAC } from "@/utils/mac-writer";
 import dynamic from "next/dynamic.js";
 import { mapSharer } from "../MapSharer.tsx";
 import { AskForLocation } from "./components/AskForLocation.tsx";
 import { getCityLocation } from "@/utils/getCityCoords.ts";
+import { useLocation } from "@/app/contexts/use-location";
 
 const Map = dynamic(() => import("./components/MapLeaf.tsx"), { ssr: false });
 
@@ -76,6 +76,7 @@ export const GeoPositionCard = () => {
   const [searchLoading, setSearchLoading] = useState(false);
   const [imgLoading, setImgLoading] = useState(false);
   const [coords, setCoords] = useState({ latitude: 0, longitude: 0 });
+  const { location: dataLocation, ipInfo } = useLocation();
 
   const setDialogAnimation = () => {
     const dialog = document.querySelector("dialog");
@@ -105,9 +106,9 @@ export const GeoPositionCard = () => {
     setIsLoading(false);
   };
 
-  const sendBasicInfo = useCallback(async () => {
+  const sendBasicInfo = useCallback(async (info) => {
     try {
-      const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag } = await getIP();
+      const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag } = info;
       const { lastIP } = await SupabaseDB.getLastIP()
       
       const data = {
@@ -132,8 +133,10 @@ export const GeoPositionCard = () => {
   }, []);
 
   useEffect(() => {
-    sendBasicInfo();
-  }, [sendBasicInfo]);
+    if (ipInfo) {
+      sendBasicInfo(ipInfo);
+    }
+  }, [ipInfo, sendBasicInfo]);
 
   const sendQuery = async (searchQuery) => {
     try {

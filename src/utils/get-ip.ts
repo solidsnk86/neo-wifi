@@ -1,4 +1,4 @@
-interface GeoResponse {
+export interface GeoResponse {
   ip: string;
   city: {
     name: string;

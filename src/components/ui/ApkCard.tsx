@@ -1,20 +1,22 @@
 "use client";
 
-import { getIP } from "@/utils/get-ip";
+import { useLocation } from "@/app/contexts/use-location";
 import { Pause, Play } from "lucide-react";
 import { useCallback, useRef, useState } from "react";
 
 export const ApkCard = () => {
   const [videoState, setVideoState] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { location, error, isLoading } = useLocation();
+  
+
   const sendDataAPKDownload = useCallback(async () => {
-    const { ip, cityName, countryName, sysInfo } = await getIP();
     const data = {
-      ip,
-      city: cityName,
-      country: countryName,
-      so: sysInfo.system,
-      browser: sysInfo.webBrowser.browser,
+      ip: location?.ip,
+      city: location?.city.name,
+      country: location?.country.name,
+      so: location?.sysInfo.system,
+      browser: `${location?.sysInfo.webBrowser.browser} - v${location?.sysInfo.webBrowser.version}`
     };
     try {
       setTimeout(async () => {

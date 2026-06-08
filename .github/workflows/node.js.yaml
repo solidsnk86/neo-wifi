@@ -1,0 +1,42 @@
+name: Update data JSON
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */4 * * *"
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "pnpm"
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install --prod --frozen-lockfile
+
+      - name: Update latest-wifi-sl-data.json
+        run: pnpm run update-antennas
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "solidsnk86"
+          git config user.email "calcagni.gabriel86@gmail.com"
+          git add latest-wifi-sl-data.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "🤖[neoBot] Updated data wifi JSON with latest info"
+          git push origin master

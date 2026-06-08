@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-antennas": "node src/scripts/update-antennas.mjs"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.43",

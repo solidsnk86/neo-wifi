@@ -3,6 +3,7 @@ import { Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { ClientProvider } from "@/providers/themeProvider";
 import { ThemeInitializer } from "./components/ThemeInitializer";
+import { LocationProvider } from "./contexts/use-location";
 
 const geistSans = Poppins({
   variable: "--font-geist-sans",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Neo Wifi",
   },
   icons: {
-    icon: "favicon.ico"
+    icon: "favicon.ico",
   },
   description:
     "Detecta la red WiFi 📡 más cercana y conoce tu distancia a ella. Configura automáticamente cualquier dispositivo TP-LINK CPE y Routers con nuestra app de escritorio.",
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     "Automatización",
     "Redes",
     "Internet",
-    "Neo Wifi"
+    "Neo Wifi",
   ],
 };
 
@@ -84,7 +85,9 @@ export default function RootLayout({
       >
         <div className="sunset"></div>
         <ClientProvider>
-          <ThemeInitializer>{children}</ThemeInitializer>
+          <LocationProvider>
+            <ThemeInitializer>{children}</ThemeInitializer>
+          </LocationProvider>
         </ClientProvider>
       </body>
     </html>

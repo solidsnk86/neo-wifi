@@ -1,9 +1,9 @@
 "use client";
 
 import { SupabaseDB } from "@/services/Supabase";
-import { getIP } from "@/utils/get-ip";
 import { useCallback, useEffect, useState } from "react";
 import { Footer, Navbar } from "../components";
+import { useLocation } from "../contexts/use-location";
 import styles from "./styles/button.module.css";
 import {
   Activity,
@@ -43,9 +43,10 @@ export default function Page() {
   const [downloadComplete, setDownloadComplete] = useState(false);
   const [appData, setAppData] = useState<ReleaseAPI>();
   const [isLoading, setIsLoading] = useState(true);
+  const { ipInfo } = useLocation();
 
   const sendDataToSupabase = useCallback(async () => {
-    const [ipInfo] = await Promise.all([getIP()]);
+    if (!ipInfo) return;
     const objDownload = {
       ip: ipInfo.ip,
       city: ipInfo.cityName,
@@ -54,7 +55,7 @@ export default function Page() {
       app_version: appData?.release.appVersion
     };
     await SupabaseDB.sendDownloads({ data: objDownload });
-  }, [appData?.release.appVersion]);
+  }, [appData?.release.appVersion, ipInfo]);
 
   const getAppData = async () => {
     setIsLoading(true);

@@ -39,6 +39,6 @@ jobs:
         run: |
           git config user.name "solidsnk86"
           git config user.email "calcagni.gabriel86@gmail.com"
-          git add latest-wifi-sl-data.json
+          git add data/latest-wifi-sl-data.json
           git diff --quiet && git diff --staged --quiet || git commit -m "🤖[neoBot] Updated data wifi JSON with latest info"
           git push origin master

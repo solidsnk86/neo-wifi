@@ -31,7 +31,7 @@
     "lat": -35.6748,
     "lon": -65.42315,
     "type": "2Ghz",
-    "users": 9,
+    "users": 8,
     "status": true,
     "location": "Anchorena"
   },
@@ -79,7 +79,7 @@
     "lat": -35.723444,
     "lon": -65.323617,
     "type": "2Ghz",
-    "users": 6,
+    "users": 4,
     "status": true,
     "location": "Arizona"
   },
@@ -139,7 +139,7 @@
     "lat": -33.34139,
     "lon": -66.62378,
     "type": "2Ghz",
-    "users": 13,
+    "users": 12,
     "status": true,
     "location": "Balde"
   },
@@ -391,7 +391,7 @@
     "lat": -32.059889,
     "lon": -65.827306,
     "type": "2Ghz",
-    "users": 13,
+    "users": 10,
     "status": true,
     "location": "Candelaria"
   },
@@ -403,7 +403,7 @@
     "lat": -32.056,
     "lon": -65.831717,
     "type": "2Ghz",
-    "users": 12,
+    "users": 13,
     "status": true,
     "location": "Candelaria"
   },
@@ -439,7 +439,7 @@
     "lat": -32.811186,
     "lon": -66.092858,
     "type": "2Ghz",
-    "users": 16,
+    "users": 15,
     "status": true,
     "location": "La Carolina"
   },
@@ -727,7 +727,7 @@
     "lat": -33.403915,
     "lon": -67.151356,
     "type": "2Ghz",
-    "users": 7,
+    "users": 8,
     "status": true,
     "location": "Desaguadero"
   },
@@ -739,7 +739,7 @@
     "lat": -33.412455,
     "lon": -67.119449,
     "type": "2Ghz",
-    "users": 13,
+    "users": 12,
     "status": true,
     "location": "Desaguadero"
   },
@@ -775,7 +775,7 @@
     "lat": -33.855028,
     "lon": -66.370488,
     "type": "2Ghz",
-    "users": 18,
+    "users": 17,
     "status": true,
     "location": "El Cazador"
   },
@@ -943,7 +943,7 @@
     "lat": -33.103486,
     "lon": -66.066519,
     "type": "2Ghz",
-    "users": 8,
+    "users": 9,
     "status": true,
     "location": "El Trapiche"
   },
@@ -1219,7 +1219,7 @@
     "lat": -33.257961,
     "lon": -66.175142,
     "type": "2Ghz",
-    "users": 16,
+    "users": 15,
     "status": true,
     "location": "El Volcán"
   },
@@ -1267,7 +1267,7 @@
     "lat": -33.253803,
     "lon": -66.197074,
     "type": "2Ghz",
-    "users": 15,
+    "users": 16,
     "status": true,
     "location": "El Volcán"
   },
@@ -1375,7 +1375,7 @@
     "lat": -33.504583,
     "lon": -65.791382,
     "type": "2Ghz",
-    "users": 12,
+    "users": 11,
     "status": true,
     "location": "Fraga"
   },
@@ -1579,7 +1579,7 @@
     "lat": -33.276744,
     "lon": -66.231406,
     "type": "2Ghz",
-    "users": 6,
+    "users": 7,
     "status": true,
     "location": "Juana Koslay"
   },
@@ -1615,7 +1615,7 @@
     "lat": -33.284327,
     "lon": -66.255951,
     "type": "2Ghz",
-    "users": 13,
+    "users": 14,
     "status": true,
     "location": "Juana Koslay"
   },
@@ -1927,7 +1927,7 @@
     "lat": -33.85449,
     "lon": -65.19164,
     "type": "2Ghz",
-    "users": 16,
+    "users": 17,
     "status": true,
     "location": "Justo Daract"
   },
@@ -1975,7 +1975,7 @@
     "lat": -33.86069,
     "lon": -65.19141,
     "type": "2Ghz",
-    "users": 11,
+    "users": 10,
     "status": true,
     "location": "Justo Daract"
   },
@@ -1987,7 +1987,7 @@
     "lat": -33.86486454,
     "lon": -65.1760117,
     "type": "2Ghz",
-    "users": 10,
+    "users": 9,
     "status": true,
     "location": "Justo Daract"
   },
@@ -2167,7 +2167,7 @@
     "lat": -33.091031,
     "lon": -65.087839,
     "type": "2Ghz",
-    "users": 10,
+    "users": 11,
     "status": true,
     "location": "La Punilla"
   },
@@ -2647,7 +2647,7 @@
     "lat": -33.049916,
     "lon": -65.613063,
     "type": "2Ghz",
-    "users": 6,
+    "users": 7,
     "status": true,
     "location": "La Toma"
   },
@@ -2671,7 +2671,7 @@
     "lat": -33.0527802,
     "lon": -65.62119393,
     "type": "2Ghz",
-    "users": 4,
+    "users": 7,
     "status": true,
     "location": "La Toma"
   },
@@ -2779,7 +2779,7 @@
     "lat": -32.059925,
     "lon": -65.347863,
     "type": "2Ghz",
-    "users": 13,
+    "users": 12,
     "status": true,
     "location": "Lafinur"
   },
@@ -2959,7 +2959,7 @@
     "lat": -33.271381,
     "lon": -66.196394,
     "type": "2Ghz",
-    "users": 12,
+    "users": 11,
     "status": true,
     "location": "La Cumbre"
   },
@@ -3535,7 +3535,7 @@
     "lat": -32.344674,
     "lon": -65.010541,
     "type": "2Ghz",
-    "users": 9,
+    "users": 11,
     "status": true,
     "location": "Merlo"
   },
@@ -3631,7 +3631,7 @@
     "lat": -32.91931,
     "lon": -65.37893,
     "type": "2Ghz",
-    "users": 33,
+    "users": 34,
     "status": true,
     "location": "Naschel"
   },
@@ -3823,7 +3823,7 @@
     "lat": -32.431889,
     "lon": -65.200139,
     "type": "2Ghz",
-    "users": 13,
+    "users": 12,
     "status": true,
     "location": "Ojo del Río"
   },
@@ -3847,7 +3847,7 @@
     "lat": -32.6755,
     "lon": -64.990583,
     "type": "2Ghz",
-    "users": 17,
+    "users": 18,
     "status": true,
     "location": "Antena Solar"
   },
@@ -3907,7 +3907,7 @@
     "lat": -33.225941,
     "lon": -66.238854,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 7,
+    "users": 8,
     "status": true,
     "location": "Antena Solar"
   },
@@ -4423,7 +4423,7 @@
     "lat": -33.501658,
     "lon": -66.651831,
     "type": "2Ghz",
-    "users": 16,
+    "users": 15,
     "status": true,
     "location": "Antena Solar"
   },
@@ -4459,7 +4459,7 @@
     "lat": -32.600755,
     "lon": -66.12818,
     "type": "2Ghz",
-    "users": 10,
+    "users": 11,
     "status": true,
     "location": "San Francisco del Monte de Oro"
   },
@@ -4939,7 +4939,7 @@
     "lat": -33.31583,
     "lon": -66.33361,
     "type": "2Ghz",
-    "users": 7,
+    "users": 6,
     "status": true,
     "location": "San Luis"
   },
@@ -5071,7 +5071,7 @@
     "lat": -33.290444,
     "lon": -66.356228,
     "type": "2Ghz",
-    "users": 9,
+    "users": 10,
     "status": true,
     "location": "San Luis"
   },
@@ -5227,7 +5227,7 @@
     "lat": -33.304964,
     "lon": -66.315786,
     "type": "2Ghz",
-    "users": 7,
+    "users": 5,
     "status": true,
     "location": "San Luis"
   },
@@ -5407,7 +5407,7 @@
     "lat": -33.27467,
     "lon": -66.340217,
     "type": "2Ghz",
-    "users": 9,
+    "users": 8,
     "status": true,
     "location": "San Luis"
   },
@@ -5515,7 +5515,7 @@
     "lat": -33.313304,
     "lon": -66.343829,
     "type": "2Ghz",
-    "users": 10,
+    "users": 9,
     "status": true,
     "location": "San Luis"
   },
@@ -5563,7 +5563,7 @@
     "lat": -33.30838,
     "lon": -66.371883,
     "type": "2Ghz",
-    "users": 15,
+    "users": 17,
     "status": true,
     "location": "San Luis"
   },
@@ -5635,7 +5635,7 @@
     "lat": -33.286553,
     "lon": -66.344442,
     "type": "2Ghz",
-    "users": 50,
+    "users": 49,
     "status": true,
     "location": "San Luis"
   },
@@ -5743,7 +5743,7 @@
     "lat": -33.264047,
     "lon": -66.306609,
     "type": "2Ghz",
-    "users": 5,
+    "users": 6,
     "status": true,
     "location": "San Luis"
   },
@@ -5863,7 +5863,7 @@
     "lat": -33.32106,
     "lon": -66.30875,
     "type": "2Ghz",
-    "users": 4,
+    "users": 5,
     "status": true,
     "location": "San Luis"
   },
@@ -5910,7 +5910,7 @@
     "lat": -33.283711,
     "lon": -66.316441,
     "type": "2Ghz",
-    "users": 13,
+    "users": 15,
     "status": true,
     "location": "San Luis"
   },
@@ -5946,7 +5946,7 @@
     "lat": -33.287119,
     "lon": -66.314251,
     "type": "2Ghz",
-    "users": 15,
+    "users": 13,
     "status": true,
     "location": "San Luis"
   },
@@ -5994,7 +5994,7 @@
     "lat": -33.315522,
     "lon": -66.315854,
     "type": "2Ghz",
-    "users": 9,
+    "users": 11,
     "status": true,
     "location": "San Luis"
   },
@@ -6114,7 +6114,7 @@
     "lat": -33.29794,
     "lon": -66.322873,
     "type": "2Ghz",
-    "users": 12,
+    "users": 14,
     "status": true,
     "location": "San Luis"
   },
@@ -6162,7 +6162,7 @@
     "lat": -33.28307105,
     "lon": -66.30215435,
     "type": "2Ghz",
-    "users": 18,
+    "users": 17,
     "status": true,
     "location": "San Luis"
   },
@@ -6594,7 +6594,7 @@
     "lat": -32.409209,
     "lon": -65.676407,
     "type": "2Ghz",
-    "users": 21,
+    "users": 20,
     "status": true,
     "location": "San Martín"
   },
@@ -7266,7 +7266,7 @@
     "lat": -33.6808451,
     "lon": -65.47847386,
     "type": "2Ghz",
-    "users": 13,
+    "users": 11,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7350,7 +7350,7 @@
     "lat": -33.64258,
     "lon": -65.471889,
     "type": "2Ghz",
-    "users": 12,
+    "users": 11,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7470,7 +7470,7 @@
     "lat": -33.65944,
     "lon": -65.437509,
     "type": "2Ghz",
-    "users": 4,
+    "users": 3,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7614,7 +7614,7 @@
     "lat": -33.68958,
     "lon": -65.46071,
     "type": "2Ghz",
-    "users": 13,
+    "users": 12,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7638,7 +7638,7 @@
     "lat": -33.706909,
     "lon": -65.432001,
     "type": "2Ghz",
-    "users": 10,
+    "users": 11,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7698,7 +7698,7 @@
     "lat": -33.67721,
     "lon": -65.4624,
     "type": "2Ghz",
-    "users": 6,
+    "users": 5,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7758,7 +7758,7 @@
     "lat": -33.689176,
     "lon": -65.436099,
     "type": "2Ghz",
-    "users": 7,
+    "users": 8,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7782,7 +7782,7 @@
     "lat": -33.66927381,
     "lon": -65.47408116,
     "type": "2Ghz",
-    "users": 4,
+    "users": 5,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7794,7 +7794,7 @@
     "lat": -33.68896,
     "lon": -65.45001,
     "type": "2Ghz",
-    "users": 10,
+    "users": 9,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7806,7 +7806,7 @@
     "lat": -33.690555,
     "lon": -65.456248,
     "type": "2Ghz",
-    "users": 10,
+    "users": 11,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7854,7 +7854,7 @@
     "lat": -33.672944,
     "lon": -65.476383,
     "type": "2Ghz",
-    "users": 5,
+    "users": 4,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -7974,7 +7974,7 @@
     "lat": -33.67095,
     "lon": -65.462836,
     "type": "2Ghz",
-    "users": 9,
+    "users": 10,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -8058,7 +8058,7 @@
     "lat": -33.675904,
     "lon": -65.462956,
     "type": "2Ghz",
-    "users": 3,
+    "users": 4,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -8106,7 +8106,7 @@
     "lat": -33.698269,
     "lon": -65.453047,
     "type": "2Ghz",
-    "users": 15,
+    "users": 13,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -8130,7 +8130,7 @@
     "lat": -33.6652,
     "lon": -65.46635,
     "type": "2Ghz",
-    "users": 6,
+    "users": 7,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -8226,7 +8226,7 @@
     "lat": -32.060074,
     "lon": -65.831381,
     "type": "2Ghz",
-    "users": 18,
+    "users": 17,
     "status": true,
     "location": "Candelaria"
   },
@@ -8454,7 +8454,7 @@
     "lat": -33.23894104,
     "lon": -66.17981309,
     "type": "2Ghz",
-    "users": 18,
+    "users": 17,
     "status": true,
     "location": "El Volcán"
   },
@@ -8682,7 +8682,7 @@
     "lat": -32.33967,
     "lon": -67.26591,
     "type": "2Ghz",
-    "users": 6,
+    "users": 7,
     "status": true,
     "location": "Antena Solar"
   },
@@ -8934,7 +8934,7 @@
     "lat": -32.346294,
     "lon": -64.995836,
     "type": "2Ghz",
-    "users": 15,
+    "users": 17,
     "status": true,
     "location": "Merlo"
   },
@@ -9090,7 +9090,7 @@
     "lat": -32.236541,
     "lon": -65.815994,
     "type": "2Ghz",
-    "users": 40,
+    "users": 39,
     "status": true,
     "location": "Quines"
   },
@@ -9341,7 +9341,7 @@
     "lat": -33.32065278,
     "lon": -66.35865278,
     "type": "2Ghz",
-    "users": 16,
+    "users": 15,
     "status": true,
     "location": "San Luis"
   },
@@ -9533,7 +9533,7 @@
     "lat": -32.348788,
     "lon": -65.197455,
     "type": "2Ghz",
-    "users": 7,
+    "users": 8,
     "status": true,
     "location": "Santa Rosa del Conlara"
   },
@@ -9989,7 +9989,7 @@
     "lat": -33.698472,
     "lon": -65.503579,
     "type": "2Ghz",
-    "users": 5,
+    "users": 4,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -10505,7 +10505,7 @@
     "lat": -33.289497,
     "lon": -66.240114,
     "type": "2Ghz",
-    "users": 11,
+    "users": 10,
     "status": true,
     "location": "Juana Koslay"
   },
@@ -10625,7 +10625,7 @@
     "lat": -33.700598,
     "lon": -65.440048,
     "type": "2Ghz",
-    "users": 24,
+    "users": 25,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -10877,7 +10877,7 @@
     "lat": -32.897442,
     "lon": -66.110989,
     "type": "2Ghz",
-    "users": 8,
+    "users": 7,
     "status": true,
     "location": "Papagayos"
   },
@@ -10901,7 +10901,7 @@
     "lat": -33.855737,
     "lon": -65.174739,
     "type": "2Ghz",
-    "users": 10,
+    "users": 11,
     "status": true,
     "location": "Justo Daract"
   },
@@ -11321,7 +11321,7 @@
     "lat": -33.672833,
     "lon": -65.479917,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 24,
+    "users": 23,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -12449,7 +12449,7 @@
     "lat": -33.6559,
     "lon": -65.431767,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 20,
+    "users": 21,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -12605,7 +12605,7 @@
     "lat": -32.071545,
     "lon": -65.824058,
     "type": "2Ghz",
-    "users": 11,
+    "users": 12,
     "status": true,
     "location": "Candelaria"
   },
@@ -12905,7 +12905,7 @@
     "lat": -32.941875,
     "lon": -65.037253,
     "type": "2Ghz",
-    "users": 7,
+    "users": 8,
     "status": true,
     "location": "Villa del Carmen"
   },
@@ -13421,7 +13421,7 @@
     "lat": -33.311268,
     "lon": -66.253358,
     "type": "2Ghz",
-    "users": 16,
+    "users": 17,
     "status": true,
     "location": "Juana Koslay"
   },
@@ -13613,7 +13613,7 @@
     "lat": -33.133191,
     "lon": -66.063018,
     "type": "2Ghz",
-    "users": 7,
+    "users": 8,
     "status": true,
     "location": "El Trapiche"
   },
@@ -13625,7 +13625,7 @@
     "lat": -33.264023,
     "lon": -66.229744,
     "type": "2Ghz",
-    "users": 8,
+    "users": 6,
     "status": true,
     "location": "Juana Koslay"
   },
@@ -14021,7 +14021,7 @@
     "lat": -33.222133,
     "lon": -66.224883,
     "type": "2Ghz",
-    "users": 14,
+    "users": 15,
     "status": true,
     "location": "Potrero de los Funes"
   },
@@ -14381,7 +14381,7 @@
     "lat": -33.273667,
     "lon": -66.223139,
     "type": "2Ghz",
-    "users": 13,
+    "users": 12,
     "status": true,
     "location": "Juana Koslay"
   },
@@ -14417,7 +14417,7 @@
     "lat": -32.805422,
     "lon": -66.085836,
     "type": "2Ghz",
-    "users": 1,
+    "users": 0,
     "status": true,
     "location": "La Carolina"
   },
@@ -14549,7 +14549,7 @@
     "lat": -33.255556,
     "lon": -66.2345,
     "type": "2Ghz",
-    "users": 12,
+    "users": 11,
     "status": true,
     "location": "Juana Koslay"
   },
@@ -14573,7 +14573,7 @@
     "lat": -33.268639,
     "lon": -66.212639,
     "type": "2Ghz",
-    "users": 16,
+    "users": 15,
     "status": true,
     "location": "Juana Koslay"
   },
@@ -14669,7 +14669,7 @@
     "lat": -35.111706,
     "lon": -65.255914,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 11,
+    "users": 10,
     "status": true,
     "location": "Nueva Galia"
   },
@@ -15881,7 +15881,7 @@
     "lat": -33.05388249,
     "lon": -65.62087791,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 32,
+    "users": 33,
     "status": true,
     "location": "La Toma"
   },
@@ -15977,7 +15977,7 @@
     "lat": -33.858139,
     "lon": -65.189611,
     "type": "2Ghz",
-    "users": 8,
+    "users": 9,
     "status": true,
     "location": "Justo Daract"
   },
@@ -16469,7 +16469,7 @@
     "lat": -34.770107,
     "lon": -65.52292,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 29,
+    "users": 28,
     "status": true,
     "location": "Fortín el Patria"
   },
@@ -16709,7 +16709,7 @@
     "lat": -33.506194,
     "lon": -65.792694,
     "type": "2Ghz",
-    "users": 49,
+    "users": 50,
     "status": true,
     "location": "Fraga"
   },
@@ -17741,7 +17741,7 @@
     "lat": -33.128389,
     "lon": -66.361253,
     "type": "2Ghz",
-    "users": 5,
+    "users": 4,
     "status": true,
     "location": "El Milagro"
   },
@@ -18101,7 +18101,7 @@
     "lat": -33.839655,
     "lon": -65.214883,
     "type": "2Ghz",
-    "users": 8,
+    "users": 7,
     "status": true,
     "location": "Antena Solar"
   },
@@ -18857,7 +18857,7 @@
     "lat": -33.66552,
     "lon": -65.435174,
     "type": "2Ghz",
-    "users": 9,
+    "users": 7,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -19277,7 +19277,7 @@
     "lat": -32.408889,
     "lon": -64.995611,
     "type": "2Ghz",
-    "users": 18,
+    "users": 16,
     "status": true,
     "location": "Carpintería"
   },
@@ -19337,7 +19337,7 @@
     "lat": -33.311361,
     "lon": -66.356389,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 45,
+    "users": 44,
     "status": true,
     "location": "San Luis"
   },
@@ -19409,7 +19409,7 @@
     "lat": -33.287094,
     "lon": -66.347803,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 41,
+    "users": 39,
     "status": true,
     "location": "San Luis"
   },
@@ -19457,7 +19457,7 @@
     "lat": -33.278111,
     "lon": -66.165417,
     "type": "2Ghz",
-    "users": 8,
+    "users": 9,
     "status": true,
     "location": "La Cumbre"
   },
@@ -19469,7 +19469,7 @@
     "lat": -33.233389,
     "lon": -66.289472,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 19,
+    "users": 18,
     "status": true,
     "location": "La Punta"
   },
@@ -19517,7 +19517,7 @@
     "lat": -33.047722,
     "lon": -65.618083,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 54,
+    "users": 55,
     "status": true,
     "location": "La Toma"
   },
@@ -19565,7 +19565,7 @@
     "lat": -32.054722,
     "lon": -65.826639,
     "type": "2Ghz",
-    "users": 18,
+    "users": 19,
     "status": true,
     "location": "Candelaria"
   },
@@ -19577,7 +19577,7 @@
     "lat": -33.6825,
     "lon": -65.44375,
     "type": "2Ghz",
-    "users": 14,
+    "users": 13,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -19613,7 +19613,7 @@
     "lat": -32.341692,
     "lon": -65.190953,
     "type": "2Ghz",
-    "users": 24,
+    "users": 23,
     "status": true,
     "location": "Santa Rosa del Conlara"
   },
@@ -19781,7 +19781,7 @@
     "lat": -33.657861,
     "lon": -65.461778,
     "type": "2Ghz",
-    "users": 7,
+    "users": 8,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -19877,7 +19877,7 @@
     "lat": -32.556353,
     "lon": -65.011857,
     "type": "2Ghz",
-    "users": 13,
+    "users": 14,
     "status": true,
     "location": "Cortaderas"
   },
@@ -20045,7 +20045,7 @@
     "lat": -32.82952,
     "lon": -65.95847,
     "type": "2Ghz",
-    "users": 5,
+    "users": 4,
     "status": true,
     "location": "Antena Solar"
   },
@@ -20224,7 +20224,7 @@
     "lat": -32.94676,
     "lon": -67.12046,
     "type": "2Ghz",
-    "users": 13,
+    "users": 0,
     "status": true,
     "location": "Antena Solar"
   },
@@ -20343,7 +20343,7 @@
     "lat": -33.1988738,
     "lon": -65.8497782,
     "type": "2Ghz",
-    "users": 10,
+    "users": 11,
     "status": true,
     "location": "Saladillo"
   },
@@ -21015,7 +21015,7 @@
     "lat": -33.683882,
     "lon": -65.487796,
     "type": "2Ghz",
-    "users": 5,
+    "users": 4,
     "status": true,
     "location": "Villa Mercedes"
   },
@@ -21098,7 +21098,7 @@
     "lat": -33.802131,
     "lon": -66.414857,
     "type": "2Ghz",
-    "users": 6,
+    "users": 7,
     "status": true,
     "location": "Zanjitas"
   },
@@ -21218,7 +21218,7 @@
     "lat": -33.57614,
     "lon": -66.16049,
     "type": "2Ghz",
-    "users": 1,
+    "users": 2,
     "status": true,
     "location": "Antena Solar"
   },
@@ -21338,7 +21338,7 @@
     "lat": -32.627408,
     "lon": -65.54844,
     "type": "2Ghz",
-    "users": 3,
+    "users": 2,
     "status": true,
     "location": "Las Lagunas"
   },
@@ -21806,7 +21806,7 @@
     "lat": -33.208667,
     "lon": -66.184722,
     "type": "2Ghz",
-    "users": 11,
+    "users": 9,
     "status": true,
     "location": "Estancia Grande"
   },
@@ -23093,7 +23093,7 @@
     "lat": -32.701889,
     "lon": -64.989397,
     "type": "Dual Band 5Ghz | 2.4Ghz",
-    "users": 9,
+    "users": 8,
     "status": true
   },
   {

@@ -71,12 +71,37 @@ import oldDataWifi from "../app/components/GeoInfo/components/data/old-data-wifi
       };
     });
 
-    await fs.writeFile(
-      path.join(process.cwd(), "data", "latest-wifi-sl-data.json"),
-      JSON.stringify(formattedData, null, 2),
+    const currentDataMap = new Map(currentData.map((item) => [item.name, item]));
+
+    formattedData.forEach((newItem) => {
+      if (currentDataMap.has(newItem.name)) {
+        const existing = currentDataMap.get(newItem.name);
+        currentDataMap.set(newItem.name, {
+          ...existing,
+          ...newItem,
+          location: newItem.location !== "Nueva" ? newItem.location : existing.location,
+        });
+      } else {
+        currentDataMap.set(newItem.name, newItem);
+      }
+    });
+
+    const allDataUpdated = Array.from(currentDataMap.values());
+
+    const slAntennas = allDataUpdated.filter(
+      (data) =>
+        (String(cleanSpaces(data.name)).startsWith("GobSL") ||
+          String(cleanSpaces(data.name)).startsWith("WiFi3.0") ||
+          String(cleanSpaces(data.name)).startsWith("WiFi4.0")) &&
+        Boolean(data.users),
     );
 
-    console.log("✅ Se ha creado el archivo 🐶!");
+    await fs.writeFile(
+      path.join(process.cwd(), "src", "app", "components", "GeoInfo", "components", "data", "wifi-locates.json"),
+      JSON.stringify(allDataUpdated, null, 2),
+    );
+
+    console.log(`✅ Tarea finalizada: ${allDataUpdated.length} antenas totales.`);
   } catch (error) {
     console.error("Error al ejecutar el wokflow:", error);
   }

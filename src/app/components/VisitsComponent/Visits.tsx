@@ -57,7 +57,7 @@ export const VisitsComponent = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   return (
     <CloneVisits>

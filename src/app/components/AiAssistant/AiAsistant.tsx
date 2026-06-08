@@ -44,7 +44,7 @@ export const AiAssistant = ({
   const [language, setLanguage] = useState<string>("es-AR");
   const MAX_CHAR = 300;
   const [charCount, setCharCount] = useState<number>(0);
-  const { location, isLoading: loading, error } = useLocation();
+  const { location } = useLocation();
 
   const sendQuery = async ({
     text,

@@ -7,7 +7,7 @@ import { useCallback, useRef, useState } from "react";
 export const ApkCard = () => {
   const [videoState, setVideoState] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { location, error, isLoading } = useLocation();
+  const { location } = useLocation();
   
 
   const sendDataAPKDownload = useCallback(async () => {
@@ -29,7 +29,7 @@ export const ApkCard = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [location]);
 
   return (
     <div className="border-2 my-5 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary overflow-hidden backdrop-blur-xl z-50">

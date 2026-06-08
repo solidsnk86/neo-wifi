@@ -16,7 +16,7 @@ import oldDataWifi from "../app/components/GeoInfo/components/data/old-data-wifi
     const formatMAC = (mac) =>
       mac ? String(mac).split(" ").join("-").toUpperCase() : mac;
 
-    const formattedData = Object.keys(antennas).map((key, i) => {
+    const formattedData = Object.keys(antennas).map((key) => {
       const {
         Nombre,
         NombreAntena,

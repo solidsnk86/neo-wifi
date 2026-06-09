@@ -89,7 +89,7 @@ import oldDataWifi from "../app/components/GeoInfo/components/data/old-data-wifi
     const allDataUpdated = Array.from(currentDataMap.values());
 
     await fs.writeFile(
-      path.join(process.cwd(), "src", "app", "components", "GeoInfo", "components", "data", "wifi-locates.json"),
+      path.join(process.cwd(), "data", "wifi-locates.json"),
       JSON.stringify(allDataUpdated, null, 2),
     );
 

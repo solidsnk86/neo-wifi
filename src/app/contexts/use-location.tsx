@@ -78,6 +78,7 @@ export const LocationProvider = ({ children }: { children: ReactNode }) => {
       countryName,
       latitude,
       longitude,
+      timezone,
       timeZoneCity,
     };
   }, [location]);

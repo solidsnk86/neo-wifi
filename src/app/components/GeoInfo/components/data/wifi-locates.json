@@ -48911,5 +48911,17 @@
     "users": 0,
     "status": true,
     "location": "Antena Solar"
+  },
+  {
+    "name": "WiFi4.0-EG-18",
+    "MAC": "3C-E8-6E-CE-98-60",
+    "name5g": "GobSL-EG-18",
+    "MAC5g": null,
+    "lat": -33.2363390901982,
+    "lon": -66.1758737288551,
+    "type": "Dual Band 5Ghz | 2.4Ghz",
+    "users": 1,
+    "status": true,
+    "location": "Antena Solar"
   }
 ]

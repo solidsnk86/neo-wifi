@@ -1,5 +1,7 @@
 export {};
 
+declare module "*.css"
+declare module "highlight.js/styles/an-old-hope.css";
 declare global {
   interface TranslatorInstance {
     translate(text: string): Promise<string>;

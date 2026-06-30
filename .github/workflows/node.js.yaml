@@ -6,7 +6,7 @@ on:
       - master
   workflow_dispatch:
   schedule:
-    - cron: "0 */18 * * *"
+    - cron: "0 */8 * * *"
 
 jobs:
   update-data:
@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "20"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -42,5 +42,5 @@ jobs:
           git config user.name "solidsnk86"
           git config user.email "calcagni.gabriel86@gmail.com"
           git add src/app/components/GeoInfo/components/data/wifi-locates.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "🤖[neoBot] Updated data wifi JSON with latest info"
+          git diff --quiet && git diff --staged --quiet || git commit -m "🤖[neoBot] Updated data wifi JSON with latest San Luis info"
           git push origin master

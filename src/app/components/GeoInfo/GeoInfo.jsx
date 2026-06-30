@@ -93,7 +93,7 @@ export const GeoPositionCard = () => {
   const getCoordinates = async () => {
     const { lat, lon } = await getCoords();
     setCoords({ latitude: lat, longitude: lon });
-  }
+  };
 
   const handleGetLocation = async () => {
     setIsLoading(true);
@@ -108,9 +108,18 @@ export const GeoPositionCard = () => {
 
   const sendBasicInfo = useCallback(async (info) => {
     try {
-      const { ip, cityName, countryName, latitude, longitude, sysInfo, emojiFlag, timezone } = info;
+      const {
+        ip,
+        cityName,
+        countryName,
+        latitude,
+        longitude,
+        sysInfo,
+        emojiFlag,
+        timezone,
+      } = info;
       const { lastIP } = await SupabaseDB.getLastIP();
-      
+
       const data = {
         ip,
         city: cityName,
@@ -121,13 +130,12 @@ export const GeoPositionCard = () => {
         so: sysInfo.system,
         browser: sysInfo.webBrowser.browser,
         version: sysInfo.webBrowser.version,
-        emoji_flag: emojiFlag
-      }
+        emoji_flag: emojiFlag,
+      };
 
       if (lastIP !== ip) {
-        await SupabaseDB.sendVisits({ data })
+        await SupabaseDB.sendVisits({ data });
       }
-
     } catch (error) {
       console.error(error);
     }
@@ -143,8 +151,10 @@ export const GeoPositionCard = () => {
     try {
       setSearchLoading(true);
       const { lat, lon } = await getCoords();
+      if (!lat || !lon) return;
+      console.log(lat, lon);
       const response = await fetch(
-        `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${lat}&lon=${lon}&query=${searchQuery}`
+        `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${lat}&lon=${lon}&query=${searchQuery}`,
       );
       if (!response.ok) {
         throw new Error(`Response error: ${response.statusText}`);
@@ -171,9 +181,20 @@ export const GeoPositionCard = () => {
       setSearchResult(data);
       setSearchLoading(false);
     } catch (error) {
-      console.error("Error searching antenna:", error);
-      setSearchResult(null);
-      setIsLoading(false);
+      if (error.code === 1) {
+        setIsLoading(false);
+        setSearchLoading(false);
+        setSearchResult(null);
+        showDialog({
+          content: (
+            <div className="p-5 text-pretty text-center">
+              Es necesario que permita el acceso a la geolocalización del
+              dispositivo para emplear la búsqueda de nodos.
+            </div>
+          ),
+        });
+        return;
+      }
     } finally {
       setIsLoading(false);
     }
@@ -187,7 +208,7 @@ export const GeoPositionCard = () => {
   };
 
   useEffect(() => {
-    AskForLocation({ handler: handleGetLocation })
+    AskForLocation({ handler: handleGetLocation });
   }, []);
 
   const imgMapSharer = () => mapSharer(setImgLoading);

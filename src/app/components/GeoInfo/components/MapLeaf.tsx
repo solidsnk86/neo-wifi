@@ -44,10 +44,9 @@ const SATELLITE_STYLE: StyleSpecification = {
 };
 const OPEN_STREET_MAP_STYLE = "https://tiles.openfreemap.org/styles/bright";
 const OPEN_STREET_MAP_3D_STYLE = "https://tiles.openfreemap.org/styles/liberty";
+const POPUP_CONTENT_CLASS = "text-sm font-semibold text-zinc-900 p-2";
 
 type MapStyleKey = "map" | "satellite" | "3d";
-const POPUP_CONTENT_CLASS =
-  "text-sm font-semibold text-zinc-900 dark:text-zinc-100 bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-700 rounded-md p-2";
 
 function UserLocationMarkerIcon() {
   return (
@@ -109,7 +108,14 @@ function WifiMarkerIcon() {
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="12" cy="20" r="1" fill="#0078D7" stroke="#0078D7" strokeWidth="2" />
+        <circle
+          cx="12"
+          cy="20"
+          r="1"
+          fill="#0078D7"
+          stroke="#0078D7"
+          strokeWidth="2"
+        />
       </g>
     </svg>
   );
@@ -128,6 +134,7 @@ const LeafMap = ({
   const mapRef = useRef<MapRef | null>(null);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
   const [selectValue, setSelectValue] = useState<string>();
+  const [selectedAntennas, setSelectedAntennas] = useState<WifiDataProps[]>([]);
   const [mapStyle, setMapStyle] = useState<MapStyleKey>("map");
 
   useEffect(() => {
@@ -152,9 +159,15 @@ const LeafMap = ({
     return optimizedAntennas.filter(
       (antenna) =>
         antenna.name !== antennaPosition.name.ssid2g &&
-        antenna.name !== secondAntennaPosition.name.ssid2g,
+        antenna.name !== secondAntennaPosition.name.ssid2g &&
+        antenna.name !== thirdAntennaPosition.name.ssid2g,
     );
-  }, [optimizedAntennas, antennaPosition.name.ssid2g, secondAntennaPosition.name.ssid2g]);
+  }, [
+    optimizedAntennas,
+    antennaPosition.name.ssid2g,
+    secondAntennaPosition.name.ssid2g,
+    thirdAntennaPosition.name.ssid2g,
+  ]);
 
   const selectedStyle = useMemo(() => {
     if (mapStyle === "satellite") {
@@ -162,7 +175,10 @@ const LeafMap = ({
     }
 
     if (mapStyle === "3d") {
-      return { light: OPEN_STREET_MAP_3D_STYLE, dark: OPEN_STREET_MAP_3D_STYLE };
+      return {
+        light: OPEN_STREET_MAP_3D_STYLE,
+        dark: OPEN_STREET_MAP_3D_STYLE,
+      };
     }
 
     return { light: OPEN_STREET_MAP_STYLE, dark: OPEN_STREET_MAP_STYLE };
@@ -187,13 +203,16 @@ const LeafMap = ({
         ...antenna,
         lat: Number(antenna.lat) || 0,
         lon: Number(antenna.lon) || 0,
-      }))
-      .filter((antenna) => antenna.lat && antenna.lon);
+      }));
 
     if (locationSelect.length === 0) return;
 
+    setSelectedAntennas(locationSelect);
     mapRef.current.flyTo({
-      center: [locationSelect[0].lon as number, locationSelect[0].lat as number],
+      center: [
+        locationSelect[0].lon as number,
+        locationSelect[0].lat as number,
+      ],
       zoom: 14,
       duration: 2000,
     });
@@ -257,7 +276,7 @@ const LeafMap = ({
   const santiago = cleanedPlaces.find((value) => value === "Chile");
   const losAngeles = cleanedPlaces.find((value) => value === "Los Angeles");
   const newYork = cleanedPlaces.find((value) => value === "New York");
-  const mexico = cleanedPlaces.find((value) => value === "Mexico")
+  const mexico = cleanedPlaces.find((value) => value === "Mexico");
 
   const filterValues = (val: string) => {
     return (
@@ -286,6 +305,7 @@ const LeafMap = ({
     );
   };
 
+ 
   return (
     <>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
@@ -448,7 +468,10 @@ const LeafMap = ({
             id="second-route"
             coordinates={[
               [currentPosition.longitude, currentPosition.latitude],
-              [secondAntennaPosition.coords.lon, secondAntennaPosition.coords.lat],
+              [
+                secondAntennaPosition.coords.lon,
+                secondAntennaPosition.coords.lat,
+              ],
             ]}
             color="#2563eb"
             width={2}
@@ -459,7 +482,10 @@ const LeafMap = ({
             id="third-route"
             coordinates={[
               [currentPosition.longitude, currentPosition.latitude],
-              [thirdAntennaPosition.coords.lon, thirdAntennaPosition.coords.lat],
+              [
+                thirdAntennaPosition.coords.lon,
+                thirdAntennaPosition.coords.lat,
+              ],
             ]}
             color="#2563eb"
             width={1}
@@ -474,7 +500,9 @@ const LeafMap = ({
             <MarkerContent>
               <UserLocationMarkerIcon />
             </MarkerContent>
-            <MarkerPopup className={POPUP_CONTENT_CLASS}>Tu ubicacion</MarkerPopup>
+            <MarkerPopup className={POPUP_CONTENT_CLASS}>
+              Tu ubicacion
+            </MarkerPopup>
           </MapMarker>
 
           <MapMarker
@@ -545,11 +573,36 @@ const LeafMap = ({
                   <p>🔹 Antena 2.4Ghz: {antenna.name || "No disponible"}</p>
                   <p>🔹 Antena 5Ghz: {antenna.name5g || "No disponible"}</p>
                   <p>⚡ Tipo: {antenna.type}</p>
-                  <p>🙇‍♂️ Usuarios Conectados: {antenna.users || "No disponible"}</p>
+                  <p>
+                    🙇‍♂️ Usuarios Conectados: {antenna.users || "No disponible"}
+                  </p>
                 </div>
               </MarkerPopup>
             </MapMarker>
           ))}
+
+          {selectValue &&
+            selectedAntennas.map((antenna) => (
+              <MapMarker
+                key={`${antenna.name}-${antenna.lon}-${antenna.lat}`}
+                longitude={antenna.lon as number}
+                latitude={antenna.lat as number}
+              >
+                <MarkerContent>
+                  <WifiMarkerIcon />
+                </MarkerContent>
+                <MarkerPopup className={POPUP_CONTENT_CLASS}>
+                  <div>
+                    <p>🔹 Antena 2.4Ghz: {antenna.name || "No disponible"}</p>
+                    <p>🔹 Antena 5Ghz: {antenna.name5g || "No disponible"}</p>
+                    <p>⚡ Tipo: {antenna.type}</p>
+                    <p>
+                      🙇‍♂️ Usuarios Conectados: {antenna.users || "No disponible"}
+                    </p>
+                  </div>
+                </MarkerPopup>
+              </MapMarker>
+            ))}
         </Map>
 
         <div className="absolute top-2 left-2 z-20">

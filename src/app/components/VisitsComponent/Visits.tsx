@@ -16,7 +16,7 @@ import { timeAgo } from "@/utils/timeAgo";
 const Marquee = ({ data }: Pick<PartialOptionsProps, "data">) => {
   return (
     <small className={styles.visits}>
-      Última visita desde {data?.city || "No disponible"}, -{" "}
+      Última cobertura realizada desde {data?.city || "No disponible"},{" "}
       {data?.country || "No disponible"} {data?.emoji_flag || "No disponible"}{" "}
       el día{" "}
       {new Date(data?.created_at as string).toLocaleDateString("es-AR", {

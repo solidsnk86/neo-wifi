@@ -45,7 +45,7 @@ export const SearchAntenna = ({
               type="text"
               name="antenna"
               placeholder="Ej: WiFi4.0-CO-08"
-              className="border border-zinc-300/70 dark:border-zinc-700/50 rounded-md py-[6px] px-1 bg-zinc-50 dark:bg-transparent placeholder:text-base"
+              className="border border-zinc-300/70 dark:border-zinc-700/50 rounded-md p-2 bg-zinc-50 dark:bg-transparent placeholder:text-base"
               onChange={(e) => setQuery(e.target.value)}
               value={query}
               required

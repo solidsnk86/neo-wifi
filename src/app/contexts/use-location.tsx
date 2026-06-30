@@ -28,6 +28,7 @@ type ContextProps = {
     emojiFlag: string;
     cityName: string;
     countryName: string;
+    timezone: string;
     latitude: string;
     longitude: string;
     timeZoneCity: string;

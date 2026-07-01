@@ -1,12 +1,11 @@
 .h1 {
   font-family: "bogue-black";
   padding-top: 16px;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 4rem;
-  color: #333;
+  color: #222;
   z-index: 999;
   position: relative;
-  animation: zoomIn 0.7s ease-in both;
 }
 
 @media (width < 700px) {

@@ -23,53 +23,40 @@ export const Hero = () => {
   }, []);
 
   return (
-    <div className="w-full px-4 mx-auto justify-center pt-16 md:pt-4">
+    <div className="w-full grid justify-left mt-10">
       <div>
-        <h1
-          className={`text-center text-pretty ${styles.h1} dark:text-zinc-100`}
-        >
-          Configura tu CPE WiFi en
-          <span className={`${styles.h1} relative ml-2 dark:text-zinc-100`}>
-            segundos
-            <svg
-              width="294"
-              height="8"
-              viewBox="0 0 294 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="absolute -bottom-[6px] left-[4px] text-[--color-yellow-primary] w-48 md:w-[294px]"
-            >
-              <path
-                d={`M2 6C21.2566 4.1224 68.616 0.784449 294 2.45343`}
-                stroke="currentColor"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
-            </svg>
+        <div className="relative inline-flex items-center rounded-full border bg-white z-0 px-3 py-1.5">
+          <div className="shine absolute inset-0 rounded-[inherit] pointer-events-none" />
+          <span className="relative z-10 text-black text-xs">
+            Nuevas antenas agregadas en Jun 2026
           </span>
+        </div>
+      </div>
+      <div>
+        <h1 className={`text-left text-pretty ${styles.h1} dark:text-zinc-100`}>
+          Configura tu dispositivo CPE WiFi con facilidad
         </h1>
-        <div>
+        <div className="text-neutral-600 dark:text-neutral-400 font-medium max-w-[634px] text-lg md:text-xl">
           <p
             ref={textRef}
-            className="py-20 text-pretty text-base md:text-[17px] text-center text-zinc-600 dark:text-zinc-400 antialiased"
+            className="py-8 text-pretty text-lg md:text-xl font-semibold md:text-[17px] text-left text-zinc-600 dark:text-zinc-400 md:leading-7 antialiased"
           >
-            Simplifica la conexión a las redes WiFi del Gobierno de San Luis con
-            esta herramienta especializada. Configura tu dispositivo TP-LINK CPE
-            de forma rápida, segura y automatizada, garantizando una
-            conectividad óptima a la red provincial.
+            Automatiza la configuración de tu TP-Link CPE y conéctate a la red
+            WiFi del Gobierno de San Luis en minutos, optimizando el proceso de
+            instalación.
           </p>
         </div>
       </div>
-      <aside className="flex justify-center gap-10 relative z-50">
+      <aside className="flex justify-left gap-10 relative z-50">
         <Link
           href="/start/introduction"
-          className="py-3 px-4 border border-zinc-300/70 dark:border-zinc-800 rounded-full text-white dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 cursor-pointer hover:opacity-80"
+          className="py-3 px-4 text-sm md:text-base rounded-full text-white font-medium dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 cursor-pointer hover:opacity-80"
         >
           Aprende más
         </Link>
         <Link
           href="/download"
-          className={`py-3 px-4 backdrop-blur-xl cursor-pointer flex items-center gap-2 group border border-zinc-300/70 dark:border-zinc-800 rounded-full hover:border-[--color-yellow-primary] dark:hover:border-[--color-yellow-primary] relative`}
+          className={`py-3 px-4 text-sm md:text-base bg-[#facc15] text-black font-medium cursor-pointer flex items-center gap-2 group rounded-full hover:border-[#eafe7c] dark:hover:opacity-80 relative`}
         >
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />

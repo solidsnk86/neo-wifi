@@ -5,7 +5,7 @@ import { PlaneIcon } from "./Icons";
 import { showDialog } from "@/utils/dialog";
 import { Info, MailCheck } from "lucide-react";
 
-export default function NewsletterForm() {
+export default function FeedBackForm() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string>();
   const [appData, setAppData] = useState<{
@@ -98,7 +98,7 @@ export default function NewsletterForm() {
         />
         <button
           type="submit"
-          className="w-full md:w-fit flex gap-2 items-center justify-center mx-auto p-2 bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50"
+          className="w-full md:w-fit flex gap-2 items-center justify-center mx-auto p-2 bg-[#facc15] btn text-zinc-900 rounded-md border border-zinc-300/70 dark:border-zinc-500/50"
         >
           <PlaneIcon />
           {isLoading ? (

@@ -15,11 +15,12 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import Quote from "./components/Quote";
 import { BackToTop } from "./components/BackToTop";
 import { Features } from "./components/Features";
-import { NewsletterSection } from "./components/NewsletterSection";
+import { FeedBackSection } from "./components/FeedBackSection";
 import { Neo } from "./components/Neo";
 import { MarqueeWifiLocations } from "./components/MarqueeWifiLocations";
 import FaqsAccordionList from "./components/FAQ/AccordionList";
 import { ApkCard } from "@/components/ui/ApkCard";
+import { HeroSection } from "./components/Hero/HeroSection";
 
 gsap.registerPlugin(DrawSVGPlugin);
 
@@ -78,9 +79,9 @@ export default function Home() {
       <div className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
         <Navbar />
 
-        <HomeBlock>
+        <HeroSection>
           <Hero />
-        </HomeBlock>
+        </HeroSection>
 
         <HomeBlock className="flex justify-center mx-auto">
           <div className="flex flex-col">
@@ -117,7 +118,10 @@ export default function Home() {
           </p>
         </article>
 
-        <MarqueeWifiLocations handleSate={handleClikStateBtn} paused={isPaused} />
+        <MarqueeWifiLocations
+          handleSate={handleClikStateBtn}
+          paused={isPaused}
+        />
 
         <HomeBlock className="px-3">
           <ApkCard />
@@ -131,16 +135,6 @@ export default function Home() {
           </HomeBlock>
 
           <Donation content="¿Me ayudas a seguir creando soluciones?" />
-
-          <HomeBlock>
-            <Image
-              src="/assets/neo-wifi-app-card.png"
-              width={400}
-              height={300}
-              alt="Neo-Wifi app image"
-              className="rounded-[16px] img_card relative z-50"
-            />
-          </HomeBlock>
 
           <Quote />
         </section>
@@ -161,7 +155,7 @@ export default function Home() {
           <FaqsAccordionList />
         </HomeBlock>
 
-        <NewsletterSection />
+        <FeedBackSection />
 
         <Neo handlerEvent={handleClickChat} />
         <Footer />
@@ -174,8 +168,11 @@ export default function Home() {
           />
         )}
 
-        <div className={`fixed top-0 left-0 w-full h-dvh z-[9999] transition-transform duration-500 ${isOpen ? "translate-y-0" : "translate-y-[100%]"
-          }`}>
+        <div
+          className={`fixed top-0 left-0 w-full h-dvh z-[9999] transition-transform duration-500 ${
+            isOpen ? "translate-y-0" : "translate-y-[100%]"
+          }`}
+        >
           <AiAssistant
             closeAssistant={() => setIsOpen(false)}
             history={historyChat}

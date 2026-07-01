@@ -7,7 +7,7 @@ import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import MouseTrail from "./components/MouseTrail";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { pauseMarquee, playMarquee } from "./components/constants";
 import Quote from "./components/Quote";
 import { BackToTop } from "./components/BackToTop";

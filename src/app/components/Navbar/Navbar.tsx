@@ -32,7 +32,7 @@ export const Navbar = () => {
   return (
     <div className="mx-6">
       <nav
-        className={`flex justify-between items-center md:p-3 p-2.5 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl ${styles.nav}`}
+        className={`flex justify-between border-b border-zinc-200 dark:border-zinc-800 items-center md:p-3 p-2.5 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl ${styles.nav}`}
       >
         <Link
           href="/"
@@ -42,7 +42,7 @@ export const Navbar = () => {
         >
           <div className="flex gap-2 items-center">
             <Image src="/favicon.ico" width={28} height={28} alt="" className="-translate-y-0.5" />
-            <h3 className="font-bold text-md">NeoWiFi</h3>
+            <h3 className="font-bold text-md hidden md:block">NeoWiFi</h3>
           </div>
         </Link>
 
@@ -102,7 +102,7 @@ export const Navbar = () => {
         </div>
 
         <AlignRight
-          className="md:hidden block cursor-pointer w-8 h-8"
+          className="md:hidden block cursor-pointer"
           aria-label="Menú desplegable"
           onClick={toggleMenu}
         />
@@ -114,7 +114,7 @@ export const Navbar = () => {
           >
             <div className={styles.menu} onClick={(e) => e.stopPropagation()}>
               <X
-                className={`absolute top-4 right-4 w-8 h-8 hover:opacity-60 cursor-pointer z-50 ${styles.xEffect}`}
+                className={`absolute top-4 right-4 hover:opacity-60 cursor-pointer z-50 ${styles.xEffect}`}
                 onClick={toggleMenu}
               />
 

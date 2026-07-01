@@ -103,7 +103,7 @@ export function DocsSidebar() {
       </button>
 
       {/* Sidebar desktop */}
-      <aside className="hidden lg:flex flex-col w-64 shrink-0 sticky top-14 h-screen border-r border-zinc-200 dark:border-zinc-800 backdrop-blur-xl bg-[#F5F5F5] dark:bg-zinc-900/50">
+      <aside className="hidden lg:flex flex-col w-64 shrink-0 sticky top-14 h-screen border-r border-zinc-200 dark:border-zinc-800 backdrop-blur-xl">
         <SidebarContent activeId={activeId} />
       </aside>
 

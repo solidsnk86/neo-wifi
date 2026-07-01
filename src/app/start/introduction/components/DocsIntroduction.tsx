@@ -1,6 +1,7 @@
 export const DocsIntroduction = () => {
   return (
-    <article className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 flex justify-center mx-auto flex-col my-6 p-6 relative max-w-3xl backdrop-blur-xl z-50">
+    <article className="border border-zinc-200/70 dark:border-zinc-800 rounded-xl bg-gradient-to-br bg-[#ffffff] dark:bg-zinc-900/90 flex justify-center mx-auto flex-col my-6 p-6 relative max-w-3xl backdrop-blur-xl overflow-hidden z-50 dark:text-zinc-400">
+      <div className="absolute top-3 left-20 w-24 h-24 bg-white/50 blur-[50px] rounded-full" />
       <p>
         Aplicación de escritorio para configurar de forma rápida y automatizada
         dispositivos TP-Link como CPEs y routers.

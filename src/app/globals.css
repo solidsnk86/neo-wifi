@@ -345,13 +345,15 @@ html {
 */
 
 .img_card {
-  -webkit-mask-image: linear-gradient(90deg, transparent 5%, black 40%),
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 5%, black 40%),
     linear-gradient(270deg, transparent 5%, black 40%),
     linear-gradient(180deg, transparent 5%, black 40%),
     linear-gradient(0deg, transparent 5%, black 40%);
   -webkit-mask-composite: source-in;
 
-  mask-image: linear-gradient(90deg, transparent 5%, black 40%),
+  mask-image:
+    linear-gradient(90deg, transparent 5%, black 40%),
     linear-gradient(270deg, transparent 5%, black 40%),
     linear-gradient(180deg, transparent 5%, black 40%),
     linear-gradient(0deg, transparent 5%, black 40%);
@@ -685,7 +687,9 @@ html {
 
 #map .leaflet-tile-pane,
 #map .leaflet-shadow-pane {
-  transition: transform 0.55s ease, filter 0.55s ease;
+  transition:
+    transform 0.55s ease,
+    filter 0.55s ease;
 }
 
 #map.map-tilt-3d .leaflet-tile-pane,
@@ -823,16 +827,12 @@ html {
   max-width: 500px;
   padding: 20px;
   box-shadow: 0 0 6px 3px #0000001a;
-  background-image: linear-gradient(
-      90deg,
-      #b6d7e8,
-      2px,
-      transparent,
-      2px,
-      transparent
-    ),
+  background-image:
+    linear-gradient(90deg, #b6d7e8, 2px, transparent, 2px, transparent),
     linear-gradient(0, #d9eaf3, 1px, transparent, 2px, transparent);
-  background-position: 4rem 0, 0 5px;
+  background-position:
+    4rem 0,
+    0 5px;
   background-size: 100% 3rem;
   padding-left: 6rem;
   z-index: 4;
@@ -928,5 +928,30 @@ html {
 
   to {
     background-position: 300% 50%;
+  }
+}
+
+#copy {
+  animation: iconOut 0.5s backwards;
+}
+#copy-check {
+  animation: iconIn 0.5s forwards;
+}
+
+@keyframes iconIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes iconOut {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
   }
 }

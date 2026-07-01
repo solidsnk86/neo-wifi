@@ -247,13 +247,13 @@ export const AiAssistant = ({
     >
       <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">
         <span
-          className="group absolute right-2 top-2"
+          className="group absolute right-1 top-1 p-2 hover:dark:bg-zinc-700/50 hover:bg-zinc-300/70 rounded-full"
           title="Cerrar asistente"
           onClick={closeAssistant}
         >
           <X
-            size={24}
-            className="group-hover:text-red-400 group-hover:dark:bg-zinc-700/50 group-hover:bg-zinc-300/70 rounded-md text-black dark:text-white"
+            size={18}
+            className="text-black dark:text-white"
           />
         </span>
         <h3 className="text-lg md:text-2xl font-semibold text-black dark:text-white text-center font-['bogue-black']">
@@ -389,7 +389,7 @@ export const AiAssistant = ({
             rows={1}
             placeholder="Pregunta lo que quieras.."
           />
-          <small className="absolute bottom-1 right-24 md:right-28 xl:right-36 text-xs">
+          <small className="absolute bottom-1 right-24 md:right-28 xl:right-36 text-[11px] font-thin">
             {charCount}/{MAX_CHAR}
           </small>
           <button

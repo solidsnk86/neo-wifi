@@ -36,10 +36,10 @@ export const Hero = () => {
         <h1 className={`text-left text-pretty ${styles.h1} dark:text-zinc-100`}>
           Configura tu dispositivo CPE WiFi con facilidad
         </h1>
-        <div className="text-neutral-600 dark:text-neutral-400 font-medium max-w-[634px] text-lg md:text-xl">
+        <div className="text-neutral-600 dark:text-neutral-400 max-w-[634px] text-lg md:text-xl">
           <p
             ref={textRef}
-            className="py-8 text-pretty text-lg md:text-xl font-semibold md:text-[17px] text-left text-zinc-600 dark:text-zinc-400 md:leading-7 antialiased"
+            className="py-8 text-pretty text-lg md:text-xl font-medium md:text-[17px] text-left text-zinc-600 dark:text-zinc-400 md:leading-7 antialiased"
           >
             Automatiza la configuración de tu TP-Link CPE y conéctate a la red
             WiFi del Gobierno de San Luis en minutos, optimizando el proceso de
@@ -50,13 +50,13 @@ export const Hero = () => {
       <aside className="flex justify-left gap-10 relative z-50">
         <Link
           href="/start/introduction"
-          className="py-3 px-4 text-sm md:text-base rounded-full text-white font-medium dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 cursor-pointer hover:opacity-80"
+          className="flex justify-center items-center py-3 px-4 text-sm md:text-base rounded-full text-white font-medium dark:text-zinc-900 bg-zinc-800 dark:bg-zinc-100 cursor-pointer hover:opacity-80"
         >
           Aprende más
         </Link>
         <Link
           href="/download"
-          className={`py-3 px-4 text-sm md:text-base bg-[#facc15] text-black font-medium cursor-pointer flex items-center gap-2 group rounded-full hover:border-[#eafe7c] dark:hover:opacity-80 relative`}
+          className={`flex justify-center items-center py-3 px-4 text-sm md:text-base bg-[#facc15] text-black font-medium cursor-pointer gap-2 group rounded-full hover:border-[#eafe7c] dark:hover:opacity-80 relative`}
         >
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />

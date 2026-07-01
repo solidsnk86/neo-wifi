@@ -24,6 +24,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
       }, 1600);
     };
 
+
     return (
       <div className="my-3 code-block relative">
         {isCopied ? (

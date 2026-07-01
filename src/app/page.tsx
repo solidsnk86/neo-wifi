@@ -3,7 +3,6 @@
 import { Navbar, Hero, GeoPositionCard, Footer } from "./components/index";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";
-import Image from "next/image";
 import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
 import MouseTrail from "./components/MouseTrail";

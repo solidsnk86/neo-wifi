@@ -1,11 +1,7 @@
-import { CohereClientV2 } from "cohere-ai";
 import { NextResponse } from "next/server";
 import { SYSTEM_NEOWIFI_CONTENT } from "./constants";
 import OpenAI from "openai";
 
-const cohere = new CohereClientV2({
-  token: process.env.COHERE_TRIAL_APIKEY,
-});
 const client = new OpenAI({
   apiKey: process.env.NEOTECS_API_KEY,
   baseURL: "https://api.groq.com/openai/v1",
@@ -33,6 +29,7 @@ export async function POST(request: Request) {
       ],
     });
   };
+  
   try {
     const [response] = await Promise.all([generate()]);
 

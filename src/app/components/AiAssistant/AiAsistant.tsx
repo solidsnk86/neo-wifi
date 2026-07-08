@@ -8,16 +8,16 @@ import { closeDialog, showDialog } from "@/utils/dialog";
 import { getCityLocation } from "@/utils/getCityCoords";
 import { useLocation } from "@/app/contexts/use-location";
 
-interface ContextAIProps {
-  context: {
-    id: string;
-    message: {
-      role: string;
-      content: [{ type: string; text: string }];
-    };
-    finishReason: string;
-  };
-}
+// interface ContextAIProps {
+//   context: {
+//     id: string;
+//     message: {
+//       role: string;
+//       content: [{ type: string; text: string }];
+//     };
+//     finishReason: string;
+//   };
+// }
 
 interface Message {
   role: "user" | "assistant";
@@ -60,14 +60,14 @@ export const AiAssistant = ({
     lang: string;
   }) => {
     try {
-      const res: ContextAIProps = await fetch(`/api/neo-ai/`, {
+      const res = await fetch(`/api/neo-ai/`, {
         method: "POST",
         body: JSON.stringify({ query: text, city, country, temp, lang }),
       }).then((res) => res.json());
 
       const assistantMessage: Message = {
         role: "assistant",
-        content: res.context.message.content[0].text,
+        content: res.context,
       };
       const userMessage: Message = {
         role: "user",

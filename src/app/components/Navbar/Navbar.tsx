@@ -32,7 +32,7 @@ export const Navbar = () => {
   return (
     <div className="mx-6">
       <nav
-        className={`flex justify-between border-b border-zinc-200 dark:border-zinc-800 items-center md:p-3 p-2.5 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl ${styles.nav}`}
+        className={`flex justify-between border-b border-zinc-200 dark:border-zinc-800 items-center p-3 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl ${styles.nav}`}
       >
         <Link
           href="/"

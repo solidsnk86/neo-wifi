@@ -16,7 +16,7 @@ export async function POST(request: Request) {
 
   const generate = async () => {
     return await client.chat.completions.create({
-      model: "openai/gpt-oss-120b",
+      model: "llama-3.3-70b-versatile",
       temperature: parseFloat(temp),
       messages: [
         {

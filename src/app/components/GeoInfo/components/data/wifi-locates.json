@@ -48923,5 +48923,17 @@
     "users": 1,
     "status": true,
     "location": "Antena Solar"
+  },
+  {
+    "name": "WiFi3.0-LU-23",
+    "MAC": "3C-E8-6E-CE-98-40",
+    "name5g": "WiFi3.0-LU-23",
+    "MAC5g": null,
+    "lat": -32.377111,
+    "lon": -65.935722,
+    "type": "Dual Band 5Ghz | 2.4Ghz",
+    "users": 11,
+    "status": true,
+    "location": "Antena Solar"
   }
 ]

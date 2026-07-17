@@ -1,6 +1,6 @@
 {
   "name": "neo-wifi",
-  "version": "0.1.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -48,6 +48,6 @@
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
     "tailwindcss": "^4",
-    "typescript": "^7.0.2"
+    "typescript": "5.9.2"
   }
 }

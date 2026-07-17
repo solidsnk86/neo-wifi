@@ -224,14 +224,14 @@ const LeafMap = ({
     !currentPosition.longitude
   ) {
     return (
-      <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
+      <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
         <h2 className="text-center font-semibold text-xl my-2">
           Mapa Intercativo 🌍
         </h2>
         <p className="my-4 text-pretty text-center">
           Necesitas permitir la geolocalización para poder visualizar el mapa.
         </p>
-        <button className="flex btn-animation group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
+        <button className="flex btn-animation group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
           <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
             <p
               className="flex gap-2 items-center text-blue-500 cursor-pointer hover:underline"
@@ -308,7 +308,7 @@ const LeafMap = ({
  
   return (
     <>
-      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
+      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
         <article className="flex justify-between">
           <p className="px-3 py-2">Seleccionar ciudad:</p>
           <select
@@ -647,7 +647,7 @@ const LeafMap = ({
           </button>
         </div>
       </div>
-      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 border-x-2 border-b-2 backdrop-blur-xl overflow-hidden rounded-b-xl">
+      <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 border-x-2 border-b-2 backdrop-blur-xl overflow-hidden rounded-b-xl">
         <article className="flex justify-between items-center gap-2">
           <button
             onClick={getLocation}

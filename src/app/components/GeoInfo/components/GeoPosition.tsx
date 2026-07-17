@@ -19,8 +19,9 @@ export const GeoPosition = ({
   loading,
 }: GeoPositionProps) => {
   return (
-    <div className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary overflow-hidden">
-      <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+    <div className="border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary overflow-hidden">
+      <div className="absolute top-0 left-0 bg-white/10 w-52 h-44 z-50 rounded-full blur-3xl" />
+      <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-2 md:p-3">
         <h2
           title="Información válida para la provincia Argentina"
           className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start"
@@ -29,7 +30,7 @@ export const GeoPosition = ({
           Tú posición geográfica
         </h2>
         <div className="p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <InfoRow label="Ciudad" value={location.city} loading={loading} />
             <InfoRow
               label="Provincia"
@@ -52,22 +53,26 @@ export const GeoPosition = ({
               value={coords.longitude}
               loading={loading}
             />
-            <button
-              className="flex text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
-              onClick={() => copy(String(coords.latitude), "latitud")}
-              title={`Copiar latitud ${coords.latitude}`}
-              aria-label={`Copiar la coordenada de latitud ${coords.latitude}`}
-            >
-              Copiar Latitud <Copy className="ml-2 w-4 h-4" />
-            </button>
-            <button
-              className="flex text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
-              onClick={() => copy(String(coords.longitude), "longitud")}
-              title={`Copiar longitud ${coords.longitude}`}
-              aria-label={`Copiar la coordenada de longitud ${coords.longitude}`}
-            >
-              Copiar Longitud <Copy className="ml-2 w-4 h-4" />
-            </button>
+            <div className="flex justify-evenly mt-4">
+              <button
+                className="flex gap-2 text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
+                onClick={() => copy(String(coords.latitude), "latitud")}
+                title={`Copiar latitud ${coords.latitude}`}
+                aria-label={`Copiar la coordenada de latitud ${coords.latitude}`}
+              >
+                <Copy className="w-4 h-4" />
+                Copiar Latitud
+              </button>
+              <button
+                className="flex gap-2 text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
+                onClick={() => copy(String(coords.longitude), "longitud")}
+                title={`Copiar longitud ${coords.longitude}`}
+                aria-label={`Copiar la coordenada de longitud ${coords.longitude}`}
+              >
+                <Copy className="w-4 h-4" />
+                Copiar Longitud
+              </button>
+            </div>
           </div>
         </div>
       </article>

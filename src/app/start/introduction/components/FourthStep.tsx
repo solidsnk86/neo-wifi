@@ -12,7 +12,7 @@ export const FourthStep = () => {
         url={step.url}
         info={step.info}
         note={
-          <article className="flex flex-col gap-3 items-center border rounded-md relative border-l-[6px] border-l-blue-500 dark:border-l-blue-500 p-2 border-zinc-200/70 dark:border-zinc-800 bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl">
+          <article className="flex flex-col gap-3 items-center border rounded-md relative border-l-[6px] border-l-blue-500 dark:border-l-blue-500 p-2 border-zinc-200/70 dark:border-zinc-800 bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl">
             <div>
             <header className="flex gap-1 items-center">
               <Star className="fill-yellow-300 stroke-none" />

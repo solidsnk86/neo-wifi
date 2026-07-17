@@ -11,12 +11,9 @@
     "update-antennas": "node src/scripts/update-antennas.mjs"
   },
   "dependencies": {
-    "@ai-sdk/google": "^3.0.43",
     "@reduxjs/toolkit": "^2.5.1",
     "@supabase/supabase-js": "^2.46.1",
     "@types/dom-speech-recognition": "^0.0.6",
-    "ai": "^6.0.116",
-    "cohere-ai": "^7.17.1",
     "gsap": "^3.13.0",
     "highlight.js": "^11.11.1",
     "html2canvas": "^1.4.1",
@@ -25,7 +22,7 @@
     "leaflet.fullscreen": "^4.0.0",
     "lucide-react": "^0.474.0",
     "maplibre-gl": "^5.24.0",
-    "next": "15.4.8",
+    "next": "16.2.10",
     "next-themes": "^0.4.4",
     "nodemailer": "^6.10.0",
     "openai": "^6.45.0",
@@ -41,6 +38,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/leaflet": "^1.9.16",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
@@ -49,7 +47,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "tailwindcss": "^4",
+    "typescript": "^7.0.2"
   }
 }

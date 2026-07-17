@@ -56,7 +56,7 @@ export default function Page() {
             <Link
               key={name}
               href={url}
-              className="p-4 bg-[#FFFFFF] dark:bg-zinc-800/50 border border-zinc-200/70 dark:border-zinc-800/50 flex justify-center items-center gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-800/70 backdrop-blur-xl hover:scale-[1.02] duration-300 z-50"
+              className="p-4 bg-[#FFFFFF] dark:bg-zinc-800/40 border border-zinc-200/70 dark:border-zinc-800/50 flex justify-center items-center gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-800/70 backdrop-blur-xl hover:scale-[1.02] duration-300 z-50"
             >
               <Icon />
               <p>{name}</p>

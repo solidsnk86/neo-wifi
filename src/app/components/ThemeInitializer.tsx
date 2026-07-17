@@ -15,20 +15,11 @@ export const ThemeInitializer = ({
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("neo-wifi-theme");
-    const isTrue = savedTheme === "true" ? true : false;
-    if (isTrue) {
-      dispacth(setTheme(isTrue));
-    } else {
-      dispacth(setTheme(isTrue));
-    }
-  });
+    dispacth(setTheme(savedTheme === "true"));
+  }, [dispacth]);
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
   return <>{children}</>;

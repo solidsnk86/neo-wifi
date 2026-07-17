@@ -12,6 +12,8 @@ export const BackToTop = () => {
         setScrolled(false);
       }
     });
+
+    return () => window.removeEventListener("scroll", () => {})
   }, []);
 
   const goToTop = () => {
@@ -24,12 +26,12 @@ export const BackToTop = () => {
     <button
       id="back-to-top"
       onClick={goToTop}
-      className={`border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 p-2 
+      className={`border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 backdrop-blur-sm p-2 
         fixed bottom-5 left-3 opacity-90 shadow-lg z-50 rounded-xl hover:scale-110 transition-transform
         ${scrolled ? "translate-x-0" : "-translate-x-20"}
         `}
     >
-      <ArrowUp className="text-[--color-yellow-primary] svg-animation" />
+      <ArrowUp className="svg-animation" />
     </button>
   );
 };

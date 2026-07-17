@@ -12,8 +12,8 @@ import FeedBackForm from "./FeedBackForm";
 export const FeedBackSection = () => {
   return (
     <>
-      <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50 font-['bogue-black']">
-        Suscríbete
+      <h2 className="flex justify-center mx-auto text-2xl font-semibold px-3 text-pretty text-center z-50 font-bogue-black">
+        Feedback
       </h2>
 
       <div className="px-3">

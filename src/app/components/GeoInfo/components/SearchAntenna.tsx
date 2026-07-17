@@ -28,8 +28,9 @@ export const SearchAntenna = ({
   mac,
 }: SearchAntennaProps) => {
   return (
-    <div className="border-2 mt-5 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary backdrop-blur-xl z-50">
-      <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-xl p-3">
+    <div className="border-2 mt-5 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary backdrop-blur-xl z-50 overflow-hidden">
+      <div className="absolute top-0 left-0 bg-white/10 w-52 h-44 z-50 rounded-full blur-3xl" />
+      <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-xl p-2 md:p-3">
         <form onSubmit={submit} className="flex flex-col gap-2">
           <h2 className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start">
             <span className="w-10 h-10 py-1 px-2 flex items-center justify-center border border-zinc-200/70 dark:border-zinc-700/50 rounded-xl bg-gradient-to-b from-zinc-300/10 to-zinc-600/10 text-zinc-600">
@@ -69,7 +70,7 @@ export const SearchAntenna = ({
         </form>
 
         {search && (
-          <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-2">
+          <div className="mt-4 grid grid-cols-1 gap-2">
             <InfoRow
               label="SSID-1"
               value={search?.antenna?.name}

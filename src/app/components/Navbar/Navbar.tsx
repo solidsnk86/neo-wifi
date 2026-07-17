@@ -32,7 +32,7 @@ export const Navbar = () => {
   return (
     <div className="mx-6">
       <nav
-        className={`flex justify-between border-b border-zinc-200 dark:border-zinc-800 items-center p-3 fixed top-0 left-0 w-full z-[9999] backdrop-blur-xl ${styles.nav}`}
+        className={`flex justify-between bg- border-b bg-[#f5f5f5] dark:bg-[#111] border-zinc-200 dark:border-zinc-800 items-center p-3 fixed top-0 left-0 w-full z-9999 ${styles.nav}`}
       >
         <Link
           href="/"
@@ -41,8 +41,8 @@ export const Navbar = () => {
           aria-label="Ir a la página principal"
         >
           <div className="flex gap-2 items-center">
-            <Image src="/favicon.ico" width={28} height={28} alt="" className="-translate-y-0.5" />
-            <h3 className="font-bold text-md hidden md:block">NeoWiFi</h3>
+            <Image src="/favicon.ico" width={30} height={30} alt="" className="-translate-y-0.5" />
+            <h3 className="text-md hidden md:block font-(--font-bogue-black)">NeoWiFi</h3>
           </div>
         </Link>
 

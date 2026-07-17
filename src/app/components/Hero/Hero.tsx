@@ -25,7 +25,7 @@ export const Hero = () => {
   return (
     <div className="w-full grid justify-left mt-10">
       <div>
-        <div className="relative inline-flex items-center rounded-full border bg-white z-0 px-3 py-1.5">
+        <div className="relative inline-flex items-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-white z-0 px-3 py-1.5">
           <div className="shine absolute inset-0 rounded-[inherit] pointer-events-none" />
           <span className="relative z-10 text-black text-xs">
             Nuevas antenas agregadas en Jun 2026

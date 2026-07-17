@@ -110,7 +110,7 @@ export default function Home() {
           <ApkCard />
         </HomeBlock>
 
-        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-sm">
+        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-xs">
           <HomeBlockTitle className="mt-16">Información WiFi</HomeBlockTitle>
 
           <HomeBlock className="px-3">

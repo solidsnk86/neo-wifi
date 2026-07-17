@@ -52,22 +52,24 @@ export const AiAssistant = ({
     country,
     temp,
     lang,
+    history
   }: {
     text: string;
     city: string;
     country: string;
     temp: string | number;
     lang: string;
+    history?: Message[]
   }) => {
     try {
       const res = await fetch(`/api/neo-ai/`, {
         method: "POST",
-        body: JSON.stringify({ query: text, city, country, temp, lang }),
+        body: JSON.stringify({ query: text, city, country, temp, lang, history }),
       }).then((res) => res.json());
 
       const assistantMessage: Message = {
         role: "assistant",
-        content: res.context,
+        content: res.context === "" ? "Al parecer hubo un error. Intenta nuevamente" : res.context,
       };
       const userMessage: Message = {
         role: "user",
@@ -171,6 +173,7 @@ export const AiAssistant = ({
           country: location && location.country.name || "",
           temp: tempValue,
           lang: language,
+          history: messages
         }),
         fetch("/api/datasend", {
           method: "POST",
@@ -242,7 +245,7 @@ export const AiAssistant = ({
 
   return (
     <section
-      className="w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/50 backdrop-blur-xl chat"
+      className="w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl chat"
       id="chat"
     >
       <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">
@@ -256,7 +259,7 @@ export const AiAssistant = ({
             className="text-black dark:text-white"
           />
         </span>
-        <h3 className="text-lg md:text-2xl font-semibold text-black dark:text-white text-center font-['bogue-black']">
+        <h3 className="text-lg md:text-2xl font-semibold text-black dark:text-white text-center font-bogue-black">
           Neo - Asistente
         </h3>
         <aside className="grid md:grid-cols-3 grid-cols-2 gap-2">

@@ -1,5 +1,5 @@
-import type { Config } from "tailwindcss";
-
+/** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,4 +16,4 @@ export default {
   },
   darkMode: "class",
   plugins: [],
-} satisfies Config;
+};

@@ -1,9 +1,9 @@
 .h1 {
-  font-family: "bogue-black";
+  font-family: var(--font-bogue-black), serif;
   padding-top: 16px;
   font-weight: 600;
   font-size: 4rem;
-  color: #222;
+  color: var(--foreground);
   z-index: 999;
   position: relative;
 }

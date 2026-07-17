@@ -1,9 +1,10 @@
-import { CohereClientV2 } from "cohere-ai";
+import OpenAI from "openai";
 import { NextResponse } from "next/server";
 import { TRANSLATE_NEO_SYSTEM } from "./constants";
 
-const cohere = new CohereClientV2({
-  token: process.env.COHERE_TRIAL_APIKEY,
+const client = new OpenAI({
+  apiKey: process.env.NEOTECS_API_KEY,
+  baseURL: "https://api.groq.com/openai/v1",
 });
 
 export async function POST(request: Request) {
@@ -12,8 +13,8 @@ export async function POST(request: Request) {
   if (!text && !language) return NextResponse.json({ message: "Se necesita pasar el JSON en el cuerpo del POST" })
 
   const generate = async () => {
-    return await cohere.chat({
-      model: "command-a-03-2025",
+    return await client.chat.completions.create({
+      model: "llama-3.1-8b-instant",
       temperature: 0.3,
       messages: [
         {

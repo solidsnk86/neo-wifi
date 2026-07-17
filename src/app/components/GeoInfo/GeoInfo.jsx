@@ -18,8 +18,8 @@ import { useLocation } from "@/app/contexts/use-location";
 const Map = dynamic(() => import("./components/MapLeaf.tsx"), { ssr: false });
 
 export const InfoRow = ({ label, value, loading }) => (
-  <div className="flex items-center space-x-2">
-    <span className="text-zinc-600 text-sm">{label}:</span>
+  <div className="flex items-center justify-between space-x-2 border-b last:border-b-0 border-dashed border-zinc-200 dark:border-zinc-800">
+    <span className="text-zinc-600 text-sm mb-1">{label}:</span>
     <span className="text-text-primary text-sm font-medium" title={value}>
       {loading ? "Cargando..." : value || "No disponible"}
     </span>
@@ -220,7 +220,7 @@ export const GeoPositionCard = () => {
       <InfoWifi location={location} loading={isLoading} />
 
       {isLoading ? (
-        <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
+        <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
           <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
             <h2 className="text-center font-semibold text-xl my-2">
               Cargando Mapa Intercativo 🌍

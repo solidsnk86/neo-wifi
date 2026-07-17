@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { version, email } = await req.json();
+    const { version, email, message } = await req.json();
 
     if (!email) {
       return Response.json(
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     const mailOptions = {
       from: process.env.GMAIL_USER,
       to: email,
-      subject: "¡Gracias por suscribirte a Neo WiFi!",
+      subject: "Hemos recibido tu mensaje en Neo WiFi",
       html: `
         <!DOCTYPE html>
         <html lang="es">
@@ -96,6 +96,15 @@ export async function POST(req: Request) {
         padding: 15px;
         margin: 20px 0;
         border-radius: 0 6px 6px 0;
+        }
+        .message-box {
+        background: #f8fafc;
+        border: 1px solid #dbeafe;
+        border-radius: 10px;
+        padding: 18px;
+        margin: 20px 0;
+        color: #334155;
+        white-space: pre-wrap;
         }
         .button-container {
         text-align: center;
@@ -171,67 +180,34 @@ export async function POST(req: Request) {
         }
         .container {
           padding: 25px;
-        }
-        .feature {
+        <div class="header">Gracias por escribirnos</div>
+        <div class="subheader">Recibimos tu mensaje y te responderemos a la brevedad</div>
           flex-basis: 100%;
         }
         }
         </style>
-        </head>
-        <body>
-        <div class="container">
+        Hola, te confirmamos que recibimos correctamente tu mensaje desde Neo WiFi.
         <div class="logo">
         <div class="logo-icon">📡</div>
         </div>
-        <div class="header">Neo-Wifi App v${version}</div>
-        <div class="subheader">Conectividad inteligente para San Luis</div>
+        ${version ? `Versión asociada: ${version}` : "Gracias por compartir tu comentario con nosotros."}
 
         <div class="divider"></div>
-
-        <div class="content">
-        Neo-Wifi web es una aplicación innovadora que proporciona acceso completo a
-        la información sobre las antenas Wi-Fi públicas en la provincia de San
-        Luis y determinar a que distancia te encuentras de las tres antenas más cercanas.
-        </div>
-
-        <div class="highlight">
-        Ahora en la version ${version} con nuevas funcionalidades y mayor
-        rendimiento.
-        </div>
-
-        <div class="features">
-        <div class="feature">
-          <div class="feature-icon">🔍</div>
-          <div class="feature-title">Localización Precisa</div>
-          <div class="feature-desc">
-            Encuentra la antena Wi-Fi pública más cercana a tu ubicación con
-            datos en tiempo real.
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">⚙️</div>
-          <div class="feature-title">Configuración Automática</div>
-          <div class="feature-desc">
-            Optimiza la configuración de tu conexión para diferentes modelos de
-            CPE de TP-LINK.
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">📊</div>
-          <div class="feature-title">Datos Técnicos</div>
-          <div class="feature-desc">
+        <div class="message-box">
+        <strong>Tu mensaje:</strong><br />
+        ${message ? message : "No se recibió un mensaje en el formulario."}
             Accede a información detallada sobre cada antena del sistema
             provincial.
           </div>
-        </div>
-        <div class="feature">
+        <a href="https://neo-wifi.vercel.app" class="button"
+          >Volver a Neo WiFi</a
           <div class="feature-icon">💻</div>
           <div class="feature-title">Gestión Simplificada</div>
           <div class="feature-desc">
             Administra tu conexión desde tu PC de manera eficiente y sin
             complicaciones.
           </div>
-        </div>
+        Si necesitas agregar más detalles, puedes responder a este correo.
         </div>
 
         <div class="button-container">
@@ -262,7 +238,7 @@ export async function POST(req: Request) {
     return Response.json(
       {
         success: true,
-        message: `Se ha enviado un correo a ${email}. No olvides revisar tu bandeja de entrada y, si no lo ves, échale un vistazo a la carpeta de SPAM. 🚀`,
+        message: `Se ha enviado una respuesta a ${email}. Si no la ves, revisa también la carpeta de SPAM.`,
       },
       { status: 200 }
     );

@@ -61,6 +61,7 @@ export default function FeedBackForm() {
     setIsLoading(true);
     setError(undefined);
     setMessage("");
+    setChar(0);
 
     const res = await fetch("/api/feedback", {
       method: "POST",
@@ -186,7 +187,7 @@ export default function FeedBackForm() {
                 aria-label={ariaLabel}
                 className="inline-flex hover:scale-105 transition-transform bg-[#fafafa] dark:bg-zinc-800/40 p-4 rounded-full border border-zinc-200 dark:border-zinc-800 hover:shadow-2xl"
               >
-                <Icon />
+                <Icon className="text-zinc-500" />
               </Link>
             ))}
           </aside>

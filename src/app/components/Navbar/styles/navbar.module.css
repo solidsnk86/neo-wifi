@@ -46,3 +46,8 @@
 .link {
   font-weight: 500;
 }
+
+.title {
+  font-family: var(--font-bogue-black), serif;
+  font-weight: 500;
+}

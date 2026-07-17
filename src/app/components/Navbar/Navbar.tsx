@@ -42,7 +42,7 @@ export const Navbar = () => {
         >
           <div className="flex gap-2 items-center">
             <Image src="/favicon.ico" width={30} height={30} alt="" className="-translate-y-0.5" />
-            <h3 className="text-md hidden md:block font-(--font-bogue-black)">NeoWiFi</h3>
+            <h3 className={`text-md hidden md:block ${styles.title} text-xl`}>NeoWiFi</h3>
           </div>
         </Link>
 

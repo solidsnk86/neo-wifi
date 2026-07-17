@@ -1,7 +1,6 @@
 "use client";
 
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { PlaneIcon } from "./Icons";
+import { useEffect, useRef, useState } from "react";
 import { showDialog } from "@/utils/dialog";
 import { Info, MailCheck } from "lucide-react";
 import { socialLinks } from "@/constants";

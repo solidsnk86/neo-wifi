@@ -8,17 +8,6 @@ import { closeDialog, showDialog } from "@/utils/dialog";
 import { getCityLocation } from "@/utils/getCityCoords";
 import { useLocation } from "@/app/contexts/use-location";
 
-// interface ContextAIProps {
-//   context: {
-//     id: string;
-//     message: {
-//       role: string;
-//       content: [{ type: string; text: string }];
-//     };
-//     finishReason: string;
-//   };
-// }
-
 interface Message {
   role: "user" | "assistant";
   content: string;
@@ -52,24 +41,34 @@ export const AiAssistant = ({
     country,
     temp,
     lang,
-    history
+    history,
   }: {
     text: string;
     city: string;
     country: string;
     temp: string | number;
     lang: string;
-    history?: Message[]
+    history?: Message[];
   }) => {
     try {
       const res = await fetch(`/api/neo-ai/`, {
         method: "POST",
-        body: JSON.stringify({ query: text, city, country, temp, lang, history }),
+        body: JSON.stringify({
+          query: text,
+          city,
+          country,
+          temp,
+          lang,
+          history,
+        }),
       }).then((res) => res.json());
 
       const assistantMessage: Message = {
         role: "assistant",
-        content: res.context === "" ? "Al parecer hubo un error. Intenta nuevamente" : res.context,
+        content:
+          res.context === ""
+            ? "Al parecer hubo un error. Intenta nuevamente"
+            : res.context,
       };
       const userMessage: Message = {
         role: "user",
@@ -80,7 +79,7 @@ export const AiAssistant = ({
 
       localStorage.setItem(
         "neo-wifi-chat",
-        JSON.stringify([userMessage, assistantMessage])
+        JSON.stringify([userMessage, assistantMessage]),
       );
     } catch (err) {
       console.error(err);
@@ -107,8 +106,8 @@ export const AiAssistant = ({
           await sendQuery({
             text:
               query +
-              "# Estas son sus antenas más próximas: " +
-              JSON.stringify(dataLocation, null, 2) || "",
+                "# Estas son sus antenas más próximas: " +
+                JSON.stringify(dataLocation, null, 2) || "",
             city: "",
             country: "",
             temp: tempValue,
@@ -117,7 +116,7 @@ export const AiAssistant = ({
         }, 450);
       }
     } catch (error) {
-      throw error
+      throw error;
     }
   };
 
@@ -133,16 +132,15 @@ export const AiAssistant = ({
     setCharCount(0);
 
     try {
-
       if (matchQuerys.some((word) => query.toLowerCase().includes(word))) {
         showDialog({
           content: (
             <section className="p-5">
               <div className="p-3">
                 Para poder mostrarte las antenas más cercanas y brindarte
-                información personalizada según tu ubicación, necesitamos acceder
-                a tu geolocalización. Tu ubicación solo se utilizará para este
-                propósito y no será almacenada.
+                información personalizada según tu ubicación, necesitamos
+                acceder a tu geolocalización. Tu ubicación solo se utilizará
+                para este propósito y no será almacenada.
               </div>
               <div className="relative w-fit justify-center mx-auto group">
                 <button
@@ -169,21 +167,23 @@ export const AiAssistant = ({
       await Promise.all([
         sendQuery({
           text: query,
-          city: location && `${location.city.name}, ${location.country.timezone}` || "",
-          country: location && location.country.name || "",
+          city:
+            (location &&
+              `${location.city.name}, ${location.country.timezone}`) ||
+            "",
+          country: (location && location.country.name) || "",
           temp: tempValue,
           lang: language,
-          history: messages
+          history: messages,
         }),
         fetch("/api/datasend", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify(objectData)
-        })
-      ])
-
+          body: JSON.stringify(objectData),
+        }),
+      ]);
 
       thinkRef.current?.scrollIntoView({ behavior: "auto" });
       chatRef?.current?.scrollIntoView({ behavior: "smooth" });
@@ -248,24 +248,23 @@ export const AiAssistant = ({
       className="w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl chat"
       id="chat"
     >
-      <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">
+      <div className="flex justify-between items-center p-2">
+        <h3 className="text-lg md:text-2xl font-semibold text-black dark:text-white font-bogue-black">
+          Neo - Asistente
+        </h3>
         <span
-          className="group absolute right-1 top-1 p-2 hover:dark:bg-zinc-700/50 hover:bg-zinc-300/70 rounded-full"
+          className="group p-2 hover:dark:bg-zinc-700/50 hover:bg-zinc-300/70 rounded-full"
           title="Cerrar asistente"
           onClick={closeAssistant}
         >
-          <X
-            size={18}
-            className="text-black dark:text-white"
-          />
+          <X size={18} className="text-black dark:text-white" />
         </span>
-        <h3 className="text-lg md:text-2xl font-semibold text-black dark:text-white text-center font-bogue-black">
-          Neo - Asistente
-        </h3>
+      </div>
+      <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">
         <aside className="grid md:grid-cols-3 grid-cols-2 gap-2">
           <button
             onClick={newChat}
-            className="text-blue-500 hover:text-blue-700 flex items-center gap-1 group"
+            className="text-blue-500 hover:text-blue-700 flex items-center gap-1 group text-sm md:text-base"
             title="Nuevo chat"
           >
             <RefreshCw
@@ -275,13 +274,15 @@ export const AiAssistant = ({
             Nuevo Chat
           </button>
           <label htmlFor="tempValue" className="flex gap-2 items-center">
-            <span className="hidden md:block">Aleatoriedad</span>{" "}
+            <span className="hidden md:block text-sm md:text-base">
+              Aleatoriedad
+            </span>{" "}
             <small
               className={`group px-1 rounded-[3px] border border-zinc-200/70
                  dark:border-zinc-700 ${shareTechMono.className} hover:bg-zinc-200/70 relative`}
             >
               i
-              <div className="group-hover:flex absolute top-2 left-2 hidden w-52 bg-zinc-300 dark:bg-zinc-700 z-50 p-3 rounded-lg">
+              <div className="group-hover:flex absolute top-2 left-2 hidden w-52 bg-zinc-100 dark:bg-zinc-800/95 z-50 p-3 rounded-lg border border-zinc-200 dark:border-zinc-700/40">
                 <small className="text-[12px]">
                   Controla el aspecto de aleatoriedad en la selección de tokens
                   que el modelo elige para la salida. Un valor de 0.8 es un buen
@@ -312,7 +313,10 @@ export const AiAssistant = ({
             <span className="w-6">{tempValue}</span>
           </label>
 
-          <label htmlFor="language" className="flex gap-2 items-center">
+          <label
+            htmlFor="language"
+            className="flex gap-2 items-center text-sm md:text-base"
+          >
             Idioma <Mic size={16} />
             <select
               name="language"
@@ -338,10 +342,11 @@ export const AiAssistant = ({
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            className={`p-3 rounded-xl md:max-w-[80%] ${msg.role === "user"
-              ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
-              : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
-              }`}
+            className={`p-3 rounded-xl md:max-w-[80%] ${
+              msg.role === "user"
+                ? "ml-auto bg-blue-100 dark:bg-blue-900/50"
+                : "mr-auto bg-zinc-100 dark:bg-zinc-700/50"
+            }`}
           >
             {msg.role === "assistant" ? (
               <div className="relative text-black dark:text-white">
@@ -400,10 +405,11 @@ export const AiAssistant = ({
             type="button"
             className={`absolute md:right-[76px] right-16 top-[50%] -translate-y-[50%] px-2 py-2 border border-zinc-200/70 
               dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 hover:outline-double rounded-full 
-              bg-gradient-to-b from-blue-500 to-blue-700 ${isMicActive ? "from-red-500 to-red-700" : ""
+              bg-gradient-to-b from-blue-500 to-blue-700 ${
+                isMicActive ? "from-red-500 to-red-700" : ""
               }`}
           >
-            <Mic className="text-zinc-100" />
+            <Mic className="text-zinc-100" size={20} />
           </button>
           <button
             type="submit"
@@ -413,9 +419,15 @@ export const AiAssistant = ({
               hover:outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 
                disabled:hover:cursor-not-allowed disabled:grayscale-[70%]`}
           >
-            <ArrowUp className="text-zinc-100" />
+            <ArrowUp className="text-zinc-100" size={20} />
           </button>
         </form>
+        <div className="flex justify-center">
+          <small className="text-zinc-400 text-[10px] text-center mb-1">
+          Neo es IA y puede cometer errores. Por favor revise bien las
+          respuestas.
+        </small>
+        </div>
       </section>
     </section>
   );

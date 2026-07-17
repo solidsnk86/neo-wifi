@@ -48,7 +48,7 @@ export default function WifiLocationsCard() {
               key={name}
               className="flex items-center gap-4 p-4 w-[280px] transition hover:scale-[1.05] cursor-default country group"
             >
-              <div className="p-3 rounded-full bg-zinc-100/80 dark:bg-zinc-600/10 group-hover:shadow-lg shadow-black">
+              <div className="p-3 rounded-full bg-zinc-100/80 dark:bg-zinc-600/10 group-hover:shadow-lg shadow-zinc-400/70 dark:shadow-black">
                 <MapIcon fill="#facc15" />
               </div>
               <div>

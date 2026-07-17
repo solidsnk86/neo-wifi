@@ -31,14 +31,14 @@ export const SearchAntenna = ({
     <div className="border-2 mt-5 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary backdrop-blur-xl z-50 overflow-hidden">
       <div className="absolute top-0 left-0 bg-white/10 w-52 h-44 z-50 rounded-full blur-3xl" />
       <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-xl p-2 md:p-3">
-        <form onSubmit={submit} className="flex flex-col gap-2">
+        <form onSubmit={submit} className="flex flex-col gap-3">
           <h2 className="font-semibold text-lg md:text-2xl py-3 px-3 items-center flex gap-2 justify-start">
             <span className="w-10 h-10 py-1 px-2 flex items-center justify-center border border-zinc-200/70 dark:border-zinc-700/50 rounded-xl bg-gradient-to-b from-zinc-300/10 to-zinc-600/10 text-zinc-600">
               <Podcast className="text-blue-500" />
             </span>
             Buscar antena
           </h2>
-          <p className="mb-3 text-pretty text-left">
+          <p className="mx-3 mb-3 text-pretty text-left">
             Podés buscar un antena acá para saber a que distancia estás, siempre y cuando hayas obtenido tu ubicación.
           </p>
           <div className="md:flex grid justify-center mx-auto md:gap-4 gap-2">

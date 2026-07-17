@@ -34,7 +34,7 @@ export const ApkCard = () => {
   return (
     <div className="border-2 my-5 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary overflow-hidden backdrop-blur-xl z-50">
       <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-xl p-3">
-        <div className="flex flex-col justify-center mx-auto items-center">
+        <div className="flex flex-col justify-center mx-auto items-center pt-4">
           <span className="px-4 bg-amber-400/80 border border-amber-400 rounded-full w-fit font-semibold">
             Nuevo
           </span>

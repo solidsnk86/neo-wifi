@@ -51,6 +51,9 @@ body {
 .font-bogue-black {
   font-family: var(--font-bogue-black), serif;
 }
+.font-gloria-hallelujah {
+  font-family: "Gloria Hallelujah", cursive;
+}
 
 html.dark {
   /* & .effect-1::after {

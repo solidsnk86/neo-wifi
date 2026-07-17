@@ -231,17 +231,19 @@ const LeafMap = ({
         <p className="my-4 text-pretty text-center">
           Necesitas permitir la geolocalización para poder visualizar el mapa.
         </p>
-        <button className="flex btn-animation group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
-          <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
-            <p
-              className="flex gap-2 items-center text-blue-500 cursor-pointer hover:underline"
-              onClick={getLocation}
-            >
-              <MapPin className="w-5 h-5 svg-animation" />
-              Obtener Ubicación
-            </p>
-          </div>
-        </button>
+        <div className="h-22">
+          <button className="flex btn-animation group mx-auto w-fit border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl">
+            <div className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
+              <p
+                className="flex gap-2 items-center text-blue-500 cursor-pointer hover:underline"
+                onClick={getLocation}
+              >
+                <MapPin className="w-5 h-5 svg-animation" />
+                Obtener Ubicación
+              </p>
+            </div>
+          </button>
+        </div>
       </div>
     );
   }
@@ -305,7 +307,6 @@ const LeafMap = ({
     );
   };
 
- 
   return (
     <>
       <div className="z-50 relative bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">

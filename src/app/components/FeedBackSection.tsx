@@ -2,13 +2,6 @@ import Image from "next/image";
 import { Donation } from "./DonationCard/Donation";
 import FeedBackForm from "./FeedBackForm";
 
-/**
- * Send us a message
- * 
- * We appreciate any feedback or bug reports on the product. 
- * If you require a reply or any action from us, please send us an email instead.
- */
-
 export const FeedBackSection = () => {
   return (
     <>

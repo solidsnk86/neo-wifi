@@ -38,7 +38,7 @@ export const AskForLocation = ({ handler }: AskForLocationProps) => {
                   alt="FelixTheCat86"
                 />
                 <button
-                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-[#facc15] to-[#e6bc13] text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl transition-transform"
+                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-zinc-950 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-800/50 backdrop-blur-xl transition-transform"
                   onClick={handler}
                   onMouseEnter={() => {
                     const felix = document.getElementById("felix");

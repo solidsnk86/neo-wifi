@@ -29,26 +29,26 @@ export const AskForLocation = ({ handler }: AskForLocationProps) => {
                 próxima. ¡Actívala para más precisión!
               </p>
               <div className="relative w-fit justify-center mx-auto group">
-                <Image
+                {/* <Image
                   id="felix"
                   src={"/assets/felix.png"}
                   className="absolute -top-1 -left-[42px] hidden group-hover:flex felix"
                   width={55}
                   height={55}
                   alt="FelixTheCat86"
-                />
+                /> */}
                 <button
-                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-zinc-950 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-800/50 backdrop-blur-xl transition-transform"
+                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-zinc-950 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-800/50 backdrop-blur-xl transition-transform outline-1 outline-zinc-300/70 dark:outline-zinc-800/50 outline-offset-3"
                   onClick={handler}
-                  onMouseEnter={() => {
-                    const felix = document.getElementById("felix");
-                    if (felix) felix.style.animation = "sliderIn 0.6s ease-out";
-                  }}
-                  onMouseLeave={() => {
-                    const felix = document.getElementById("felix");
-                    if (felix)
-                      felix.style.animation = "sliderOut 0.6s ease-out";
-                  }}
+                  // onMouseEnter={() => {
+                  //   const felix = document.getElementById("felix");
+                  //   if (felix) felix.style.animation = "sliderIn 0.6s ease-out";
+                  // }}
+                  // onMouseLeave={() => {
+                  //   const felix = document.getElementById("felix");
+                  //   if (felix)
+                  //     felix.style.animation = "sliderOut 0.6s ease-out";
+                  // }}
                 >
                   <LocateFixed className="text-red-500" />
                   Obtener Ubicación

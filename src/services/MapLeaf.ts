@@ -83,7 +83,7 @@ export class MapLeaflet {
     L.marker([position.lat, position.lon], { icon: icon })
       .addTo(map)
       .bindPopup(
-        `<div style="font-size:14px; font-weight:bold;">
+        `<div style="font-size:14px; font-weight:bold; background-color: #fafafa;">
           🔹 <strong>Antena 2.4Ghz:</strong> ${name.ssid2g}<br>
           🔹 <strong>Antena 5Ghz:</strong> ${name.ssid5g}<br>
           📏 <strong>Distancia:</strong> <span style="color:#0078D7;">${distance}</span><br>

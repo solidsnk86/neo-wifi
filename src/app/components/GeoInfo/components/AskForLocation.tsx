@@ -1,6 +1,5 @@
 import { showDialog } from "@/utils/dialog";
 import { BadgeInfo, LocateFixed } from "lucide-react";
-import Image from "next/image";
 import { AskForLocationProps } from "./types/definitions";
 
 export const AskForLocation = ({ handler }: AskForLocationProps) => {
@@ -38,7 +37,7 @@ export const AskForLocation = ({ handler }: AskForLocationProps) => {
                   alt="FelixTheCat86"
                 /> */}
                 <button
-                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-zinc-950 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-800/50 backdrop-blur-xl transition-transform outline-1 outline-zinc-300/70 dark:outline-zinc-800/50 outline-offset-3"
+                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-zinc-950 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-800/50 backdrop-blur-xl transition-transform outline-1 outline-zinc-300/70 dark:outline-zinc-800/50 outline-offset-3 hover:opacity-80"
                   onClick={handler}
                   // onMouseEnter={() => {
                   //   const felix = document.getElementById("felix");
@@ -50,7 +49,7 @@ export const AskForLocation = ({ handler }: AskForLocationProps) => {
                   //     felix.style.animation = "sliderOut 0.6s ease-out";
                   // }}
                 >
-                  <LocateFixed className="text-red-500" />
+                  <LocateFixed size={20} className="text-red-400" />
                   Obtener Ubicación
                 </button>
               </div>

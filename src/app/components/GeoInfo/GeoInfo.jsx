@@ -102,6 +102,7 @@ export const GeoPositionCard = () => {
     const dataLocation = await getCityLocation();
     if (dataLocation) {
       setLocation(dataLocation);
+      setIsLoading(false);
     }
     setIsLoading(false);
   };
@@ -152,7 +153,7 @@ export const GeoPositionCard = () => {
       setSearchLoading(true);
       const { lat, lon } = await getCoords();
       if (!lat || !lon) return;
-  
+
       const response = await fetch(
         `https://calcagni-gabriel.vercel.app/api/geolocation?lat=${lat}&lon=${lon}&query=${searchQuery}`,
       );

@@ -337,7 +337,7 @@ export const AiAssistant = ({
       </div>
 
       <div
-        className={`h-[100%] pl-4 pb-4 pr-[10px] md:pt-14 pt-3 flex flex-col gap-4 overflow-y-hidden ${styles.scroll}`}
+        className={`h-[100%] pl-4 pb-20 pr-[10px] md:pt-14 pt-3 flex flex-col gap-4 overflow-y-hidden ${styles.scroll}`}
       >
         {messages.map((msg, idx) => (
           <div

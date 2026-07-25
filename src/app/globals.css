@@ -894,15 +894,31 @@ html:before {
   position: fixed;
   inset: 0;
   display: grid;
-  grid-template: 
-    repeat(auto-fill,minmax(30px,1fr))/
-    repeat(auto-fill,minmax(30px,1fr));
+  grid-template:
+    repeat(auto-fill, minmax(30px, 1fr)) /
+    repeat(auto-fill, minmax(30px, 1fr));
   gap: 5px;
   rule-style: solid;
-  rule-color: repeat(2,#44444429), #44444429;
-  rule-width: repeat(2,1px), 1px;
+  rule-color: repeat(2, #44444429), #44444429;
+  rule-width: repeat(2, 1px), 1px;
   rule-break: intersection;
   rule-inset: 5px;
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .bg-stripes {
+    background-image: linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--foreground) 10%, transparent) 14.29%,
+      color-mix(in oklch, var(--background) 10%, transparent) 14.29%,
+      color-mix(in oklch, var(--background) 10%, transparent) 50%,
+      color-mix(in oklch, var(--foreground) 10%, transparent) 50%,
+      color-mix(in oklch, var(--foreground) 10%, transparent) 64.29%,
+      color-mix(in oklch, var(--background) 10%, transparent) 64.29%,
+      color-mix(in oklch, var(--background) 10%, transparent) 100%
+    );
+    background-size: 6px 6px;
+  }
 }
 
 /* .bg-dots {

@@ -16,18 +16,18 @@ export async function POST(request: Request) {
       role: "system",
       content: SYSTEM_NEOWIFI_CONTENT(lang, city, country),
     },
+    ...(Array.isArray(history) ? history : []),
     {
       role: "user",
-      content: query
+      content: query,
     },
-    ...(Array.isArray(history) ? history : [])
   ];
 
   const generate = async () => {
     return await client.chat.completions.create({
       model: "llama-3.1-8b-instant",
       temperature: parseFloat(temp),
-      messages
+      messages,
     });
   };
 

@@ -18,9 +18,10 @@ Mostramos en un mapa todos los puntos WiFi gratuitos del gobierno. Las 3 antenas
 ## Novedades
 - Ya está disponible la **APK para Android**, para ubicar más rápido y fácil tus antenas más próximas. Se descarga desde el sitio.
 
-## NeoWiFi App de escritorio (solo Windows 32/64 bits)
+## NeoWiFi App de escritorio (solo Windows 32/64 bits) -> Windows 10/11
 Desarrollada por Gabriel. Automatiza la configuración de CPEs TP-Link y algunos routers en pocos clics.
 1. Capacidades de la aplicación, la app detetcta el modelo cpe TP_LINK automáticamente y si es de 2Ghz o 5Ghz, el modelo del router y el dispositivo inalámbrico del pc. El usuario nada más tiene que poner las coordenadas y darle al botón de configurar para empezar la automatización (El usuario ni siquiera selecciona el modo de funcionamiento del cpe, ya se programó así).
+2. URL para descarga: https://neo-wifi.com/download
 
 **Pasos:**
 1. **Resetear la antena**: conectar el adaptador PoE (puerto PoE → antena, puerto WAN → router). Presionar el botón reset con un clip 20 segundos. LED WAN apagado o naranja 🟠 = éxito.

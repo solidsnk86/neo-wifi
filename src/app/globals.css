@@ -819,15 +819,6 @@ html {
   }
 }
 
-@layer base {
-  .maplibregl-popup-content {
-    @apply bg-transparent! shadow-none! rounded-none!;
-  }
-  .maplibregl-popup-tip {
-    @apply hidden!;
-  }
-}
-
 .shine {
   padding: 1px;
   background: radial-gradient(

@@ -212,7 +212,13 @@ export const GeoPositionCard = () => {
     AskForLocation({ handler: handleGetLocation });
   }, []);
 
-  const imgMapSharer = () => mapSharer(setImgLoading);
+  const locationToText = `
+  1️⃣: ${location.closest_wifi.name} a ${location.closest_wifi.distance}mts
+  2️⃣: ${location.second_closest_wifi.name} a ${location.second_closest_wifi.distance}mts
+  3️⃣: ${location.third_closest_wifi.name} a ${location.third_closest_wifi.distance}mts
+  `
+
+  const imgMapSharer = () => mapSharer(setImgLoading, locationToText);
 
   return (
     <div className="justify-center mx-auto md:w-2xl w-full z-20">

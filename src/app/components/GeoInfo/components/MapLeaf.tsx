@@ -9,115 +9,66 @@ import {
   ScreenShare,
   SquareChartGantt,
 } from "lucide-react";
-import {
-  Map,
-  type MapRef,
-  MapMarker,
-  MarkerContent,
-  MarkerPopup,
-  MapRoute,
-} from "@/components/ui/map";
-import type { StyleSpecification } from "maplibre-gl";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { MapLeaflet } from "@/services/MapLeaf";
 import { MapCoordsInterface, WifiDataProps } from "./types/definitions";
 import { getCountryFlag } from "@/utils/convert-to-flag";
 
-const SATELLITE_STYLE: StyleSpecification = {
-  version: 8,
-  sources: {
-    satellite: {
-      type: "raster",
-      tiles: [
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-      ],
-      tileSize: 256,
-      attribution: "Tiles © Esri",
-    },
-  },
-  layers: [
-    {
-      id: "satellite-layer",
-      type: "raster",
-      source: "satellite",
-    },
-  ],
-};
-const OPEN_STREET_MAP_STYLE = "https://tiles.openfreemap.org/styles/bright";
-const OPEN_STREET_MAP_3D_STYLE = "https://tiles.openfreemap.org/styles/liberty";
-const POPUP_CONTENT_CLASS = "text-sm font-semibold text-zinc-900 p-2 bg-zinc-50 rounded border border-zinc-200";
-
 type MapStyleKey = "map" | "satellite" | "3d";
 
-function UserLocationMarkerIcon() {
-  return (
-    <svg width="28" height="40" viewBox="0 0 206 300" aria-hidden="true">
-      <g transform="translate(2, 2)">
-        <path
-          d="M100 0 C45 0 0 45 0 100 C0 200 95 250 100 295 C105 250 200 200 200 100 C200 45 155 0 100 0 Z"
-          fill="#EA4335"
-          stroke="#B31412"
-          strokeWidth="3"
-        />
-      </g>
-      <circle cx="100" cy="100" r="50" fill="#B31412" />
-    </svg>
-  );
+const userIcon = L.divIcon({
+  html: `<svg width="28" height="40" viewBox="0 0 206 300" aria-hidden="true">
+    <g transform="translate(2, 2)">
+      <path d="M100 0 C45 0 0 45 0 100 C0 200 95 250 100 295 C105 250 200 200 200 100 C200 45 155 0 100 0 Z" fill="#EA4335" stroke="#B31412" stroke-width="3"/>
+    </g>
+    <circle cx="100" cy="100" r="50" fill="#B31412" />
+  </svg>`,
+  className: "",
+  iconSize: [28, 40],
+  iconAnchor: [14, 40],
+});
+
+const wifiIcon = L.divIcon({
+  html: `<svg width="34" height="46" viewBox="0 0 206 300" aria-hidden="true">
+    <g transform="translate(2, 2)">
+      <path d="M100 0 C45 0 0 45 0 100 C0 200 95 250 100 295 C105 250 200 200 200 100 C200 45 155 0 100 0 Z" fill="#3b82f6" stroke="#000" stroke-width="3"/>
+    </g>
+    <circle cx="100" cy="90" r="65" fill="white" stroke="#EEEEEE" stroke-width="1"/>
+    <g transform="translate(46, 35) scale(4.5)">
+      <path d="M5 12.55a11 11 0 0 1 14.08 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8.5 16.35a5 5 0 0 1 7 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M2 8.82a15 15 0 0 1 20 0" fill="none" stroke="#0078D7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="12" cy="20" r="1" fill="#0078D7" stroke="#0078D7" stroke-width="2"/>
+    </g>
+  </svg>`,
+  className: "",
+  iconSize: [34, 46],
+  iconAnchor: [17, 46],
+});
+
+function antennaPopupHTML(
+  name: { ssid2g: string; ssid5g: string },
+  distance: string,
+  type: string,
+  users: number,
+) {
+  return `<div class="text-sm font-semibold text-zinc-900">
+    <p>🔹 Antena 2.4Ghz: ${name.ssid2g}</p>
+    <p>🔹 Antena 5Ghz: ${name.ssid5g}</p>
+    <p>📏 Distancia: ${distance}</p>
+    <p>⚡ Tipo: ${type}</p>
+    <p>🙇‍♂️ Usuarios Conectados: ${users}</p>
+  </div>`;
 }
 
-function WifiMarkerIcon() {
-  return (
-    <svg width="34" height="46" viewBox="0 0 206 300" aria-hidden="true">
-      <g transform="translate(2, 2)">
-        <path
-          d="M100 0 C45 0 0 45 0 100 C0 200 95 250 100 295 C105 250 200 200 200 100 C200 45 155 0 100 0 Z"
-          fill="#3b82f6"
-          stroke="#000"
-          strokeWidth="3"
-        />
-      </g>
-      <circle
-        cx="100"
-        cy="90"
-        r="65"
-        fill="white"
-        stroke="#EEEEEE"
-        strokeWidth="1"
-      />
-      <g transform="translate(46, 35) scale(4.5)">
-        <path
-          d="M5 12.55a11 11 0 0 1 14.08 0"
-          fill="none"
-          stroke="#0078D7"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M8.5 16.35a5 5 0 0 1 7 0"
-          fill="none"
-          stroke="#0078D7"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M2 8.82a15 15 0 0 1 20 0"
-          fill="none"
-          stroke="#0078D7"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle
-          cx="12"
-          cy="20"
-          r="1"
-          fill="#0078D7"
-          stroke="#0078D7"
-          strokeWidth="2"
-        />
-      </g>
-    </svg>
-  );
+function antennaPopupSimpleHTML(antenna: WifiDataProps) {
+  return `<div class="text-sm font-semibold text-zinc-900">
+    <p>🔹 Antena 2.4Ghz: ${antenna.name || "No disponible"}</p>
+    <p>🔹 Antena 5Ghz: ${antenna.name5g || "No disponible"}</p>
+    <p>⚡ Tipo: ${antenna.type}</p>
+    <p>🙇‍♂️ Usuarios Conectados: ${antenna.users || "No disponible"}</p>
+  </div>`;
 }
 
 const LeafMap = ({
@@ -130,7 +81,9 @@ const LeafMap = ({
   imgSharer,
   imgLoading,
 }: MapCoordsInterface) => {
-  const mapRef = useRef<MapRef | null>(null);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<L.Map | null>(null);
+  const layersRef = useRef<L.Layer[]>([]);
   const [antennas, setAntennas] = useState<WifiDataProps[]>([]);
   const [selectValue, setSelectValue] = useState<string>();
   const [selectedAntennas, setSelectedAntennas] = useState<WifiDataProps[]>([]);
@@ -143,9 +96,70 @@ const LeafMap = ({
       .catch(() => setAntennas([]));
   }, []);
 
-  const setMapInstance = (instance: MapRef | null) => {
-    mapRef.current = instance;
-  };
+  // Initialize Leaflet map
+  useEffect(() => {
+    if (!mapContainerRef.current || mapRef.current) return;
+
+    const map = L.map(mapContainerRef.current, {
+      center: [currentPosition.latitude, currentPosition.longitude],
+      zoom: 15,
+      zoomControl: false,
+      attributionControl: false,
+    });
+
+    MapLeaflet.switchToMap(map);
+    mapRef.current = map;
+
+    return () => {
+      map.remove();
+      mapRef.current = null;
+    };
+  }, [currentPosition.latitude, currentPosition.longitude]);
+
+  // Switch map style
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    if (mapStyle === "map") MapLeaflet.switchToMap(map);
+    else if (mapStyle === "satellite") MapLeaflet.switchToSatellite(map);
+    else if (mapStyle === "3d") { MapLeaflet.switchToCarto3D(map); map.setMaxZoom(18); }
+  }, [mapStyle]);
+
+  // Fly to on style change (simulate 3d pitch/bearing via CSS class)
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    const container = map.getContainer();
+    if (mapStyle === "3d") {
+      container.classList.add("map-tilt-3d");
+    } else {
+      container.classList.remove("map-tilt-3d");
+    }
+
+    map.flyTo(map.getCenter(), map.getZoom(), { duration: 0.7 });
+  }, [mapStyle]);
+
+  // Fly to selected city
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !selectValue) return;
+
+    const locationSelect = antennas
+      .filter((antenna) => antenna.location === selectValue)
+      .map((antenna) => ({
+        ...antenna,
+        lat: Number(antenna.lat) || 0,
+        lon: Number(antenna.lon) || 0,
+      }));
+
+    if (locationSelect.length === 0) return;
+
+    setSelectedAntennas(locationSelect);
+    map.flyTo([locationSelect[0].lat, locationSelect[0].lon], 14, {
+      duration: 2,
+    });
+  }, [selectValue, antennas]);
 
   const optimizedAntennas = useMemo(() => {
     return antennas
@@ -171,54 +185,94 @@ const LeafMap = ({
     thirdAntennaPosition.name.ssid2g,
   ]);
 
-  const selectedStyle = useMemo(() => {
-    if (mapStyle === "satellite") {
-      return { light: SATELLITE_STYLE, dark: SATELLITE_STYLE };
-    }
-
-    if (mapStyle === "3d") {
-      return {
-        light: OPEN_STREET_MAP_3D_STYLE,
-        dark: OPEN_STREET_MAP_3D_STYLE,
-      };
-    }
-
-    return { light: OPEN_STREET_MAP_STYLE, dark: OPEN_STREET_MAP_STYLE };
-  }, [mapStyle]);
-
+  // Render markers and routes
   useEffect(() => {
-    if (!mapRef.current) return;
+    const map = mapRef.current;
+    if (!map || !currentPosition.latitude || !currentPosition.longitude) return;
 
-    mapRef.current.easeTo({
-      pitch: mapStyle === "3d" ? 60 : 0,
-      bearing: mapStyle === "3d" ? -20 : 0,
-      duration: 700,
+    // Clear previous dynamic layers
+    layersRef.current.forEach((layer) => map.removeLayer(layer));
+    layersRef.current = [];
+
+    const newLayers: L.Layer[] = [];
+    const curLat = currentPosition.latitude;
+    const curLng = currentPosition.longitude;
+
+    // User location marker
+    const userMarker = L.marker([curLat, curLng], { icon: userIcon, zIndexOffset: 999 })
+      .addTo(map)
+      .bindPopup('<div class="text-sm font-semibold text-zinc-900 p-2">Tu ubicacion</div>');
+    newLayers.push(userMarker);
+
+    // Helper to add antenna marker
+    const addAntennaMarker = (
+      coords: { lat: number; lon: number },
+      name: { ssid2g: string; ssid5g: string },
+      distance: string,
+      type: string,
+      users: number,
+    ) => {
+      const marker = L.marker([coords.lat, coords.lon], { icon: wifiIcon })
+        .addTo(map)
+        .bindPopup(antennaPopupHTML(name, distance, type, users));
+      newLayers.push(marker);
+
+      const polyline = L.polyline(
+        [[curLat, curLng], [coords.lat, coords.lon]],
+        { color: "#2563eb", weight: 2, opacity: 0.7, dashArray: "5,5" },
+      ).addTo(map);
+      newLayers.push(polyline);
+    };
+
+    // Three main antenna markers with routes
+    addAntennaMarker(
+      antennaPosition.coords,
+      antennaPosition.name,
+      antennaPosition.distance,
+      antennaPosition.type,
+      antennaPosition.users,
+    );
+    addAntennaMarker(
+      secondAntennaPosition.coords,
+      secondAntennaPosition.name,
+      secondAntennaPosition.distance,
+      secondAntennaPosition.type,
+      secondAntennaPosition.users,
+    );
+    addAntennaMarker(
+      thirdAntennaPosition.coords,
+      thirdAntennaPosition.name,
+      thirdAntennaPosition.distance,
+      thirdAntennaPosition.type,
+      thirdAntennaPosition.users,
+    );
+
+    // Visible antennas (other wifi points)
+    visibleAntennas.forEach((antenna) => {
+      const marker = L.marker([Number(antenna.lat), Number(antenna.lon)], { icon: wifiIcon })
+        .addTo(map)
+        .bindPopup(antennaPopupSimpleHTML(antenna));
+      newLayers.push(marker);
     });
-  }, [mapStyle]);
 
-  useEffect(() => {
-    if (!mapRef.current || !selectValue) return;
-
-    const locationSelect = antennas
-      .filter((antenna) => antenna.location === selectValue)
-      .map((antenna) => ({
-        ...antenna,
-        lat: Number(antenna.lat) || 0,
-        lon: Number(antenna.lon) || 0,
-      }));
-
-    if (locationSelect.length === 0) return;
-
-    setSelectedAntennas(locationSelect);
-    mapRef.current.flyTo({
-      center: [
-        locationSelect[0].lon as number,
-        locationSelect[0].lat as number,
-      ],
-      zoom: 14,
-      duration: 2000,
+    // Selected antennas from city search
+    selectedAntennas.forEach((antenna) => {
+      const marker = L.marker([Number(antenna.lat), Number(antenna.lon)], { icon: wifiIcon })
+        .addTo(map)
+        .bindPopup(antennaPopupSimpleHTML(antenna));
+      newLayers.push(marker);
     });
-  }, [selectValue, antennas]);
+
+    layersRef.current = newLayers;
+  }, [
+    currentPosition.latitude,
+    currentPosition.longitude,
+    antennaPosition,
+    secondAntennaPosition,
+    thirdAntennaPosition,
+    visibleAntennas,
+    selectedAntennas,
+  ]);
 
   if (
     !currentPosition ||
@@ -226,9 +280,9 @@ const LeafMap = ({
     !currentPosition.longitude
   ) {
     return (
-      <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
+      <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl p-2">
         <h2 className="text-center font-semibold text-xl my-2">
-          Mapa Intercativo 🌍
+          Mapa Interactivo 🌍
         </h2>
         <p className="my-4 text-pretty text-center">
           Necesitas permitir la geolocalización para poder visualizar el mapa.
@@ -449,175 +503,17 @@ const LeafMap = ({
         className="w-full h-96 border-x-2 border-zinc-200/70 dark:border-zinc-800 relative overflow-hidden"
         id="map"
       >
-        <Map
-          ref={setMapInstance}
-          className="h-full w-full"
-          center={[currentPosition.longitude, currentPosition.latitude]}
-          zoom={15}
-          styles={selectedStyle}
-        >
-          <MapRoute
-            id="closest-route"
-            coordinates={[
-              [currentPosition.longitude, currentPosition.latitude],
-              [antennaPosition.coords.lon, antennaPosition.coords.lat],
-            ]}
-            color="#2563eb"
-            width={2}
-            opacity={0.7}
-            dashArray={[2, 2]}
-          />
-          <MapRoute
-            id="second-route"
-            coordinates={[
-              [currentPosition.longitude, currentPosition.latitude],
-              [
-                secondAntennaPosition.coords.lon,
-                secondAntennaPosition.coords.lat,
-              ],
-            ]}
-            color="#2563eb"
-            width={2}
-            opacity={0.7}
-            dashArray={[2, 2]}
-          />
-          <MapRoute
-            id="third-route"
-            coordinates={[
-              [currentPosition.longitude, currentPosition.latitude],
-              [
-                thirdAntennaPosition.coords.lon,
-                thirdAntennaPosition.coords.lat,
-              ],
-            ]}
-            color="#2563eb"
-            width={1}
-            opacity={0.7}
-            dashArray={[2, 2]}
-          />
+        <div ref={mapContainerRef} className="h-full w-full" />
 
-          <MapMarker
-            longitude={currentPosition.longitude}
-            latitude={currentPosition.latitude}
-          >
-            <MarkerContent>
-              <UserLocationMarkerIcon />
-            </MarkerContent>
-            <MarkerPopup className={POPUP_CONTENT_CLASS}>
-              Tu ubicacion
-            </MarkerPopup>
-          </MapMarker>
-
-          <MapMarker
-            longitude={antennaPosition.coords.lon}
-            latitude={antennaPosition.coords.lat}
-          >
-            <MarkerContent>
-              <WifiMarkerIcon />
-            </MarkerContent>
-            <MarkerPopup className={POPUP_CONTENT_CLASS}>
-              <div>
-                <p>🔹 Antena 2.4Ghz: {antennaPosition.name.ssid2g}</p>
-                <p>🔹 Antena 5Ghz: {antennaPosition.name.ssid5g}</p>
-                <p>📏 Distancia: {antennaPosition.distance}</p>
-                <p>⚡ Tipo: {antennaPosition.type}</p>
-                <p>🙇‍♂️ Usuarios Conectados: {antennaPosition.users}</p>
-              </div>
-            </MarkerPopup>
-          </MapMarker>
-
-          <MapMarker
-            longitude={secondAntennaPosition.coords.lon}
-            latitude={secondAntennaPosition.coords.lat}
-          >
-            <MarkerContent>
-              <WifiMarkerIcon />
-            </MarkerContent>
-            <MarkerPopup className={POPUP_CONTENT_CLASS}>
-              <div>
-                <p>🔹 Antena 2.4Ghz: {secondAntennaPosition.name.ssid2g}</p>
-                <p>🔹 Antena 5Ghz: {secondAntennaPosition.name.ssid5g}</p>
-                <p>📏 Distancia: {secondAntennaPosition.distance}</p>
-                <p>⚡ Tipo: {secondAntennaPosition.type}</p>
-                <p>🙇‍♂️ Usuarios Conectados: {secondAntennaPosition.users}</p>
-              </div>
-            </MarkerPopup>
-          </MapMarker>
-
-          <MapMarker
-            longitude={thirdAntennaPosition.coords.lon}
-            latitude={thirdAntennaPosition.coords.lat}
-          >
-            <MarkerContent>
-              <WifiMarkerIcon />
-            </MarkerContent>
-            <MarkerPopup className={POPUP_CONTENT_CLASS}>
-              <div>
-                <p>🔹 Antena 2.4Ghz: {thirdAntennaPosition.name.ssid2g}</p>
-                <p>🔹 Antena 5Ghz: {thirdAntennaPosition.name.ssid5g}</p>
-                <p>📏 Distancia: {thirdAntennaPosition.distance}</p>
-                <p>⚡ Tipo: {thirdAntennaPosition.type}</p>
-                <p>🙇‍♂️ Usuarios Conectados: {thirdAntennaPosition.users}</p>
-              </div>
-            </MarkerPopup>
-          </MapMarker>
-
-          {visibleAntennas.map((antenna) => (
-            <MapMarker
-              key={`${antenna.name}-${antenna.lon}-${antenna.lat}`}
-              longitude={antenna.lon as number}
-              latitude={antenna.lat as number}
-            >
-              <MarkerContent>
-                <WifiMarkerIcon />
-              </MarkerContent>
-              <MarkerPopup className={POPUP_CONTENT_CLASS}>
-                <div>
-                  <p>🔹 Antena 2.4Ghz: {antenna.name || "No disponible"}</p>
-                  <p>🔹 Antena 5Ghz: {antenna.name5g || "No disponible"}</p>
-                  <p>⚡ Tipo: {antenna.type}</p>
-                  <p>
-                    🙇‍♂️ Usuarios Conectados: {antenna.users || "No disponible"}
-                  </p>
-                </div>
-              </MarkerPopup>
-            </MapMarker>
-          ))}
-
-          {selectValue &&
-            selectedAntennas.map((antenna) => (
-              <MapMarker
-                key={`${antenna.name}-${antenna.lon}-${antenna.lat}`}
-                longitude={antenna.lon as number}
-                latitude={antenna.lat as number}
-              >
-                <MarkerContent>
-                  <WifiMarkerIcon />
-                </MarkerContent>
-                <MarkerPopup className={POPUP_CONTENT_CLASS}>
-                  <div>
-                    <p>🔹 Antena 2.4Ghz: {antenna.name || "No disponible"}</p>
-                    <p>🔹 Antena 5Ghz: {antenna.name5g || "No disponible"}</p>
-                    <p>⚡ Tipo: {antenna.type}</p>
-                    <p>
-                      🙇‍♂️ Usuarios Conectados: {antenna.users || "No disponible"}
-                    </p>
-                  </div>
-                </MarkerPopup>
-              </MapMarker>
-            ))}
-        </Map>
-
-        <div className="absolute top-2 left-2 z-20">
+        <div className="absolute top-2 left-2 z-999">
           <button
             className="leaflet-control-locate-btn"
             title="Centrar en mi ubicación"
             onClick={() => {
-              if (!mapRef.current) return;
-              mapRef.current.flyTo({
-                center: [currentPosition.longitude, currentPosition.latitude],
-                zoom: 16,
-                duration: 1800,
+              const map = mapRef.current;
+              if (!map) return;
+              map.flyTo([currentPosition.latitude, currentPosition.longitude], 16, {
+                duration: 1.8,
               });
               setSelectValue("");
             }}
@@ -626,7 +522,7 @@ const LeafMap = ({
           </button>
         </div>
 
-        <div className="absolute bottom-2 left-2 z-20 flex flex-col gap-1">
+        <div className="absolute bottom-2 left-2 flex flex-col gap-1 z-999">
           <button
             className="map-control-btn"
             title="Vista de Mapa"

@@ -1,9 +1,10 @@
 import { promises as fs } from "node:fs";
 import path from "path";
-import currentData from "../../public/data/wifi-locates.json" with { type: "json" };
 import oldDataWifi from "../app/components/GeoInfo/components/data/old-data-wifi.json" with { type: "json" };
 
 (async () => {
+  const res = await fetch("/public/data/wifi-locates.json")
+  const currentData = await res.json();
   try {
     const response = await fetch("https://wifi.sanluis.gov.ar/Home/API");
     const antennas = await response.json();

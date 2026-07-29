@@ -19,7 +19,6 @@ import { HomeBlock, HomeBlockTitle } from "../components/BlockComp";
 import Link from "next/link";
 import { CurveArrowIcon } from "./Icons/ArrowIcon";
 import { YouTubeLiteVideo } from "../components/YoutubeVideo";
-import MouseTrail from "../components/MouseTrail";
 import { WindowsLogo } from "../components/DownloadButton/Icon/WindowsLogo";
 import { formatDate } from "@/utils/format-date";
 import MarkdownRenderer from "../components/MarkDownRender";
@@ -103,7 +102,7 @@ export default function Page() {
         <Navbar />
         <section className="py-24">
           <HomeBlockTitle>Gracias por descargar Neo WiFi App 😃</HomeBlockTitle>
-          <div className="flex xl:max-w-md max-w-[364px] p-6 border bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto backdrop-blur-xl z-50">
+          <div className="flex xl:max-w-md max-w-91 p-6 border bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto backdrop-blur-xl z-50">
             <article className="flex flex-col gap-3 justify-center mx-auto text-center">
               <CheckCircle className="w-16 h-16 text-blue-500 mx-auto" />
               <h1 className="text-2xl font-bold">¡Tu descarga ha comenzado!</h1>
@@ -126,7 +125,7 @@ export default function Page() {
               className="mx-1 text-blue-500 relative hover:underline"
             >
               aquí.
-              <CurveArrowIcon className="absolute top-6 left-[-8px]" />
+              <CurveArrowIcon className="absolute top-6 -left-2" />
             </Link>
           </p>
         </section>
@@ -143,7 +142,7 @@ export default function Page() {
           <HomeBlockTitle>Información</HomeBlockTitle>
 
           {isLoading ? (
-            <article className="h-[922px] p-4 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
+            <article className="h-230.5 p-4 mt-12 text-left border bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl z-50 relative backdrop-blur-xl">
               <div className="flex mt-20 gap-2 mx-auto items-center justify-center align-middle font-semibold">
                 <Loader className="animate-spin text-zinc-800 dark:text-zinc-200" />
                 Cargando...
@@ -170,14 +169,14 @@ export default function Page() {
               className="mx-1 text-blue-500 relative hover:underline"
             >
               aquí.
-              <CurveArrowIcon className="absolute top-6 left-[-8px]" />
+              <CurveArrowIcon className="absolute top-6 -left-2" />
             </Link>
           </p>
         </HomeBlock>
         <HomeBlockTitle className="md:text-[2.5rem] text-3xl font-semibold flex justify-center mx-auto relative z-50">
           Descarga
         </HomeBlockTitle>
-        <article className="flex flex-col xl:max-w-md max-w-[364px] border bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto backdrop-blur-xl z-50">
+        <article className="flex flex-col xl:max-w-md max-w-91 border bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary my-12 mx-auto backdrop-blur-xl z-50">
           <h3 className="font-semibold font-bogue-black text-xl my-2 border-zinc-200/70 dark:border-zinc-800 border-b py-2 px-3">
             Información del archivo
           </h3>
@@ -242,7 +241,7 @@ export default function Page() {
           <h2 className="text-center">
             Haz click
             <span
-              className="mx-[3px] text-blue-500 dark:text-yellow-400 hover:underline cursor-pointer"
+              className="mx-0.75 text-blue-500 hover:underline cursor-pointer"
               onClick={createLink}
             >
               aquí

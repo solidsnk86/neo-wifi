@@ -239,18 +239,32 @@ export const AiAssistant = ({
       className="w-full mx-auto h-svh flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl chat"
       id="chat"
     >
-      <div className="flex justify-between items-center p-2">
-        <h3 className="text-lg md:text-2xl font-semibold text-black dark:text-white font-bogue-black">
-          Neo - Asistente
-        </h3>
-        <span
-          className="group p-2 hover:dark:bg-zinc-700/50 hover:bg-zinc-300/70 rounded-full"
-          title="Cerrar asistente"
+      <div className="flex items-center gap-1 relative">
+        <div className="p-2 relative">
+          <Image
+            src="/assets/neo_pixelart-removebg-preview.png"
+            width={33}
+            height={33}
+            alt="The Neo Protagonist"
+          />
+        </div>
+        <div className="flex flex-col -space-y-1">
+          <h4 className="font-semibold font-bogue-black">Neo &middot; Asistente</h4>
+          <div className="flex gap-1 items-center text-muted-foreground">
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+            <small className="text-accent flex gap-1 items-center text-xs">
+              En línea
+            </small>
+          </div>
+        </div>
+        <button
+          className="absolute right-1.5 top-1.5 z-10 rounded-full p-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
           onClick={closeAssistant}
         >
-          <X size={18} className="text-black dark:text-white" />
-        </span>
+          <X size={16} />
+        </button>
       </div>
+
       <div className="flex flex-col justify-between items-center p-4 border-b border-zinc-200/70 dark:border-zinc-800">
         <aside className="grid md:grid-cols-3 grid-cols-2 gap-2">
           <button
@@ -341,14 +355,6 @@ export const AiAssistant = ({
           >
             {msg.role === "assistant" ? (
               <div className="relative text-black dark:text-white">
-                <span className="absolute -top-14 bg-zinc-100 dark:bg-zinc-700/50 -z-10 -left-3 px-2 py-2 rounded-full md:flex hidden">
-                  <Image
-                    src="/assets/neo_pixelart-removebg-preview.png"
-                    width={24}
-                    height={24}
-                    alt="The Neo Protagonist"
-                  />
-                </span>
                 <MarkdownRenderer content={msg.content} />
                 <span ref={chatRef}></span>
               </div>

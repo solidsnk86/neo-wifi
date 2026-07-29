@@ -55,7 +55,7 @@ export const GeoPosition = ({
             />
             <div className="flex md:justify-evenly justify-between mt-4">
               <button
-                className="flex gap-2 text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
+                className="flex gap-2 text-zinc-700 font-semibold items-center text-sm hover:opacity-75 hover:text-blue-400 transition-all duration-150"
                 onClick={() => copy(String(coords.latitude), "latitud")}
                 title={`Copiar latitud ${coords.latitude}`}
                 aria-label={`Copiar la coordenada de latitud ${coords.latitude}`}
@@ -64,7 +64,7 @@ export const GeoPosition = ({
                 Copiar Latitud
               </button>
               <button
-                className="flex gap-2 text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
+                className="flex gap-2 text-zinc-700 font-semibold items-center text-sm hover:opacity-75 hover:text-blue-400 transition-all duration-150"
                 onClick={() => copy(String(coords.longitude), "longitud")}
                 title={`Copiar longitud ${coords.longitude}`}
                 aria-label={`Copiar la coordenada de longitud ${coords.longitude}`}

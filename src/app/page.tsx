@@ -3,9 +3,7 @@
 import { Navbar, Hero, GeoPositionCard, Footer } from "./components/index";
 import { DownloadCard } from "./components/DownloadCard/DownloadCard";
 import { VisitsComponent } from "./components/VisitsComponent/Visits";
-import { Donation } from "./components/DonationCard/Donation";
 import { HomeBlock, HomeBlockTitle } from "./components/BlockComp";
-import MouseTrail from "./components/MouseTrail";
 import { AiAssistant } from "./components/AiAssistant/AiAsistant";
 import { useEffect, useState } from "react";
 import { pauseMarquee, playMarquee } from "./components/constants";

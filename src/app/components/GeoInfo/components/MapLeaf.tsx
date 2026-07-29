@@ -18,7 +18,6 @@ import {
   MapRoute,
 } from "@/components/ui/map";
 import type { StyleSpecification } from "maplibre-gl";
-import wifiMap from "./data/wifi-locates.json";
 import { MapCoordsInterface, WifiDataProps } from "./types/definitions";
 import { getCountryFlag } from "@/utils/convert-to-flag";
 
@@ -138,7 +137,10 @@ const LeafMap = ({
   const [mapStyle, setMapStyle] = useState<MapStyleKey>("map");
 
   useEffect(() => {
-    setAntennas(wifiMap);
+    fetch("/data/wifi-locates.json")
+      .then((res) => res.json())
+      .then((data) => setAntennas(data))
+      .catch(() => setAntennas([]));
   }, []);
 
   const setMapInstance = (instance: MapRef | null) => {

@@ -1,4 +1,19 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.guides.bracketPairs": "active"
+  "editor.guides.bracketPairs": "active",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "files.exclude": {
+    "**/.next": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "public/data": true
+  },
+  "files.watcherExclude": {
+    "**/.next/**": true,
+    "**/node_modules/**": true,
+    "public/data/**": true
+  }
 }

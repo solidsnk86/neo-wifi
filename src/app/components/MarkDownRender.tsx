@@ -32,12 +32,12 @@ export default function MarkdownRenderer({ content, isChat }: { content: string,
       ]}
       components={{
         h1: ({ children }) => (
-          <h1 className="mt-8 mb-4 xl:text-3xl text-2xl font-bold pb-2 border-b border-border-color" style={{ fontSize: isChat ? "20px" : "" }}>
+          <h1 className="mt-8 mb-4 xl:text-3xl text-2xl font-bold pb-2 border-b border-zinc-300 dark:border-zinc-800" style={{ fontSize: isChat ? "20px" : "" }}>
             {children}
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className="mt-6 mb-3 xl:text-2xl text-xl font-semibold pb-2 border-b border-border-color">
+          <h2 className="mt-6 mb-3 xl:text-2xl text-xl font-semibold pb-2 border-b border-zinc-300 dark:border-zinc-800">
             {children}
           </h2>
         ),
@@ -62,7 +62,7 @@ export default function MarkdownRenderer({ content, isChat }: { content: string,
             {children}
           </a>
         ),
-        hr: () => <hr className="my-4 border-2 border-muted-foreground" />,
+        hr: () => <hr className="my-4 border-2 border-zinc-300 dark:border-zinc-800" />,
       }}
     >
       {content}

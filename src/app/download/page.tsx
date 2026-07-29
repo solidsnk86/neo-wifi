@@ -52,7 +52,7 @@ export default function Page() {
       city: ipInfo.cityName,
       so: ipInfo.sysInfo.system,
       browser: ipInfo.sysInfo.webBrowser.browser,
-      app_version: appData?.release.appVersion
+      app_version: appData?.release.appVersion,
     };
     await SupabaseDB.sendDownloads({ data: objDownload });
   }, [appData?.release.appVersion, ipInfo]);
@@ -79,7 +79,7 @@ export default function Page() {
       "https://github.com/solidsnk86/neo-wifi/releases/download/1.2.5/Neo-Wifi.Setup.1.2.5.rar";
     link.download = appData?.release.fileName || "Neo-Wifi.Setup.1.2.5.rar";
     await sendDataToSupabase().catch((err) =>
-      console.error("Error al enviar datos:", err)
+      console.error("Error al enviar datos:", err),
     );
     document.body.appendChild(link);
     link.click();
@@ -100,7 +100,6 @@ export default function Page() {
 
     return (
       <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
-        <MouseTrail />
         <Navbar />
         <section className="py-24">
           <HomeBlockTitle>Gracias por descargar Neo WiFi App 😃</HomeBlockTitle>
@@ -138,7 +137,6 @@ export default function Page() {
 
   return (
     <main className="bg-[#f5f5f5] dark:bg-[#111] text-zinc-900 dark:text-zinc-200">
-      <MouseTrail />
       <Navbar />
       <section className="py-16">
         <HomeBlock className="flex-col justify-center text-center">
@@ -169,7 +167,7 @@ export default function Page() {
             leas la documentación
             <Link
               href="/start/introduction"
-              className="mx-1 text-yellow-400 relative hover:underline"
+              className="mx-1 text-blue-500 relative hover:underline"
             >
               aquí.
               <CurveArrowIcon className="absolute top-6 left-[-8px]" />
@@ -184,33 +182,48 @@ export default function Page() {
             Información del archivo
           </h3>
           <div className="flex flex-col p-2 gap-2">
-            <p className="flex items-center text-sm">
-              <FileText className="mx-2 w-6 h-6" /> Neo-Wifi Setup{" "}
-              {appData?.release?.appVersion || "v1.2.4"}
-            </p>
-            <p className="flex items-center text-sm">
-              <FileArchive className="mx-2 w-6 h-6" /> Tamaño del fichero:{" "}
-              {appData?.release?.fileSize}
-            </p>
-            <p className="flex items-center text-sm">
-              <FileBox className="mx-2 w-6 h-6" /> Archivo:{" "}
-              {appData?.release?.fileName || ""}
-            </p>
-            <time className="flex items-center text-sm">
-              <FilePenIcon className="mx-2 w-6 h-6" /> Creación:{" "}
-              {formatDate(appData?.release?.createdAt || "")}
+            <div className="flex gap-2 items-center text-sm">
+              <div className="p-1 rounded-md outline outline-offset-1 outline-zinc-200 dark:outline-zinc-800 border border-zinc-200 dark:border-zinc-800">
+                <FileText className="text-zinc-500" size={20} />
+              </div>{" "}
+              Neo-Wifi Setup {appData?.release?.appVersion || "v1.2.4"}
+            </div>
+            <div className="flex gap-2 items-center text-sm">
+              <div className="p-1 rounded-md outline outline-offset-1 outline-zinc-200 dark:outline-zinc-800 border border-zinc-200 dark:border-zinc-800">
+                <FileArchive className="text-zinc-500" size={20} />
+              </div>{" "}
+              Tamaño del fichero: {appData?.release?.fileSize}
+            </div>
+            <div className="flex gap-2 items-center text-sm">
+              <div className="p-1 rounded-md outline outline-offset-1 outline-zinc-200 dark:outline-zinc-800 border border-zinc-200 dark:border-zinc-800">
+                <FileBox className="text-zinc-500" size={20} />
+              </div>{" "}
+              Archivo: {appData?.release?.fileName || ""}
+            </div>
+            <time className="flex gap-2 items-center text-sm">
+              <div className="p-1 rounded-md outline outline-offset-1 outline-zinc-200 dark:outline-zinc-800 border border-zinc-200 dark:border-zinc-800">
+                <FilePenIcon className="text-zinc-500" size={20} />
+              </div>{" "}
+              Creación: {formatDate(appData?.release?.createdAt || "")}
             </time>
-            <time className="flex items-center text-sm">
-              <Activity className="mx-2 w-6 h-6" /> Última actualización:{" "}
+            <time className="flex gap-2 items-center text-sm">
+              <div className="p-1 rounded-md outline outline-offset-1 outline-zinc-200 dark:outline-zinc-800 border border-zinc-200 dark:border-zinc-800">
+                <Activity className="text-zinc-500" size={20} />
+              </div>{" "}
+              Última actualización:{" "}
               {formatDate(appData?.release?.updatedAt || "")}
             </time>
-            <p className="flex items-center text-sm">
-              <FileDown className="mx-2 w-6 h-6" /> Total de descargas:{" "}
-              {appData?.release?.downloadCount || 0}
-            </p>
-            <p className="flex items-center text-sm">
-              <WindowsLogo width={24} height={24} className="mx-2" /> Compatible
-              para SO Windows x64/x86
+            <div className="flex gap-2 items-center text-sm">
+              <div className="p-1 rounded-md outline outline-offset-1 outline-zinc-200 dark:outline-zinc-800 border border-zinc-200 dark:border-zinc-800">
+                <FileDown className="text-zinc-500" size={20} />
+              </div>{" "}
+              Total de descargas: {appData?.release?.downloadCount || 0}
+            </div>
+            <p className="flex gap-2 items-center text-sm">
+              <div className="p-1 rounded-md outline outline-offset-1 outline-zinc-200 dark:outline-zinc-800 border border-zinc-200 dark:border-zinc-800">
+                <WindowsLogo width={20} height={20} className="text-zinc-500" />
+              </div>
+              Compatible para SO Windows x64/x86
             </p>
           </div>
           <aside className="flex justify-end p-4">
@@ -225,7 +238,7 @@ export default function Page() {
             </button>
           </aside>
         </article>
-        <div>
+        <div className="relative z-40">
           <h2 className="text-center">
             Haz click
             <span

@@ -44,7 +44,7 @@ const SATELLITE_STYLE: StyleSpecification = {
 };
 const OPEN_STREET_MAP_STYLE = "https://tiles.openfreemap.org/styles/bright";
 const OPEN_STREET_MAP_3D_STYLE = "https://tiles.openfreemap.org/styles/liberty";
-const POPUP_CONTENT_CLASS = "text-sm font-semibold text-zinc-900 p-2";
+const POPUP_CONTENT_CLASS = "text-sm font-semibold text-zinc-900 p-2 bg-zinc-50 rounded border border-zinc-200";
 
 type MapStyleKey = "map" | "satellite" | "3d";
 

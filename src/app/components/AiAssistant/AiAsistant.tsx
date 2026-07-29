@@ -143,12 +143,12 @@ export const AiAssistant = ({
                 para este propósito y no será almacenada.
               </div>
               <div className="relative w-fit justify-center mx-auto group">
-                <button
-                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-blue-500 to-blue-600 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-500/50 backdrop-blur-xl transition-transform"
+                 <button
+                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-zinc-950 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-800/50 backdrop-blur-xl transition-transform outline-1 outline-zinc-300/70 dark:outline-zinc-800/50 outline-offset-3 hover:opacity-80"
                   onClick={handler}
                 >
-                  <LocateFixed className="text-red-500" />
-                  Permitir acceso a mi ubicación
+                  <LocateFixed size={20} className="text-red-400" />
+                  Obtener Ubicación
                 </button>
               </div>
             </section>

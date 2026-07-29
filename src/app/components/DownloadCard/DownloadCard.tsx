@@ -28,7 +28,7 @@ export const DownloadCard = () => {
           Esta aplicación es una herramienta diseñada para automatizar y
           optimizar la configuración de tu red WiFi de manera rápida y sencilla.
           Puedes instalarla en tu PC y gestionar tu red de forma eficiente y
-          automática, sin complicaciones.
+          automática.
         </p>
 
         <DownloadButton className={styles.btn} />

@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Quote() {
   return (
     <section className="flex mx-auto px-3 max-w-3xl pb-14">
-      <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-[16px] bg-[#FFFFFF] dark:bg-zinc-800/40 z-50 backdrop-blur-xl">
+      <div className="border-2 border-zinc-200/70 dark:border-zinc-800 rounded-2xl bg-[#FFFFFF] dark:bg-[#181818] z-50 backdrop-blur-xl relative">
         <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
           <p className="relative flex text-center text-base md:text-lg text-zinc-900 dark:text-zinc-400 font-gloria-hallelujah">
             <QuoteIcon size={64} className="rotate-180 text-zinc-400/70 dark:text-zinc-800 fill-yellow-300" />

@@ -116,7 +116,7 @@ export default function FeedBackForm() {
         <p className="text-zinc-400 text-[15px]">
           Envíame cualquier mensaje o reporta un bug acerca del producto. Si
           necesitas que te conteste o alguna acción por mi parte, por favor
-          incluye alguna manera de poder hacer un seguimiento. up.
+          incluye alguna manera de poder hacer un seguimiento.
         </p>
       </div>
       <div className="grid w-full">

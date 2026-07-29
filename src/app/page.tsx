@@ -59,7 +59,6 @@ export default function Home() {
 
   return (
     <>
-      <MouseTrail />
       <div className="font-[family-name:var(--font-geist-sans)] bg-[#f5f5f5] dark:bg-[#111] outline-blue-500 text-zinc-900 dark:text-zinc-200">
         <Navbar />
 
@@ -110,7 +109,7 @@ export default function Home() {
           <ApkCard />
         </HomeBlock>
 
-        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 bg-stripes z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-xs">
+        <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 bg-stripes z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-xs overflow-x-hidden">
           <HomeBlockTitle className="mt-16">Información WiFi</HomeBlockTitle>
 
           <HomeBlock className="px-3">

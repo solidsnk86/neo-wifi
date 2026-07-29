@@ -19,7 +19,7 @@ export const GeoPosition = ({
   loading,
 }: GeoPositionProps) => {
   return (
-    <div className="border-2 max-w-92.5 md:max-w-full bg-[#FFFFFF] dark:bg-[#181818] backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary overflow-hidden">
+    <div className="border-2 w-full bg-[#FFFFFF] dark:bg-[#181818] backdrop-blur-xl z-50 border-zinc-200/70 dark:border-zinc-800 rounded-2xl relative text-text-primary overflow-hidden">
       <div className="absolute top-0 left-0 bg-white/10 w-52 h-44 z-50 rounded-full blur-3xl" />
       <article className="border-b-4 border-zinc-300 dark:border-[#111111] rounded-[14px] p-2 md:p-3">
         <h2
@@ -53,7 +53,7 @@ export const GeoPosition = ({
               value={coords.longitude}
               loading={loading}
             />
-            <div className="flex justify-evenly mt-4">
+            <div className="flex md:justify-evenly justify-between mt-4">
               <button
                 className="flex gap-2 text-zinc-700 font-semibold items-center text-sm hover:opacity-75 dark:hover:text-yellow-300 transition-all duration-150"
                 onClick={() => copy(String(coords.latitude), "latitud")}

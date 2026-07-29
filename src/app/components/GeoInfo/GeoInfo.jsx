@@ -11,7 +11,7 @@ import { SupabaseDB } from "@/services/Supabase";
 import { writeMAC } from "@/utils/mac-writer";
 import dynamic from "next/dynamic.js";
 import { mapSharer } from "../MapSharer.tsx";
-import { AskForLocation } from "./components/AskForLocation.tsx";
+import { AskForLocation } from "./components/Dialog/AskForLocation.tsx";
 import { getCityLocation } from "@/utils/getCityCoords.ts";
 import { useLocation } from "@/app/contexts/use-location";
 
@@ -76,7 +76,7 @@ export const GeoPositionCard = () => {
   const [searchLoading, setSearchLoading] = useState(false);
   const [imgLoading, setImgLoading] = useState(false);
   const [coords, setCoords] = useState({ latitude: 0, longitude: 0 });
-  const { location: dataLocation, ipInfo } = useLocation();
+  const { ipInfo } = useLocation();
 
   const setDialogAnimation = () => {
     const dialog = document.querySelector("dialog");
@@ -166,7 +166,7 @@ export const GeoPositionCard = () => {
           content: (
             <div className="p-5 flex-col">
               <h2 className="flex justify-center text-center font-semibold items-center gap-2 my-3">
-                <TriangleAlert className="text-amber-400 -translate-y-[1px]" />
+                <TriangleAlert className="text-amber-400 -translate-y-px" />
                 Error en la búsqueda
               </h2>
               <p>
@@ -215,13 +215,13 @@ export const GeoPositionCard = () => {
   const imgMapSharer = () => mapSharer(setImgLoading);
 
   return (
-    <div className="justify-center mx-auto w-[672px] z-20">
+    <div className="justify-center mx-auto md:w-2xl w-full z-20">
       <GeoPosition location={location} coords={coords} loading={isLoading} />
 
       <InfoWifi location={location} loading={isLoading} />
 
       {isLoading ? (
-        <div className="flex flex-col w-full h-[480px] justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
+        <div className="flex flex-col w-full h-120 justify-center items-center my-auto border-2 bg-[#FFFFFF] dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 rounded-2xl backdrop-blur-xl">
           <article className="border-b-4 border-2 border-zinc-300 dark:border-[#111111] rounded-[14px] p-3">
             <h2 className="text-center font-semibold text-xl my-2">
               Cargando Mapa Intercativo 🌍

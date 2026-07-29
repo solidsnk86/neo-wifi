@@ -309,7 +309,7 @@ const LeafMap = ({
 
   return (
     <>
-      <div className="z-50 relative bg-[#FFFFFF] max-w-92.5 md:max-w-full dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
+      <div className="z-50 relative bg-[#FFFFFF] w-full dark:bg-zinc-800/40 border-zinc-200/70 dark:border-zinc-800 border-t-2 border-x-2 border-b backdrop-blur-xl overflow-hidden rounded-t-xl">
         <article className="flex justify-between">
           <p className="px-3 py-2">Seleccionar ciudad:</p>
           <select
@@ -444,7 +444,7 @@ const LeafMap = ({
         </article>
       </div>
       <div
-        className="max-w-92.5 md:max-w-full h-96 border-x-2 border-zinc-200/70 dark:border-zinc-800 relative overflow-hidden"
+        className="w-full h-96 border-x-2 border-zinc-200/70 dark:border-zinc-800 relative overflow-hidden"
         id="map"
       >
         <Map

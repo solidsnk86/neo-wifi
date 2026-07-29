@@ -5,54 +5,22 @@ import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { Copy, CopyCheck } from "lucide-react";
-import { useRef, useState } from "react";
+import { ReactNode, useRef } from "react";
 
-export default function MarkdownRenderer({ content }: { content: string }) {
-  const [isCopied, setCopied] = useState(false);
+const PreContent = ({ children }: { children: ReactNode }) => {
+  const preRef = useRef<HTMLPreElement>(null);
+  return (
+    <div className="my-3 xl:text-sm text-xs relative text-zinc-300">
+      <pre className="p-2 bg-[#1C1D21] rounded-lg overflow-auto" ref={preRef}>
+        {children}
+      </pre>
+    </div>
+  );
+};
 
-  function PreBlock({ children }: { children: React.ReactNode }) {
-    const preRef = useRef<HTMLPreElement>(null);
-
-    const copy = () => {
-      if (!preRef.current) return;
-      navigator.clipboard.writeText(preRef.current.innerText);
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 1600);
-    };
-
-
-    return (
-      <div className="my-3 code-block relative">
-        {isCopied ? (
-          <span title="Copiado">
-            <CopyCheck
-              id="copy-check"
-              className="absolute right-2 top-1 w-4 hover:text-[#facc15]"
-            />
-          </span>
-        ) : (
-          <span title="Copiar" onClick={copy}>
-            <Copy
-              id="copy"
-              className="absolute right-2 top-1 w-4 hover:text-[#facc15]"
-            />
-          </span>
-        )}
-        <pre
-          id={crypto.randomUUID().slice(0, 5).toString()}
-          className="p-2 bg-[#1C1D21] rounded-lg"
-          ref={preRef}
-        >
-          {children}
-        </pre>
-      </div>
-    );
-  }
-
+export default function MarkdownRenderer({ content, isChat }: { content: string, isChat?: boolean }) {
   return (
     <ReactMarkdown
       rehypePlugins={[
@@ -60,30 +28,41 @@ export default function MarkdownRenderer({ content }: { content: string }) {
         rehypeHighlight,
         rehypeSlug,
         rehypeAutolinkHeadings,
+        remarkGfm,
       ]}
       components={{
         h1: ({ children }) => (
-          <h1 className="mt-8 mb-4 text-3xl font-bold pb-2 border-b border-zinc-200/70 dark:border-zinc-800">
+          <h1 className="mt-8 mb-4 xl:text-3xl text-2xl font-bold pb-2 border-b border-border-color" style={{ fontSize: isChat ? "20px" : "" }}>
             {children}
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className="mt-6 mb-3 text-2xl font-semibold pb-2 border-b border-zinc-200/70 dark:border-zinc-800">
+          <h2 className="mt-6 mb-3 xl:text-2xl text-xl font-semibold pb-2 border-b border-border-color">
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className="mt-4 mb-2 text-xl font-semibold">{children}</h3>
+          <h3 className="mt-4 mb-2 xl:text-xl text-lg font-semibold">
+            {children}
+          </h3>
         ),
-        pre: ({ children }) => <PreBlock>{children}</PreBlock>,
-        a: ({ children }) => (
-          <a href={children as string} target="_blank">
+        p: ({ children }) => <p className="xl:text-base text-sm" style={{ fontSize: isChat ? "13px" : "" }}>{children}</p>,
+        pre: ({ children }) => <PreContent>{children}</PreContent>,
+        li: ({ children }) => (
+          <li className="ml-4 my-2 list-disc list-outside xl:text-base text-sm" style={{ fontSize: isChat ? "12px" : "" }}>
+            {children}
+          </li>
+        ),
+        a: ({ href, children }) => (
+          <a
+            href={href}
+            target="_blank"
+            className={`text-blue-400 hover:underline`}
+          >
             {children}
           </a>
         ),
-        hr: () => (
-          <hr className="my-4 border-2 border-zinc-200/70 dark:border-zinc-800" />
-        ),
+        hr: () => <hr className="my-4 border-2 border-muted-foreground" />,
       }}
     >
       {content}

@@ -1,12 +1,13 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import MarkdownRenderer from "../MarkDownRender";
-import { ArrowUp, LocateFixed, Mic, RefreshCw, X } from "lucide-react";
+import { ArrowUp, Mic, RefreshCw, X } from "lucide-react";
 import styles from "./styles/assistant.module.css";
 import Image from "next/image";
 import { matchQuerys, navLanguages, shareTechMono } from "./constants";
 import { closeDialog, showDialog } from "@/utils/dialog";
 import { getCityLocation } from "@/utils/getCityCoords";
 import { useLocation } from "@/app/contexts/use-location";
+import { DialogContent } from "../GeoInfo/components/Dialog/DialogContent";
 
 interface Message {
   role: "user" | "assistant";
@@ -135,23 +136,13 @@ export const AiAssistant = ({
       if (matchQuerys.some((word) => query.toLowerCase().includes(word))) {
         showDialog({
           content: (
-            <section className="p-5">
-              <div className="p-3">
-                Para poder mostrarte las antenas más cercanas y brindarte
+            <DialogContent
+              handler={handler}
+              content="Para poder mostrarte las antenas más cercanas y brindarte
                 información personalizada según tu ubicación, necesitamos
                 acceder a tu geolocalización. Tu ubicación solo se utilizará
-                para este propósito y no será almacenada.
-              </div>
-              <div className="relative w-fit justify-center mx-auto group">
-                 <button
-                  className="flex mx-auto w-fit gap-1 items-center justify-center p-3 bg-gradient-to-b from-zinc-950 to-zinc-800 text-zinc-50 rounded-md border border-zinc-300/70 dark:border-zinc-800/50 backdrop-blur-xl transition-transform outline-1 outline-zinc-300/70 dark:outline-zinc-800/50 outline-offset-3 hover:opacity-80"
-                  onClick={handler}
-                >
-                  <LocateFixed size={20} className="text-red-400" />
-                  Obtener Ubicación
-                </button>
-              </div>
-            </section>
+                para este propósito y no será almacenada."
+            />
           ),
         });
         return;
@@ -245,7 +236,7 @@ export const AiAssistant = ({
 
   return (
     <section
-      className="w-full mx-auto h-[100dvh] flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl chat"
+      className="w-full mx-auto h-svh flex-col gap-2 border-x-2 border-t-2 border-zinc-200/70 dark:border-zinc-800 md:rounded-t-[16px] bg-[#FFFFFF] dark:bg-zinc-800/40 backdrop-blur-xl chat"
       id="chat"
     >
       <div className="flex justify-between items-center p-2">
@@ -337,7 +328,7 @@ export const AiAssistant = ({
       </div>
 
       <div
-        className={`h-[100%] pl-4 pb-20 pr-[10px] md:pt-14 pt-3 flex flex-col gap-4 overflow-y-hidden ${styles.scroll}`}
+        className={`h-[100%] pl-4 pb-20 pr-2.5 md:pt-14 pt-3 flex flex-col gap-4 overflow-y-hidden ${styles.scroll}`}
       >
         {messages.map((msg, idx) => (
           <div
@@ -350,7 +341,7 @@ export const AiAssistant = ({
           >
             {msg.role === "assistant" ? (
               <div className="relative text-black dark:text-white">
-                <span className="absolute -top-[56px] bg-zinc-100 dark:bg-zinc-700/50 -z-10 -left-3 px-2 py-2 rounded-full md:flex hidden">
+                <span className="absolute -top-14 bg-zinc-100 dark:bg-zinc-700/50 -z-10 -left-3 px-2 py-2 rounded-full md:flex hidden">
                   <Image
                     src="/assets/neo_pixelart-removebg-preview.png"
                     width={24}
@@ -415,18 +406,18 @@ export const AiAssistant = ({
             type="submit"
             disabled={query === "" || isLoading}
             className={`absolute md:right-6 right-3 top-[50%] -translate-y-[50%] px-2 py-2 border 
-              border-zinc-200/70 dark:border-zinc-500 outline-[2px] outline-offset-2 outline-blue-500 
-              hover:outline-double rounded-full bg-gradient-to-b from-blue-500 to-blue-700 
-               disabled:hover:cursor-not-allowed disabled:grayscale-[70%]`}
+              border-zinc-200/70 dark:border-zinc-500 outline-2 outline-offset-2 outline-blue-500 
+              hover:outline-double rounded-full bg-linear-to-b from-blue-500 to-blue-700 
+               disabled:hover:cursor-not-allowed disabled:grayscale-70`}
           >
             <ArrowUp className="text-zinc-100" size={20} />
           </button>
         </form>
         <div className="flex justify-center">
           <small className="text-zinc-400 text-[10px] text-center mb-1">
-          Neo es IA y puede cometer errores. Por favor revise bien las
-          respuestas.
-        </small>
+            Neo es IA y puede cometer errores. Por favor revise bien las
+            respuestas.
+          </small>
         </div>
       </section>
     </section>

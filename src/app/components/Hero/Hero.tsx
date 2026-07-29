@@ -56,7 +56,7 @@ export const Hero = () => {
         </Link>
         <Link
           href="/download"
-          className={`flex justify-center items-center py-3 px-4 text-sm md:text-base bg-[#facc15] text-black font-medium cursor-pointer gap-2 group rounded-full hover:border-[#eafe7c] dark:hover:opacity-80 relative`}
+          className={`flex justify-center items-center py-3 px-4 text-sm md:text-base bg-blue-500 text-white font-medium cursor-pointer gap-2 group rounded-full hover:border-blue-400 dark:hover:opacity-80 relative`}
         >
           Comenzar
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />

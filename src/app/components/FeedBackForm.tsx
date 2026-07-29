@@ -162,7 +162,7 @@ export default function FeedBackForm() {
         )}
         <button
           type="submit"
-          className="w-full flex gap-2 my-2 items-center justify-center mx-auto p-2 bg-[#facc15] btn text-zinc-900 rounded-full border border-zinc-300/70 dark:border-zinc-500/50"
+          className="w-full flex gap-2 my-2 items-center justify-center mx-auto p-2 bg-blue-500 btn text-white rounded-full border border-zinc-300/70 dark:border-zinc-500/50"
         >
           {isLoading ? (
             <div className="loader-container">

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MoonStar, Sun, X, AlignRight, Palette } from "lucide-react";
+import { MoonStar, Sun, X, AlignRight, Palette, Wifi } from "lucide-react";
 import { useEffect, useState } from "react";
 import styles from "./styles/navbar.module.css";
 import { usePathname } from "next/navigation";
@@ -41,8 +41,7 @@ export const Navbar = () => {
           aria-label="Ir a la página principal"
         >
           <div className="flex gap-2 items-center">
-            <Image src="/favicon.ico" width={30} height={30} alt="" className="-translate-y-0.5" />
-            <h3 className={`text-md hidden md:block ${styles.title} text-xl`}>NeoWiFi</h3>
+            <h3 className={`text-md ${styles.title} text-lg md:text-xl`}>NeoWiFi</h3>
           </div>
         </Link>
 
@@ -64,7 +63,7 @@ export const Navbar = () => {
             className={`relative w-16 h-8 rounded-full transition-colors duration-300 flex items-center px-1
             ${darkMode ? "bg-zinc-800" : "bg-[#EFF0F3]"}
             border border-zinc-300/30 dark:border-zinc-700/50
-            shadow-sm hover:border-[#facc15] dark:hover:border-[#facc15]`}
+            shadow-sm hover:border-blue-400 dark:hover:border-blue-400`}
             onClick={() => dispatch(toggleTheme())}
             role="switch"
             aria-checked={darkMode}

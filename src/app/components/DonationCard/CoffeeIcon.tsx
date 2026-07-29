@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-export const CoffeeIcon = ({ className = "", fill }: ComponentProps<"svg">) => {
+export const CoffeeIcon = ({ className = "", fill = "currenColor" }: ComponentProps<"svg">) => {
   return (
     <svg
       role="img"

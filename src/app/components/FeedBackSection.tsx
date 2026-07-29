@@ -11,7 +11,6 @@ export const FeedBackSection = () => {
 
       <div className="px-3">
         <FeedBackForm />
-        <Donation content="Y contribuye con el desarrollador." />
         <Image
           src="/squirrel.svg"
           width={300}

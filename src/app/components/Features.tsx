@@ -19,7 +19,7 @@ export const Features = () => {
         <MousePointer2
           width={65}
           height={65}
-          className="rotate-90 text-[#facc15]"
+          className="rotate-90 text-blue-500"
         />
       </span>
     </div>

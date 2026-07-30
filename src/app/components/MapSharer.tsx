@@ -1,4 +1,4 @@
-export const mapSharer = (
+export const mapSharer = async (
   setIsLoading: (value: boolean) => boolean,
   content: string,
 ) => {
@@ -6,11 +6,9 @@ export const mapSharer = (
 
   try {
     setIsLoading(false);
-    document.body.click();
     navigator.share({
       title: "Mi ubicación de antenas!",
-      text: `Hola éstas son las antenas más próximas a mi disposición.\n
-      
+      text: `Hola éstas son las antenas más próximas a mi disposición:\n
       ${content}
       `,
       url: window.location.href,

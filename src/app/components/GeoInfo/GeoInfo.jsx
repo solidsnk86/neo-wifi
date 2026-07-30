@@ -10,7 +10,6 @@ import { showDialog } from "@/utils/dialog";
 import { SupabaseDB } from "@/services/Supabase";
 import { writeMAC } from "@/utils/mac-writer";
 import dynamic from "next/dynamic.js";
-import { mapSharer } from "../MapSharer.tsx";
 import { AskForLocation } from "./components/Dialog/AskForLocation.tsx";
 import { getCityLocation } from "@/utils/getCityCoords.ts";
 import { useLocation } from "@/app/contexts/use-location";
@@ -212,14 +211,6 @@ export const GeoPositionCard = () => {
     AskForLocation({ handler: handleGetLocation });
   }, []);
 
-  const locationToText = `
-  1️⃣: ${location.closest_wifi.name} a ${location.closest_wifi.distance}mts
-  2️⃣: ${location.second_closest_wifi.name} a ${location.second_closest_wifi.distance}mts
-  3️⃣: ${location.third_closest_wifi.name} a ${location.third_closest_wifi.distance}mts
-  `
-
-  const imgMapSharer = () => mapSharer(setImgLoading, locationToText);
-
   return (
     <div className="justify-center mx-auto md:w-2xl w-full z-20">
       <GeoPosition location={location} coords={coords} loading={isLoading} />
@@ -276,7 +267,6 @@ export const GeoPositionCard = () => {
           }}
           getLocation={handleGetLocation}
           imgLoading={imgLoading}
-          imgSharer={imgMapSharer}
         />
       )}
 

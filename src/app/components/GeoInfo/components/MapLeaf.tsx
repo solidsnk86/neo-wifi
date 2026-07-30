@@ -78,7 +78,6 @@ const LeafMap = ({
   secondAntennaPosition,
   thirdAntennaPosition,
   getLocation,
-  imgSharer,
   imgLoading,
 }: MapCoordsInterface) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -122,7 +121,10 @@ const LeafMap = ({
     if (!map) return;
     if (mapStyle === "map") MapLeaflet.switchToMap(map);
     else if (mapStyle === "satellite") MapLeaflet.switchToSatellite(map);
-    else if (mapStyle === "3d") { MapLeaflet.switchToCarto3D(map); map.setMaxZoom(18); }
+    else if (mapStyle === "3d") {
+      MapLeaflet.switchToCarto3D(map);
+      map.setMaxZoom(18);
+    }
   }, [mapStyle]);
 
   // Fly to on style change (simulate 3d pitch/bearing via CSS class)
@@ -199,9 +201,14 @@ const LeafMap = ({
     const curLng = currentPosition.longitude;
 
     // User location marker
-    const userMarker = L.marker([curLat, curLng], { icon: userIcon, zIndexOffset: 999 })
+    const userMarker = L.marker([curLat, curLng], {
+      icon: userIcon,
+      zIndexOffset: 999,
+    })
       .addTo(map)
-      .bindPopup('<div class="text-sm font-semibold text-zinc-900 p-2">Tu ubicacion</div>');
+      .bindPopup(
+        '<div class="text-sm font-semibold text-zinc-900 p-2">Tu ubicacion</div>',
+      );
     newLayers.push(userMarker);
 
     // Helper to add antenna marker
@@ -218,7 +225,10 @@ const LeafMap = ({
       newLayers.push(marker);
 
       const polyline = L.polyline(
-        [[curLat, curLng], [coords.lat, coords.lon]],
+        [
+          [curLat, curLng],
+          [coords.lat, coords.lon],
+        ],
         { color: "#2563eb", weight: 2, opacity: 0.7, dashArray: "5,5" },
       ).addTo(map);
       newLayers.push(polyline);
@@ -249,7 +259,9 @@ const LeafMap = ({
 
     // Visible antennas (other wifi points)
     visibleAntennas.forEach((antenna) => {
-      const marker = L.marker([Number(antenna.lat), Number(antenna.lon)], { icon: wifiIcon })
+      const marker = L.marker([Number(antenna.lat), Number(antenna.lon)], {
+        icon: wifiIcon,
+      })
         .addTo(map)
         .bindPopup(antennaPopupSimpleHTML(antenna));
       newLayers.push(marker);
@@ -257,7 +269,9 @@ const LeafMap = ({
 
     // Selected antennas from city search
     selectedAntennas.forEach((antenna) => {
-      const marker = L.marker([Number(antenna.lat), Number(antenna.lon)], { icon: wifiIcon })
+      const marker = L.marker([Number(antenna.lat), Number(antenna.lon)], {
+        icon: wifiIcon,
+      })
         .addTo(map)
         .bindPopup(antennaPopupSimpleHTML(antenna));
       newLayers.push(marker);
@@ -362,6 +376,12 @@ const LeafMap = ({
       val !== mexico
     );
   };
+
+  const locationToText = `
+  1️⃣: ${antennaPosition.name} a ${antennaPosition.distance}mts
+  2️⃣: ${secondAntennaPosition.name} a ${secondAntennaPosition.distance}mts
+  3️⃣: ${thirdAntennaPosition.name} a ${thirdAntennaPosition.distance}mts
+  `;
 
   return (
     <>
@@ -512,9 +532,13 @@ const LeafMap = ({
             onClick={() => {
               const map = mapRef.current;
               if (!map) return;
-              map.flyTo([currentPosition.latitude, currentPosition.longitude], 16, {
-                duration: 1.8,
-              });
+              map.flyTo(
+                [currentPosition.latitude, currentPosition.longitude],
+                16,
+                {
+                  duration: 1.8,
+                },
+              );
               setSelectValue("");
             }}
           >
@@ -555,7 +579,18 @@ const LeafMap = ({
             <LocateFixed className="w-5 h-5 font-semibold" />
             Re-localizar
           </button>
-          <button onClick={imgSharer} disabled={imgLoading}>
+          <button
+            onClick={async () => {
+              await navigator.share({
+                title: "Mi ubicación de antenas!",
+                text: `Hola éstas son las antenas más próximas a mi disposición:\n
+                      ${locationToText}
+      `,
+                url: window.location.href,
+              });
+            }}
+            disabled={imgLoading}
+          >
             {imgLoading ? (
               <div className="flex gap-1 items-center p-4 bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50">
                 <p>Cargando</p>

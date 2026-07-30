@@ -36,7 +36,6 @@ export interface MapCoordsInterface {
     location: string;
   };
   getLocation: () => Promise<void>;
-  imgSharer: () => Promise<void>;
   imgLoading: boolean;
   map: L.Map
 }

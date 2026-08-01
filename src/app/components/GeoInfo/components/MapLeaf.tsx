@@ -78,7 +78,6 @@ const LeafMap = ({
   secondAntennaPosition,
   thirdAntennaPosition,
   getLocation,
-  imgLoading,
 }: MapCoordsInterface) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -583,28 +582,17 @@ const LeafMap = ({
             onClick={async () => {
               await navigator.share({
                 title: "Mi ubicación de antenas!",
-                text: `Hola éstas son las antenas más próximas a mi disposición:\n
-                      ${locationToText}
-      `,
+                text: `Hola éstas son las antenas más próximas a mi disposición:
+                ${locationToText}
+                `,
                 url: window.location.href,
               });
             }}
-            disabled={imgLoading}
           >
-            {imgLoading ? (
-              <div className="flex gap-1 items-center p-4 bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50">
-                <p>Cargando</p>
-                <Loader
-                  className="animate-spin"
-                  style={{ animationDuration: "1.3s" }}
-                />
-              </div>
-            ) : (
-              <div className="flex gap-1 items-center bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50 p-4 rounded-ee-[10px] transition-colors">
-                <p>Compartir</p>
-                <ScreenShare className="w-5 h-5" />
-              </div>
-            )}
+            <div className="flex gap-1 items-center bg-gradient-to-b btn from-blue-500 to-blue-700 text-zinc-50 p-4 rounded-ee-[10px] transition-colors">
+              <p>Compartir</p>
+              <ScreenShare className="w-5 h-5" />
+            </div>
           </button>
         </article>
       </div>

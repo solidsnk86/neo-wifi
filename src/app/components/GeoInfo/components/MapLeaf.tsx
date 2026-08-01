@@ -378,9 +378,9 @@ const LeafMap = ({
   };
 
   const locationToText = `
-  1️⃣: ${antennaPosition.name} a ${antennaPosition.distance}mts
-  2️⃣: ${secondAntennaPosition.name} a ${secondAntennaPosition.distance}mts
-  3️⃣: ${thirdAntennaPosition.name} a ${thirdAntennaPosition.distance}mts
+  1️⃣: ${antennaPosition.name.ssid2g ?? antennaPosition.name.ssid5g} a ${antennaPosition.distance}
+  2️⃣: ${secondAntennaPosition.name.ssid2g ?? secondAntennaPosition.name.ssid5g} a ${secondAntennaPosition.distance}
+  3️⃣: ${thirdAntennaPosition.name.ssid2g ?? thirdAntennaPosition.name.ssid5g} a ${thirdAntennaPosition.distance}
   `;
 
   return (

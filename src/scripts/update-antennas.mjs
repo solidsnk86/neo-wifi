@@ -71,28 +71,22 @@ import oldDataWifi from "../app/components/GeoInfo/components/data/old-data-wifi
       };
     });
 
-    const currentDataMap = new Map(
-      currentData.map((item) => [item.name, item]),
-    );
-
-    formattedData.forEach((newItem) => {
-      if (currentDataMap.has(newItem.name)) {
-        const existing = currentDataMap.get(newItem.name);
-        currentDataMap.set(newItem.name, { ...existing });
-      } else {
-        currentDataMap.set(newItem.name, newItem);
+    currentData.forEach((item, i) => {
+      if (item.users && item.location !== "Corrientes" && typeof item.location !== "undefined") {
+        formattedData.forEach((newItem) => {
+          currentData.push(newItem)
+        })
       }
-    });
+    })
 
-    const allDataUpdated = Array.from(currentDataMap.values());
 
     await fs.writeFile(
-      path.join(process.cwd(), "public", "data", "wifi-locates_12.json"),
-      JSON.stringify(allDataUpdated, null, 2),
+      path.join(process.cwd(), "public", "data", "wifi-locates_items.json"),
+      JSON.stringify(currentData, null, 2),
     );
 
     console.log(
-      `✅ Tarea finalizada: ${allDataUpdated.length} antenas totales.`,
+      `✅ Tarea finalizada: ${currentData.length} antenas totales.`,
     );
   } catch (error) {
     console.error("Error al ejecutar el wokflow:", error);

@@ -20,7 +20,13 @@ const PreContent = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default function MarkdownRenderer({ content, isChat }: { content: string, isChat?: boolean }) {
+export default function MarkdownRenderer({
+  content,
+  isChat,
+}: {
+  content: string;
+  isChat?: boolean;
+}) {
   return (
     <ReactMarkdown
       rehypePlugins={[
@@ -32,7 +38,10 @@ export default function MarkdownRenderer({ content, isChat }: { content: string,
       ]}
       components={{
         h1: ({ children }) => (
-          <h1 className="mt-8 mb-4 xl:text-3xl text-2xl font-bold pb-2 border-b border-zinc-300 dark:border-zinc-800" style={{ fontSize: isChat ? "20px" : "" }}>
+          <h1
+            className="mt-8 mb-4 xl:text-3xl text-2xl font-bold pb-2 border-b border-zinc-300 dark:border-zinc-800"
+            style={{ fontSize: isChat ? "20px" : "" }}
+          >
             {children}
           </h1>
         ),
@@ -46,10 +55,20 @@ export default function MarkdownRenderer({ content, isChat }: { content: string,
             {children}
           </h3>
         ),
-        p: ({ children }) => <p className="xl:text-base text-sm" style={{ fontSize: isChat ? "13px" : "" }}>{children}</p>,
+        p: ({ children }) => (
+          <p
+            className="xl:text-base text-sm"
+            style={{ fontSize: isChat ? "13px" : "" }}
+          >
+            {children}
+          </p>
+        ),
         pre: ({ children }) => <PreContent>{children}</PreContent>,
         li: ({ children }) => (
-          <li className="ml-4 my-2 list-disc list-outside xl:text-base text-sm" style={{ fontSize: isChat ? "12px" : "" }}>
+          <li
+            className="ml-4 my-2 list-disc list-outside xl:text-base text-sm"
+            style={{ fontSize: isChat ? "12px" : "" }}
+          >
             {children}
           </li>
         ),
@@ -62,7 +81,40 @@ export default function MarkdownRenderer({ content, isChat }: { content: string,
             {children}
           </a>
         ),
-        hr: () => <hr className="my-4 border-2 border-zinc-300 dark:border-zinc-800" />,
+        hr: () => (
+          <hr className="my-4 border-2 border-zinc-300 dark:border-zinc-800" />
+        ),
+
+        // TABLE
+        table: ({ children }) => (
+          <div className="my-4 w-full overflow-x-auto rounded-lg border border-zinc-300 dark:border-zinc-800">
+            <table className="w-full min-w-[600px] border-collapse text-xs md:text-sm">
+              {children}
+            </table>
+          </div>
+        ),
+
+        thead: ({ children }) => (
+          <thead className="bg-muted/50">{children}</thead>
+        ),
+
+        tbody: ({ children }) => <tbody>{children}</tbody>,
+
+        tr: ({ children }) => (
+          <tr className="border-b border-zinc-300 dark:border-zinc-800 last:border-b-0 hover:bg-muted/30 transition-colors">
+            {children}
+          </tr>
+        ),
+
+        th: ({ children }) => (
+          <th className="px-3 py-2.5 text-left font-semibold bg-zinc-300 dark:bg-zinc-800 whitespace-nowrap border-zinc-300 dark:border-zinc-800 border-b">
+            {children}
+          </th>
+        ),
+
+        td: ({ children }) => (
+          <td className="px-3 py-2.5 align-top">{children}</td>
+        ),
       }}
     >
       {content}

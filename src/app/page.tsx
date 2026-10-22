@@ -103,9 +103,9 @@ export default function Home() {
           paused={isPaused}
         />
 
-        <HomeBlock className="px-3">
+        {/* <HomeBlock className="px-3">
           <ApkCard />
-        </HomeBlock>
+        </HomeBlock> */}
 
         <section className="w-full bg-[#FFFFFF] dark:bg-zinc-950/30 bg-stripes z-50 relative py-10 border-t border-zinc-200/70 dark:border-zinc-800/50 backdrop-blur-xs overflow-x-hidden">
           <HomeBlockTitle className="mt-16">Información WiFi</HomeBlockTitle>
